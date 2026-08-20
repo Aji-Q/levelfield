@@ -9,7 +9,7 @@
     "apps/*"
   ],
   "scripts": {
-    "test": "npm run test -w @levelfield/scoring",
+    "test": "npm run test -w @levelfield/scoring && npm run test -w @levelfield/web",
     "tracer": "tsx scripts/tracer.ts",
     "probe": "tsx scripts/probe-dreamdex.ts",
     "mcp": "tsx packages/mcp/src/server.ts",
@@ -19,7 +19,9 @@
     "validate": "tsx scripts/validate.ts",
     "registry:deploy": "tsx scripts/deploy-registry.ts",
     "registry:publish": "tsx scripts/publish-scores.ts",
-    "verify:onchain": "tsx scripts/verify-onchain.ts"
+    "verify:onchain": "tsx scripts/verify-onchain.ts",
+    "typecheck:scripts": "tsc --noEmit -p tsconfig.scripts.json",
+    "typecheck": "npm run typecheck:scripts && npm run typecheck -w @levelfield/scoring && npm run typecheck -w @levelfield/mcp && npm run typecheck -w @levelfield/web"
   },
   "dependencies": {
     "@somnia-chain/markets-sdk": "^0.27.0",

@@ -60,6 +60,8 @@ chain state. Nothing below sends a transaction until you pass `--send`.
 4. **Publish the score cache:**
    ```bash
    export REGISTRY_ADDRESS=0x...          # from step 3
+   export GITHUB_REPO=your-org/your-repo
+   export GITHUB_REF="$(git rev-parse HEAD)" # recommended: immutable provenance commit
    npm run registry:publish               # dry run: prints every key/methodHash/tx it would send
    npm run registry:publish -- --send     # sends publishBatch in chunks of 5
    ```
@@ -72,6 +74,11 @@ chain state. Nothing below sends a transaction until you pass `--send`.
 `RPC_URL` defaults to `https://dream-rpc.somnia.network` for both scripts and can be overridden
 via env if that endpoint moves.
 
+`GITHUB_REPO=owner/repo` is required for both publishing and `npm run verify:onchain`.
+`GITHUB_REF` defaults to `main`, but release attestations should set it to the full immutable
+commit SHA shown above. Both scripts use the same checked, URL-safe ref when constructing and
+verifying every URI, and fail closed on placeholder or unsafe provenance values.
+
 ## Reading an attestation
 
 ```solidity
@@ -79,9 +86,10 @@ ScoreRegistry.Attestation memory a = registry.get(keccak256(bytes("curated-btc-1
 // a.score = 3, a.band = 0 (low), a.dims = [1,1,1,1,2]
 ```
 
-No deployment has been made from this environment — see the repo root README's status list.
-
 ## Live deployment (Somnia Shannon, chain 50312)
 
 - ScoreRegistry: [`0xb8e11dea346f2c961880879606a269db3165bbc7`](https://shannon-explorer.somnia.network/address/0xb8e11dea346f2c961880879606a269db3165bbc7) (deploy tx `0xa6947b332d8b4476e96f1997cc3545611ee7c7a810c2bbe466b5a9cdcb1a5574`)
-- 28 attestations published in 6 `publishBatch` transactions; read back and verified 28/28 via `npm run verify:onchain`.
+- 28 legacy attestations were published in 6 `publishBatch` transactions. Before final release,
+  set `GITHUB_REPO` and immutable `GITHUB_REF` to the public submission repository/commit,
+  republish the current score index to replace legacy placeholder URIs, then run
+  `npm run verify:onchain` for a complete field-by-field check.

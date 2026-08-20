@@ -44,7 +44,10 @@ export function computeScore(voted: VotedDimension[], lib: AnchorLibrary): Engin
   const dimensions: ScoredDimension[] = voted.map((v) => {
     const anchor = lib.dimensions.find((d) => d.id === v.dimension);
     if (!anchor) throw new Error(`Unknown dimension ${v.dimension} — not in anchor library`);
-    const effectiveLevel: Level = v.level ?? CONSERVATIVE_DEFAULT_LEVEL;
+    // `insufficientInfo` is the semantic source of truth, not merely display
+    // metadata. Boundary validators reject contradictory input, but the engine
+    // still enforces the conservative fallback defensively for every caller.
+    const effectiveLevel: Level = v.insufficientInfo || v.level === null ? CONSERVATIVE_DEFAULT_LEVEL : v.level;
     return { ...v, name: anchor.name, weight: WEIGHTS[v.dimension], effectiveLevel };
   });
 

@@ -9,6 +9,9 @@
  * URL is documented there as unstable — override with INDEXER_URL if it moves).
  */
 
+// Marks this top-level-await script as an ES module for `tsc --noEmit`.
+export {};
+
 const INDEXER_URL = process.env.INDEXER_URL ?? "https://dev.smk.somnia.host/v1/graphql";
 const DREAMDEX_TESTNET_VENUE = "0x679795a0195a1b76cdebb7c51d74e058aee92919b8c3389af86ef24535e8a28c";
 

@@ -20,6 +20,7 @@ import {
   STANDARD_CAVEATS,
   buildSummary,
   buildSystemPrompt,
+  classificationConsistencyError,
   computeScore,
   fetchMarkets,
   isVerbatimQuote,
@@ -49,6 +50,18 @@ const systemPrompt = buildSystemPrompt(lib);
 // Mirrors ClaudeClassifier's promptVersion formula in packages/scoring/src/classify.ts
 // so a promptVersion hash means the same thing regardless of which classifier produced it.
 const promptVersion = createHash("sha256").update(systemPrompt + "|anchors:" + lib.version).digest("hex");
+
+// `market_id` is used to address a score-cache file below. Keep it to the same
+// filename alphabet produced by score-all, then retain an explicit resolve/containment
+// check as a second guard against future changes to the validation rule.
+const SAFE_MARKET_ID = /^[a-zA-Z0-9_-]+$/;
+
+function scoreCachePathFor(marketId: string): string | null {
+  if (!SAFE_MARKET_ID.test(marketId)) return null;
+  const root = path.resolve(scoresDir);
+  const candidate = path.resolve(root, `${marketId}.json`);
+  return candidate.startsWith(`${root}${path.sep}`) ? candidate : null;
+}
 
 // --- score_classification input schema ------------------------------------------
 // Field names match the wire shape from classify.ts's StageASchema (snake_case), since
@@ -212,6 +225,37 @@ mcpServer.registerTool(
     // Code-level injection scan: independent of the host model's judgment, so a
     // complying model can neither suppress the flag nor cite injected text as evidence.
     const scan = scanForInstructionLikeContent(contractText);
+
+    const inconsistent = DIMENSION_IDS.map((id) => {
+      const c = args.classifications[id];
+      return {
+        dimension: id,
+        error: classificationConsistencyError({
+          level: c.level,
+          levelLabel: c.level_label,
+          evidenceQuote: c.evidence_quote,
+          insufficientInfo: c.insufficient_info,
+        }),
+      };
+    }).filter((entry): entry is { dimension: DimensionId; error: string } => entry.error !== null);
+
+    if (inconsistent.length > 0) {
+      return textResult(
+        JSON.stringify(
+          {
+            error: "inconsistent_insufficient_info",
+            message:
+              "Each dimension must use one consistent state: when insufficient_info is true, level, level_label, " +
+              "and evidence_quote must all be null; otherwise all three must be present. Not scored. Fix the " +
+              "listed dimensions and call score_classification again.",
+            failingDimensions: inconsistent,
+          },
+          null,
+          2,
+        ),
+        true,
+      );
+    }
 
     const invalid = DIMENSION_IDS.map((id) => ({ id, c: args.classifications[id] }))
       .filter(({ c }) => c.evidence_quote !== null)
@@ -423,9 +467,36 @@ mcpServer.registerTool(
   async (args) => {
     const marketId = args.market_id;
 
-    const cachePath = path.join(scoresDir, `${marketId}.json`);
+    const cachePath = scoreCachePathFor(marketId);
+    if (!cachePath) {
+      return textResult(
+        JSON.stringify(
+          {
+            error: "invalid_market_id",
+            message: "market_id may contain only letters, numbers, underscores, and hyphens.",
+          },
+          null,
+          2,
+        ),
+        true,
+      );
+    }
+
     if (existsSync(cachePath)) {
-      const cached = JSON.parse(readFileSync(cachePath, "utf8"));
+      const cached = JSON.parse(readFileSync(cachePath, "utf8")) as Partial<ScoreResult>;
+      if (cached.marketId !== marketId || !Array.isArray(cached.dimensions)) {
+        return textResult(
+          JSON.stringify(
+            {
+              error: "invalid_cached_score",
+              message: `Cache file ${cachePath} is not a ScoreResult for market ${marketId}. Not scored.`,
+            },
+            null,
+            2,
+          ),
+          true,
+        );
+      }
       return textResult(JSON.stringify({ note: "from cache", ...cached }, null, 2));
     }
 

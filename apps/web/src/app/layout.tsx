@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { IBM_Plex_Mono, IBM_Plex_Sans, Instrument_Serif } from "next/font/google";
+import { SiteNav } from "@/components/SiteNav";
 import "./globals.css";
 
 // Self-hosted at build time by next/font — no external font host at runtime.
@@ -25,46 +27,52 @@ export const metadata: Metadata = {
   title: { default: "LevelField", template: "%s · LevelField" },
   description:
     "Structural information-asymmetry risk assessment for prediction-market event contracts. Know who you're really betting against.",
+  keywords: ["event contracts", "prediction markets", "DreamDEX", "Somnia", "risk assessment"],
 };
-
-// The wordmark glyph: a spirit level's vial with a centered bubble — a level field,
-// read literally. Inline SVG so it ships with zero asset requests.
-function LevelGlyph() {
-  return (
-    <svg className="level-glyph" viewBox="0 0 34 14" aria-hidden="true">
-      <rect x="1" y="1" width="32" height="12" rx="6" fill="none" stroke="currentColor" strokeWidth="1.4" />
-      <line x1="13" y1="1.2" x2="13" y2="12.8" stroke="currentColor" strokeWidth="0.9" opacity="0.55" />
-      <line x1="21" y1="1.2" x2="21" y2="12.8" stroke="currentColor" strokeWidth="0.9" opacity="0.55" />
-      <circle cx="17" cy="7" r="3.1" fill="currentColor" />
-    </svg>
-  );
-}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${displaySerif.variable} ${bodySans.variable} ${dataMono.variable}`}>
       <body>
+        <a className="skip-link" href="#main-content">Skip to content</a>
         <header className="site-header">
           <div className="container">
             <Link href="/" className="wordmark">
-              <LevelGlyph />
-              LevelField
+              <Image className="level-glyph" src="/brand/level-glyph.svg" width={34} height={14} alt="" priority />
+              <span>LevelField</span>
+              <small>Event contract intelligence</small>
             </Link>
-            <nav className="site-nav">
-              <Link href="/">Markets</Link>
-              <Link href="/methodology">Methodology</Link>
-              <Link href="/assess">Assess</Link>
-            </nav>
+            <SiteNav />
           </div>
         </header>
-        <main>
+        <main id="main-content">
           <div className="container">{children}</div>
         </main>
         <footer className="site-footer">
           <div className="container">
             <span className="footer-rule" aria-hidden="true" />
-            Structural information-asymmetry risk assessment for event contracts. Not a
-            prediction of any outcome, and not trading advice.
+            <div className="footer-grid">
+              <div>
+                <Link href="/" className="footer-mark">LevelField</Link>
+                <p>Structural information-asymmetry risk assessment for event contracts.</p>
+              </div>
+              <div>
+                <span className="footer-label">Built for</span>
+                <p>Somnia × DreamDEX<br />Event Contracts Hackathon</p>
+              </div>
+              <div>
+                <span className="footer-label">Navigate</span>
+                <nav className="footer-nav" aria-label="Footer navigation">
+                  <Link href="/">Markets</Link>
+                  <Link href="/methodology">Methodology</Link>
+                  <Link href="/assess">Assess a contract</Link>
+                </nav>
+              </div>
+              <div>
+                <span className="footer-label">Scope</span>
+                <p>Not an outcome prediction, live-insider detector, or trading advice.</p>
+              </div>
+            </div>
           </div>
         </footer>
       </body>

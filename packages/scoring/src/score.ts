@@ -4,7 +4,7 @@ import type { AnchorLibrary } from "./anchors.js";
 import { renderContractData } from "./anchors.js";
 import type { Classifier } from "./classify.js";
 import { buildSummary, computeScore } from "./engine.js";
-import { quoteOverlapsInjection, scanForInstructionLikeContent } from "./verify.js";
+import { classificationConsistencyError, quoteOverlapsInjection, scanForInstructionLikeContent } from "./verify.js";
 import { voteDimension } from "./vote.js";
 import type { NormalizedContract, ScoreResult } from "./types.js";
 import { DIMENSION_IDS } from "./types.js";
@@ -27,11 +27,17 @@ export async function scoreContract(
   // contract text itself, and disqualify evidence that overlaps an instruction-like
   // sentence (demoted to the conservative insufficient-info path, never trusted).
   const scan = scanForInstructionLikeContent(renderContractData(contract));
-  const voted = DIMENSION_IDS.map((id) => voteDimension(results.map((r) => r.dimensions[id]))).map((v) =>
-    v.evidenceQuote !== null && quoteOverlapsInjection(v.evidenceQuote, scan)
-      ? { ...v, level: null, evidenceQuote: null, insufficientInfo: true, confidence: "low" as const }
-      : v,
-  );
+  const voted = DIMENSION_IDS.map((id) => voteDimension(results.map((r) => r.dimensions[id]))).map((v) => {
+    // A third-party Classifier implementation can bypass the provider-specific
+    // parser. Normalize any contradictory nullable fields before score output so
+    // neither a low level nor its evidence survives an insufficient-info state.
+    if (classificationConsistencyError(v)) {
+      return { ...v, level: null, levelLabel: null, evidenceQuote: null, insufficientInfo: true, confidence: "low" as const };
+    }
+    return v.evidenceQuote !== null && quoteOverlapsInjection(v.evidenceQuote, scan)
+      ? { ...v, level: null, levelLabel: null, evidenceQuote: null, insufficientInfo: true, confidence: "low" as const }
+      : v;
+  });
   const engine = computeScore(voted, lib);
 
   const caveats = [...STANDARD_CAVEATS];

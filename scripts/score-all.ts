@@ -25,6 +25,7 @@ import {
   STANDARD_CAVEATS,
   buildSummary,
   buildSystemPrompt,
+  classificationConsistencyError,
   computeScore,
   fetchMarkets,
   isVerbatimQuote,
@@ -103,11 +104,14 @@ interface ClassificationFile {
 // quote exists, not that it wasn't attacker-authored).
 function scoreRun(contract: NormalizedContract, run: StageARun, model: string): ScoreResult {
   const scan = scanForInstructionLikeContent(renderContractData(contract));
-  const voted = DIMENSION_IDS.map((id) => voteDimension([run.dimensions[id]])).map((v) =>
-    v.evidenceQuote !== null && quoteOverlapsInjection(v.evidenceQuote, scan)
-      ? { ...v, level: null, evidenceQuote: null, insufficientInfo: true, confidence: "low" as const }
-      : v,
-  );
+  const voted = DIMENSION_IDS.map((id) => voteDimension([run.dimensions[id]])).map((v) => {
+    if (classificationConsistencyError(v)) {
+      return { ...v, level: null, levelLabel: null, evidenceQuote: null, insufficientInfo: true, confidence: "low" as const };
+    }
+    return v.evidenceQuote !== null && quoteOverlapsInjection(v.evidenceQuote, scan)
+      ? { ...v, level: null, levelLabel: null, evidenceQuote: null, insufficientInfo: true, confidence: "low" as const }
+      : v;
+  });
   const engine = computeScore(voted, lib);
 
   const caveats = [...STANDARD_CAVEATS];
@@ -263,6 +267,10 @@ function runCuratedTrack(): { results: ScoreResult[]; entries: ScoreIndexEntry[]
         const d = classification.dimensions[id];
         if (!d) {
           throw new Error(`Classification file ${classificationPath} is missing dimension ${id}.`);
+        }
+        const consistencyError = classificationConsistencyError(d);
+        if (consistencyError) {
+          throw new Error(`Classification file ${classificationPath} dimension ${id}: ${consistencyError}`);
         }
         if (!d.insufficientInfo && d.evidenceQuote !== null && !isVerbatimQuote(d.evidenceQuote, contractText)) {
           throw new Error(

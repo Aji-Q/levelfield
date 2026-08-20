@@ -5,3 +5,7 @@ dist/
 .next/
 *.log
 .DS_Store
+.playwright-cli/
+output/
+/cache/
+/out/

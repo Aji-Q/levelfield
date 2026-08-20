@@ -1,13 +1,20 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BandWord } from "@/components/BandWord";
+import { ExpiryState } from "@/components/ExpiryState";
 import { Meter } from "@/components/Meter";
-import { readOnchainSnapshot, readScoreIndex, readScoreResult } from "@/lib/scores";
+import {
+  getOnchainProvenanceStatus,
+  isValidProvenanceUri,
+  readOnchainSnapshot,
+  readScoreIndex,
+  readScoreResult,
+} from "@/lib/scores";
 import {
   CIRCUIT_BREAKER_EXPLANATION,
+  DREAMDEX_EVENT_CONTRACTS_URL,
   ORACLE_EXPLORER_ROOT,
   formatExpiryUtc,
-  formatRelativeToNow,
   humanizeLevelLabel,
   truncateMiddle,
   weightPct,
@@ -35,16 +42,19 @@ export default async function MarketDetailPage({
 
   // Live-market metadata (oracleQuestionId, etc.) lives on the index entry,
   // not on the per-market ScoreResult — see docs/design/no-api.md.
-  const indexEntry = readScoreIndex().markets.find((m) => m.marketId === marketId);
+  const scoreIndex = readScoreIndex();
+  const indexEntry = scoreIndex.markets.find((m) => m.marketId === marketId);
 
   const insufficientDims = result.dimensions.filter((d) => d.insufficientInfo);
   const undeterminable = insufficientDims.length >= UNDETERMINABLE_THRESHOLD;
 
   const onchain = readOnchainSnapshot();
   const attestation = onchain?.markets[marketId] ?? null;
+  const provenance = getOnchainProvenanceStatus(onchain, scoreIndex);
+  const attestedSourceUri = attestation && isValidProvenanceUri(attestation.uri) ? attestation.uri : null;
 
   return (
-    <>
+    <article className="content-page market-detail-page">
       <div className="score-header">
         <Link href="/" className="breadcrumb">
           ← All markets
@@ -104,7 +114,12 @@ export default async function MarketDetailPage({
               <dt>Expiry</dt>
               <dd>
                 {indexEntry?.expiry
-                  ? `${formatExpiryUtc(indexEntry.expiry)} · ${formatRelativeToNow(indexEntry.expiry)}`
+                  ? (
+                      <>
+                        <time dateTime={indexEntry.expiry}>{formatExpiryUtc(indexEntry.expiry)}</time>
+                        {" · "}<ExpiryState expiry={indexEntry.expiry} />
+                      </>
+                    )
                   : "unknown"}
               </dd>
             </div>
@@ -113,13 +128,18 @@ export default async function MarketDetailPage({
               <dd>{windowLabel(indexEntry?.intervalSec) ?? "unknown"}</dd>
             </div>
           </dl>
-          <a className="oracle-link" href={ORACLE_EXPLORER_ROOT} target="_blank" rel="noopener noreferrer">
-            Settlement questions are publicly auditable on the Somnia oracle explorer ↗
-          </a>
+          <div className="onchain-actions">
+            <a className="oracle-link" href={DREAMDEX_EVENT_CONTRACTS_URL} target="_blank" rel="noopener noreferrer">
+              Open DreamDEX event contracts ↗
+            </a>
+            <a className="oracle-link" href={ORACLE_EXPLORER_ROOT} target="_blank" rel="noopener noreferrer">
+              Audit settlement questions on Somnia ↗
+            </a>
+          </div>
         </div>
       )}
 
-      {onchain && attestation && (
+      {onchain && attestation && attestedSourceUri && provenance.state === "complete" && (
         <div className="onchain-facts">
           <span className="onchain-facts-label">On-chain attestation</span>
           <dl className="onchain-facts-grid">
@@ -151,12 +171,38 @@ export default async function MarketDetailPage({
               <dt>Read back</dt>
               <dd>{onchain.verifiedAt}</dd>
             </div>
+            <div>
+              <dt>Source record</dt>
+              <dd>
+                <a className="oracle-link" href={attestedSourceUri} target="_blank" rel="noopener noreferrer">
+                  Open attested score ↗
+                </a>
+              </dd>
+            </div>
           </dl>
           <p className="section-note">
             This score is published on Somnia Shannon (chain {onchain.chainId}) as a public good: any
             contract or agent can read it from the registry without this site. The method hash pins it
             to the exact anchor-library version that produced it.
           </p>
+        </div>
+      )}
+
+      {onchain && attestation && provenance.state === "legacy" && (
+        <div className="onchain-facts onchain-facts--legacy" role="status">
+          <span className="onchain-facts-label">Legacy provenance</span>
+          <p className="section-note">
+            This cached registry snapshot predates source-URI verification. It is awaiting republish
+            with a valid source record before LevelField treats it as current provenance.
+          </p>
+          <a
+            className="oracle-link"
+            href={`${onchain.explorerBase}/address/${onchain.registryAddress}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View the Somnia registry ↗
+          </a>
         </div>
       )}
 
@@ -213,6 +259,6 @@ export default async function MarketDetailPage({
         <span>Runs: {result.metadata.runs}</span>
         <span>Scored: {result.metadata.scoredAt}</span>
       </div>
-    </>
+    </article>
   );
 }

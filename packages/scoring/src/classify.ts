@@ -5,7 +5,10 @@
 
 import { createHash } from "node:crypto";
 import Anthropic from "@anthropic-ai/sdk";
-import { z } from "zod";
+// @anthropic-ai/sdk's zodOutputFormat is typed against Zod v4. zod@3.25 exposes
+// the compatible v4 subpath, so import the same surface rather than mixing v3/v4
+// schema types (which breaks a full TypeScript check).
+import { z } from "zod/v4";
 import { zodOutputFormat } from "@anthropic-ai/sdk/helpers/zod";
 import type { AnchorLibrary } from "./anchors.js";
 import { buildSystemPrompt, renderContractData } from "./anchors.js";
@@ -33,7 +36,13 @@ const StageASchema = z.object({
   instruction_like_content_detected: z.boolean(),
 });
 
-import { isVerbatimQuote, quoteOverlapsInjection, scanForInstructionLikeContent, type InjectionScan } from "./verify.js";
+import {
+  classificationConsistencyError,
+  isVerbatimQuote,
+  quoteOverlapsInjection,
+  scanForInstructionLikeContent,
+  type InjectionScan,
+} from "./verify.js";
 
 export interface Classifier {
   readonly model: string;
@@ -91,7 +100,7 @@ export class ClaudeClassifier implements Classifier {
     // Retries exhausted: keep the run but demote unverifiable dimensions to the
     // conservative insufficient-info path rather than trusting unverified evidence.
     console.warn(
-      `[classify] quote verification failed after ${this.maxAttempts} attempts for ${contract.marketId}: ${lastInvalid.join(", ")} — demoting to insufficient_info`,
+      `[classify] classification verification failed after ${this.maxAttempts} attempts for ${contract.marketId}: ${lastInvalid.join(", ")} — demoting to insufficient_info`,
     );
     const response = await this.client.messages.parse({
       model: this.model,
@@ -110,6 +119,7 @@ export class ClaudeClassifier implements Classifier {
       run.dimensions[id] = {
         ...run.dimensions[id],
         level: null,
+        levelLabel: null,
         evidenceQuote: null,
         insufficientInfo: true,
         confidence: "low",
@@ -141,6 +151,7 @@ function toStageARun(parsed: z.infer<typeof StageASchema>): StageARun {
 function invalidQuotes(run: StageARun, contractText: string, scan: InjectionScan): DimensionId[] {
   return DIMENSION_IDS.filter((id) => {
     const d = run.dimensions[id];
+    if (classificationConsistencyError(d)) return true;
     if (d.insufficientInfo || d.evidenceQuote === null) return false;
     return !isVerbatimQuote(d.evidenceQuote, contractText) || quoteOverlapsInjection(d.evidenceQuote, scan);
   });

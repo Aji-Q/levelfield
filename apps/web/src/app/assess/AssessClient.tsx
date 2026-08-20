@@ -10,7 +10,7 @@
 // root, which drags in @anthropic-ai/sdk via classify.ts): everything below is either a
 // type-only import (erased at compile time) or a runtime import from one of those five pure
 // subpaths.
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { BandWord } from "@/components/BandWord";
 import { CIRCUIT_BREAKER_EXPLANATION, humanizeLevelLabel, weightPct } from "@/lib/format";
 import { buildSummary, computeScore } from "@levelfield/scoring/engine";
@@ -19,6 +19,7 @@ import {
   isVerbatimQuote,
   quoteOverlapsInjection,
   scanForInstructionLikeContent,
+  classificationConsistencyError,
 } from "@levelfield/scoring/verify";
 import { DIMENSION_IDS } from "@levelfield/scoring/types";
 import type { AnchorLibrary } from "@levelfield/scoring/anchors";
@@ -47,6 +48,23 @@ const STANDARD_CAVEATS = [
 ];
 
 const CONFIDENCE_VALUES: Confidence[] = ["high", "medium", "low"];
+
+const ASSESS_EXAMPLES = {
+  price: {
+    question: "Will Bitcoin close at or above $120,000 on December 31, 2026?",
+    description:
+      "This market resolves based on the BTC/USD closing price on Coinbase at 23:59:59 UTC on December 31, 2026.",
+    resolutionRules:
+      "Resolves YES if the Coinbase BTC-USD last traded price at 23:59:59 UTC on 2026-12-31 is greater than or equal to $120,000.00. Resolves NO otherwise.",
+  },
+  individual: {
+    question: "Will Celebrity Z publicly announce a breakup with their partner before September 30, 2026?",
+    description:
+      "This market resolves based on a public statement by Celebrity Z or their verified representatives, on any platform, announcing the end of their current relationship.",
+    resolutionRules:
+      "Resolves YES if, before 23:59 ET on 2026-09-30, Celebrity Z or their verified representative publicly announces the end of the relationship. Third-party reporting without confirmation from Celebrity Z does not count. Resolves NO otherwise.",
+  },
+} as const;
 
 // Mirrors market/[marketId]/page.tsx's UNDETERMINABLE_THRESHOLD (docs/review-2026-08-20.md
 // §3.3): at 3+ insufficient_info dimensions the numeric score reads as a verdict rather
@@ -158,8 +176,14 @@ function validateDimension(id: DimensionId, raw: unknown): RunClassification | s
   if (typeof insufficientInfo !== "boolean") {
     return `${id}.insufficient_info must be a boolean.`;
   }
-  if (!insufficientInfo && evidenceQuote === null) {
-    return `${id}.evidence_quote may only be null when insufficient_info is true.`;
+  const consistencyError = classificationConsistencyError({
+    level: level as Level | null,
+    levelLabel: levelLabel as string | null,
+    evidenceQuote: evidenceQuote as string | null,
+    insufficientInfo,
+  });
+  if (consistencyError) {
+    return `${id}: ${consistencyError}`;
   }
 
   return {
@@ -183,6 +207,12 @@ interface AssessResult {
   instructionLikeContentDetected: boolean;
 }
 
+interface QuoteError {
+  dimension: DimensionId;
+  quote: string;
+  reason: "not_verbatim" | "overlaps_injected_content";
+}
+
 export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: AssessClientProps) {
   const [question, setQuestion] = useState("");
   const [description, setDescription] = useState("");
@@ -190,14 +220,34 @@ export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: Ass
   const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "failed">("idle");
   const [pastedJson, setPastedJson] = useState("");
   const [parseError, setParseError] = useState<string | null>(null);
-  const [quoteErrors, setQuoteErrors] = useState<{ dimension: DimensionId; quote: string }[] | null>(null);
+  const [quoteErrors, setQuoteErrors] = useState<QuoteError[] | null>(null);
   const [result, setResult] = useState<AssessResult | null>(null);
+  const [formError, setFormError] = useState<string | null>(null);
+  const resultRef = useRef<HTMLElement>(null);
 
   const contractText = renderContractData(question, description, resolutionRules);
   const insufficientDims = result?.dimensions.filter((d) => d.insufficientInfo) ?? [];
   const undeterminable = insufficientDims.length >= UNDETERMINABLE_THRESHOLD;
+  const contractComplete = Boolean(question.trim() && description.trim() && resolutionRules.trim());
+
+  function loadExample(kind: keyof typeof ASSESS_EXAMPLES) {
+    const example = ASSESS_EXAMPLES[kind];
+    setQuestion(example.question);
+    setDescription(example.description);
+    setResolutionRules(example.resolutionRules);
+    setPastedJson("");
+    setFormError(null);
+    setParseError(null);
+    setQuoteErrors(null);
+    setResult(null);
+  }
 
   async function handleCopy() {
+    if (!contractComplete) {
+      setFormError("Complete all three contract fields before copying the classification task.");
+      return;
+    }
+    setFormError(null);
     const task = buildClassificationTask(systemPrompt, contractText);
     try {
       await navigator.clipboard.writeText(task);
@@ -209,6 +259,12 @@ export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: Ass
   }
 
   function handleVerify() {
+    if (!pastedJson.trim()) {
+      setParseError("Paste the model's classification JSON before verifying it.");
+      setQuoteErrors(null);
+      setResult(null);
+      return;
+    }
     setParseError(null);
     setQuoteErrors(null);
     setResult(null);
@@ -233,13 +289,20 @@ export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: Ass
     // must not be drawn from an instruction-like sentence (the code-level scan runs
     // independently of whatever the model claimed).
     const scan = scanForInstructionLikeContent(contractText);
-    const failing = DIMENSION_IDS.map((id) => ({ id, quote: validated.dimensions[id].evidenceQuote })).filter(
-      (d): d is { id: DimensionId; quote: string } =>
-        d.quote !== null && (!isVerbatimQuote(d.quote, contractText) || quoteOverlapsInjection(d.quote, scan)),
-    );
+    const failing = DIMENSION_IDS.flatMap((id): QuoteError[] => {
+      const quote = validated.dimensions[id].evidenceQuote;
+      if (quote === null) return [];
+      if (!isVerbatimQuote(quote, contractText)) {
+        return [{ dimension: id, quote, reason: "not_verbatim" }];
+      }
+      if (quoteOverlapsInjection(quote, scan)) {
+        return [{ dimension: id, quote, reason: "overlaps_injected_content" }];
+      }
+      return [];
+    });
 
     if (failing.length > 0) {
-      setQuoteErrors(failing.map((f) => ({ dimension: f.id, quote: f.quote })));
+      setQuoteErrors(failing);
       return;
     }
 
@@ -273,10 +336,12 @@ export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: Ass
       caveats,
       instructionLikeContentDetected: scan.detected || validated.instructionLikeContentDetected,
     });
+    window.setTimeout(() => resultRef.current?.focus(), 0);
   }
 
   return (
-    <>
+    <div className="content-page assess-page">
+      <p className="eyebrow">Local verification workspace</p>
       <h1>Assess a contract</h1>
       <p className="lede">
         Assess any contract with the model you already have. This is the same open protocol
@@ -293,6 +358,15 @@ export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: Ass
       </p>
 
       <h2>1. The contract</h2>
+      <p className="section-note">Start from scratch or load a contrasting reference case.</p>
+      <div className="sample-row" aria-label="Contract examples">
+        <button type="button" className="sample-button" onClick={() => loadExample("price")}>
+          Load low-risk price binary
+        </button>
+        <button type="button" className="sample-button" onClick={() => loadExample("individual")}>
+          Load high-risk individual decision
+        </button>
+      </div>
       <div className="assess-form">
         <div className="field">
           <label htmlFor="assess-question">Question</label>
@@ -302,6 +376,8 @@ export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: Ass
             rows={2}
             value={question}
             onChange={(e) => setQuestion(e.target.value)}
+            required
+            aria-required="true"
           />
         </div>
         <div className="field">
@@ -312,6 +388,8 @@ export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: Ass
             rows={4}
             value={description}
             onChange={(e) => setDescription(e.target.value)}
+            required
+            aria-required="true"
           />
         </div>
         <div className="field">
@@ -322,9 +400,18 @@ export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: Ass
             rows={4}
             value={resolutionRules}
             onChange={(e) => setResolutionRules(e.target.value)}
+            required
+            aria-required="true"
           />
         </div>
       </div>
+
+      {formError && (
+        <div className="notice notice-error" role="alert" aria-live="assertive">
+          <span className="notice-label">Contract details needed</span>
+          {formError}
+        </div>
+      )}
 
       <h2>2. Classify it</h2>
       <p className="section-note">
@@ -332,10 +419,10 @@ export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: Ass
         its response back in.
       </p>
       <div className="button-row">
-        <button type="button" className="button" onClick={handleCopy}>
+        <button type="button" className="button button--primary" onClick={handleCopy} disabled={!contractComplete}>
           Copy classification task
         </button>
-        <span className="hint">
+        <span className="hint" aria-live="polite">
           {copyStatus === "copied" && "Copied to clipboard — "}
           {copyStatus === "failed" && "Could not access the clipboard — copy manually — "}
           paste this into Claude, ChatGPT, or any capable model
@@ -353,29 +440,35 @@ export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: Ass
         />
       </div>
       <div className="button-row">
-        <button type="button" className="button" onClick={handleVerify}>
+        <button type="button" className="button button--primary" onClick={handleVerify} disabled={!pastedJson.trim()}>
           Verify &amp; score
         </button>
       </div>
 
       {parseError && (
-        <div className="notice notice-error">
+        <div className="notice notice-error" role="alert" aria-live="assertive">
           <span className="notice-label">Could not verify</span>
           {parseError}
         </div>
       )}
 
       {quoteErrors && quoteErrors.length > 0 && (
-        <div className="notice notice-error">
-          <span className="notice-label">Evidence quote not found in contract text</span>
+        <div className="notice notice-error" role="alert" aria-live="assertive">
+          <span className="notice-label">
+            {quoteErrors.every((error) => error.reason === "not_verbatim")
+              ? "Evidence quote not found in contract text"
+              : quoteErrors.every((error) => error.reason === "overlaps_injected_content")
+                ? "Evidence quote overlaps instruction-like content"
+                : "Evidence quotes rejected"}
+          </span>
           <p style={{ margin: "0 0 0.5rem" }}>
-            Not scored. These evidence quotes are not a verbatim substring of the contract text
-            above — re-quote the exact text and paste the classification again.
+            Not scored. Use an exact quote from the contract&apos;s substantive terms; text that
+            addresses an automated assessor is deliberately disqualified as evidence.
           </p>
           <ul className="quote-error-list">
             {quoteErrors.map((q) => (
               <li key={q.dimension}>
-                <strong>{q.dimension}</strong>:{" "}
+                <strong>{q.dimension}</strong> ({q.reason === "not_verbatim" ? "not verbatim" : "instruction-like"}):{" "}
                 <span className="quote-error-text">&ldquo;{q.quote}&rdquo;</span>
               </li>
             ))}
@@ -384,8 +477,9 @@ export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: Ass
       )}
 
       {result && (
-        <>
+        <section className="assessment-result" ref={resultRef} tabIndex={-1} aria-labelledby="assessment-result-title">
           <h2>Result</h2>
+          <span id="assessment-result-title" className="sr-only">Assessment result</span>
           <div className="score-readout">
             {undeterminable ? (
               <span className="score-numeral score-numeral--undeterminable">—</span>
@@ -474,8 +568,8 @@ export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: Ass
             <span>Anchor library: v{anchorVersion}</span>
             <span>Runs: 1</span>
           </div>
-        </>
+        </section>
       )}
-    </>
+    </div>
   );
 }

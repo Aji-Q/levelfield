@@ -11,7 +11,8 @@
     "./anchors": "./src/anchors.ts"
   },
   "scripts": {
-    "test": "vitest run"
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.120.0",
@@ -19,6 +20,6 @@
     "zod": "^3.23.0"
   },
   "devDependencies": {
-    "vitest": "^2.1.0"
+    "vitest": "^4.1.11"
   }
 }

@@ -24,8 +24,9 @@ reference-file track.
 ## Tools
 
 Every tool below is registered with `annotations: { readOnlyHint: true }` — none of the
-five ever writes to the score cache, the filesystem, or the network; `assess_market` and
-`score_classification` only ever *read* the indexer/cache and *return* a computed result.
+five writes to the score cache or filesystem, and none performs a state-changing network
+operation. `assess_market` may read the DreamDEX indexer on a cache miss;
+`score_classification` computes entirely from its inputs.
 A host that gates on tool annotations (per the MCP spec) will not prompt for confirmation
 before calling any of them.
 

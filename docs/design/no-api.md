@@ -101,8 +101,10 @@ asserts this and crashes loudly on violation.
   `ScoreIndexEntry = { marketId, question, source, overallScore, band, circuitBreaker,
   summary, expiry?: string | null, clobStatus?: string | null, oracleQuestionId?: string | null }`.
 
-The web app reads ONLY the score cache (no network at request time). Ad-hoc assessment in
-the UI is out of scope for the first frontend pass.
+The web app reads ONLY the score cache (no network at request time). The `/assess` workspace
+supports ad-hoc contracts without adding a model API: it prepares the open classification task,
+accepts JSON pasted back from the user's model, then verifies quotes and scores locally in the
+browser.
 
 ## What did NOT change
 

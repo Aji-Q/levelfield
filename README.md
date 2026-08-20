@@ -69,14 +69,16 @@ data/classifications/   reference classifications (open protocol, quotes mechani
 data/scores/            score cache written by score:all (in git for reproducible demos)
 docs/design/no-api.md   architecture decision record
 docs/research-dreamdex.md  verified integration reference (field mapping, gotchas, live findings)
-FEEDBACK.md             SDK & docs feedback journal (hackathon deliverable, 9 evidence-backed entries)
+FEEDBACK.md             SDK & docs feedback journal (hackathon deliverable, 11 evidence-backed entries)
 ```
 
 ## Quick start (no API key needed)
 
+Requires Node.js 20.9 or newer (the current Next.js 16 runtime floor).
+
 ```bash
 npm install
-npm test                      # 58 unit/integration tests
+npm test                      # 69 unit/integration tests
 npm run score:all             # score live testnet markets + curated set -> data/scores/
 npm run dev -w @levelfield/web    # UI at localhost:3000
 rm -rf apps/web/.next && npm run build -w @levelfield/web  # production build — the rm -rf is
@@ -86,6 +88,8 @@ rm -rf apps/web/.next && npm run build -w @levelfield/web  # production build �
 npm run mcp                   # stdio MCP server (see packages/mcp/README.md)
 npx tsx scripts/probe-dreamdex.ts          # indexer field-coverage probe
 npx tsx scripts/verify-classifications.ts  # re-verify all evidence quotes
+# after setting the public repo/immutable commit and republishing provenance-complete attestations:
+GITHUB_REPO=OWNER/REPO GITHUB_REF="$(git rev-parse HEAD)" npm run verify:onchain
 ```
 
 ## Status
@@ -96,11 +100,13 @@ npx tsx scripts/verify-classifications.ts  # re-verify all evidence quotes
 - [x] Reference classifications for the curated spectrum (40 quotes verified)
 - [x] Batch scorer + score cache (live + curated, ACDC gradient reproduced)
 - [x] MCP server (protocol / score / anchors), verified over stdio
-- [x] Web UI (markets, detail with evidence quotes, methodology from YAML)
-- [x] ScoreRegistry **deployed on Somnia Shannon**: [`0xb8e11dea346f2c961880879606a269db3165bbc7`](https://shannon-explorer.somnia.network/address/0xb8e11dea346f2c961880879606a269db3165bbc7) — 28 attestations published, read back and verified 28/28 (`npm run verify:onchain` → data/scores/onchain.json, rendered on every market page)
+- [x] Web UI (auditable snapshot, market evidence, methodology, local assessment workspace)
+- [x] ScoreRegistry **deployed on Somnia Shannon**: [`0xb8e11dea346f2c961880879606a269db3165bbc7`](https://shannon-explorer.somnia.network/address/0xb8e11dea346f2c961880879606a269db3165bbc7) — 28 legacy attestations published. Before final release, set `GITHUB_REPO=owner/repo` and `GITHUB_REF` to the immutable submission commit SHA, republish the current score index to replace legacy placeholder URIs, then run `npm run verify:onchain` for a complete field-by-field read-back snapshot.
 - [x] Validation harness: 16 contracts, category medians strictly ordered, Spearman ρ = 0.93 (docs/validation.md)
 - [x] Inter-run agreement: 3 independent blind classifiers, majority-vote band matches the reference 16/16 (docs/agreement.md)
-- [ ] Demo video, deck, final SDK feedback report
+- [x] Final SDK feedback report (`docs/sdk-feedback-report.md`)
+- [ ] Required 2–3 minute demo video
+- [ ] Optional presentation deck
 
 ## What this is not
 

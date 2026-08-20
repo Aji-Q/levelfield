@@ -4,9 +4,16 @@ export default function MethodologyPage() {
   const lib = readAnchorLibrary();
 
   return (
-    <>
+    <div className="content-page methodology-page">
+      <p className="eyebrow">Transparent by design</p>
       <h1>Methodology</h1>
       <p className="framework-block">{lib.framework.trim()}</p>
+
+      <div className="method-principles" aria-label="Method principles">
+        <div><strong>Model</strong><span>classifies against public anchors</span></div>
+        <div><strong>Code</strong><span>verifies quotes and computes every number</span></div>
+        <div><strong>Chain</strong><span>attests the result and method version</span></div>
+      </div>
 
       <h2>The five dimensions</h2>
       {lib.dimensions.map((d) => (
@@ -19,6 +26,7 @@ export default function MethodologyPage() {
           </div>
           <p className="methodology-question">{d.question.trim()}</p>
           <p className="methodology-guidance">{d.guidance.trim()}</p>
+          <div className="table-scroll" tabIndex={0} aria-label={`${d.name} anchor levels table`}>
           <table className="level-table">
             <caption>Anchor levels for {d.name}</caption>
             <thead>
@@ -46,6 +54,7 @@ export default function MethodologyPage() {
               ))}
             </tbody>
           </table>
+          </div>
         </section>
       ))}
 
@@ -54,6 +63,7 @@ export default function MethodologyPage() {
         Each dimension&apos;s matched level maps to a 0–100 score via a fixed weighted formula,
         then to a band:
       </p>
+      <div className="table-scroll" tabIndex={0} aria-label="Score bands table">
       <table className="level-table" style={{ marginBottom: "2rem" }}>
         <caption>Score bands</caption>
         <thead>
@@ -73,6 +83,7 @@ export default function MethodologyPage() {
           ))}
         </tbody>
       </table>
+      </div>
 
       <h3>Circuit breakers</h3>
       <p className="methodology-guidance" style={{ marginTop: "0.5rem" }}>
@@ -108,6 +119,6 @@ export default function MethodologyPage() {
           <li>Not an accusation against any person or account.</li>
         </ul>
       </div>
-    </>
+    </div>
   );
 }

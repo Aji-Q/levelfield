@@ -24,6 +24,7 @@ export const CIRCUIT_BREAKER_EXPLANATION: Record<Exclude<CircuitBreaker, null>, 
 // indexer's oracleQuestionId pointed at unrelated questions 3/3 times in live sampling
 // (docs/research-dreamdex.md §4, FEEDBACK.md #6). Root link only until that's fixed.
 export const ORACLE_EXPLORER_ROOT = "https://prd.oracle.somnia.host/explore";
+export const DREAMDEX_EVENT_CONTRACTS_URL = "https://app.dreamdex.io/event-contracts";
 
 // "individual_will" -> "Individual will": internal enum labels are never shown raw
 // (docs/review-2026-08-20.md §3.3). Caller is expected to keep the raw label available
@@ -43,6 +44,11 @@ export function truncateMiddle(id: string, front = 10, back = 8): string {
 // re-format) so the result is identical on server and client regardless of local timezone.
 export function formatExpiryUtc(expiry: string): string {
   return `${expiry.slice(0, 10)} ${expiry.slice(11, 16)} UTC`;
+}
+
+export function formatTimestampUtc(timestamp: string): string {
+  if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(timestamp)) return timestamp;
+  return `${timestamp.slice(0, 10)} ${timestamp.slice(11, 16)} UTC`;
 }
 
 // Relative time to an ISO expiry, e.g. "in 34 min" / "in 4 h" / "expired". `now` is

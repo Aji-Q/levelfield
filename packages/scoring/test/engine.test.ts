@@ -100,6 +100,16 @@ describe("computeScore", () => {
     expect(d2?.effectiveLevel).toBe(4);
     expect(out.overallScore).toBe(15); // 0.2 * 0.75 * 100
   });
+
+  it("does not accept a low level when insufficientInfo is true", () => {
+    const input = voted({ D1: 1, D2: 1, D3: 1, D4: 1, D5: 1 });
+    input[1] = { ...input[1], insufficientInfo: true }; // malformed boundary input
+
+    const out = computeScore(input, lib);
+    const d2 = out.dimensions.find((d) => d.dimension === "D2");
+    expect(d2?.effectiveLevel).toBe(4);
+    expect(out.overallScore).toBe(15); // D2 is still conservatively defaulted
+  });
 });
 
 describe("graduated circuit-breaker floors", () => {

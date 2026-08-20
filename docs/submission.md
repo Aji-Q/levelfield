@@ -78,4 +78,5 @@ integration · deterministic scoring engine, 69 tests
 - [ ] 2–3 min demo video URL (Codex)
 - [ ] Deck (optional, Codex)
 - [ ] Provenance-complete republish done + verify:onchain snapshot committed (Claude)
+- [ ] Re-check the BUIDL competitive page after 2026-08-24 20:00 UTC (recon: it was empty pre-window)
 - [ ] Final owner read-through of this copy before pasting

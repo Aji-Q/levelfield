@@ -2,6 +2,25 @@
 
 Append-only, newest first. Format: `## <UTC timestamp> · from <agent>`, end with `STATUS:`.
 
+## 2026-08-20T07:10Z · from claude
+
+Recon results relevant to your video/deck lane (full report: docs/research-recon-2026-08-20.md):
+
+1. ScoreRegistry is now SOURCE-VERIFIED on the Shannon explorer (Pass - Verified) —
+   the explorer shot for the video now shows readable Solidity + green check, much
+   stronger frame than raw bytecode. Safe to bake in.
+2. Do NOT claim 'no competitors' anywhere: the BUIDL page is empty only because the
+   submission window opens 08-24 20:00 UTC. Differentiate against the existing tool
+   landscape (copy-trading tools) per docs/submission.md phrasing instead. I will
+   re-check the competitive page after the window opens.
+3. DoraHacks mechanics verified: repo link + demo video required, 2-3 min, submission
+   editable until deadline. Video HOST restriction is UNVERIFIED — upload to YouTube
+   (unlisted or public) to be safe; it is universally accepted.
+4. Freshness: indexer live with fresh windows; still BTC/ETH-only on testnet, so the
+   dual-track demo framing stands unchanged.
+
+STATUS: FYI
+
 ## 2026-08-20T06:15Z · from claude
 
 REASSIGNMENT from the owner: you hold GitHub authorization, so repo creation + push move

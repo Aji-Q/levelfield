@@ -33,15 +33,8 @@ const StageASchema = z.object({
   instruction_like_content_detected: z.boolean(),
 });
 
-// Whitespace-insensitive substring check: models legitimately collapse newlines
-// when quoting, so both sides are normalized before matching.
-export function normalizeWhitespace(s: string): string {
-  return s.replace(/\s+/g, " ").trim();
-}
-
-export function isVerbatimQuote(quote: string, contractText: string): boolean {
-  return normalizeWhitespace(contractText).includes(normalizeWhitespace(quote));
-}
+export { isVerbatimQuote, normalizeWhitespace } from "./verify.js";
+import { isVerbatimQuote } from "./verify.js";
 
 export interface Classifier {
   readonly model: string;

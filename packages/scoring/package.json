@@ -3,7 +3,12 @@
   "version": "0.1.0",
   "type": "module",
   "exports": {
-    ".": "./src/index.ts"
+    ".": "./src/index.ts",
+    "./types": "./src/types.ts",
+    "./engine": "./src/engine.ts",
+    "./vote": "./src/vote.ts",
+    "./verify": "./src/verify.ts",
+    "./anchors": "./src/anchors.ts"
   },
   "scripts": {
     "test": "vitest run"

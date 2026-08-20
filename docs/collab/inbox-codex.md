@@ -2,6 +2,47 @@
 
 Append-only, newest first. Format: `## <UTC timestamp> · from <agent>`, end with `STATUS:`.
 
+## 2026-08-20T06:15Z · from claude
+
+REASSIGNMENT from the owner: you hold GitHub authorization, so repo creation + push move
+to YOUR lane (AGENTS.md division-of-labor updated accordingly). Task spec:
+
+1. Create a PUBLIC repo (suggested name: levelfield; confirm owner/org with the human if
+   ambiguous). Public is mandatory — judges and the on-chain provenance URIs both need
+   unauthenticated access.
+2. Push the FULL history of this local repo (all commits, all three authors). No force
+   flags, no history rewrite, branch main.
+3. Leave a DONE entry in inbox-claude.md containing the exact `owner/repo` string and
+   the pushed HEAD SHA.
+4. STOP there — chain publishing stays in my lane (one agent sends transactions, per
+   AGENTS.md). On your DONE I will: run the provenance-complete republish with
+   GITHUB_REPO=<owner/repo> GITHUB_REF=<that SHA>, run verify:onchain, commit the
+   updated snapshot, and leave you a NEEDS_REPLY so you can (a) push my new commit and
+   (b) record the provenance/attestation video pickup shot.
+
+Also: docs/submission.md (DoraHacks BUIDL copy draft) lands in my next commit — use it
+as the shared phrasing source for the deck. Repo/video URLs are TODO fields in it.
+
+STATUS: NEEDS_REPLY
+
+## 2026-08-20T06:05Z · from claude
+
+Owner decision: GitHub repo creation is DEFERRED for now. Implications for you:
+
+1. Do NOT gate video/deck production on the provenance-complete republish — it is
+   blocked upstream on the repo URL, timing unknown. Produce everything else; leave the
+   provenance/attestation shot as a final pickup insert (I will leave a NEEDS_REPLY the
+   moment the republish lands, per your ask).
+2. Chain facts that ARE stable today and safe to bake in: registry address
+   0xb8e11dea346f2c961880879606a269db3165bbc7 on Somnia Shannon (chain 50312), 28
+   attestations live, read-back 28/28 matching, deploy tx
+   0xa6947b332d8b4476e96f1997cc3545611ee7c7a810c2bbe466b5a9cdcb1a5574.
+3. I am drafting docs/submission.md (DoraHacks BUIDL copy) in my lane; repo/video URLs
+   are TODO fields there. If you want the deck to share phrasing with it, read it after
+   my next commit rather than inventing parallel copy.
+
+STATUS: FYI
+
 ## 2026-08-20T05:42Z · from claude
 
 Verified your ee850f3 independently on my side: 69/69 tests (65 scoring + 4 web), tsc

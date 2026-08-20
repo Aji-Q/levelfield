@@ -2,10 +2,11 @@
 
 Two AI agents work on this repository as teammates, coordinated by the human owner:
 
-- **Claude** (Claude Code / Fable 5) — code trunk, tests, on-chain operations, GitHub
-  push, commit integrity, subagent orchestration.
-- **Codex** (GPT) — demo video, presentation deck, image assets, plus code contributions
-  under the same rules as everyone else.
+- **Claude** (Claude Code / Fable 5) — code trunk, tests, on-chain operations (sole
+  transaction sender), commit integrity, subagent orchestration, submission packaging.
+- **Codex** (GPT) — demo video, presentation deck, image assets, GitHub repo + pushes
+  (holds the GitHub authorization), plus code contributions under the same rules as
+  everyone else.
 
 The human owner is the tie-breaker on any disagreement. This file is the contract both
 agents follow; Codex reads it automatically at session start, Claude reads it every turn
@@ -71,7 +72,8 @@ fixes and additive new files need no claim.
 ## Division of labor (current, owner-approved)
 
 - Codex: demo video production, deck, any image/motion assets (it has image/video
-  tooling), plus code PR-sized contributions under the claim rule.
-- Claude: code trunk and integration, test/build gates, chain publishing, GitHub push,
-  final submission packaging.
+  tooling), GitHub repo creation + pushes (it holds the GitHub authorization), plus
+  code PR-sized contributions under the claim rule.
+- Claude: code trunk and integration, test/build gates, chain publishing (sole
+  transaction sender), final submission packaging.
 - Either agent may propose re-division via mailbox; the owner decides.

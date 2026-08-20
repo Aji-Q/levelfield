@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-election-winner",
+  "classifier": "claude-fable-5 (reference classification via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 3,
+      "levelLabel": "public_collective",
+      "evidenceQuote": "the November 2026 gubernatorial election",
+      "reasoning": "The outcome is the aggregate of votes cast by a large public; no single participant meaningfully controls it.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 1,
+      "levelLabel": "none",
+      "evidenceQuote": "officially certified result",
+      "reasoning": "The result emerges from public counting; no closed group knows the certified outcome before the tally is public.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 1,
+      "levelLabel": "prohibited_enforced",
+      "evidenceQuote": "certified as the winner by the State X electoral authority",
+      "reasoning": "No early-knowledge window exists (D2 level 1), so there is no insider to constrain.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 2,
+      "levelLabel": "official_roughly_scheduled",
+      "evidenceQuote": "officially certified as the winner by the State X electoral authority",
+      "reasoning": "Certification follows a known post-election schedule, though counting duration varies.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 2,
+      "levelLabel": "prohibitively_costly",
+      "evidenceQuote": "the officially certified result",
+      "reasoning": "Manufacturing an election outcome would require fraud at prohibitive cost and legal risk.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

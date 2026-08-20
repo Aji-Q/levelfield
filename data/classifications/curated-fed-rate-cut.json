@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-fed-rate-cut",
+  "classifier": "claude-fable-5 (reference classification via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "the Federal Open Market Committee's policy decision",
+      "reasoning": "The outcome is produced by a committee vote of a government institution.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "announced at the conclusion of its September 2026 meeting",
+      "reasoning": "Between the vote and the statement, committee members plus senior staff know the decision — dozens of people, under blackout rules.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 2,
+      "levelLabel": "prohibited_weakly_enforced",
+      "evidenceQuote": "the September 2026 FOMC statement",
+      "reasoning": "FOMC participants are barred from trading under post-2022 ethics rules with real enforcement, but coverage of prediction venues is untested.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "released at 2:00 PM ET on the Federal Reserve's website",
+      "reasoning": "The decision reaches everyone simultaneously at a fixed, pre-announced release time.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "the target range announced",
+      "reasoning": "Producing a rate cut requires a committee majority — multiparty coordination.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

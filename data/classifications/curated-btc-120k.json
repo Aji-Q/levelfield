@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-btc-120k",
+  "classifier": "claude-fable-5 (reference classification via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 1,
+      "levelLabel": "natural_process",
+      "evidenceQuote": "the BTC/USD closing price on Coinbase",
+      "reasoning": "The outcome is large-scale market data that no identifiable party controls.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 1,
+      "levelLabel": "none",
+      "evidenceQuote": "last traded price at 23:59:59 UTC",
+      "reasoning": "The settlement value is public the instant it exists; there is no early-knowledge window.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 1,
+      "levelLabel": "prohibited_enforced",
+      "evidenceQuote": "Coinbase BTC-USD last traded price",
+      "reasoning": "No early-knowledge window exists (D2 level 1), so there is no insider to constrain.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "at 23:59:59 UTC on December 31, 2026",
+      "reasoning": "Everyone observes the closing price at the same fixed moment.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 2,
+      "levelLabel": "prohibitively_costly",
+      "evidenceQuote": "greater than or equal to $120,000.00",
+      "reasoning": "Moving the global bitcoin price across a strike would cost far more than any plausible stake could recover.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

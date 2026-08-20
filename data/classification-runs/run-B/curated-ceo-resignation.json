@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-ceo-resignation",
+  "classifier": "independent-run-B (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 5,
+      "levelLabel": "individual_will",
+      "evidenceQuote": "whether by voluntary resignation, board-initiated removal, or mutual separation",
+      "reasoning": "Since voluntary resignation is one of the resolving pathways, a single person (the CEO) can settle the outcome by their own unilateral act, matching the ladder's first-match rule for individual will.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "whether by voluntary resignation, board-initiated removal, or mutual separation",
+      "reasoning": "The contract covers both a small-circle voluntary path and a board-initiated removal path, and board deliberations typically involve directors, executives, and counsel; ambiguity between a handful and dozens resolves to the higher level.",
+      "confidence": "low",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "as disclosed in an official company announcement or SEC Form 8-K filing",
+      "reasoning": "Corporate officers and directors have fiduciary and disclosure obligations on paper, but it is unclear whether those reach a bet on an offshore prediction contract about the CEO's own departure, as opposed to trading the company's own securities.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 3,
+      "levelLabel": "official_unscheduled",
+      "evidenceQuote": "files an SEC Form 8-K or issues a press release confirming that the current CEO has left the CEO role",
+      "reasoning": "There is an official disclosure channel (8-K/press release) but no fixed date for when the departure itself occurs or is announced.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 5,
+      "levelLabel": "unilateral_cheap",
+      "evidenceQuote": "whether by voluntary resignation, board-initiated removal, or mutual separation",
+      "reasoning": "The CEO can unilaterally resign at essentially trivial cost, directly producing a YES outcome.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

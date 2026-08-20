@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-cpi-above-3",
+  "classifier": "independent-run-B (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 2,
+      "levelLabel": "statistical_procedure",
+      "evidenceQuote": "the Consumer Price Index for All Urban Consumers (CPI-U), as published by the US Bureau of Labor Statistics in its monthly CPI news release",
+      "reasoning": "The outcome is produced by an official statistical procedure following the BLS's predefined, published CPI methodology.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 2,
+      "levelLabel": "embargoed_few",
+      "evidenceQuote": "scheduled for September 2026 at 8:30 AM ET",
+      "reasoning": "BLS staff know the CPI figure inside the agency's formal embargo/lockup regime before the scheduled public release.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 1,
+      "levelLabel": "prohibited_enforced",
+      "evidenceQuote": "as first published by the BLS",
+      "reasoning": "Federal employees with embargoed access to CPI data face a clear, well-established legal prohibition on trading or disclosing it, independent of the venue where a derivative contract trades.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "scheduled for September 2026 at 8:30 AM ET",
+      "reasoning": "The release has a fixed, pre-announced time on an official channel, with everyone learning the figure simultaneously.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 1,
+      "levelLabel": "impossible",
+      "evidenceQuote": "Consumer Price Index for All Urban Consumers (CPI-U)",
+      "reasoning": "No party can plausibly cause a national macroeconomic statistic to come out a particular way.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

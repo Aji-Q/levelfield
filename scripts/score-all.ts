@@ -72,6 +72,7 @@ interface ScoreIndexEntry {
   expiry: string | null;
   clobStatus: string | null;
   oracleQuestionId: string | null;
+  intervalSec: string | null; // live rows only — the market window (900="15m", 3600="1h"); never inferred from question text
 }
 
 interface CuratedFile extends NormalizedContract {
@@ -215,6 +216,7 @@ async function runLiveTrack(): Promise<{ results: ScoreResult[]; entries: ScoreI
       expiry: row.expiry ? new Date(Number(row.expiry) * 1000).toISOString() : null,
       clobStatus: row.clobStatus,
       oracleQuestionId: row.oracleQuestionId,
+      intervalSec: row.intervalSec,
     });
   }
 
@@ -303,6 +305,7 @@ function runCuratedTrack(): { results: ScoreResult[]; entries: ScoreIndexEntry[]
       expiry: null,
       clobStatus: null,
       oracleQuestionId: null,
+      intervalSec: null,
     });
   }
 

@@ -23,9 +23,18 @@ reference-file track.
 
 ## Tools
 
+Every tool below is registered with `annotations: { readOnlyHint: true }` — none of the
+five ever writes to the score cache, the filesystem, or the network; `assess_market` and
+`score_classification` only ever *read* the indexer/cache and *return* a computed result.
+A host that gates on tool annotations (per the MCP spec) will not prompt for confirmation
+before calling any of them.
+
 ### `get_assessment_protocol`
 
 No inputs. Returns one text block containing:
+- a `PROTOCOL TOKEN` — sha256 of the rendered system prompt + anchor library version
+  (identical formula to `metadata.promptVersion` below), meant to be echoed back on the
+  following `score_classification` call as `protocol_token` (see below)
 - the rendered Stage A system prompt (`buildSystemPrompt(loadAnchors(...))`) — the five
   dimensions, their five anchor levels each, and the classification rules
 - the `<contract_data>` template (`renderContractData` with placeholder fields), so the
@@ -48,6 +57,7 @@ Inputs:
   resolution_rules: string,
   close_time?: string,        // ISO 8601
   market_id?: string,
+  protocol_token?: string,    // from get_assessment_protocol's PROTOCOL TOKEN — see below
   classifications: {          // exactly D1..D5, same shape as get_assessment_protocol's output
     D1: { level, level_label, evidence_quote, reasoning, confidence, insufficient_info },
     D2: { ... }, D3: { ... }, D4: { ... }, D5: { ... },
@@ -57,18 +67,29 @@ Inputs:
 ```
 
 Behavior:
-1. Renders the contract text via `renderContractData` (identical to what
+1. If `protocol_token` is present and does not equal the server's current promptVersion
+   (the anchor library changed between the `get_assessment_protocol` call and this one),
+   returns an error result (`isError: true`, `error: "protocol_token_stale"`) naming both
+   the expected and received tokens — **nothing is scored**; re-fetch
+   `get_assessment_protocol`, re-classify, and retry. Omitting `protocol_token` entirely is
+   accepted (backward compatible) and skips this check.
+2. Renders the contract text via `renderContractData` (identical to what
    `get_assessment_protocol` described).
-2. For every dimension with a non-null `evidence_quote`, checks it's a verbatim substring
+3. For every dimension with a non-null `evidence_quote`, checks it's a verbatim substring
    (`isVerbatimQuote`, whitespace-insensitive). If any fail, returns an error result
    (`isError: true`) listing the failing dimensions and their quotes — **nothing is
    scored** until every quote checks out. Fix the quote and call again.
-3. On success: converts the classification into a single-run vote per dimension
+4. On success: converts the classification into a single-run vote per dimension
    (`voteDimension` on a length-1 array — always resolves to `agreement: "1/1"`), runs
-   `computeScore` + `buildSummary`, and returns the full `ScoreResult` as JSON text.
+   `computeScore` + `buildSummary`, and returns the full `ScoreResult` as JSON text, plus a
+   top-level `protocol_token_checked: boolean` — `true` only when `protocol_token` was
+   supplied (and therefore matched, since a mismatch would have returned the error in step
+   1); `false` means the caller didn't prove which protocol version it classified against,
+   not that the classification is wrong.
    `metadata.model` is `"host-model via MCP protocol"`, `metadata.runs` is `1`, and
    `metadata.promptVersion` is a sha256 of the exact system prompt text (same formula
-   `ClaudeClassifier` uses), so a promptVersion hash means the same thing across tracks.
+   `ClaudeClassifier` uses and identical to the `PROTOCOL TOKEN` above), so a promptVersion
+   hash means the same thing across tracks.
    Standard caveats (`STANDARD_CAVEATS` from `packages/scoring`) are always included,
    plus one caveat per dimension that scored on `insufficient_info`.
 
@@ -138,12 +159,15 @@ markets resolve from the score cache, so the demo runs fully offline.
 ## Example call sequence
 
 ```
-1. call get_assessment_protocol           -> read the prompt + template + output shape
+1. call get_assessment_protocol           -> read the prompt + template + output shape + PROTOCOL TOKEN
 2. (host model classifies the contract text against the anchor levels, off-protocol)
 3. call score_classification with:
-     { question, description, resolution_rules, close_time?, market_id?, classifications }
-   -> if isError: fix the listed evidence_quote(s) verbatim and retry step 3
-   -> else: a full ScoreResult (overallScore, band, circuitBreaker, summary, dimensions, caveats)
+     { question, description, resolution_rules, close_time?, market_id?, protocol_token?, classifications }
+   -> if isError "protocol_token_stale": re-fetch get_assessment_protocol, re-classify, retry step 3
+   -> if isError "evidence_quote_not_verbatim"/"...overlaps_injected_content": fix the listed
+      evidence_quote(s) and retry step 3
+   -> else: a full ScoreResult (overallScore, band, circuitBreaker, summary, dimensions, caveats,
+      protocol_token_checked)
 ```
 
 ## Single-run design

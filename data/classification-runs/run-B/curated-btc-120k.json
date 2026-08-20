@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-btc-120k",
+  "classifier": "independent-run-B (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 1,
+      "levelLabel": "natural_process",
+      "evidenceQuote": "the BTC/USD closing price on Coinbase at 23:59:59 UTC on December 31, 2026",
+      "reasoning": "The outcome is a large-scale exchange market price that no single identifiable party controls.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 1,
+      "levelLabel": "none",
+      "evidenceQuote": "the BTC/USD closing price on Coinbase at 23:59:59 UTC on December 31, 2026",
+      "reasoning": "An exchange closing price is produced and published simultaneously; no party can know it before it is public.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 1,
+      "levelLabel": "prohibited_enforced",
+      "evidenceQuote": "BTC/USD closing price on Coinbase",
+      "reasoning": "With no early-knowledge window (D2=1) and no realistic cheap manufacturer (D5<=2), there is no insider population to constrain, per the cross-dimension rule.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "Resolves YES if the Coinbase BTC-USD last traded price at 23:59:59 UTC on 2026-12-31 is greater than or equal to $120,000.00.",
+      "reasoning": "The close time is a fixed, pre-specified moment, and the price is publicly observable on the exchange the instant it occurs.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 2,
+      "levelLabel": "prohibitively_costly",
+      "evidenceQuote": "BTC/USD closing price on Coinbase",
+      "reasoning": "Moving a major exchange's BTC closing price to cross a $120,000 strike is theoretically possible but requires capital far exceeding any plausible bet size.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

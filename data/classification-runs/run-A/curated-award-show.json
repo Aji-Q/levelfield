@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-award-show",
+  "classifier": "independent-run-A (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 3,
+      "levelLabel": "public_collective",
+      "evidenceQuote": "Winners are determined by secret ballot of the Meridian Film Academy's voting membership and tabulated by an independent accounting firm under a sealed-envelope process",
+      "reasoning": "The outcome is decided by secret-ballot aggregate vote of a large Academy voting membership, not by any single controlling party or small bounded committee, which fits mass-vote aggregation rather than an institutional vote.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 2,
+      "levelLabel": "embargoed_few",
+      "evidenceQuote": "tabulated by an independent accounting firm under a sealed-envelope process; results are not disclosed to anyone, including Academy leadership, before the on-air announcement",
+      "reasoning": "The accounting firm staff who tabulate the sealed ballots necessarily know the result before broadcast, but this is a small number of people operating under a formal secrecy/access-control regime, not a formal government-style embargo lockup nor a wide circle.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 3,
+      "levelLabel": "policy_only",
+      "evidenceQuote": "tabulated by an independent accounting firm under a sealed-envelope process",
+      "reasoning": "The tabulating firm's staff are bound only by professional confidentiality/contractual obligations, not by a specific law covering trading this event contract, and the venue is treated as unspecified/offshore.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "announced live during the broadcast of the 2027 Meridian Film Awards ceremony, scheduled for February 28, 2027 at the Meridian Theatre",
+      "reasoning": "The winner is revealed at a fixed, pre-announced broadcast time, so everyone learns the result simultaneously.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "secret ballot of the Meridian Film Academy's voting membership",
+      "reasoning": "Swaying the outcome would require influencing a large voting membership, which is a multiparty coordination problem rather than something one or a few people can produce.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

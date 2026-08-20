@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-btc-120k",
+  "classifier": "independent-run-C (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 1,
+      "levelLabel": "natural_process",
+      "evidenceQuote": "the BTC/USD closing price on Coinbase at 23:59:59 UTC on December 31, 2026",
+      "reasoning": "The outcome is a large-scale exchange market price that no single identifiable party controls.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 1,
+      "levelLabel": "none",
+      "evidenceQuote": "the Coinbase BTC-USD last traded price at 23:59:59 UTC on 2026-12-31",
+      "reasoning": "The reference price is a live, continuously public exchange feed, so it becomes known to everyone at the same instant it is produced.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 1,
+      "levelLabel": "prohibited_enforced",
+      "evidenceQuote": "the Coinbase BTC-USD last traded price at 23:59:59 UTC on 2026-12-31",
+      "reasoning": "With no early-knowledge window (D2=none) and no realistic way to manufacture the outcome cheaply (D5=prohibitively costly), there is no insider position to constrain, per the cross-dimension rule.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "the BTC/USD closing price on Coinbase at 23:59:59 UTC on December 31, 2026",
+      "reasoning": "The resolution instant is a fixed, pre-announced timestamp on a public exchange feed that everyone observes simultaneously.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 2,
+      "levelLabel": "prohibitively_costly",
+      "evidenceQuote": "the Coinbase BTC-USD last traded price at 23:59:59 UTC on 2026-12-31 is greater than or equal to $120,000.00",
+      "reasoning": "Moving the global BTC price across a $120,000 strike is theoretically possible but the capital required dwarfs any plausible bet size.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

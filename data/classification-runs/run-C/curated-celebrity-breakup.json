@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-celebrity-breakup",
+  "classifier": "independent-run-C (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 5,
+      "levelLabel": "individual_will",
+      "evidenceQuote": "a public statement by Celebrity Z or their verified representatives, on any platform, announcing the end of their current relationship",
+      "reasoning": "The outcome is entirely a single person's discretionary choice to announce or not announce.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 3,
+      "levelLabel": "handful",
+      "evidenceQuote": "Celebrity Z or their verified representatives",
+      "reasoning": "Because this is an individual-will outcome the decider already knows their own intent before disclosing it; the text implies only the celebrity and a small representative circle would know beforehand.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 5,
+      "levelLabel": "unconstrained",
+      "evidenceQuote": "Third-party reporting without confirmation from Celebrity Z does not count.",
+      "reasoning": "Nothing in the contract or general law stops a private individual from trading on their own foreknowledge of when they will announce their own breakup.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 5,
+      "levelLabel": "discloser_controlled",
+      "evidenceQuote": "a public statement by Celebrity Z or their verified representatives, on any platform, announcing the end of their current relationship",
+      "reasoning": "Celebrity Z alone chooses when and where to make the announcement, so the disclosure moment is controlled by the party with the stake in the outcome.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 5,
+      "levelLabel": "unilateral_cheap",
+      "evidenceQuote": "Celebrity Z or their verified representative publicly announces the end of the relationship",
+      "reasoning": "Celebrity Z can single-handedly produce the YES outcome at any moment simply by posting a statement, at essentially zero cost.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

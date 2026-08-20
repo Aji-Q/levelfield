@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-presidential-pardon",
+  "classifier": "independent-run-A (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 5,
+      "levelLabel": "individual_will",
+      "evidenceQuote": "the pardon power is vested solely in the President and requires no legislative or judicial approval",
+      "reasoning": "The outcome is a unilateral official act that only the President can perform, a textbook individual-will case.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 3,
+      "levelLabel": "handful",
+      "evidenceQuote": "the pardon power is vested solely in the President and requires no legislative or judicial approval",
+      "reasoning": "Per the individual-will floor, D2 is at least level 3; since no approval process is required, only the President and an immediate circle need know before signing.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 5,
+      "levelLabel": "unconstrained",
+      "evidenceQuote": "the pardon power is vested solely in the President and requires no legislative or judicial approval",
+      "reasoning": "D5 is level 5, so D3 is classified on the constraint facing the President; nothing in the contract or general practice bars a sitting head of state from trading on the timing of their own unilateral pardon decision.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 5,
+      "levelLabel": "discloser_controlled",
+      "evidenceQuote": "Resolves YES if the President signs, and the Vantian Official Gazette publishes, a pardon, full commutation, or equivalent grant of clemency covering Renata Kessler's conviction before 23:59 local time on January 20, 2027",
+      "reasoning": "The President, who has a direct stake in the outcome, controls exactly when to sign and trigger Gazette publication, with no fixed schedule given.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 5,
+      "levelLabel": "unilateral_cheap",
+      "evidenceQuote": "the pardon power is vested solely in the President and requires no legislative or judicial approval",
+      "reasoning": "The President can produce the outcome unilaterally by signing, at trivial cost.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

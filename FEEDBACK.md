@@ -108,3 +108,52 @@ venue — integrators must copy a bytes32 constant from bot-kit's .env comments,
 itself says moved three times in a week.
 
 **Suggestion:** A documented venue registry endpoint (id, name, conventions) on a stable domain.
+
+## 2026-08-20 (cont'd) — first real use of `@somnia-chain/markets-sdk`
+
+Ran `scripts/sdk-crosscheck.ts` (`npm run sdk:crosscheck`): loads the full market registry via
+`SomniaMarkets.loadMarkets(true)` (read-only, no `privateKey`), filters to active binary markets on
+the DreamDEX venue, and diffs the result against our own hand-rolled GraphQL fetcher
+(`packages/scoring/src/dreamdex.ts`). This is the SDK's first real exercise in this repo — until now
+it was a declared dependency with zero imports (review §3.1).
+
+### 10. The SDK's `active` flag (not `clobStatus`) is the real liveness signal — and it agrees with our own fetcher where both apply
+
+**Observed:** `exchange.markets[...].active` is computed client-side from
+`tradingStart <= now < expiry && status !== "Resolved" && status !== "Voided"` — timestamps, not the
+indexed `clobStatus` string (`dist/unified/exchange.js`, `toUnifiedMarket`). Cross-run on
+2026-08-20: our fetcher's `clobStatus IN (Trading)` filter returned 500 rows on the DreamDEX venue;
+the SDK's `active` filter over the same venue returned 8. All 8 of the SDK's active markets were
+also present in our 500, and for every one of them the `question` text matched byte-for-byte between
+the two paths.
+
+**Expected:** No prior expectation either way — this was the first time we compared the two data
+paths on real data.
+
+**Suggestion:** None needed for DreamDEX — this is a finding *for us*, not a bug in the SDK. It
+independently confirms `docs/review-2026-08-20.md` §1.3 (most "Trading" rows on this venue are
+expired zombies the indexer never transitioned to "Finalized") using a second, independently-written
+client, and it validates that our own field mapping (`toNormalizedContract` question text) has no
+transcription drift versus the SDK's. Net effect on our build: `scripts/score-all.ts`'s live-market
+selector should filter on an active/expiry check equivalent to the SDK's, not on raw `clobStatus`.
+
+### 11. `SomniaMarkets.close()` does not release every handle — the process hangs after it resolves
+
+**Observed:** After `await exchange.close()`, `scripts/sdk-crosscheck.ts` printed every line of
+output and then did not return to the shell (confirmed via `ps`: the `tsx` process was still alive
+minutes later). Killing it and adding an explicit `process.exit(0)` after `close()` fixed it. Only
+`loadMarkets()` and `close()` were called — no watches, no signer, no explicit socket APIs used —
+so whatever handle survives `close()` is opened internally during `loadMarkets()`'s on-chain reads
+(binary pool grid, ERC-20 metadata), not something the caller controls.
+
+**Expected:** `close()`'s doc comment ("Release every watch + channel this exchange holds and stop
+the client's [...]") implies the process should be free to exit afterward for a script that opened
+no other handles.
+
+**Suggestion:** Either have `close()` release whatever keeps the event loop alive (likely the viem
+WebSocket transport under `client.getViemClient()`), or document that a short-lived read-only script
+should call `process.exit()` explicitly after `close()`. A related, smaller note: `loadMarkets()`
+has no venue or marketType filter — a read confined to one venue's binary markets still pages
+through the entire shared registry (551 markets, every venue, every type, in our run). A
+`loadMarkets({ venueId, marketType })` option would make the read-only, single-venue use case (ours)
+noticeably cheaper.

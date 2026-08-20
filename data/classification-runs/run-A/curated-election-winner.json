@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-election-winner",
+  "classifier": "independent-run-A (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 3,
+      "levelLabel": "public_collective",
+      "evidenceQuote": "the officially certified result of the November 2026 gubernatorial election in State X",
+      "reasoning": "The outcome is the aggregate of mass voting behavior; no single participant controls it.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 2,
+      "levelLabel": "embargoed_few",
+      "evidenceQuote": "officially certified as the winner by the State X electoral authority",
+      "reasoning": "Between vote counting and official certification, a bounded electoral authority/canvassing body may know the tally before the formal certification is announced; this is genuinely close to no early-knowledge window at all if counting is fully public.",
+      "confidence": "low",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "the State X electoral authority",
+      "reasoning": "D5 is level 2 or below is not the case here since D5 is 2, but electoral officials with foreknowledge of the tally are not clearly reached by any stated law on an unspecified/offshore trading venue, matching the foreign-official-knower default.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 2,
+      "levelLabel": "official_roughly_scheduled",
+      "evidenceQuote": "the officially certified result of the November 2026 gubernatorial election in State X",
+      "reasoning": "Certification follows a known post-election window via an official electoral authority, though no single fixed announcement time is stated.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 2,
+      "levelLabel": "prohibitively_costly",
+      "evidenceQuote": "the officially certified result of the November 2026 gubernatorial election in State X",
+      "reasoning": "Manufacturing a state-wide election outcome at scale would require fraud whose cost and risk dwarf any plausible bet size.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

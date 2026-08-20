@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-award-show",
+  "classifier": "independent-run-B (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 3,
+      "levelLabel": "public_collective",
+      "evidenceQuote": "Winners are determined by secret ballot of the Meridian Film Academy's voting membership",
+      "reasoning": "The winner is decided by a secret-ballot vote of the Academy's large voting membership, structurally similar to an election among many independent voters rather than a small institutional body's formal action.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 2,
+      "levelLabel": "embargoed_few",
+      "evidenceQuote": "tabulated by an independent accounting firm under a sealed-envelope process; results are not disclosed to anyone, including Academy leadership, before the on-air announcement",
+      "reasoning": "The tabulating accounting firm's staff necessarily know the result before the broadcast, but a formal sealed-envelope control regime restricts that knowledge to a small number of people.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 3,
+      "levelLabel": "policy_only",
+      "evidenceQuote": "tabulated by an independent accounting firm under a sealed-envelope process",
+      "reasoning": "The tabulating firm's staff are bound only by their professional/contractual confidentiality obligations, not by any securities or trading-specific law covering an offshore prediction contract on an award outcome.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 2,
+      "levelLabel": "official_roughly_scheduled",
+      "evidenceQuote": "announced live during the broadcast of the 2027 Meridian Film Awards ceremony, scheduled for February 28, 2027",
+      "reasoning": "There is an official broadcast channel and date, but the announcement occurs at some point during the multi-hour live broadcast rather than at a precise pre-announced minute.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "secret ballot of the Meridian Film Academy's voting membership",
+      "reasoning": "Manufacturing this outcome would require swaying a large voting membership or corrupting an independently audited sealed-envelope tabulation, both of which require coordination across multiple parties.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

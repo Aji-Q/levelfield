@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-military-strike",
+  "classifier": "independent-run-A (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "Country X's armed forces conduct one or more airstrikes on territory controlled by Country Y",
+      "reasoning": "The outcome is produced by a military/government institution's formal order to strike.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 5,
+      "levelLabel": "large_or_unbounded",
+      "evidenceQuote": "Country X's armed forces conduct one or more airstrikes on territory controlled by Country Y",
+      "reasoning": "Military strike preparation involves long, multi-agency planning chains (intelligence, command, logistics, political authorization), an unbounded early-knowledge population.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "Country X's armed forces conduct one or more airstrikes on territory controlled by Country Y",
+      "reasoning": "D5 is level 3, so D3 is classified on the constraint facing the foreign military/government officials who could time the strike; no domestic insider-trading law plausibly reaches foreign officials trading an offshore event contract on their own country's military action.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 4,
+      "levelLabel": "media_diffusion",
+      "evidenceQuote": "Confirmation requires reporting by at least two of: Reuters, AP, AFP, or an official statement from either government",
+      "reasoning": "There is no single official release channel; the outcome is confirmed progressively through wire-service reporting.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "Country X's armed forces conduct one or more airstrikes on territory controlled by Country Y",
+      "reasoning": "Executing and timing a strike requires coordination across military command, intelligence, and political authorization, a multiparty process.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-court-ruling",
+  "classifier": "independent-run-C (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "the Court of Appeals issues a published opinion before 23:59 ET on June 30, 2027 that reverses or vacates, in whole or in part, the district court's judgment",
+      "reasoning": "The outcome is a formal ruling by a bounded panel of judges, the canonical institutional-decision pattern.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "currently before a three-judge panel of the Continental Circuit Court of Appeals following oral argument held on September 9, 2026",
+      "reasoning": "A three-judge appellate panel plus its law clerks typically drafts and circulates the opinion internally for weeks or months before release, placing the early-knowledge circle on the boundary between a handful and dozens; resolved to the higher estimate.",
+      "confidence": "low",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "a three-judge panel of the Continental Circuit Court of Appeals",
+      "reasoning": "The likely knowers are foreign judicial officials; judicial-conduct or anti-corruption rules arguably exist on paper but plausibly do not reach their trading on an unspecified offshore venue.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 3,
+      "levelLabel": "official_unscheduled",
+      "evidenceQuote": "The court has not announced a target date for its opinion, consistent with its ordinary practice of releasing opinions without advance scheduling.",
+      "reasoning": "An official channel (the published opinion) exists but the contract explicitly states the release timing is unscheduled and at the court's own convenience.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "currently before a three-judge panel of the Continental Circuit Court of Appeals",
+      "reasoning": "Manufacturing a reversal would require improperly influencing multiple judges on the panel, a multiparty coordination problem similar to steering any institutional decision.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

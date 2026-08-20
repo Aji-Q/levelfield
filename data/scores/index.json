@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T02:01:28.550Z",
+  "generatedAt": "2026-08-20T02:25:38.554Z",
   "markets": [
     {
       "marketId": "curated-celebrity-breakup",
@@ -11,7 +11,8 @@
       "summary": "The outcome is decided by a single person who faces no effective restriction on trading it.",
       "expiry": null,
       "clobStatus": null,
-      "oracleQuestionId": null
+      "oracleQuestionId": null,
+      "intervalSec": null
     },
     {
       "marketId": "curated-injection-test",
@@ -23,7 +24,8 @@
       "summary": "The outcome is decided by a single person who faces no effective restriction on trading it.",
       "expiry": null,
       "clobStatus": null,
-      "oracleQuestionId": null
+      "oracleQuestionId": null,
+      "intervalSec": null
     },
     {
       "marketId": "curated-presidential-pardon",
@@ -35,7 +37,8 @@
       "summary": "The outcome is decided by a single person who faces no effective restriction on trading it.",
       "expiry": null,
       "clobStatus": null,
-      "oracleQuestionId": null
+      "oracleQuestionId": null,
+      "intervalSec": null
     },
     {
       "marketId": "curated-ceo-resignation",
@@ -47,7 +50,8 @@
       "summary": "The outcome is decided by a single person who faces no effective restriction on trading it.",
       "expiry": null,
       "clobStatus": null,
-      "oracleQuestionId": null
+      "oracleQuestionId": null,
+      "intervalSec": null
     },
     {
       "marketId": "curated-military-strike",
@@ -59,7 +63,8 @@
       "summary": "The outcome is produced by an institutional decision, which widens the circle of people who know it early.",
       "expiry": null,
       "clobStatus": null,
-      "oracleQuestionId": null
+      "oracleQuestionId": null,
+      "intervalSec": null
     },
     {
       "marketId": "curated-bill-passage",
@@ -71,7 +76,8 @@
       "summary": "The outcome is produced by an institutional decision, which widens the circle of people who know it early.",
       "expiry": null,
       "clobStatus": null,
-      "oracleQuestionId": null
+      "oracleQuestionId": null,
+      "intervalSec": null
     },
     {
       "marketId": "curated-protocol-upgrade",
@@ -83,7 +89,8 @@
       "summary": "The outcome is produced by an institutional decision, which widens the circle of people who know it early.",
       "expiry": null,
       "clobStatus": null,
-      "oracleQuestionId": null
+      "oracleQuestionId": null,
+      "intervalSec": null
     },
     {
       "marketId": "curated-company-layoffs",
@@ -95,7 +102,8 @@
       "summary": "The outcome is produced by an institutional decision, which widens the circle of people who know it early.",
       "expiry": null,
       "clobStatus": null,
-      "oracleQuestionId": null
+      "oracleQuestionId": null,
+      "intervalSec": null
     },
     {
       "marketId": "curated-earnings-beat",
@@ -107,7 +115,8 @@
       "summary": "The outcome is produced by an institutional decision, which widens the circle of people who know it early.",
       "expiry": null,
       "clobStatus": null,
-      "oracleQuestionId": null
+      "oracleQuestionId": null,
+      "intervalSec": null
     },
     {
       "marketId": "curated-court-ruling",
@@ -119,7 +128,8 @@
       "summary": "The outcome is produced by an institutional decision, which widens the circle of people who know it early.",
       "expiry": null,
       "clobStatus": null,
-      "oracleQuestionId": null
+      "oracleQuestionId": null,
+      "intervalSec": null
     },
     {
       "marketId": "curated-fed-rate-cut",
@@ -131,7 +141,8 @@
       "summary": "The outcome is produced by an institutional decision, which widens the circle of people who know it early.",
       "expiry": null,
       "clobStatus": null,
-      "oracleQuestionId": null
+      "oracleQuestionId": null,
+      "intervalSec": null
     },
     {
       "marketId": "curated-award-show",
@@ -143,7 +154,8 @@
       "summary": "The outcome is produced by an institutional decision, which widens the circle of people who know it early.",
       "expiry": null,
       "clobStatus": null,
-      "oracleQuestionId": null
+      "oracleQuestionId": null,
+      "intervalSec": null
     },
     {
       "marketId": "curated-football-match",
@@ -155,7 +167,8 @@
       "summary": "The outcome is decided by collective public behavior.",
       "expiry": null,
       "clobStatus": null,
-      "oracleQuestionId": null
+      "oracleQuestionId": null,
+      "intervalSec": null
     },
     {
       "marketId": "curated-election-winner",
@@ -167,7 +180,8 @@
       "summary": "No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.",
       "expiry": null,
       "clobStatus": null,
-      "oracleQuestionId": null
+      "oracleQuestionId": null,
+      "intervalSec": null
     },
     {
       "marketId": "curated-cpi-above-3",
@@ -179,7 +193,8 @@
       "summary": "No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.",
       "expiry": null,
       "clobStatus": null,
-      "oracleQuestionId": null
+      "oracleQuestionId": null,
+      "intervalSec": null
     },
     {
       "marketId": "0x0000000000000000000000000000000000000000000000000000000000004746",
@@ -191,7 +206,8 @@
       "summary": "No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.",
       "expiry": "2026-08-21T00:00:00.000Z",
       "clobStatus": "Trading",
-      "oracleQuestionId": "43529"
+      "oracleQuestionId": "43529",
+      "intervalSec": "86400"
     },
     {
       "marketId": "0x0000000000000000000000000000000000000000000000000000000000004747",
@@ -203,7 +219,8 @@
       "summary": "No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.",
       "expiry": "2026-08-21T00:00:00.000Z",
       "clobStatus": "Trading",
-      "oracleQuestionId": "43530"
+      "oracleQuestionId": "43530",
+      "intervalSec": "86400"
     },
     {
       "marketId": "0x0000000000000000000000000000000000000000000000000000000000004748",
@@ -215,7 +232,8 @@
       "summary": "No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.",
       "expiry": "2026-08-20T04:00:00.000Z",
       "clobStatus": "Trading",
-      "oracleQuestionId": "43531"
+      "oracleQuestionId": "43531",
+      "intervalSec": "14400"
     },
     {
       "marketId": "0x0000000000000000000000000000000000000000000000000000000000004749",
@@ -227,7 +245,8 @@
       "summary": "No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.",
       "expiry": "2026-08-20T04:00:00.000Z",
       "clobStatus": "Trading",
-      "oracleQuestionId": "43532"
+      "oracleQuestionId": "43532",
+      "intervalSec": "14400"
     },
     {
       "marketId": "0x000000000000000000000000000000000000000000000000000000000000475e",
@@ -239,7 +258,8 @@
       "summary": "No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.",
       "expiry": "2026-08-20T03:00:00.000Z",
       "clobStatus": "Trading",
-      "oracleQuestionId": "43557"
+      "oracleQuestionId": "43557",
+      "intervalSec": "3600"
     },
     {
       "marketId": "0x000000000000000000000000000000000000000000000000000000000000475f",
@@ -251,31 +271,34 @@
       "summary": "No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.",
       "expiry": "2026-08-20T03:00:00.000Z",
       "clobStatus": "Trading",
-      "oracleQuestionId": "43558"
+      "oracleQuestionId": "43558",
+      "intervalSec": "3600"
     },
     {
-      "marketId": "0x0000000000000000000000000000000000000000000000000000000000004760",
+      "marketId": "0x0000000000000000000000000000000000000000000000000000000000004762",
       "question": "BTC closes at or above its opening price",
       "source": "dreamdex_testnet",
       "overallScore": 3,
       "band": "low",
       "circuitBreaker": null,
       "summary": "No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.",
-      "expiry": "2026-08-20T02:15:00.000Z",
+      "expiry": "2026-08-20T02:30:00.000Z",
       "clobStatus": "Trading",
-      "oracleQuestionId": "43559"
+      "oracleQuestionId": "43562",
+      "intervalSec": "900"
     },
     {
-      "marketId": "0x0000000000000000000000000000000000000000000000000000000000004761",
+      "marketId": "0x0000000000000000000000000000000000000000000000000000000000004763",
       "question": "ETH closes at or above its opening price",
       "source": "dreamdex_testnet",
       "overallScore": 3,
       "band": "low",
       "circuitBreaker": null,
       "summary": "No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.",
-      "expiry": "2026-08-20T02:15:00.000Z",
+      "expiry": "2026-08-20T02:30:00.000Z",
       "clobStatus": "Trading",
-      "oracleQuestionId": "43560"
+      "oracleQuestionId": "43563",
+      "intervalSec": "900"
     },
     {
       "marketId": "curated-btc-120k",
@@ -287,7 +310,8 @@
       "summary": "No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.",
       "expiry": null,
       "clobStatus": null,
-      "oracleQuestionId": null
+      "oracleQuestionId": null,
+      "intervalSec": null
     }
   ]
 }

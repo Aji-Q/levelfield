@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-award-show",
+  "classifier": "independent-run-C (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "Winners are determined by secret ballot of the Meridian Film Academy's voting membership and tabulated by an independent accounting firm under a sealed-envelope process",
+      "reasoning": "The winner is decided by a formal internal vote of a bounded professional organization (the Academy) tabulated under a controlled process, which is closer to an institutional formal-action decision than mass public voting.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 2,
+      "levelLabel": "embargoed_few",
+      "evidenceQuote": "results are not disclosed to anyone, including Academy leadership, before the on-air announcement",
+      "reasoning": "Only the tabulating accounting firm holds the result before broadcast, under an explicit sealed-envelope access-control regime, matching a small embargoed group.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 3,
+      "levelLabel": "policy_only",
+      "evidenceQuote": "tabulated by an independent accounting firm under a sealed-envelope process",
+      "reasoning": "On an unspecified/offshore venue, the accounting-firm knowers are constrained only by their contractual confidentiality obligations, not by any named law covering this trade.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 2,
+      "levelLabel": "official_roughly_scheduled",
+      "evidenceQuote": "announced live during the broadcast of the 2027 Meridian Film Awards ceremony, scheduled for February 28, 2027",
+      "reasoning": "The ceremony date is fixed and the result is simultaneous once revealed, but the exact announcement moment within the multi-hour broadcast is only approximately known, not minute-precise.",
+      "confidence": "low",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 2,
+      "levelLabel": "prohibitively_costly",
+      "evidenceQuote": "secret ballot of the Meridian Film Academy's voting membership",
+      "reasoning": "Swinging a secret ballot of an entire voting membership to manufacture a specific winner would require corrupting a large, undefined number of voters, a cost that dwarfs any plausible bet.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-fed-rate-cut",
+  "classifier": "independent-run-C (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "the Federal Open Market Committee's policy decision announced at the conclusion of its September 2026 meeting",
+      "reasoning": "The rate decision is a formal vote of a bounded policy committee.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "the Federal Open Market Committee's policy decision",
+      "reasoning": "FOMC voting and non-voting participants plus supporting Federal Reserve staff who prepare the meeting materials constitute a department-sized group who effectively know the decision before the public statement.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 2,
+      "levelLabel": "prohibited_weakly_enforced",
+      "evidenceQuote": "the Federal Reserve's website",
+      "reasoning": "The Federal Reserve enforces a specific, real trading-restriction regime on FOMC participants, but whether it clearly covers trading this offshore, unspecified-venue event contract is novel and untested.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "per the official statement released at 2:00 PM ET on the Federal Reserve's website",
+      "reasoning": "The FOMC statement has a fixed, pre-announced release time on an official channel that everyone learns simultaneously.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "the Federal Open Market Committee's policy decision announced at the conclusion of its September 2026 meeting",
+      "reasoning": "Manufacturing a rate cut requires steering the vote of multiple committee members, a multiparty coordination problem.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-company-layoffs",
+  "classifier": "independent-run-B (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "Will Acme Corp publicly announce layoffs affecting 5% or more of its workforce",
+      "reasoning": "The outcome is a formal corporate action, an announced reduction in force, decided by the company as an institution.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "official public communications by Acme Corp: press releases, SEC filings, or statements by named executives",
+      "reasoning": "A reduction-in-force decision of this scale is typically planned by an internal group spanning executives, HR, legal, and finance well before the public announcement, matching the layoff-planning anchor.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 3,
+      "levelLabel": "policy_only",
+      "evidenceQuote": "Leaks or anonymous reports do not count until officially confirmed.",
+      "reasoning": "The internal planners are bound only by employer confidentiality obligations, with no specific law clearly covering trading this prediction contract on an unspecified venue, closely matching the Google 'Year in Search' insider anchor.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 3,
+      "levelLabel": "official_unscheduled",
+      "evidenceQuote": "Acme Corp officially announces a reduction in force affecting at least 5% of its global workforce",
+      "reasoning": "There is an official disclosure channel but no fixed date; the company announces at its own convenience before the close deadline.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 4,
+      "levelLabel": "small_group",
+      "evidenceQuote": "statements by named executives",
+      "reasoning": "A small group of executives can accelerate, delay, or otherwise time the layoff announcement to produce the outcome.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

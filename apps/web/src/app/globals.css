@@ -152,6 +152,59 @@ p {
   margin: -0.5rem 0 1.25rem;
 }
 
+/* ---- landing narrative frame + comparison card ---- */
+
+.landing-frame {
+  max-width: 62ch;
+  color: var(--fg-dim);
+  font-size: 0.92rem;
+  margin: 0 0 1.75rem;
+}
+
+.comparison-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0 0 2.5rem;
+}
+
+.comparison-card {
+  flex: 1 1 240px;
+  display: block;
+  border: 1px solid var(--border);
+  padding: 1rem 1.15rem;
+  color: inherit;
+}
+
+.comparison-card:hover {
+  text-decoration: none;
+  border-color: var(--accent);
+}
+
+.comparison-card:hover .comparison-card-question {
+  color: var(--accent);
+}
+
+.comparison-card-score {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 0.4rem;
+}
+
+.comparison-card-score strong {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--fg);
+}
+
+.comparison-card-question {
+  font-size: 0.92rem;
+  color: var(--fg);
+}
+
 /* ---- markets list ---- */
 
 .market-list {
@@ -210,6 +263,17 @@ p {
 .market-summary {
   margin-top: 0.3rem;
   font-size: 0.9rem;
+  color: var(--fg-faint);
+}
+
+.market-onchain-facts {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.9rem;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.78rem;
   color: var(--fg-faint);
 }
 
@@ -274,6 +338,13 @@ p {
   color: var(--fg-faint);
 }
 
+/* An opaque contract (>= 3 dimensions insufficient_info) suppresses the numeral rather
+   than print a number the text can't support — the dash reads as "unresolved", not "zero"
+   or "low" (docs/review-2026-08-20.md §3.3). */
+.score-numeral--undeterminable {
+  color: var(--fg-faint);
+}
+
 .score-band-word {
   font-size: 1.25rem;
 }
@@ -312,6 +383,51 @@ p {
   display: inline-block;
   margin-bottom: 1.5rem;
   font-size: 0.9rem;
+}
+
+/* ---- on-chain facts block (live markets only) ---- */
+
+.onchain-facts {
+  border: 1px solid var(--border);
+  padding: 1.1rem 1.25rem;
+  margin: 0 0 1.5rem;
+}
+
+.onchain-facts-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  margin-bottom: 0.75rem;
+}
+
+.onchain-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.7rem 1.5rem;
+  margin: 0 0 1rem;
+}
+
+.onchain-facts-grid dt {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--fg-faint);
+  margin-bottom: 0.15rem;
+}
+
+.onchain-facts-grid dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-size: 0.88rem;
+  color: var(--fg);
+}
+
+.onchain-facts .oracle-link {
+  margin-bottom: 0;
 }
 
 /* ---- dimension accordion ---- */

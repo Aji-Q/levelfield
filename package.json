@@ -14,10 +14,15 @@
     "probe": "tsx scripts/probe-dreamdex.ts",
     "mcp": "tsx packages/mcp/src/server.ts",
     "score:all": "tsx scripts/score-all.ts",
+    "sdk:crosscheck": "tsx scripts/sdk-crosscheck.ts",
     "demo:agent": "tsx scripts/agent-demo.ts",
     "validate": "tsx scripts/validate.ts",
     "registry:deploy": "tsx scripts/deploy-registry.ts",
     "registry:publish": "tsx scripts/publish-scores.ts"
+  },
+  "dependencies": {
+    "@somnia-chain/markets-sdk": "^0.27.0",
+    "viem": "^2.55.19"
   },
   "devDependencies": {
     "tsx": "^4.19.0",

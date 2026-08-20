@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-ceo-resignation",
+  "classifier": "independent-run-C (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 5,
+      "levelLabel": "individual_will",
+      "evidenceQuote": "whether by voluntary resignation, board-initiated removal, or mutual separation",
+      "reasoning": "One resolution path is the CEO's own voluntary resignation, a purely discretionary unilateral act, which is the most concentrated locus of control available in the contract's structure even though board removal is also possible.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "as disclosed in an official company announcement or SEC Form 8-K filing",
+      "reasoning": "Preparing a formal 8-K filing or press release about a CEO departure typically involves the board, legal counsel, and communications staff before public disclosure, a planning-group-sized circle.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 3,
+      "levelLabel": "policy_only",
+      "evidenceQuote": "as disclosed in an official company announcement or SEC Form 8-K filing",
+      "reasoning": "On an unspecified/offshore venue, corporate insiders here are bound only by employer confidentiality obligations, with no law specifically covering trading this event contract, matching the policy_only archetype.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 3,
+      "levelLabel": "official_unscheduled",
+      "evidenceQuote": "Halstead Dynamics files an SEC Form 8-K or issues a press release confirming that the current CEO has left the CEO role",
+      "reasoning": "An official disclosure channel exists but nothing in the contract fixes or windows the timing; it fires whenever the company chooses to file or announce.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 5,
+      "levelLabel": "unilateral_cheap",
+      "evidenceQuote": "voluntary resignation",
+      "reasoning": "The CEO can unilaterally produce the YES outcome at trivial cost simply by resigning.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

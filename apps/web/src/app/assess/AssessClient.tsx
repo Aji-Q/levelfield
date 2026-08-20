@@ -12,7 +12,7 @@
 // subpaths.
 import { useState } from "react";
 import { BandWord } from "@/components/BandWord";
-import { CIRCUIT_BREAKER_EXPLANATION, weightPct } from "@/lib/format";
+import { CIRCUIT_BREAKER_EXPLANATION, humanizeLevelLabel, weightPct } from "@/lib/format";
 import { buildSummary, computeScore } from "@levelfield/scoring/engine";
 import { voteDimension } from "@levelfield/scoring/vote";
 import {
@@ -47,6 +47,11 @@ const STANDARD_CAVEATS = [
 ];
 
 const CONFIDENCE_VALUES: Confidence[] = ["high", "medium", "low"];
+
+// Mirrors market/[marketId]/page.tsx's UNDETERMINABLE_THRESHOLD (docs/review-2026-08-20.md
+// §3.3): at 3+ insufficient_info dimensions the numeric score reads as a verdict rather
+// than the absence it actually represents, so both result views suppress it the same way.
+const UNDETERMINABLE_THRESHOLD = 3;
 
 // Mirrors packages/scoring/src/anchors.ts renderContractData's exact format (tag name,
 // field labels, line order, whitespace — including the VENUE line and its default text).
@@ -189,6 +194,8 @@ export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: Ass
   const [result, setResult] = useState<AssessResult | null>(null);
 
   const contractText = renderContractData(question, description, resolutionRules);
+  const insufficientDims = result?.dimensions.filter((d) => d.insufficientInfo) ?? [];
+  const undeterminable = insufficientDims.length >= UNDETERMINABLE_THRESHOLD;
 
   async function handleCopy() {
     const task = buildClassificationTask(systemPrompt, contractText);
@@ -380,15 +387,25 @@ export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: Ass
         <>
           <h2>Result</h2>
           <div className="score-readout">
-            <span className="score-numeral">
-              {result.overallScore}
-              <small>/100</small>
-            </span>
-            <span className="score-band-word">
-              <BandWord band={result.band} />
-            </span>
+            {undeterminable ? (
+              <span className="score-numeral score-numeral--undeterminable">—</span>
+            ) : (
+              <>
+                <span className="score-numeral">
+                  {result.overallScore}
+                  <small>/100</small>
+                </span>
+                <span className="score-band-word">
+                  <BandWord band={result.band} />
+                </span>
+              </>
+            )}
           </div>
-          <p className="score-summary">{result.summary}</p>
+          <p className="score-summary">
+            {undeterminable
+              ? `Not enough contract text to assess: ${insufficientDims.map((d) => d.name).join(", ")}.`
+              : result.summary}
+          </p>
 
           {result.circuitBreaker && (
             <div className="notice">
@@ -416,7 +433,13 @@ export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: Ass
                   <span className="dimension-level">
                     {d.insufficientInfo
                       ? `insufficient info — defaulted to ${d.effectiveLevel}`
-                      : `Level ${d.level} · ${d.levelLabel}`}
+                      : d.level === null || d.levelLabel === null
+                        ? "Not determinable from contract text"
+                        : (
+                            <>
+                              Level {d.level} · <span title={d.levelLabel}>{humanizeLevelLabel(d.levelLabel)}</span>
+                            </>
+                          )}
                   </span>
                 </summary>
                 <div className="dimension-body">

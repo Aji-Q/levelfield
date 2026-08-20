@@ -56,6 +56,7 @@ export interface ScoreIndexEntry {
   expiry?: string | null;
   clobStatus?: string | null;
   oracleQuestionId?: string | null;
+  intervalSec?: string | null; // live rows only — the market window (900="15m", 3600="1h")
 }
 
 export interface ScoreIndex {

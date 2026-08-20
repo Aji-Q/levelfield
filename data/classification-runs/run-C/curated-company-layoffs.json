@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-company-layoffs",
+  "classifier": "independent-run-C (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "official public communications by Acme Corp: press releases, SEC filings, or statements by named executives",
+      "reasoning": "The outcome is produced by a formal corporate act of officially announcing layoffs, decided by the company's leadership.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "Leaks or anonymous reports do not count until officially confirmed.",
+      "reasoning": "A reduction-in-force of this scale is typically planned by a department-sized group of executives, HR, and legal staff for weeks before the official announcement, and the text itself acknowledges pre-announcement leaks can occur.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 3,
+      "levelLabel": "policy_only",
+      "evidenceQuote": "official public communications by Acme Corp: press releases, SEC filings, or statements by named executives",
+      "reasoning": "On an unspecified/offshore venue, the corporate insiders who plan the layoffs are constrained only by employer confidentiality obligations, with no law named that clearly covers trading this specific event contract.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 3,
+      "levelLabel": "official_unscheduled",
+      "evidenceQuote": "Leaks or anonymous reports do not count until officially confirmed.",
+      "reasoning": "An official confirmation channel exists but its timing is entirely at Acme Corp's convenience, with no fixed or windowed release date given.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 4,
+      "levelLabel": "small_group",
+      "evidenceQuote": "Acme Corp officially announces a reduction in force affecting at least 5% of its global workforce",
+      "reasoning": "A small group of executives can decide to execute and time the layoff announcement, matching a small-group manufacturing capability.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

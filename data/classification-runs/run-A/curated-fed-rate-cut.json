@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-fed-rate-cut",
+  "classifier": "independent-run-A (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "the Federal Open Market Committee's policy decision announced at the conclusion of its September 2026 meeting",
+      "reasoning": "The outcome is a formal vote/decision of a bounded committee.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "the Federal Open Market Committee's policy decision announced at the conclusion of its September 2026 meeting, per the official statement released at 2:00 PM ET",
+      "reasoning": "The committee's voting and non-voting participants plus supporting staff, a department/planning-group-sized circle, know the decision during the closed meeting before the 2:00 PM statement.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 3,
+      "levelLabel": "policy_only",
+      "evidenceQuote": "the Federal Open Market Committee's policy decision announced at the conclusion of its September 2026 meeting",
+      "reasoning": "D5 is level 3, so D3 is classified on the constraint facing FOMC members/staff; internal Fed ethics rules and blackout-period policies constrain them, but no specific law is stated as covering trading this event contract on an unspecified venue.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "per the official statement released at 2:00 PM ET on the Federal Reserve's website",
+      "reasoning": "The decision is released at a fixed, pre-announced time; everyone learns it simultaneously.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "the Federal Open Market Committee's policy decision",
+      "reasoning": "Steering the committee's vote requires coordination across multiple voting members.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

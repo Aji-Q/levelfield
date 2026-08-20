@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-election-winner",
+  "classifier": "independent-run-B (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 3,
+      "levelLabel": "public_collective",
+      "evidenceQuote": "the officially certified result of the November 2026 gubernatorial election in State X",
+      "reasoning": "The outcome is the aggregate of a mass electorate's votes, matching the presidential-election anchor directly.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 1,
+      "levelLabel": "none",
+      "evidenceQuote": "Candidate A is officially certified as the winner by the State X electoral authority",
+      "reasoning": "Votes are tallied and reported in real time as counted, with no formal party privately settling the result before it becomes publicly observable.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 1,
+      "levelLabel": "prohibited_enforced",
+      "evidenceQuote": "Candidate A is officially certified as the winner by the State X electoral authority",
+      "reasoning": "With no early-knowledge window (D2=1) and outcome manufacturing prohibitively costly (D5<=2), there is no insider population to constrain, per the cross-dimension rule.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 2,
+      "levelLabel": "official_roughly_scheduled",
+      "evidenceQuote": "the officially certified result of the November 2026 gubernatorial election in State X",
+      "reasoning": "There is an official certification channel with an approximately known post-election timeframe rather than one precise announcement moment.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 2,
+      "levelLabel": "prohibitively_costly",
+      "evidenceQuote": "Candidate A is officially certified as the winner by the State X electoral authority",
+      "reasoning": "Flipping a certified statewide election result would require large-scale fraud whose cost and legal risk dwarf any plausible bet size.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

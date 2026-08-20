@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-earnings-beat",
+  "classifier": "independent-run-C (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "Meridian Robotics' reported GAAP diluted EPS for Q3 2026, as stated in its official earnings press release",
+      "reasoning": "GAAP EPS is produced through the company's own accounting and reporting process and formally released as a corporate act, giving management some discretion, unlike a neutral third-party statistical methodology.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "Meridian Robotics' Q3 2026 earnings release, scheduled for October 29, 2026 after market close",
+      "reasoning": "Finance, accounting, and audit teams typically finalize the actual EPS figure days or weeks before the scheduled release, a department-sized group.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 3,
+      "levelLabel": "policy_only",
+      "evidenceQuote": "Meridian Robotics reports under US GAAP and is subject to SEC quarterly reporting requirements.",
+      "reasoning": "On an unspecified/offshore venue, corporate finance insiders are bound mainly by employer confidentiality; no law is named that clearly covers trading a third-party event contract on the company's own EPS, matching the policy_only archetype.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 2,
+      "levelLabel": "official_roughly_scheduled",
+      "evidenceQuote": "Meridian Robotics' Q3 2026 earnings release, scheduled for October 29, 2026 after market close",
+      "reasoning": "The earnings release falls within a scheduled reporting date and general time window, but not a minute-precise fixed release like a government data drop.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 4,
+      "levelLabel": "small_group",
+      "evidenceQuote": "Meridian Robotics' reported GAAP diluted EPS for Q3 2026, as stated in its official earnings press release",
+      "reasoning": "A small group of finance executives has some latitude within GAAP to manage the timing or presentation of earnings, giving them limited ability to shape the reported figure.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

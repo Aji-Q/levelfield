@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-bill-passage",
+  "classifier": "independent-run-A (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "final passage of the Continental Infrastructure Modernization Act (Assembly Bill 214) by both the House of Representatives and the Senate of the Federal Assembly of Vantia, as recorded in the official Assembly voting records",
+      "reasoning": "The outcome is a formal vote by bounded legislative bodies (both chambers), a textbook institutional decision.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "The bill passed committee markup in the House on July 22, 2026 and is pending scheduling for a floor vote in both chambers",
+      "reasoning": "Committee markup and whip-count processes typically give a planning-group-sized circle of committee members, party leadership, and staff visibility into the likely vote outcome before the floor vote; this is genuinely close to the larger multi-chamber population, so it could arguably run higher.",
+      "confidence": "low",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "the Federal Assembly of Vantia",
+      "reasoning": "Legislators and staff of a foreign assembly trading an unspecified/offshore event contract on their own chamber's vote are not clearly reached by any stated law; this matches the offshore-foreign-official default.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 3,
+      "levelLabel": "official_unscheduled",
+      "evidenceQuote": "is pending scheduling for a floor vote in both chambers",
+      "reasoning": "The official channel (Assembly voting record) is named, but the floor vote's timing is not fixed and depends on when the chambers choose to schedule it.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "by both the House of Representatives and the Senate of the Federal Assembly of Vantia",
+      "reasoning": "Producing passage requires coordinating votes across many legislators in two chambers, a classic multiparty institutional-steering problem.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

@@ -77,6 +77,10 @@ const ScoreClassificationInput = {
   resolution_rules: z.string(),
   close_time: z.string().optional(),
   market_id: z.string().optional(),
+  // sha256 of get_assessment_protocol's prompt + anchor library version, echoed back
+  // by a compliant host so the server can tell whether the protocol it classified
+  // against is still current. Optional for backward compatibility (see below).
+  protocol_token: z.string().optional(),
   classifications: ClassificationsShape,
   instruction_like_content_detected: z.boolean().optional(),
 };
@@ -107,6 +111,7 @@ mcpServer.registerTool(
       "Returns the LevelField classification prompt, the contract-data template, and the classification " +
       "JSON shape. The CALLER's own model reads this and performs the classification itself — this server " +
       "has no model. Once you have a classification, call score_classification with it to get the score.",
+    annotations: { readOnlyHint: true },
   },
   async () => {
     const contractTemplate = renderContractData({
@@ -132,6 +137,14 @@ yourself against the anchor levels below, then call the score_classification too
 your classification. score_classification mechanically verifies every evidence_quote and
 computes the score; it does not re-classify anything.
 
+PROTOCOL TOKEN: ${promptVersion}
+Pass this exact string back as protocol_token on your score_classification call. It is a
+sha256 of this prompt + anchor library v${lib.version}, so it proves you classified against
+THIS version. If the anchor library changes before your score_classification call, the
+token stops matching and score_classification rejects the call, telling you to re-fetch
+this tool. protocol_token is optional (omitting it is accepted for backward compatibility)
+but strongly recommended.
+
 STEP 1 — read this system prompt and classify the contract:
 -------------------------------------------------------------------
 ${systemPrompt}
@@ -142,8 +155,8 @@ placeholders; CLOSE TIME is omitted entirely when the contract has no close time
 ${contractTemplate}
 
 STEP 3 — produce exactly this classification JSON shape, then call score_classification
-with { question, description, resolution_rules, close_time?, market_id?, classifications,
-instruction_like_content_detected? }:
+with { question, description, resolution_rules, close_time?, market_id?, protocol_token?,
+classifications, instruction_like_content_detected? } (protocol_token: see above):
 -------------------------------------------------------------------
 ${outputShape}
 
@@ -163,10 +176,32 @@ mcpServer.registerTool(
     description:
       "Verifies evidence quotes against the contract text and computes the deterministic LevelField score " +
       "from a five-dimension classification produced per get_assessment_protocol. Single-run (runs: 1); a " +
-      "host wanting vote-stability can classify 3x and submit its own majority.",
+      "host wanting vote-stability can classify 3x and submit its own majority. Accepts an optional " +
+      "protocol_token (from get_assessment_protocol) proving the classification was made against the " +
+      "current anchor library; a stale/mismatched token is rejected with a structured error.",
     inputSchema: ScoreClassificationInput,
+    annotations: { readOnlyHint: true },
   },
   async (args) => {
+    if (args.protocol_token !== undefined && args.protocol_token !== promptVersion) {
+      return textResult(
+        JSON.stringify(
+          {
+            error: "protocol_token_stale",
+            message:
+              "protocol_token does not match this server's current assessment protocol (anchor library " +
+              `v${lib.version}). The protocol you classified against is stale. Not scored. Call ` +
+              "get_assessment_protocol again to fetch the current prompt and anchor levels, re-classify, and retry.",
+            expectedProtocolToken: promptVersion,
+            receivedProtocolToken: args.protocol_token,
+          },
+          null,
+          2,
+        ),
+        true,
+      );
+    }
+
     const contract = {
       question: args.question,
       description: args.description,
@@ -266,7 +301,11 @@ mcpServer.registerTool(
       },
     };
 
-    return textResult(JSON.stringify(result, null, 2));
+    // Top-level, not under metadata: whether the caller proved (via protocol_token) that
+    // this classification was made against the current anchor library. false just means
+    // "not checked" (the caller omitted protocol_token) — it does not mean the
+    // classification is wrong, only that promptVersion above is unverified for this call.
+    return textResult(JSON.stringify({ ...result, protocol_token_checked: args.protocol_token !== undefined }, null, 2));
   },
 );
 
@@ -275,6 +314,7 @@ mcpServer.registerTool(
   {
     title: "List the anchor library",
     description: "Returns the full parsed anchor library (dimensions, levels, weights, bands, circuit breakers) as JSON.",
+    annotations: { readOnlyHint: true },
   },
   async () => textResult(JSON.stringify(lib, null, 2)),
 );
@@ -344,6 +384,7 @@ mcpServer.registerTool(
       band: z.enum(["low", "moderate", "elevated", "high"]).optional(),
       source: z.enum(["dreamdex_testnet", "curated"]).optional(),
     },
+    annotations: { readOnlyHint: true },
   },
   async (args) => {
     let raw: string;
@@ -377,6 +418,7 @@ mcpServer.registerTool(
       "contract text and instructions to run the get_assessment_protocol / score_classification two-step " +
       "protocol yourself; (4) else report the market as not found.",
     inputSchema: { market_id: z.string() },
+    annotations: { readOnlyHint: true },
   },
   async (args) => {
     const marketId = args.market_id;

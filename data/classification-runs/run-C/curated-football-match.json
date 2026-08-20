@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-football-match",
+  "classifier": "independent-run-C (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 3,
+      "levelLabel": "public_collective",
+      "evidenceQuote": "the final result of the Matchday 8 fixture between Club Alpha and Club Bravo in the Continental Premier League",
+      "reasoning": "The outcome is a live competitive contest between independent teams that no single participant controls.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 1,
+      "levelLabel": "none",
+      "evidenceQuote": "Club Alpha is recorded as the winner at the final whistle of the full 90 minutes plus stoppage time",
+      "reasoning": "The result is decided live in a publicly witnessed match, so it becomes known to everyone at the moment it is produced.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 3,
+      "levelLabel": "policy_only",
+      "evidenceQuote": "the official match result published by the Continental Premier League on its results portal",
+      "reasoning": "Any party positioned to fix the match (players, officials) is bound mainly by league rules and playing contracts, a policy-only constraint on an unspecified offshore venue.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "scheduled to kick off at 15:00 local time on October 4, 2026 at Alpha Park",
+      "reasoning": "The match has a fixed, pre-announced kickoff time and the result is disclosed to everyone simultaneously at the final whistle.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "the official match result published by the Continental Premier League on its results portal, including any additions for stoppage time",
+      "reasoning": "Manufacturing a specific match result (match-fixing) requires coordinating multiple players or officials, not a single unilateral actor.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

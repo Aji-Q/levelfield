@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-presidential-pardon",
+  "classifier": "independent-run-B (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 5,
+      "levelLabel": "individual_will",
+      "evidenceQuote": "the pardon power is vested solely in the President and requires no legislative or judicial approval",
+      "reasoning": "The outcome is a unilateral official act that one person, the President, alone can perform, directly matching the pardon anchor.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 3,
+      "levelLabel": "handful",
+      "evidenceQuote": "the pardon power is vested solely in the President",
+      "reasoning": "The President knows their own intent before signing, and since no other body's approval is required, only the President's immediate staff/advisors would know in advance, matching the decision-maker-and-immediate-circle anchor.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 5,
+      "levelLabel": "unconstrained",
+      "evidenceQuote": "requires no legislative or judicial approval",
+      "reasoning": "Nothing in the contract constrains the President, who holds sole and unreviewable power over the outcome, from trading on their own foreknowledge.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 5,
+      "levelLabel": "discloser_controlled",
+      "evidenceQuote": "the President signs, and the Vantian Official Gazette publishes, a pardon, full commutation, or equivalent grant of clemency",
+      "reasoning": "The President, a party with sole control over the outcome, also controls exactly when the pardon is signed and published.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 5,
+      "levelLabel": "unilateral_cheap",
+      "evidenceQuote": "the pardon power is vested solely in the President and requires no legislative or judicial approval",
+      "reasoning": "A pardon is a unilateral act the President can produce at trivial cost, requiring no other party's consent.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

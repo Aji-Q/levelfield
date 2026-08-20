@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-celebrity-breakup",
+  "classifier": "independent-run-A (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 5,
+      "levelLabel": "individual_will",
+      "evidenceQuote": "a public statement by Celebrity Z or their verified representatives, on any platform, announcing the end of their current relationship",
+      "reasoning": "The outcome is entirely Celebrity Z's discretionary personal choice to announce or not.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 3,
+      "levelLabel": "handful",
+      "evidenceQuote": "a public statement by Celebrity Z or their verified representatives",
+      "reasoning": "Per the individual-will floor, D2 is at least level 3; the decision is known to the celebrity and a small circle of confidants/representatives before any public statement.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 5,
+      "levelLabel": "unconstrained",
+      "evidenceQuote": "Celebrity Z or their verified representatives",
+      "reasoning": "D5 is level 5 (unilateral, trivial-cost), so D3 is classified on the constraint facing Celebrity Z; nothing in the contract or general law bars a private individual from trading on the timing of their own personal announcement.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 5,
+      "levelLabel": "discloser_controlled",
+      "evidenceQuote": "a public statement by Celebrity Z or their verified representatives, on any platform, announcing the end of their current relationship",
+      "reasoning": "Celebrity Z (a party with a direct stake in the outcome) controls when and whether to make the announcement, on any platform of their choosing.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 5,
+      "levelLabel": "unilateral_cheap",
+      "evidenceQuote": "Celebrity Z or their verified representatives, on any platform, announcing the end of their current relationship",
+      "reasoning": "Celebrity Z can unilaterally produce the YES outcome at trivial cost simply by making a public statement.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

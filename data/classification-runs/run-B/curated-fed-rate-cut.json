@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-fed-rate-cut",
+  "classifier": "independent-run-B (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "the Federal Open Market Committee's policy decision announced at the conclusion of its September 2026 meeting",
+      "reasoning": "The outcome is a formal vote/decision of an institutional committee, directly matching the FOMC anchor.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "the Federal Open Market Committee's policy decision announced at the conclusion of its September 2026 meeting",
+      "reasoning": "Committee members and supporting staff deliberate over the two-day meeting and know the decision before the 2:00 PM release, a planning-group-sized circle.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 2,
+      "levelLabel": "prohibited_weakly_enforced",
+      "evidenceQuote": "per the official statement released at 2:00 PM ET on the Federal Reserve's website",
+      "reasoning": "Fed officials face a clear internal trading-restriction policy with an enforcement track record, but applying it to betting on an offshore prediction contract about the decision itself, rather than personal securities, is comparatively novel.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "per the official statement released at 2:00 PM ET on the Federal Reserve's website",
+      "reasoning": "The decision is released at a fixed, pre-announced time, matching the FOMC-statement anchor exactly.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "the target range announced in the September 2026 FOMC statement is lower than the range in effect immediately before the meeting",
+      "reasoning": "Steering the FOMC's decision would require coordinating multiple committee members, matching the institutional-decision-steering anchor.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

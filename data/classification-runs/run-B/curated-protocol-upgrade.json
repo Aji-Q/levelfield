@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-protocol-upgrade",
+  "classifier": "independent-run-B (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 3,
+      "levelLabel": "public_collective",
+      "evidenceQuote": "a supermajority of Solendra mainnet validators, as measured by the protocol's own on-chain signaling mechanism, have upgraded to a fork-compatible client",
+      "reasoning": "Activation ultimately depends on the aggregate, independent choice of many mainnet validators to upgrade, which no single participant controls, though the core development team's role in producing the client is a genuinely close alternative reading.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 3,
+      "levelLabel": "handful",
+      "evidenceQuote": "Resolves NO if activation is formally postponed past November 30, 2026 by a published Solendra Core announcement",
+      "reasoning": "The core development team's leadership would know of a decision to postpone before it is publicly announced, forming a small early-knowledge circle, even though most of the development process happens in a public repository.",
+      "confidence": "low",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "the Solendra Core development team successfully activates the 'Aurora' hard fork",
+      "reasoning": "Core developers and large validators operate in the largely unregulated crypto-governance space, where project policies may exist on paper but plausibly do not reach trading a prediction contract on an unspecified venue.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 3,
+      "levelLabel": "official_unscheduled",
+      "evidenceQuote": "activation is formally postponed past November 30, 2026 by a published Solendra Core announcement",
+      "reasoning": "There is an official announcement channel, but the contract itself allows the core team to postpone activation at its own convenience.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 4,
+      "levelLabel": "small_group",
+      "evidenceQuote": "the Solendra Core development team successfully activates the 'Aurora' hard fork on the Solendra mainnet",
+      "reasoning": "Because most validators run the reference client the core team publishes, a small group can substantially produce or time the fork's activation.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

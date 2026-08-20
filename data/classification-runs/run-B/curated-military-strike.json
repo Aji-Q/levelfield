@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-military-strike",
+  "classifier": "independent-run-B (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "Country X's armed forces conduct one or more airstrikes on territory controlled by Country Y",
+      "reasoning": "The outcome is produced by a government/military institution's decision to conduct a strike, directly matching the military-strike anchor.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 5,
+      "levelLabel": "large_or_unbounded",
+      "evidenceQuote": "Country X's armed forces conduct one or more airstrikes on territory controlled by Country Y",
+      "reasoning": "Military strikes require long operational planning chains across command, intelligence, and often allied governments, structurally matching the multi-agency military-planning anchor even though the contract itself does not detail the chain.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "an official statement from either government",
+      "reasoning": "Foreign government and military officials with early knowledge are the classic offshore-prediction-market case where constraints exist on paper (classification/security rules) but plausibly do not reach trading on this unspecified venue.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 4,
+      "levelLabel": "media_diffusion",
+      "evidenceQuote": "Confirmation requires reporting by at least two of: Reuters, AP, AFP, or an official statement from either government.",
+      "reasoning": "There is no single official disclosure channel; the outcome is confirmed through progressive wire-service reporting, matching the media-diffusion anchor.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "Country X's armed forces conduct one or more airstrikes on territory controlled by Country Y",
+      "reasoning": "Ordering and carrying out a strike requires coordination across multiple parties within a government and military chain of command.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-presidential-pardon",
+  "classifier": "independent-run-C (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 5,
+      "levelLabel": "individual_will",
+      "evidenceQuote": "the pardon power is vested solely in the President and requires no legislative or judicial approval",
+      "reasoning": "The pardon is explicitly a unilateral official act that one person alone can perform.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 3,
+      "levelLabel": "handful",
+      "evidenceQuote": "the pardon power is vested solely in the President and requires no legislative or judicial approval",
+      "reasoning": "As an individual-will outcome the President already knows the decision before publication; the text emphasizes sole discretion with no legislative or judicial body involved, implying only the President and immediate staff know beforehand.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "the President of the Republic of Vantia",
+      "reasoning": "Anti-corruption or conflict-of-interest law arguably exists on paper for a head of state profiting from an official act, but it plausibly does not reach a sitting foreign president trading on an unspecified offshore venue.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 5,
+      "levelLabel": "discloser_controlled",
+      "evidenceQuote": "the President signs, and the Vantian Official Gazette publishes, a pardon, full commutation, or equivalent grant of clemency covering Renata Kessler's conviction before 23:59 local time on January 20, 2027",
+      "reasoning": "Publication timing is entirely at the discretion of the President, the same party who produces the outcome.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 5,
+      "levelLabel": "unilateral_cheap",
+      "evidenceQuote": "the pardon power is vested solely in the President and requires no legislative or judicial approval",
+      "reasoning": "The President can produce the outcome unilaterally and at trivial cost by simply signing.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

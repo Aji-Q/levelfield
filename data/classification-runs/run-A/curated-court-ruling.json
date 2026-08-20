@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-court-ruling",
+  "classifier": "independent-run-A (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "a three-judge panel of the Continental Circuit Court of Appeals",
+      "reasoning": "The outcome is a judicial ruling produced by a bounded panel through formal decision, matching institutional_decision's own definition of a ruling.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 3,
+      "levelLabel": "handful",
+      "evidenceQuote": "The court has not announced a target date for its opinion, consistent with its ordinary practice of releasing opinions without advance scheduling",
+      "reasoning": "Before publication, the outcome is known only to the three judges and their immediate chambers staff, with no formal embargo/lockup regime described; this could plausibly be argued up to a dozens-sized circle across all three chambers.",
+      "confidence": "low",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 2,
+      "levelLabel": "prohibited_weakly_enforced",
+      "evidenceQuote": "a three-judge panel of the Continental Circuit Court of Appeals",
+      "reasoning": "D5 is level 3, so D3 is classified on the constraint facing the judges who could shape the ruling; judicial corruption/conflict-of-interest law clearly prohibits a judge profiting from their own case, though enforcement specifically against trading an offshore event contract on one's own ruling would be novel.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 3,
+      "levelLabel": "official_unscheduled",
+      "evidenceQuote": "The court has not announced a target date for its opinion, consistent with its ordinary practice of releasing opinions without advance scheduling",
+      "reasoning": "The court's opinion is an official channel but its release timing is entirely at the court's own convenience with no schedule.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "a three-judge panel of the Continental Circuit Court of Appeals",
+      "reasoning": "Steering the ruling requires influencing a majority of a three-judge panel, a multiparty coordination problem.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

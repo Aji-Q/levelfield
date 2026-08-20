@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadAnchors } from "../src/anchors.js";
-import { WEIGHTS, bandFor, computeScore } from "../src/engine.js";
+import { WEIGHTS, bandFor, buildSummary, computeScore } from "../src/engine.js";
 import type { DimensionId, Level, VotedDimension } from "../src/types.js";
 import { DIMENSION_IDS } from "../src/types.js";
 
@@ -125,6 +125,28 @@ describe("graduated circuit-breaker floors", () => {
     const out = computeScore(voted({ D1: 3, D2: 1, D3: 1, D4: 1, D5: 5 }), lib);
     expect(out.circuitBreaker).toBe("CB-2");
     expect(out.overallScore).toBe(85);
+  });
+});
+
+describe("buildSummary", () => {
+  it("low band with an elevated dimension names it instead of the generic sentence", () => {
+    // D1 D3 D4 D5 all level 1, D2 level 5: raw = 0.2 * 1 = 0.2 -> 20 (low), no circuit
+    // breaker (CB-1 needs D1=5, CB-2 needs D5=5) — the generic low-band sentence would
+    // contradict a reader looking at D2's own accordion row.
+    const out = computeScore(voted({ D1: 1, D2: 5, D3: 1, D4: 1, D5: 1 }), lib);
+    expect(out.band).toBe("low");
+    expect(out.circuitBreaker).toBeNull();
+    expect(buildSummary(out)).toBe(
+      "Overall structural risk is low, though Knowledge Circle is elevated — see the dimension detail.",
+    );
+  });
+
+  it("low band with no elevated dimension keeps the generic sentence", () => {
+    const out = computeScore(voted({ D1: 2, D2: 2, D3: 2, D4: 1, D5: 1 }), lib);
+    expect(out.band).toBe("low");
+    expect(buildSummary(out)).toBe(
+      "No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.",
+    );
   });
 });
 

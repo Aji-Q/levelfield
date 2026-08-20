@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-protocol-upgrade",
+  "classifier": "independent-run-A (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "whether the Solendra Core development team successfully activates the 'Aurora' hard fork on the Solendra mainnet",
+      "reasoning": "The description frames this as an act the bounded Solendra Core development team performs, but the resolution rules actually require a supermajority of many independent validators to adopt the fork, which is closer to a public/aggregate process; this genuine tension is resolved to the higher (institutional) level.",
+      "confidence": "low",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 1,
+      "levelLabel": "none",
+      "evidenceQuote": "measured by the protocol's own on-chain signaling mechanism",
+      "reasoning": "Development happens in a fully public repository and proposal process, and activation is measured by public on-chain validator signaling, so the outcome becomes visible to everyone as it is produced rather than being known early by an identifiable circle.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "the Solendra Core development team",
+      "reasoning": "D5 is level 3, so D3 is classified on the constraint facing the development team/coordinating validators; whether any securities or market law reaches trading on protocol-governance decisions is a well-known regulatory gray area, matching the ambiguous default.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 2,
+      "levelLabel": "official_roughly_scheduled",
+      "evidenceQuote": "targeted for mid-November 2026 per Solendra Improvement Proposal SIP-47",
+      "reasoning": "The activation is tied to a specific block height with a publicly targeted approximate window, but the exact timing depends on real-world block production and validator adoption.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "a supermajority of Solendra mainnet validators, as measured by the protocol's own on-chain signaling mechanism, have upgraded to a fork-compatible client",
+      "reasoning": "Activation requires independent adoption by a supermajority of the validator set, a multiparty coordination problem rather than something a small group can produce alone.",
+      "confidence": "low",
+      "insufficientInfo": false
+    }
+  }
+}

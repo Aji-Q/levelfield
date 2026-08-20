@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-ceo-resignation",
+  "classifier": "independent-run-A (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 5,
+      "levelLabel": "individual_will",
+      "evidenceQuote": "whether by voluntary resignation, board-initiated removal, or mutual separation",
+      "reasoning": "Because voluntary resignation alone is a sufficient path to YES, a single person (the CEO) can settle the outcome by their own discretionary act, which the classification ladder checks first; the board-removal path is a secondary, alternate route to the same outcome.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "whether by voluntary resignation, board-initiated removal, or mutual separation, as disclosed in an official company announcement or SEC Form 8-K filing",
+      "reasoning": "A CEO departure of any kind typically involves board members, legal counsel, and communications staff negotiating terms and preparing the 8-K before public disclosure, a department/planning-group-sized circle.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "board-initiated removal",
+      "reasoning": "D5 is level 5, so D3 is classified on the constraint facing the CEO/board; whether general securities or fiduciary law reaches trading an offshore event contract on one's own departure is unclear, matching the ambiguous default.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 3,
+      "levelLabel": "official_unscheduled",
+      "evidenceQuote": "as disclosed in an official company announcement or SEC Form 8-K filing",
+      "reasoning": "An official disclosure channel is named, but the contract states no fixed release time, only a close-date deadline, so the company controls when it discloses.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 5,
+      "levelLabel": "unilateral_cheap",
+      "evidenceQuote": "voluntary resignation",
+      "reasoning": "The CEO can unilaterally resign to produce the YES outcome; this is genuinely ambiguous with the small-group board-removal path, but ambiguity resolves to the higher level.",
+      "confidence": "low",
+      "insufficientInfo": false
+    }
+  }
+}

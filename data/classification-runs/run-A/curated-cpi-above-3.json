@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-cpi-above-3",
+  "classifier": "independent-run-A (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 2,
+      "levelLabel": "statistical_procedure",
+      "evidenceQuote": "the Consumer Price Index for All Urban Consumers (CPI-U), as published by the US Bureau of Labor Statistics",
+      "reasoning": "The outcome is produced by an official statistical agency following a predefined published methodology.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 2,
+      "levelLabel": "embargoed_few",
+      "evidenceQuote": "in its monthly CPI news release for August 2026, scheduled for September 2026 at 8:30 AM ET",
+      "reasoning": "BLS staff who compute the figure hold it inside a formal pre-release lockup before the 8:30 ET release.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 1,
+      "levelLabel": "prohibited_enforced",
+      "evidenceQuote": "as published by the US Bureau of Labor Statistics in its monthly CPI news release for August 2026, scheduled for September 2026 at 8:30 AM ET",
+      "reasoning": "BLS embargo data is protected by a clear, specifically enforced legal prohibition with a track record of prosecutions for premature disclosure, independently constraining the knowers regardless of trading venue.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "scheduled for September 2026 at 8:30 AM ET",
+      "reasoning": "The release occurs at a fixed, pre-announced time on an official government channel.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 1,
+      "levelLabel": "impossible",
+      "evidenceQuote": "the Consumer Price Index for All Urban Consumers (CPI-U), as published by the US Bureau of Labor Statistics",
+      "reasoning": "No party can plausibly cause national CPI to come in above 3.0%; it is a macroeconomic statistic.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

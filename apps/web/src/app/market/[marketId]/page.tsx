@@ -2,7 +2,21 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BandWord } from "@/components/BandWord";
 import { readScoreIndex, readScoreResult } from "@/lib/scores";
-import { CIRCUIT_BREAKER_EXPLANATION, ORACLE_EXPLORER_ROOT, weightPct } from "@/lib/format";
+import {
+  CIRCUIT_BREAKER_EXPLANATION,
+  ORACLE_EXPLORER_ROOT,
+  formatExpiryUtc,
+  formatRelativeToNow,
+  humanizeLevelLabel,
+  truncateMiddle,
+  weightPct,
+  windowLabel,
+} from "@/lib/format";
+
+// Review §3.3: an opaque contract (many dimensions insufficient_info) rendered a
+// numeric score that read as a verdict rather than an absence. At this threshold the
+// text-derived signal is thin enough that the number is more misleading than useful.
+const UNDETERMINABLE_THRESHOLD = 3;
 
 export function generateStaticParams() {
   const index = readScoreIndex();
@@ -22,6 +36,9 @@ export default async function MarketDetailPage({
   // not on the per-market ScoreResult — see docs/design/no-api.md.
   const indexEntry = readScoreIndex().markets.find((m) => m.marketId === marketId);
 
+  const insufficientDims = result.dimensions.filter((d) => d.insufficientInfo);
+  const undeterminable = insufficientDims.length >= UNDETERMINABLE_THRESHOLD;
+
   return (
     <>
       <div className="score-header">
@@ -30,15 +47,25 @@ export default async function MarketDetailPage({
         </Link>
         <h1>{result.question}</h1>
         <div className="score-readout">
-          <span className="score-numeral">
-            {result.overallScore}
-            <small>/100</small>
-          </span>
-          <span className="score-band-word">
-            <BandWord band={result.band} />
-          </span>
+          {undeterminable ? (
+            <span className="score-numeral score-numeral--undeterminable">—</span>
+          ) : (
+            <>
+              <span className="score-numeral">
+                {result.overallScore}
+                <small>/100</small>
+              </span>
+              <span className="score-band-word">
+                <BandWord band={result.band} />
+              </span>
+            </>
+          )}
         </div>
-        <p className="score-summary">{result.summary}</p>
+        <p className="score-summary">
+          {undeterminable
+            ? `Not enough contract text to assess: ${insufficientDims.map((d) => d.name).join(", ")}.`
+            : result.summary}
+        </p>
       </div>
 
       {result.circuitBreaker && (
@@ -57,9 +84,34 @@ export default async function MarketDetailPage({
       )}
 
       {result.source === "dreamdex_testnet" && (
-        <a className="oracle-link" href={ORACLE_EXPLORER_ROOT} target="_blank" rel="noopener noreferrer">
-          Settlement questions are publicly auditable on the Somnia oracle explorer ↗
-        </a>
+        <div className="onchain-facts">
+          <span className="onchain-facts-label">On-chain</span>
+          <dl className="onchain-facts-grid">
+            <div>
+              <dt>Market ID</dt>
+              <dd title={result.marketId}>{truncateMiddle(result.marketId)}</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd>{indexEntry?.clobStatus ?? "unknown"}</dd>
+            </div>
+            <div>
+              <dt>Expiry</dt>
+              <dd>
+                {indexEntry?.expiry
+                  ? `${formatExpiryUtc(indexEntry.expiry)} · ${formatRelativeToNow(indexEntry.expiry)}`
+                  : "unknown"}
+              </dd>
+            </div>
+            <div>
+              <dt>Window</dt>
+              <dd>{windowLabel(indexEntry?.intervalSec) ?? "unknown"}</dd>
+            </div>
+          </dl>
+          <a className="oracle-link" href={ORACLE_EXPLORER_ROOT} target="_blank" rel="noopener noreferrer">
+            Settlement questions are publicly auditable on the Somnia oracle explorer ↗
+          </a>
+        </div>
       )}
 
       <div className="dimension-list">
@@ -73,7 +125,13 @@ export default async function MarketDetailPage({
               <span className="dimension-level">
                 {d.insufficientInfo
                   ? `insufficient info — defaulted to ${d.effectiveLevel}`
-                  : `Level ${d.level} · ${d.levelLabel}`}
+                  : d.level === null || d.levelLabel === null
+                    ? "Not determinable from contract text"
+                    : (
+                        <>
+                          Level {d.level} · <span title={d.levelLabel}>{humanizeLevelLabel(d.levelLabel)}</span>
+                        </>
+                      )}
               </span>
             </summary>
             <div className="dimension-body">

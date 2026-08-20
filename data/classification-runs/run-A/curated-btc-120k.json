@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-btc-120k",
+  "classifier": "independent-run-A (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 1,
+      "levelLabel": "natural_process",
+      "evidenceQuote": "the BTC/USD closing price on Coinbase at 23:59:59 UTC on December 31, 2026",
+      "reasoning": "The outcome is a large-scale exchange market price that no single identifiable party controls.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 1,
+      "levelLabel": "none",
+      "evidenceQuote": "the Coinbase BTC-USD last traded price at 23:59:59 UTC on 2026-12-31",
+      "reasoning": "The closing price is continuously public market data; there is no window in which any party knows the close before it is produced and visible to everyone.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 1,
+      "levelLabel": "prohibited_enforced",
+      "evidenceQuote": "the BTC/USD closing price on Coinbase",
+      "reasoning": "Per the cross-dimension rule, D2 is level 1 and D5 is level 2, so no early-knowledge window and no realistic manufacturer exist to constrain.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "the BTC/USD closing price on Coinbase at 23:59:59 UTC on December 31, 2026",
+      "reasoning": "The resolution moment is a fixed, pre-announced timestamp on a public exchange; everyone observes the same price simultaneously.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 2,
+      "levelLabel": "prohibitively_costly",
+      "evidenceQuote": "the BTC/USD closing price on Coinbase",
+      "reasoning": "Moving the global BTC/USD exchange price to cross a $120,000 strike is theoretically possible but the cost dwarfs any plausible bet size.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

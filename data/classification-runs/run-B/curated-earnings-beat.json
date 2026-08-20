@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-earnings-beat",
+  "classifier": "independent-run-B (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 2,
+      "levelLabel": "statistical_procedure",
+      "evidenceQuote": "Meridian Robotics reports under US GAAP and is subject to SEC quarterly reporting requirements.",
+      "reasoning": "Reported EPS follows an audited, predefined GAAP methodology under SEC oversight, though management retains some accounting discretion that makes this a genuinely close call against a corporate-action classification.",
+      "confidence": "low",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "Meridian Robotics reports under US GAAP and is subject to SEC quarterly reporting requirements",
+      "reasoning": "Producing an audited GAAP EPS figure requires a finance/accounting department plus external auditors, a dozens-scale group that knows the result before the public release.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "subject to SEC quarterly reporting requirements",
+      "reasoning": "Insider-trading and Reg FD rules exist for material nonpublic information, but it is unclear whether they clearly reach trading an offshore prediction contract on the earnings-beat outcome rather than the company's own securities.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 2,
+      "levelLabel": "official_roughly_scheduled",
+      "evidenceQuote": "Meridian Robotics' Q3 2026 earnings release, scheduled for October 29, 2026 after market close",
+      "reasoning": "A specific earnings date is named but the release occurs at an approximate window (after market close) rather than a precise minute, matching the quarterly-earnings anchor.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 4,
+      "levelLabel": "small_group",
+      "evidenceQuote": "Meridian Robotics' reported GAAP diluted EPS for Q3 2026, as stated in its official earnings press release, is strictly greater than the FactSet consensus estimate",
+      "reasoning": "A small group of finance executives can influence whether reported EPS beats consensus through legitimate accrual timing and guidance-setting choices within GAAP.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

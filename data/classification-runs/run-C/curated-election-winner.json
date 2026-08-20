@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-election-winner",
+  "classifier": "independent-run-C (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 3,
+      "levelLabel": "public_collective",
+      "evidenceQuote": "the officially certified result of the November 2026 gubernatorial election in State X",
+      "reasoning": "The outcome is the aggregate of mass public voting; no single participant controls it.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 1,
+      "levelLabel": "none",
+      "evidenceQuote": "Candidate A is officially certified as the winner by the State X electoral authority",
+      "reasoning": "Votes in a gubernatorial election are tabulated and reported essentially live and publicly, so there is structurally no privileged early-knowledge window before the count becomes public.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "the State X electoral authority",
+      "reasoning": "Any party positioned to manufacture the certified result would be a government election official; corruption law arguably exists on paper but plausibly does not reach trading on an unspecified offshore venue.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 2,
+      "levelLabel": "official_roughly_scheduled",
+      "evidenceQuote": "If the election is postponed beyond December 31, 2026, the market resolves NO.",
+      "reasoning": "Official certification follows the election on a generally known timeline but the text itself allows for schedule slippage, so it is only roughly, not precisely, scheduled.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "Candidate A is officially certified as the winner by the State X electoral authority",
+      "reasoning": "Manufacturing a certified win via fraud or manipulation would require coordination across multiple election officials and precincts.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

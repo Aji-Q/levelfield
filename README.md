@@ -76,9 +76,13 @@ FEEDBACK.md             SDK & docs feedback journal (hackathon deliverable, 9 ev
 
 ```bash
 npm install
-npm test                      # 56 unit/integration tests
+npm test                      # 58 unit/integration tests
 npm run score:all             # score live testnet markets + curated set -> data/scores/
 npm run dev -w @levelfield/web    # UI at localhost:3000
+rm -rf apps/web/.next && npm run build -w @levelfield/web  # production build — the rm -rf is
+                               # required if a `dev` session ran in this directory first, else
+                               # `next build` can report success but leave a `.next/` with no
+                               # BUILD_ID, which `next start` then refuses to serve
 npm run mcp                   # stdio MCP server (see packages/mcp/README.md)
 npx tsx scripts/probe-dreamdex.ts          # indexer field-coverage probe
 npx tsx scripts/verify-classifications.ts  # re-verify all evidence quotes
@@ -95,6 +99,7 @@ npx tsx scripts/verify-classifications.ts  # re-verify all evidence quotes
 - [x] Web UI (markets, detail with evidence quotes, methodology from YAML)
 - [x] ScoreRegistry contract + deploy/publish scripts (deployment awaits a faucet-funded key)
 - [x] Validation harness: 16 contracts, category medians strictly ordered, Spearman ρ = 0.93 (docs/validation.md)
+- [x] Inter-run agreement: 3 independent blind classifiers, majority-vote band matches the reference 16/16 (docs/agreement.md)
 - [ ] Demo video, deck, final SDK feedback report
 
 ## What this is not

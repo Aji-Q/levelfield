@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-bill-passage",
+  "classifier": "independent-run-B (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "final passage of the Continental Infrastructure Modernization Act (Assembly Bill 214) by both the House of Representatives and the Senate of the Federal Assembly of Vantia",
+      "reasoning": "The outcome is produced by formal votes of two legislative chambers, a bounded institutional body acting through a recorded vote.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "The bill passed committee markup in the House on July 22, 2026 and is pending scheduling for a floor vote in both chambers",
+      "reasoning": "The bill has already moved through a committee stage and awaits floor scheduling, and legislatures structurally rely on leadership/whip counts that give a planning-group-sized circle a strong sense of the outcome before the recorded floor vote.",
+      "confidence": "low",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "Federal Assembly of Vantia",
+      "reasoning": "Vantia's legislative insiders trading a prediction contract on an unspecified, presumed-offshore venue face no clearly identified securities or insider-trading law reaching this activity.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 3,
+      "levelLabel": "official_unscheduled",
+      "evidenceQuote": "is pending scheduling for a floor vote in both chambers",
+      "reasoning": "There is an official channel (the Assembly's voting record) but the floor vote has not yet been scheduled, leaving timing at leadership's convenience.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "by both the House of Representatives and the Senate of the Federal Assembly of Vantia",
+      "reasoning": "Producing passage requires whipping votes across a majority of members in two separate chambers, which is inherently a multiparty coordination effort.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

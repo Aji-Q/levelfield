@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-football-match",
+  "classifier": "independent-run-A (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 3,
+      "levelLabel": "public_collective",
+      "evidenceQuote": "the final result of the Matchday 8 fixture between Club Alpha and Club Bravo",
+      "reasoning": "The outcome is produced by a live competitive contest among many independent participants (players on both teams); no single participant controls it.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 1,
+      "levelLabel": "none",
+      "evidenceQuote": "scheduled to kick off at 15:00 local time on October 4, 2026 at Alpha Park",
+      "reasoning": "The match is played live and the result becomes known to everyone at the moment it is produced, like other live sports scores.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "the final result of the Matchday 8 fixture between Club Alpha and Club Bravo",
+      "reasoning": "D5 is level 4, so D3 is classified on the constraint facing players/officials who could fix the match; sports-integrity rules and match-fixing laws exist but their reach onto an unspecified/offshore event-contract venue is unclear.",
+      "confidence": "low",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "scheduled to kick off at 15:00 local time on October 4, 2026 at Alpha Park",
+      "reasoning": "The match occurs at a fixed, pre-announced time and the result is published immediately after via the league's official results portal.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 4,
+      "levelLabel": "small_group",
+      "evidenceQuote": "the final result of the Matchday 8 fixture between Club Alpha and Club Bravo",
+      "reasoning": "Match-fixing historically requires only a small group of key players or officials acting together to produce or time the result.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

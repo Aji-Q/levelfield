@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-court-ruling",
+  "classifier": "independent-run-B (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "issues a published opinion before 23:59 ET on June 30, 2027 that reverses or vacates, in whole or in part, the district court's judgment",
+      "reasoning": "The outcome is a formal ruling issued by an institutional body, a three-judge appellate panel.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 3,
+      "levelLabel": "handful",
+      "evidenceQuote": "currently before a three-judge panel of the Continental Circuit Court of Appeals following oral argument held on September 9, 2026",
+      "reasoning": "The deciding panel of three judges and their immediate clerks know the outcome while drafting the opinion, before it is publicly issued, matching the decision-maker-and-immediate-circle anchor.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 3,
+      "levelLabel": "policy_only",
+      "evidenceQuote": "three-judge panel of the Continental Circuit Court of Appeals",
+      "reasoning": "Judges and clerks are bound by judicial confidentiality norms rather than a law specifically covering trading a prediction contract on an unspecified venue.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 3,
+      "levelLabel": "official_unscheduled",
+      "evidenceQuote": "The court has not announced a target date for its opinion, consistent with its ordinary practice of releasing opinions without advance scheduling.",
+      "reasoning": "The contract text explicitly states there is an official channel (a published opinion) but no scheduled release date.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 2,
+      "levelLabel": "prohibitively_costly",
+      "evidenceQuote": "three-judge panel of the Continental Circuit Court of Appeals",
+      "reasoning": "Corrupting a majority of an independent appellate panel is theoretically possible but the legal and career risk dwarfs any plausible bet size.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

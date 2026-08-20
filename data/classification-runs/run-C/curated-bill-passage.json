@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-bill-passage",
+  "classifier": "independent-run-C (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "Resolves YES if both chambers of the Federal Assembly pass an identical version of Assembly Bill 214, or a reconciled conference version, by roll-call or recorded voice vote",
+      "reasoning": "Passage is decided by formal recorded votes of a bounded legislative body, the textbook institutional-decision pattern.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "The bill passed committee markup in the House on July 22, 2026 and is pending scheduling for a floor vote in both chambers.",
+      "reasoning": "Legislative floor votes are structurally preceded by whip counts and leadership vote-counting involving a planning-group-sized circle before the public roll call, though the contract gives no direct detail on this.",
+      "confidence": "low",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "the Federal Assembly of Vantia",
+      "reasoning": "The likely early knowers are foreign legislative officials; anti-corruption or conflict-of-interest law arguably exists on paper but plausibly does not reach their trading on an offshore, unspecified-venue contract.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 3,
+      "levelLabel": "official_unscheduled",
+      "evidenceQuote": "pending scheduling for a floor vote in both chambers",
+      "reasoning": "An official legislative channel exists but the floor vote's timing is at the discretion of chamber leadership, not fixed or even roughly scheduled in the text.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "both chambers of the Federal Assembly pass an identical version of Assembly Bill 214",
+      "reasoning": "Producing a YES outcome requires coordinating votes across many legislators in two chambers, the classic multiparty institutional-steering case.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

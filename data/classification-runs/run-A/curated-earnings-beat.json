@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-earnings-beat",
+  "classifier": "independent-run-A (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "as stated in its official earnings press release",
+      "reasoning": "The controllable, determinative element is the company's own reported GAAP EPS figure, which the company produces and discloses; the frozen consensus figure is a fixed comparison point rather than a live process.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "Meridian Robotics reports under US GAAP and is subject to SEC quarterly reporting requirements",
+      "reasoning": "Corporate earnings are known internally to finance, accounting, and executive teams during the books-close process well before the public release, a department-sized circle.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 2,
+      "levelLabel": "prohibited_weakly_enforced",
+      "evidenceQuote": "reports under US GAAP and is subject to SEC quarterly reporting requirements",
+      "reasoning": "D5 is level 4, so D3 is classified on the constraint facing company insiders; well-established securities insider-trading law would plausibly reach trading on material non-public earnings information even via an event contract, though enforcement of that theory against a new instrument type is untested; this is genuinely close to the offshore-ambiguous default given the venue is unspecified.",
+      "confidence": "low",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 2,
+      "levelLabel": "official_roughly_scheduled",
+      "evidenceQuote": "scheduled for October 29, 2026 after market close",
+      "reasoning": "The earnings release has a known date but only an approximate window (\"after market close\") rather than an exact time.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 4,
+      "levelLabel": "small_group",
+      "evidenceQuote": "as stated in its official earnings press release",
+      "reasoning": "A small group of finance/executive insiders can influence reported GAAP EPS through accounting and disclosure choices ahead of the release.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

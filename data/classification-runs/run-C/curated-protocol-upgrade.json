@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-protocol-upgrade",
+  "classifier": "independent-run-C (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "Resolves NO if activation is formally postponed past November 30, 2026 by a published Solendra Core announcement",
+      "reasoning": "Although activation requires broad validator consensus, the Solendra Core development team retains formal control over the client code and can postpone activation by its own announcement, which is closer to a bounded organization's decision than a pure open contest.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 3,
+      "levelLabel": "handful",
+      "evidenceQuote": "measured by the protocol's own on-chain signaling mechanism",
+      "reasoning": "Validator upgrade progress is publicly visible on-chain in near real time, but the Solendra Core team would know its own readiness or postponement decision before publishing it, a small pre-disclosure circle.",
+      "confidence": "low",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "the Solendra Core development team successfully activates the 'Aurora' hard fork on the Solendra mainnet",
+      "reasoning": "Trading restrictions for decentralized-protocol insiders are a genuinely unsettled area of law; jurisdiction is unclear and any applicable rule plausibly does not reach the venue or knowers.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 2,
+      "levelLabel": "official_roughly_scheduled",
+      "evidenceQuote": "targeted for mid-November 2026 per Solendra Improvement Proposal SIP-47",
+      "reasoning": "The activation has an officially published approximate target window, not a minute-precise fixed release time.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 4,
+      "levelLabel": "small_group",
+      "evidenceQuote": "a supermajority of Solendra mainnet validators, as measured by the protocol's own on-chain signaling mechanism, have upgraded to a fork-compatible client",
+      "reasoning": "The Core development team, as the maintainers most validators follow, forms a small group that can substantially drive or delay activation, though full activation still needs a validator supermajority.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

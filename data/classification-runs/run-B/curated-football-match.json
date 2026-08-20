@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-football-match",
+  "classifier": "independent-run-B (claude-sonnet-5 via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 3,
+      "levelLabel": "public_collective",
+      "evidenceQuote": "the final result of the Matchday 8 fixture between Club Alpha and Club Bravo in the Continental Premier League",
+      "reasoning": "The outcome is the result of a live competitive contest between two teams of independent participants, directly matching the football-fixture anchor.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 1,
+      "levelLabel": "none",
+      "evidenceQuote": "scheduled to kick off at 15:00 local time on October 4, 2026 at Alpha Park",
+      "reasoning": "The match is played live and the result becomes known to everyone at the moment it occurs, matching the live-sports-score anchor.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 3,
+      "levelLabel": "policy_only",
+      "evidenceQuote": "Club Alpha is recorded as the winner at the final whistle of the full 90 minutes plus stoppage time",
+      "reasoning": "Any party who could manufacture the result (players, coaches) is primarily constrained by league conduct/anti-match-fixing rules rather than by a clearly applicable law on this unspecified trading venue.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "the official match result published by the Continental Premier League on its results portal",
+      "reasoning": "The match has a fixed kickoff time and the result is published essentially at the moment of the final whistle, with everyone learning simultaneously.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "Club Alpha is recorded as the winner at the final whistle",
+      "reasoning": "Manufacturing a specific match result (match-fixing) requires coordination among multiple players, coaches, or officials.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

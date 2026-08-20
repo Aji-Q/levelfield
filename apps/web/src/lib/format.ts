@@ -15,9 +15,9 @@ export function weightPct(weight: number): string {
 
 export const CIRCUIT_BREAKER_EXPLANATION: Record<Exclude<CircuitBreaker, null>, string> = {
   "CB-1":
-    "CB-1: this market's outcome is decided by one person who faces no effective restriction on trading it, so the score is floored at 90 regardless of the other four dimensions.",
+    "CB-1: this market's outcome is decided by one person not clearly barred from trading it, so the score is floored (80/90/95 by how weak that bar is) regardless of the other dimensions.",
   "CB-2":
-    "CB-2: this market's outcome could be manufactured unilaterally by someone free to trade it, so the score is floored at 85 regardless of the other four dimensions.",
+    "CB-2: this market's outcome could be manufactured unilaterally by a party able to trade it, so the score is floored (75/85/90) regardless of the other dimensions.",
 };
 
 // Per-market deep links (questions/{oracleQuestionId}) are deliberately not used: the

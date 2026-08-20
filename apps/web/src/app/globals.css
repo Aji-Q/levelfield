@@ -3,14 +3,17 @@
    no animation. Numbers always sit next to a plain-language word or sentence. */
 
 :root {
-  --bg: #0b0d10;
-  --bg-elevated: #14171b;
-  --bg-inset: #101317;
-  --border: #262a2f;
-  --fg: #e7e5e1;
-  --fg-dim: #9b9d9f;
-  --fg-faint: #6b6e72;
+  /* Warm-tinted near-black ramp: a lit instrument panel, not a void. */
+  --bg: #0c0b09;
+  --bg-elevated: #15130f;
+  --bg-inset: #100f0c;
+  --border: #2a2721;
+  --border-faint: #1d1b17;
+  --fg: #eae6dd;
+  --fg-dim: #a09a8d;
+  --fg-faint: #6f6a5f;
   --accent: #c9973f;
+  --grid-line: rgba(201, 151, 63, 0.045);
 
   /* Monochrome gray -> amber band scale. The word is always printed too. */
   --band-low: #8d9096;
@@ -18,8 +21,10 @@
   --band-elevated: #c9973f;
   --band-high: #e0a83f;
 
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  /* next/font variables from layout.tsx, with honest fallbacks. */
+  --font-sans: var(--font-body, "IBM Plex Sans"), -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-data, "IBM Plex Mono"), ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --font-display: var(--font-display, "Instrument Serif"), Georgia, "Times New Roman", serif;
 }
 
 * {
@@ -33,7 +38,13 @@ body {
 }
 
 body {
-  background: var(--bg);
+  /* Graph paper under everything: plotting grid at 64px with a fine 16px subdivision,
+     both a hair above invisible. Fixed so content planes slide over it. */
+  background:
+    linear-gradient(var(--grid-line) 1px, transparent 1px) 0 0 / 64px 64px fixed,
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px) 0 0 / 64px 64px fixed,
+    radial-gradient(ellipse 120% 70% at 50% -10%, #17140e 0%, var(--bg) 55%) fixed,
+    var(--bg);
   color: var(--fg);
   font-family: var(--font-sans);
   line-height: 1.6;
@@ -78,10 +89,21 @@ a:focus-visible {
 }
 
 .wordmark {
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.01em;
   color: var(--fg);
+}
+
+.level-glyph {
+  width: 30px;
+  height: 13px;
+  color: var(--accent);
+  flex: none;
 }
 
 .wordmark:hover {
@@ -110,16 +132,21 @@ main {
 /* ---- typography ---- */
 
 h1 {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.005em;
   margin: 0 0 0.5rem;
 }
 
 h2 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  color: var(--fg);
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--fg-dim);
   margin: 3rem 0 1rem;
   padding-bottom: 0.6rem;
   border-bottom: 1px solid var(--border);
@@ -326,8 +353,9 @@ p {
 .score-numeral {
   font-family: var(--font-mono);
   font-variant-numeric: tabular-nums;
-  font-size: 3.25rem;
-  font-weight: 700;
+  font-size: 4rem;
+  font-weight: 500;
+  letter-spacing: -0.03em;
   line-height: 1;
   color: var(--fg);
 }
@@ -782,4 +810,65 @@ table.level-table ul {
 .quote-error-text {
   color: var(--fg-dim);
   font-style: italic;
+}
+
+/* ---- the instrument meter (0-100 tick ruler with score marker) ---- */
+
+.meter {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  color: var(--fg-faint);
+  margin: 0.75rem 0 0.25rem;
+}
+
+.meter--compact {
+  max-width: 220px;
+  margin: 0.4rem 0 0;
+}
+
+.meter-label {
+  font-family: var(--font-mono);
+  font-size: 7px;
+  fill: var(--fg-faint);
+}
+
+.meter-marker {
+  fill: var(--accent);
+}
+
+/* ---- footer rule ---- */
+
+.site-footer .container {
+  position: relative;
+}
+
+.footer-rule {
+  display: block;
+  height: 1px;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, var(--accent) 0, var(--accent) 48px, var(--border) 48px, var(--border) 100%);
+}
+
+/* ---- one restrained entrance: content fades up once, 350ms, no theatrics ---- */
+
+@media (prefers-reduced-motion: no-preference) {
+  main .container > * {
+    animation: rise-in 0.35s ease-out both;
+  }
+  main .container > *:nth-child(2) { animation-delay: 0.05s; }
+  main .container > *:nth-child(3) { animation-delay: 0.1s; }
+  main .container > *:nth-child(4) { animation-delay: 0.15s; }
+  main .container > *:nth-child(n + 5) { animation-delay: 0.2s; }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }

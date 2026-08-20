@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { BandWord } from "@/components/BandWord";
+import { Meter } from "@/components/Meter";
 import { readScoreIndex } from "@/lib/scores";
 import { formatExpiryUtc, formatRelativeToNow, windowLabel } from "@/lib/format";
 import type { ScoreIndexEntry } from "@/lib/types";
@@ -58,6 +59,7 @@ function ComparisonCard({ entry }: { entry: ScoreIndexEntry }) {
         <strong>{entry.overallScore}</strong>
         <BandWord band={entry.band} />
       </div>
+      <Meter score={entry.overallScore} compact />
       <div className="comparison-card-question">{entry.question}</div>
     </Link>
   );

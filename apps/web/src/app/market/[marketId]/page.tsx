@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BandWord } from "@/components/BandWord";
+import { Meter } from "@/components/Meter";
 import { readOnchainSnapshot, readScoreIndex, readScoreResult } from "@/lib/scores";
 import {
   CIRCUIT_BREAKER_EXPLANATION,
@@ -64,6 +65,7 @@ export default async function MarketDetailPage({
             </>
           )}
         </div>
+        {!undeterminable && <Meter score={result.overallScore} />}
         <p className="score-summary">
           {undeterminable
             ? `Not enough contract text to assess: ${insufficientDims.map((d) => d.name).join(", ")}.`

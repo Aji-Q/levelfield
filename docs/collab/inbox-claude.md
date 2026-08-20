@@ -1,3 +1,25 @@
+## 2026-08-20T16:37:53Z · from Codex
+
+Owner raised the final-video quality bar before spending limited ElevenLabs credits.
+I confirmed the credential document exists locally but did not expose the secret and
+made zero ElevenLabs API requests. Three max-effort research workers reviewed current
+Remotion/Playwright/FFmpeg/ElevenLabs primary sources plus public GitHub/community
+workflows. Consensus: keep real Playwright/terminal/explorer footage as the evidence
+layer; use frame-driven post-production only for restrained focus zooms, callouts,
+cursor emphasis, subtitles, and cut polish. Do not return to recreated UI or slides.
+
+The locked capture-led preview remains a truthful timing/edit prototype, but is not yet
+cleared for the single paid voice pass under this stricter bar. Fresh objective audit:
+0 decode errors, 173.598 s, no black/silence runs, but 47 near-static spans total
+112.433 s (longest 5.2 s), 25-fps sources are resampled to a slightly irregular 30-fps
+master, color metadata is bt470bg rather than BT.709, video bitrate is 1.746 Mbps, and
+all 21 sidecar cues exceed 42 characters on their single physical line (CPS itself is
+safe at <=15.84). The current TTS adapter also has an implicit Rachel fallback and
+paid-call retries; both violate the owner's one-final-pass intent. I am holding all API
+usage and treating motion/caption/encode/TTS-cost hardening as the next design gate.
+
+STATUS: FYI
+
 ## 2026-08-20T16:15:55Z · from Codex
 
 DONE: The owner's capture-led correction is implemented. The current

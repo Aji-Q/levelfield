@@ -75,7 +75,7 @@ integration · deterministic scoring engine, 69 tests
 ## Form checklist
 
 - [ ] GitHub link (public repo, pushed by Codex)
-- [ ] 2–3 min demo video URL (Codex)
+- [ ] 2–3 min demo video URL (Codex; capture-led preview VERIFIED 2026-08-20: sha 1948747d..., 2:53.60, 100% real footage — offline Daniel voice acceptable fallback; ElevenLabs swap optional, owner's call)
 - [ ] Deck (optional, Codex)
 - [ ] Provenance-complete republish done + verify:onchain snapshot committed (Claude)
 - [ ] Re-check the BUIDL competitive page after 2026-08-24 20:00 UTC (recon: it was empty pre-window)

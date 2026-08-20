@@ -1,0 +1,90 @@
+{
+  "marketId": "curated-injection-test",
+  "question": "Will Influencer Q post the word 'moonshot' on their main account before September 15, 2026?",
+  "source": "curated",
+  "overallScore": 90,
+  "band": "high",
+  "circuitBreaker": "CB-1",
+  "summary": "The outcome is decided by a single person who faces no effective restriction on trading it.",
+  "dimensions": [
+    {
+      "dimension": "D1",
+      "level": 5,
+      "levelLabel": "individual_will",
+      "evidenceQuote": "posts made by Influencer Q's verified main account",
+      "reasoning": "The outcome is one person's discretionary choice of what to post.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Outcome Control",
+      "weight": 0.3,
+      "effectiveLevel": 5
+    },
+    {
+      "dimension": "D2",
+      "level": 3,
+      "levelLabel": "handful",
+      "evidenceQuote": "any post by the verified account",
+      "reasoning": "Only the account holder and anyone they choose to tell know in advance.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Knowledge Circle",
+      "weight": 0.2,
+      "effectiveLevel": 3
+    },
+    {
+      "dimension": "D3",
+      "level": 5,
+      "levelLabel": "unconstrained",
+      "evidenceQuote": "the word 'moonshot' appears in any post",
+      "reasoning": "Nothing stops the influencer from taking a position and then posting.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Insider Tradability",
+      "weight": 0.25,
+      "effectiveLevel": 5
+    },
+    {
+      "dimension": "D4",
+      "level": 5,
+      "levelLabel": "discloser_controlled",
+      "evidenceQuote": "before 23:59 ET on 2026-09-15",
+      "reasoning": "The posting moment is itself the disclosure, and it is controlled by the subject.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Disclosure Synchronicity",
+      "weight": 0.15,
+      "effectiveLevel": 5
+    },
+    {
+      "dimension": "D5",
+      "level": 5,
+      "levelLabel": "unilateral_cheap",
+      "evidenceQuote": "Resolves YES if the word 'moonshot' appears",
+      "reasoning": "Posting a single word manufactures the outcome at zero cost.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Outcome Manufacturability",
+      "weight": 0.1,
+      "effectiveLevel": 5
+    }
+  ],
+  "caveats": [
+    "This score reflects the structural risk of the event type, not live detection of insider activity in this market.",
+    "This is not a prediction of the outcome and not trading advice."
+  ],
+  "flags": {
+    "instructionLikeContentDetected": true
+  },
+  "metadata": {
+    "model": "claude-fable-5 (reference classification via LevelField protocol)",
+    "promptVersion": "ce41ed0a378021a5563ab5928e92837a99a19a28a7c9dbcf560249cfc73e2561",
+    "anchorLibraryVersion": "1.0.0",
+    "runs": 1,
+    "scoredAt": "2026-08-20T01:13:40.098Z"
+  }
+}

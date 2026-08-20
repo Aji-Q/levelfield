@@ -1,0 +1,90 @@
+{
+  "marketId": "curated-company-layoffs",
+  "question": "Will Acme Corp publicly announce layoffs affecting 5% or more of its workforce before September 30, 2026?",
+  "source": "curated",
+  "overallScore": 65,
+  "band": "elevated",
+  "circuitBreaker": null,
+  "summary": "The outcome is produced by an institutional decision, which widens the circle of people who know it early.",
+  "dimensions": [
+    {
+      "dimension": "D1",
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "Acme Corp officially announces a reduction in force",
+      "reasoning": "The outcome is a corporate action decided by the company's management.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Outcome Control",
+      "weight": 0.3,
+      "effectiveLevel": 4
+    },
+    {
+      "dimension": "D2",
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "affecting at least 5% of its global workforce",
+      "reasoning": "A layoff of this scale is planned weeks ahead by management, HR, legal, and finance — dozens know before the announcement.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Knowledge Circle",
+      "weight": 0.2,
+      "effectiveLevel": 4
+    },
+    {
+      "dimension": "D3",
+      "level": 3,
+      "levelLabel": "policy_only",
+      "evidenceQuote": "official public communications by Acme Corp",
+      "reasoning": "Employees are bound by confidentiality policies, but no specific law clearly prohibits trading this contract on this venue.",
+      "confidence": "medium",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Insider Tradability",
+      "weight": 0.25,
+      "effectiveLevel": 3
+    },
+    {
+      "dimension": "D4",
+      "level": 3,
+      "levelLabel": "official_unscheduled",
+      "evidenceQuote": "press releases, SEC filings, or statements by named executives",
+      "reasoning": "An official channel exists but the timing is at the company's discretion.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Disclosure Synchronicity",
+      "weight": 0.15,
+      "effectiveLevel": 3
+    },
+    {
+      "dimension": "D5",
+      "level": 4,
+      "levelLabel": "small_group",
+      "evidenceQuote": "before 23:59 ET on 2026-09-30",
+      "reasoning": "Management can accelerate or delay the announcement across the market's deadline.",
+      "confidence": "medium",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Outcome Manufacturability",
+      "weight": 0.1,
+      "effectiveLevel": 4
+    }
+  ],
+  "caveats": [
+    "This score reflects the structural risk of the event type, not live detection of insider activity in this market.",
+    "This is not a prediction of the outcome and not trading advice."
+  ],
+  "flags": {
+    "instructionLikeContentDetected": false
+  },
+  "metadata": {
+    "model": "claude-fable-5 (reference classification via LevelField protocol)",
+    "promptVersion": "ce41ed0a378021a5563ab5928e92837a99a19a28a7c9dbcf560249cfc73e2561",
+    "anchorLibraryVersion": "1.0.0",
+    "runs": 1,
+    "scoredAt": "2026-08-20T01:13:40.096Z"
+  }
+}

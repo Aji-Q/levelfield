@@ -11,7 +11,9 @@
   "scripts": {
     "test": "npm run test -w @levelfield/scoring",
     "tracer": "tsx scripts/tracer.ts",
-    "probe": "tsx scripts/probe-dreamdex.ts"
+    "probe": "tsx scripts/probe-dreamdex.ts",
+    "mcp": "tsx packages/mcp/src/server.ts",
+    "score:all": "tsx scripts/score-all.ts"
   },
   "devDependencies": {
     "tsx": "^4.19.0",

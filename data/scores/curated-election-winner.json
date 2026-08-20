@@ -1,0 +1,90 @@
+{
+  "marketId": "curated-election-winner",
+  "question": "Will Candidate A win the 2026 gubernatorial election in State X?",
+  "source": "curated",
+  "overallScore": 21,
+  "band": "low",
+  "circuitBreaker": null,
+  "summary": "No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.",
+  "dimensions": [
+    {
+      "dimension": "D1",
+      "level": 3,
+      "levelLabel": "public_collective",
+      "evidenceQuote": "the November 2026 gubernatorial election",
+      "reasoning": "The outcome is the aggregate of votes cast by a large public; no single participant meaningfully controls it.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Outcome Control",
+      "weight": 0.3,
+      "effectiveLevel": 3
+    },
+    {
+      "dimension": "D2",
+      "level": 1,
+      "levelLabel": "none",
+      "evidenceQuote": "officially certified result",
+      "reasoning": "The result emerges from public counting; no closed group knows the certified outcome before the tally is public.",
+      "confidence": "medium",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Knowledge Circle",
+      "weight": 0.2,
+      "effectiveLevel": 1
+    },
+    {
+      "dimension": "D3",
+      "level": 1,
+      "levelLabel": "prohibited_enforced",
+      "evidenceQuote": "certified as the winner by the State X electoral authority",
+      "reasoning": "No early-knowledge window exists (D2 level 1), so there is no insider to constrain.",
+      "confidence": "medium",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Insider Tradability",
+      "weight": 0.25,
+      "effectiveLevel": 1
+    },
+    {
+      "dimension": "D4",
+      "level": 2,
+      "levelLabel": "official_roughly_scheduled",
+      "evidenceQuote": "officially certified as the winner by the State X electoral authority",
+      "reasoning": "Certification follows a known post-election schedule, though counting duration varies.",
+      "confidence": "medium",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Disclosure Synchronicity",
+      "weight": 0.15,
+      "effectiveLevel": 2
+    },
+    {
+      "dimension": "D5",
+      "level": 2,
+      "levelLabel": "prohibitively_costly",
+      "evidenceQuote": "the officially certified result",
+      "reasoning": "Manufacturing an election outcome would require fraud at prohibitive cost and legal risk.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Outcome Manufacturability",
+      "weight": 0.1,
+      "effectiveLevel": 2
+    }
+  ],
+  "caveats": [
+    "This score reflects the structural risk of the event type, not live detection of insider activity in this market.",
+    "This is not a prediction of the outcome and not trading advice."
+  ],
+  "flags": {
+    "instructionLikeContentDetected": false
+  },
+  "metadata": {
+    "model": "claude-fable-5 (reference classification via LevelField protocol)",
+    "promptVersion": "ce41ed0a378021a5563ab5928e92837a99a19a28a7c9dbcf560249cfc73e2561",
+    "anchorLibraryVersion": "1.0.0",
+    "runs": 1,
+    "scoredAt": "2026-08-20T01:13:40.097Z"
+  }
+}

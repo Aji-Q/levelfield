@@ -1,0 +1,90 @@
+{
+  "marketId": "0x00000000000000000000000000000000000000000000000000000000000001ee",
+  "question": "ETH closes at or above its opening price",
+  "source": "dreamdex_testnet",
+  "overallScore": 3,
+  "band": "low",
+  "circuitBreaker": null,
+  "summary": "No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.",
+  "dimensions": [
+    {
+      "dimension": "D1",
+      "level": 1,
+      "levelLabel": "natural_process",
+      "evidenceQuote": "ETH closes at or above its opening price",
+      "reasoning": "The outcome is the exchange market price of a major crypto asset, a process no identifiable party controls.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Outcome Control",
+      "weight": 0.3,
+      "effectiveLevel": 1
+    },
+    {
+      "dimension": "D2",
+      "level": 1,
+      "levelLabel": "none",
+      "evidenceQuote": "ETH closes at or above its opening price",
+      "reasoning": "The settlement price becomes known to everyone at the moment it exists; there is no early-knowledge window.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Knowledge Circle",
+      "weight": 0.2,
+      "effectiveLevel": 1
+    },
+    {
+      "dimension": "D3",
+      "level": 1,
+      "levelLabel": "prohibited_enforced",
+      "evidenceQuote": "ETH closes at or above its opening price",
+      "reasoning": "With no early-knowledge window (D2 = none), there is no insider position for any constraint to apply to.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Insider Tradability",
+      "weight": 0.25,
+      "effectiveLevel": 1
+    },
+    {
+      "dimension": "D4",
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "ETH closes at or above its opening price",
+      "reasoning": "The market settles on a fixed window expiry via on-chain oracle publication, auditable at the Somnia oracle hub (https://prd.oracle.somnia.host/explore).",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Disclosure Synchronicity",
+      "weight": 0.15,
+      "effectiveLevel": 1
+    },
+    {
+      "dimension": "D5",
+      "level": 2,
+      "levelLabel": "prohibitively_costly",
+      "evidenceQuote": "ETH closes at or above its opening price",
+      "reasoning": "Moving the global market price of a major crypto asset enough to flip the strike dwarfs any plausible bet size.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Outcome Manufacturability",
+      "weight": 0.1,
+      "effectiveLevel": 2
+    }
+  ],
+  "caveats": [
+    "This score reflects the structural risk of the event type, not live detection of insider activity in this market.",
+    "This is not a prediction of the outcome and not trading advice."
+  ],
+  "flags": {
+    "instructionLikeContentDetected": false
+  },
+  "metadata": {
+    "model": "rule-classifier/v1",
+    "promptVersion": "ce41ed0a378021a5563ab5928e92837a99a19a28a7c9dbcf560249cfc73e2561",
+    "anchorLibraryVersion": "1.0.0",
+    "runs": 1,
+    "scoredAt": "2026-08-20T01:13:40.094Z"
+  }
+}

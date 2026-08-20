@@ -65,3 +65,46 @@ endpoints on the developers page.
 **Observed:** `SomniaMarkets` accepts an indexer-only configuration; chain/WebSocket are lazy and the
 signer is optional. This is well-designed for analysis tools — worth stating explicitly in the docs,
 which currently only show full trading configurations.
+
+## 2026-08-20
+
+### 6. `oracleQuestionId` does not reliably identify the matching settlement question
+
+**Observed:** 3/3 sampled DreamDEX BINARY markets carried an `oracleQuestionId` that resolves on
+`prd.oracle.somnia.host` to an unrelated or mistimed question — one BTC market's id pointed at a
+football-score question; two others pointed at ETH price questions resolved days before the citing
+market opened (details: docs/research-dreamdex.md §4).
+
+**Expected:** The docs state every market's settlement question is publicly auditable on the oracle
+explorer; the deep link `questions/{oracleQuestionId}?view=graph` is the natural integration point.
+
+**Suggestion:** Fix the indexer's id mapping (or document that testnet seed data has scrambled ids).
+Until then, no third-party tool can offer per-market "verify the settlement" links — we removed ours.
+
+### 7. Oracle explorer has no public JSON API
+
+**Observed:** `prd.oracle.somnia.host` is a client-rendered app; no `/api/...` route was found and
+no data ships in the server-rendered HTML/RSC payload.
+
+**Suggestion:** A `GET /questions/{id}` JSON endpoint would let analytics tools show settlement
+provenance (sources, medians, consensus threshold) without screen-scraping.
+
+### 8. Indexer status vocabulary diverges from the on-chain enum
+
+**Observed:** On-chain terminal state is `Resolved(4)`; the indexer's `clobStatus` string for the
+same state is `"Finalized"`. `"Locked"` returned zero rows across 200+ recent markets despite being
+a real on-chain state, and the one sampled `Voided` row had null payout fields despite the
+documented 0.5/0.5 split.
+
+**Suggestion:** Document the indexer↔on-chain status mapping explicitly, note that `"Locked"` may
+never be observable via the indexer, and populate void payout data.
+
+### 9. Venue discovery requires out-of-band information
+
+**Observed:** The shared indexer serves ≥5 distinct `venueId`s with different strike and interval
+conventions (strike is price×100 on a strike-ladder venue; `strike: "0"` = relative-to-open on the
+DreamDEX venue). Nothing in the API or docs enumerates venues or identifies which is "the" DreamDEX
+venue — integrators must copy a bytes32 constant from bot-kit's .env comments, which that file
+itself says moved three times in a week.
+
+**Suggestion:** A documented venue registry endpoint (id, name, conventions) on a stable domain.

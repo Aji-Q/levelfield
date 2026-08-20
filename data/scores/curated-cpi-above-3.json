@@ -1,0 +1,90 @@
+{
+  "marketId": "curated-cpi-above-3",
+  "question": "Will US CPI year-over-year inflation for August 2026 exceed 3.0%?",
+  "source": "curated",
+  "overallScore": 19,
+  "band": "low",
+  "circuitBreaker": null,
+  "summary": "No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.",
+  "dimensions": [
+    {
+      "dimension": "D1",
+      "level": 2,
+      "levelLabel": "statistical_procedure",
+      "evidenceQuote": "as published by the US Bureau of Labor Statistics",
+      "reasoning": "The outcome is produced by a government statistical procedure following a predefined, published methodology.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Outcome Control",
+      "weight": 0.3,
+      "effectiveLevel": 2
+    },
+    {
+      "dimension": "D2",
+      "level": 2,
+      "levelLabel": "embargoed_few",
+      "evidenceQuote": "scheduled for September 2026 at 8:30 AM ET",
+      "reasoning": "CPI figures are known inside the BLS under a formal pre-release embargo before the scheduled release moment.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Knowledge Circle",
+      "weight": 0.2,
+      "effectiveLevel": 2
+    },
+    {
+      "dimension": "D3",
+      "level": 2,
+      "levelLabel": "prohibited_weakly_enforced",
+      "evidenceQuote": "as first published by the BLS",
+      "reasoning": "Government staff face legal trading restrictions and 2026 saw the first CFTC prosecutions over event contracts, but enforcement on prediction venues is still novel.",
+      "confidence": "medium",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Insider Tradability",
+      "weight": 0.25,
+      "effectiveLevel": 2
+    },
+    {
+      "dimension": "D4",
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "in its monthly CPI news release for August 2026",
+      "reasoning": "The outcome reaches everyone simultaneously at a fixed, pre-announced official release time.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Disclosure Synchronicity",
+      "weight": 0.15,
+      "effectiveLevel": 1
+    },
+    {
+      "dimension": "D5",
+      "level": 1,
+      "levelLabel": "impossible",
+      "evidenceQuote": "the year-over-year percentage change in CPI-U",
+      "reasoning": "No party can plausibly manufacture a national price statistic to win a bet.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Outcome Manufacturability",
+      "weight": 0.1,
+      "effectiveLevel": 1
+    }
+  ],
+  "caveats": [
+    "This score reflects the structural risk of the event type, not live detection of insider activity in this market.",
+    "This is not a prediction of the outcome and not trading advice."
+  ],
+  "flags": {
+    "instructionLikeContentDetected": false
+  },
+  "metadata": {
+    "model": "claude-fable-5 (reference classification via LevelField protocol)",
+    "promptVersion": "ce41ed0a378021a5563ab5928e92837a99a19a28a7c9dbcf560249cfc73e2561",
+    "anchorLibraryVersion": "1.0.0",
+    "runs": 1,
+    "scoredAt": "2026-08-20T01:13:40.097Z"
+  }
+}

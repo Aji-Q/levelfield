@@ -1,0 +1,90 @@
+{
+  "marketId": "curated-military-strike",
+  "question": "Will Country X conduct airstrikes on targets in Country Y before October 15, 2026?",
+  "source": "curated",
+  "overallScore": 78,
+  "band": "high",
+  "circuitBreaker": null,
+  "summary": "The outcome is produced by an institutional decision, which widens the circle of people who know it early.",
+  "dimensions": [
+    {
+      "dimension": "D1",
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "Country X's armed forces conduct one or more airstrikes",
+      "reasoning": "The outcome is a state military decision — institutional, not individual.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Outcome Control",
+      "weight": 0.3,
+      "effectiveLevel": 4
+    },
+    {
+      "dimension": "D2",
+      "level": 5,
+      "levelLabel": "large_or_unbounded",
+      "evidenceQuote": "credible reporting of military action",
+      "reasoning": "Military planning chains span command, intelligence, logistics, and allied governments — hundreds of people, effectively unbounded.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Knowledge Circle",
+      "weight": 0.2,
+      "effectiveLevel": 5
+    },
+    {
+      "dimension": "D3",
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "an official statement from either government",
+      "reasoning": "The likely knowers are foreign officials and military staff; no realistic legal constraint reaches them on this venue.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Insider Tradability",
+      "weight": 0.25,
+      "effectiveLevel": 4
+    },
+    {
+      "dimension": "D4",
+      "level": 4,
+      "levelLabel": "media_diffusion",
+      "evidenceQuote": "reporting by at least two of: Reuters, AP, AFP",
+      "reasoning": "The outcome diffuses through wire-service confirmation over hours rather than a single official release.",
+      "confidence": "high",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Disclosure Synchronicity",
+      "weight": 0.15,
+      "effectiveLevel": 4
+    },
+    {
+      "dimension": "D5",
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "conduct one or more airstrikes on territory controlled by Country Y",
+      "reasoning": "Manufacturing the outcome requires state-level coordination across many parties.",
+      "confidence": "medium",
+      "insufficientInfo": false,
+      "agreement": "1/1",
+      "name": "Outcome Manufacturability",
+      "weight": 0.1,
+      "effectiveLevel": 3
+    }
+  ],
+  "caveats": [
+    "This score reflects the structural risk of the event type, not live detection of insider activity in this market.",
+    "This is not a prediction of the outcome and not trading advice."
+  ],
+  "flags": {
+    "instructionLikeContentDetected": false
+  },
+  "metadata": {
+    "model": "claude-fable-5 (reference classification via LevelField protocol)",
+    "promptVersion": "ce41ed0a378021a5563ab5928e92837a99a19a28a7c9dbcf560249cfc73e2561",
+    "anchorLibraryVersion": "1.0.0",
+    "runs": 1,
+    "scoredAt": "2026-08-20T01:13:40.098Z"
+  }
+}

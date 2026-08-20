@@ -4,3 +4,5 @@ export * from "./engine.js";
 export * from "./vote.js";
 export * from "./classify.js";
 export * from "./score.js";
+export * from "./dreamdex.js";
+export * from "./rule-classifier.js";

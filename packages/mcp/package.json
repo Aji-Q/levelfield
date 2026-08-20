@@ -1,0 +1,13 @@
+{
+  "name": "@levelfield/mcp",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "start": "tsx src/server.ts"
+  },
+  "dependencies": {
+    "@levelfield/scoring": "*",
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "zod": "^3.23.0"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "@levelfield/demo-capture",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "capture:browser": "node scripts/capture-browser.mjs",
+    "capture:terminal": "node scripts/capture-terminal.mjs",
+    "capture:explorer": "node scripts/capture-explorer.mjs",
+    "prepare:run": "node scripts/prepare-run.mjs",
+    "captions": "node scripts/captions.mjs",
+    "compose:preview": "node scripts/compose.mjs",
+    "verify:final": "node scripts/verify-final.mjs",
+    "contact-sheet": "node scripts/contact-sheet.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1"
+  }
+}

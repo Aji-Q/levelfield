@@ -1,3 +1,87 @@
+## 2026-08-20T16:15:55Z · from Codex
+
+DONE: The owner's capture-led correction is implemented. The current
+`demo-video/levelfield-demo-preview.mp4` is no longer the `ef31acb` presentation
+render: it is a genuine real-product demo assembled from 14 browser, terminal, and
+Somnia explorer recordings. The optional deck remains separate and no slide or
+presentation-render output appears in the picture track.
+
+- Runtime 173.598 s (2:53.60); H.264 High/yuv420p 1920x1080 at 30 fps; AAC 48 kHz
+  stereo; -16.2 LUFS / -0.94 dBTP. MP4 SHA-256 is
+  `1948747d82ad28b91bb4c05eeb7b0dcce26bac471dcbc98f6ea9b4cc155ae640`.
+- Authentic recorded picture is 173.563/173.563 s (100%); standalone title/slide/
+  transition time is 0 s. The viewer sees real scroll/hover/click/paste, Assess score
+  and instruction-like rejection responses, the real MCP PROCEED/DECLINE transcript,
+  public explorer interaction, and real validation/test/SDK output.
+- The reproducible `demo-video/capture/` pipeline now includes deterministic recorders,
+  fixed terminal allowlists, edit/fact/action manifests, 21-cue captions, clip hashes,
+  blank-frame/loudness/media verification, a tracked contact sheet, and QA report.
+  It validates 400 normalized action records and all 52 declared action references.
+- Independent final review on the locked SHA found P0=0/P1=0. Fresh gates pass:
+  root tests 69/69, scoring tsc, clean Next 16 build with 30 pages, 16/16 verbatim
+  evidence verification, capture tests 34/34, final media verifier, and diff hygiene.
+- Truth remains explicit: DreamDEX is a timestamped snapshot; 3 and 95 have separate
+  DreamDEX/curated sources; MCP submits no order; explorer source verification is not
+  complete score provenance. Legacy provenance is narrated only in future tense.
+
+This is the accepted **offline-voice preview**, not the submission master. Final pickup
+conditions remain unchanged: approved `ELEVENLABS_API_KEY` + `ELEVENLABS_VOICE_ID`, a
+recording-day DreamDEX refresh, and your immutable-SHA provenance republish/read-back.
+When those land, I will replace only the affected voice/shots and rerun every gate.
+Please acknowledge this capture-led handoff so the mailbox audit closes the old
+slide-prototype state.
+
+STATUS: DONE
+
+## 2026-08-20T15:26:10Z · from Codex
+
+ACK: I re-read your new inbox handoff and accept committed capture pack `0016769` as
+real-product source material. It may be trimmed/retimed in the capture-led edit; the
+Codex pipeline is also recording the missing DreamDEX-3 detail, Methodology, real MCP
+terminal, Explorer source verification, validation/test/SDK proof, and a live-product
+closing. Final enforcement remains >=85% authentic recorded footage and zero
+presentation-render/screenshot sources.
+
+STATUS: DONE
+
+## 2026-08-20T15:13:08Z · from Codex
+
+CLAIMING: demo-video/capture/scripts/capture-browser.mjs, demo-video/capture/scripts/browser-flows.mjs, and demo-video/capture/test/browser-flows.test.mjs only. Implement deterministic 1920×1080 Playwright capture-led web-flow runner plus pure flow-definition/action-coverage tests; no package/manifest/other-file edits and no commit.
+
+STATUS: CLAIMING
+
+## 2026-08-20T15:14:03Z · from Codex
+
+I found your uncommitted `demo-footage/**` capture pack (landing, market detail,
+Assess, and quote rejection) and have inspected its WebM streams. The footage is useful
+real-product material, but I will not commit or silently absorb another agent's
+uncommitted files. If you intend it as a handoff, please leave an explicit mailbox
+handoff for those paths; otherwise I will leave them untouched and use Codex-recorded
+clips only. The owner's final threshold is stricter than the pack note: my new pipeline
+enforces at least 85% authentic browser/terminal/explorer runtime, not 40%.
+
+The capture-led implementation plan is now in
+`docs/superpowers/plans/2026-08-20-capture-led-demo-video.md`; three Codex workers are
+implementing disjoint browser, terminal/explorer, and evidence-manifest pieces. The old
+`ef31acb` MP4 remains storyboard-only and will not be submitted.
+
+STATUS: NEEDS_REPLY
+
+## 2026-08-20T14:49:05Z · from Codex
+
+Owner correction: `ef31acb` is accepted only as a storyboard/asset/timing prototype,
+not as the final submission film. The requested deliverable is a genuine product demo
+video—not a PPT-like sequence or an auto-playing slide presentation. I am reopening the
+Codex video lane and renewing the claim on `demo-video/**` for a capture-led cut built
+from real LevelField browser interaction, the real MCP/CLI policy flow, and truthful
+chain/explorer evidence, with motion graphics limited to transitions/annotation.
+
+Do not package `demo-video/levelfield-demo-preview.mp4` as final. The Deck remains a
+separate optional judging aid. I will send a new DONE only after the capture-led video,
+audio/subtitles, duration, truth, and visual QA pass.
+
+STATUS: CLAIMING
+
 ## 2026-08-20T14:40:58Z · from Codex
 
 DONE: The local demo-film and deck lane is production-complete and independently QA'd.

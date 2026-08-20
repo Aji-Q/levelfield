@@ -1,72 +1,72 @@
-# LevelField demo film
+# LevelField demo video
 
-The deliverable is a five-chapter, 21-step, English 16:9 film built as a
-browser-rendered presentation. Narration is the timing source: every audio
-segment advances exactly one visual step, followed by a 200 ms breathing gap.
+The required deliverable is a 2–3 minute English **product demonstration**. Its
+picture track is real LevelField UI, Assess workflow, MCP/CLI execution, and
+Somnia explorer interaction—not an auto-playing deck.
 
 ## Deliverables
 
+- `levelfield-demo-preview.mp4` — current capture-led 1080p preview with offline
+  timing voice; not the submission voice.
+- `levelfield-demo.en.srt` — 21-cue English sidecar subtitles.
+- `capture/` — deterministic record, edit, evidence, caption, and QA pipeline.
 - `script.md` — locked English voiceover.
-- `outline.md` — 5 chapters / 21 visual beats.
-- `production-plan.md` — ElevenLabs direction, recording spec, and truth gates.
-- `presentation/` — editable React/Vite source and local render pipeline.
-- `levelfield-demo.en.srt` — generated from the final per-step audio durations.
-- `levelfield-demo-preview.mp4` — offline preview render when present. Replace
-  its macOS preview voice with ElevenLabs before submission.
+- `production-plan.md` — voice direction and truth gates.
+- `presentation/` — storyboard/motion-reference prototype only; excluded from
+  the final picture track.
 
-## Rebuild
+The optional hackathon deck is a separate artifact in `../demo-deck/`.
+
+## Rebuild the capture-led edit
+
+See `capture/README.md` for the full recording workflow. With an accepted run:
+
+```bash
+cd demo-video/capture
+npm install
+npm run captions
+npm run compose:preview -- --run runs/RUN_ID
+npm run verify:final -- --run runs/RUN_ID
+npm run contact-sheet -- --run runs/RUN_ID
+npm test
+```
+
+The current edit is 173.563 seconds and uses 100% authentic recorded picture.
+It visibly demonstrates browser navigation, market evidence, injection-like
+quote rejection, a real Assess verification, real MCP PROCEED/DECLINE output,
+the source-verified ScoreRegistry, validation/tests, and the SDK cross-check.
+
+## Final ElevenLabs narration
+
+Credentials stay outside the repository. Generate audio only when an approved
+voice ID is available, then rebuild the capture-led edit—not the presentation
+renderer.
 
 ```bash
 cd demo-video/presentation
-npm install
-npm run build
-npm run extract-narrations
-```
-
-### Final ElevenLabs narration
-
-The adapter defaults match `production-plan.md`: `eleven_multilingual_v2`,
-stability `0.58`, similarity `0.75`, style `0`, speed `1.0`, and speaker boost
-off. Credentials remain outside the repository.
-
-```bash
 export ELEVENLABS_API_KEY="..."
 export ELEVENLABS_VOICE_ID="..."
 PRESENTATION_TTS=elevenlabs npm run synthesize-audio -- --force
+
+cd ../capture
 npm run captions
-VIDEO_OUTPUT=../levelfield-demo-final.mp4 npm run render:video
-npm run verify:deliverables
+npm run compose:preview -- --run runs/RUN_ID \
+  --output ../levelfield-demo-final.mp4
+npm run verify:final -- --run runs/RUN_ID \
+  --video ../levelfield-demo-final.mp4
 ```
 
-Measure the generated voice before rendering. If it approaches the three-minute
-limit, set `ELEVENLABS_SPEED=1.03` (or A/B test up to `1.05`) and regenerate;
-ElevenLabs supports speed values from 0.7 to 1.2, with 1.0 as the default.
-
-### Offline timing preview
-
-```bash
-PRESENTATION_TTS=say npm run synthesize-audio -- --force
-npm run captions
-npm run render:video
-```
-
-The renderer captures all 21 actual React scenes at 1920×1080 in Chromium,
-holds each scene for its ffprobe-derived narration duration, builds a narration
-master at approximately -16 LUFS, and exports H.264/AAC at 30 fps. This
-frame-driven path remains synchronized even if a headless browser has no audio
-sink or the host sleeps mid-render. `CHROMIUM_EXECUTABLE` may point to a local
-Chromium binary if Playwright has no cached browser.
+If the approved voice approaches three minutes, A/B test
+`ELEVENLABS_SPEED=1.03` through `1.05`, regenerate all segments, then rebuild
+subtitles, the edit, and QA evidence.
 
 ## Submission truth gates
 
-Before locking the final voice and screen evidence:
-
-1. Refresh DreamDEX scores and show a capture timestamp; use `snapshot`, never
-   `live`, for cached examples.
-2. Publish current score attestations with a real repository and immutable
-   commit ref, then make `npm run verify:onchain` pass.
-3. Replace all `republish pending` / legacy-provenance shots with the verified
-   current state.
-4. Add public GitHub and deployment links only after they exist.
-5. Re-run the software, Forge, validation, agreement, MCP, and SDK evidence
-   commands against the final commit.
+1. Present cached DreamDEX examples as a timestamped snapshot, never as live.
+2. Keep the DreamDEX score of 3 distinct from the curated reference score of 95.
+3. Describe MCP as pre-action policy; no order is submitted in the demo.
+4. Treat explorer source verification separately from complete score provenance.
+5. After a real public repository and immutable-SHA republish exist, capture the
+   final provenance pickup and rerun `verify:onchain` before changing narration.
+6. Refresh recording-day DreamDEX evidence when available and rerun every media,
+   caption, fact, interaction, test, and build gate before submission.

@@ -2,9 +2,9 @@
 
 ## 1. 成片策略
 
-- **目标长度**：2:35–2:55，绝不超过 3:00；当前脚本 371 个口播词，离线预览实测 2:53.57，最终 ElevenLabs 以实际 MP3 时长为准。
+- **目标长度**：2:35–2:55，绝不超过 3:00；当前脚本 371 个口播词，capture-led 离线预览实测 2:53.60，最终 ElevenLabs 以实际 MP3 时长为准。
 - **语言**：英文主版；成片同时交付英文字幕 `.srt`。中文版本在英文锁片后再做。
-- **证据比例**：所有产品数字与状态都来自真实 UI、CLI、DreamDEX、Somnia 或仓库产物；设计动画只负责解释结构，AI 图像只负责无数据含义的氛围画面。
+- **证据比例**：当前画面 100% 来自真实 UI、CLI、DreamDEX、Somnia 或仓库产物；不使用 PPT、静态 scene card 或 AI 生成界面。动效只允许短暂光标、缩放、标注和转场。
 - **真实性红线**：AI 不生成产品界面、市场数字、测试输出、链上交易或浏览器证据。
 - **画面系统**：沿用 LevelField 的 forensic field notebook / premium cartographic instrument 视觉，不切换为通用 Web3 霓虹风。
 
@@ -12,10 +12,10 @@
 
 | 时间 | 章节 | 主要证据 |
 |---|---|---|
-| 00:00–00:23 | 价格没有告诉你的事 | AI 风险地形片头 → DreamDEX snapshot / LevelField 入口 |
+| 00:00–00:23 | 价格没有告诉你的事 | 真实 LevelField 首页 → DreamDEX snapshot / market detail |
 | 00:23–01:04 | 3 vs 95 | 快照低风险 price binary → curated 高风险 reference case → CB-1 |
 | 01:04–01:37 | 模型分类，代码裁决 | Methodology → Assess quote verification → conservative default |
-| 01:37–02:17 | Agent 与链上记录 | MCP `PROCEED / DECLINE` → provenance release workflow → verifier |
+| 01:37–02:17 | Agent 与链上记录 | MCP `PROCEED / DECLINE` → Somnia source verification → 可见 legacy/fail-closed 状态 |
 | 02:17–02:54 | 证据、生态与终帧 | 16 cases / rho 0.93 → 69 + 8 tests → SDK cross-check / 11 findings → tagline |
 
 ## 2. ElevenLabs 旁白方案
@@ -46,9 +46,10 @@
 
 `eleven_multilingual_v2` 使用 alias，而不是依赖 phoneme tag。数字、斜杠和缩写在送入 TTS 前全部写成自然语言。兼容性说明见 [Pronunciation dictionaries](https://elevenlabs.io/docs/eleven-api/guides/how-to/text-to-speech/pronunciation-dictionaries)。
 
-### 接入 web-video-presentation
+### 复用 storyboard 工程的 TTS adapter
 
-Phase 2 脚手架完成后增加 `presentation/scripts/tts-providers/elevenlabs.sh`，遵循：
+`presentation/scripts/tts-providers/elevenlabs.sh` 只承担分段语音生成；最终画面由
+`capture/` 的真实录屏剪辑管线生成，不再调用 presentation renderer。adapter 遵循：
 
 ```text
 tts_check
@@ -69,13 +70,13 @@ PRESENTATION_TTS=elevenlabs npm run synthesize-audio
 
 可选增强：调用 ElevenLabs [`with-timestamps`](https://elevenlabs.io/docs/api-reference/text-to-speech/convert-with-timestamps) endpoint 保存字符级 alignment，再转换为逐词字幕时间；否则用最终音频跑一次转写生成 SRT。
 
-## 3. AI 画面与真实录屏
+## 3. 真实录屏与有限标注
 
-### AI 只负责
+### 允许的后期元素
 
-1. 现有 Garden 风险地形主视觉的 16:9 延展与轻微视差版本。
-2. 章节间 1–2 秒的等高线 / 标尺 / 铅垂线桥接画面。
-3. 无数据含义的背景纹理和终帧氛围。
+1. 真实产品画面上的光标、点击 pulse 和短暂缩放。
+2. 必要的章节字标或事实标注，但不能遮掉产品操作与系统响应。
+3. 音频淡入淡出与剪辑转场；不加入 standalone PPT 页或 AI 生成 UI。
 
 ### 真实录屏负责
 
@@ -83,8 +84,11 @@ PRESENTATION_TTS=elevenlabs npm run synthesize-audio
 2. 两个市场详情、D1/D3 evidence 与 circuit breaker。
 3. Assess workspace 的 quote verification / injection rejection。
 4. `npm run demo:agent` 的真实 MCP 输出。
-5. Somnia explorer 与 provenance-complete attestation。
+5. Somnia explorer 的 source verification 与页面 legacy 状态；immutable-SHA republish 完成后再替换 provenance pickup。
 6. 测试、验证与 SDK cross-check 输出。
+
+当前 accepted edit 的 173.563 秒画面全部属于上述真实录屏，standalone
+title/transition 为 0 秒。
 
 ## 4. 录制规格
 
@@ -92,7 +96,8 @@ PRESENTATION_TTS=elevenlabs npm run synthesize-audio
 - 终端：固定 18–22 px 字号；只保留演示命令与关键输出；提前清空历史。
 - 鼠标：慢速、无乱晃；关键点击停顿约半秒，让评委看懂结果。
 - 录制前固定数据：刷新 score cache，仅选仍 active 的 DreamDEX market；以公开仓库的 immutable commit republish / verify provenance；确认公开 GitHub 与部署 URL。
-- 网页演示工程完成后使用 `?auto=1`，由逐 step 音频结束自动推进。
+- 使用 `capture/scripts/capture-browser.mjs` 录制真实点击、滚动、粘贴和评分响应；
+  使用 `capture/scripts/compose.mjs` 按最终音频时长剪辑，不使用 `?auto=1` 自动播放 scene。
 
 ## 5. 后期与声音
 

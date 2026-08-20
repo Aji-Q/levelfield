@@ -1,0 +1,151 @@
+{
+  "version": 1,
+  "targetDuration": 173.562584,
+  "audio": {
+    "segments": "../presentation/audio-segments.json",
+    "root": "../presentation/public/audio",
+    "trailSeconds": 0.2
+  },
+  "timeline": [
+    {
+      "id": "real-product-open",
+      "kind": "browser",
+      "source": "browser/home-snapshot/home-snapshot.webm",
+      "sourceIn": 6.2,
+      "sourceOut": 20.884218,
+      "outputDuration": 14.684218,
+      "requiredActions": ["home-snapshot.4", "home-snapshot.5", "home-snapshot.6", "home-snapshot.7", "home-snapshot.8"],
+      "factIds": ["dreamdex.timestamped_snapshot", "provenance.legacy"]
+    },
+    {
+      "id": "dreamdex-three",
+      "kind": "browser",
+      "source": "browser/market-three/market-three.webm",
+      "sourceIn": 0.5,
+      "sourceOut": 17.155283,
+      "outputDuration": 16.655283,
+      "requiredActions": ["market-three.1", "market-three.3", "market-three.5", "market-three.6", "market-three.7"],
+      "factIds": ["dreamdex.score_3", "dreamdex.timestamped_snapshot"]
+    },
+    {
+      "id": "curated-ninety-five",
+      "kind": "browser",
+      "source": "browser/curated-cb1/curated-cb1.webm",
+      "sourceIn": 0.6,
+      "sourceOut": 21.2,
+      "outputDuration": 21.2,
+      "requiredActions": ["curated-cb1.1", "curated-cb1.4", "curated-cb1.5", "curated-cb1.6", "curated-cb1.9"],
+      "factIds": ["comparison.separate_sources", "curated.score_95", "curated.cb_1"]
+    },
+    {
+      "id": "curated-evidence-detail",
+      "kind": "browser",
+      "source": "browser/handoff/market-detail.webm",
+      "sourceIn": 0,
+      "sourceOut": 10.64,
+      "outputDuration": 11.57746,
+      "requiredActions": ["handoff.market-detail.real-capture"],
+      "factIds": ["curated.score_95", "curated.verbatim_evidence"]
+    },
+    {
+      "id": "methodology-anchors",
+      "kind": "browser",
+      "source": "browser/methodology/methodology.webm",
+      "sourceIn": 0.5,
+      "sourceOut": 8.678277,
+      "outputDuration": 8.178277,
+      "requiredActions": ["methodology.1", "methodology.4", "methodology.5"],
+      "factIds": ["methodology.five_dimensions"]
+    },
+    {
+      "id": "instruction-evidence-rejected",
+      "kind": "browser",
+      "source": "browser/instruction-like-rejection/instruction-like-rejection.webm",
+      "sourceIn": 9.5,
+      "sourceOut": 17.469342,
+      "outputDuration": 7.969342,
+      "requiredActions": ["instruction-like-rejection.7", "instruction-like-rejection.9", "instruction-like-rejection.10", "instruction-like-rejection.11"],
+      "factIds": ["verification.instruction_overlap_rejected", "verification.not_scored"]
+    },
+    {
+      "id": "methodology-code-rules",
+      "kind": "browser",
+      "source": "browser/methodology/methodology.webm",
+      "sourceIn": 13,
+      "sourceOut": 19.889524,
+      "outputDuration": 6.889524,
+      "requiredActions": ["methodology.8", "methodology.9", "methodology.10"],
+      "factIds": ["methodology.deterministic_scoring", "methodology.conservative_default"]
+    },
+    {
+      "id": "assess-verify-score",
+      "kind": "browser",
+      "source": "browser/assess-prepared-json/assess-prepared-json.webm",
+      "sourceIn": 9.5,
+      "sourceOut": 19.056372,
+      "outputDuration": 9.556372,
+      "requiredActions": ["assess-prepared-json.9", "assess-prepared-json.11", "assess-prepared-json.12", "assess-prepared-json.13", "assess-prepared-json.14"],
+      "factIds": ["assess.prepared_protocol_response", "assess.score_95", "assess.cb_1"]
+    },
+    {
+      "id": "real-mcp-policy",
+      "kind": "terminal",
+      "source": "terminal/mcp-policy.webm",
+      "sourceIn": 2.5,
+      "sourceOut": 25.264807,
+      "outputDuration": 22.764807,
+      "requiredActions": ["terminal.demo-agent.stdio", "terminal.demo-agent.proceed", "terminal.demo-agent.decline", "terminal.demo-agent.cb1", "terminal.demo-agent.complete"],
+      "factIds": ["mcp.pre_action_policy", "mcp.no_order_submitted", "comparison.separate_sources"]
+    },
+    {
+      "id": "somnia-source-verified",
+      "kind": "explorer",
+      "source": "explorer/explorer-source.webm",
+      "sourceIn": 5,
+      "sourceOut": 17.166213,
+      "outputDuration": 12.166213,
+      "requiredActions": ["explorer.open-registry", "explorer.click-contract-tab", "explorer.assert-source-verified", "explorer.assert-registry"],
+      "factIds": ["somnia.registry_deployed", "somnia.source_verified", "provenance.not_complete"]
+    },
+    {
+      "id": "legacy-provenance-visible",
+      "kind": "browser",
+      "source": "browser/handoff/landing.webm",
+      "sourceIn": 0,
+      "sourceOut": 5.536644,
+      "outputDuration": 5.536644,
+      "requiredActions": ["handoff.landing.real-capture"],
+      "factIds": ["provenance.legacy", "provenance.fail_closed"]
+    },
+    {
+      "id": "validation-proof",
+      "kind": "terminal",
+      "source": "terminal/evidence-cli.webm",
+      "sourceIn": 1,
+      "sourceOut": 11.987891,
+      "outputDuration": 10.987891,
+      "requiredActions": ["terminal.evidence.validation", "terminal.evidence.agreement", "terminal.evidence.softwareTests"],
+      "factIds": ["validation.n_16", "validation.range_3_95", "validation.rho_0_930"]
+    },
+    {
+      "id": "tests-and-sdk-proof",
+      "kind": "terminal",
+      "source": "terminal/evidence-cli.webm",
+      "sourceIn": 12,
+      "sourceOut": 24.795918,
+      "outputDuration": 12.795918,
+      "requiredActions": ["terminal.evidence.softwareTests", "terminal.evidence.forgeTests", "terminal.evidence.sdkCrosscheck"],
+      "factIds": ["tests.software_69", "tests.contract_8", "sdk.read_only_crosscheck"]
+    },
+    {
+      "id": "real-product-close",
+      "kind": "browser",
+      "source": "browser/closing-product/closing-product.webm",
+      "sourceIn": 10.5,
+      "sourceOut": 23.100635,
+      "outputDuration": 12.600635,
+      "requiredActions": ["closing-product.7", "closing-product.8", "closing-product.9", "closing-product.10", "closing-product.11"],
+      "factIds": ["product.agents_venues_traders", "dreamdex.timestamped_snapshot", "provenance.legacy"]
+    }
+  ]
+}

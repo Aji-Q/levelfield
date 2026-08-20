@@ -1,7 +1,7 @@
 # LevelField Demo Video Outline
 
-> **主题**：待 Checkpoint Plan 确认；首选 `midnight-press`，定制为 LevelField 暖黑 / 骨白 / 黄铜视觉
-> **总时长**：371 个英文词；当前离线预览实测 2 分 53.57 秒，最终 ElevenLabs 版必须保持在 3:00 内
+> **用途**：21 段旁白的 beat map；最终画面以 `capture/edit-manifest.json` 的真实交互剪辑为准，不是 slides 规格
+> **总时长**：371 个英文词；当前 capture-led 离线预览实测 2 分 53.60 秒，最终 ElevenLabs 版必须保持在 3:00 内
 > **章节数**：5 章 / 21 steps
 > **画幅**：16:9，1920×1080，最终导出 30 fps
 
@@ -17,9 +17,9 @@
 
 **开发计划**：
 
-- step 1 (~6s) — LevelField 主标识、风险地形与 “Who could know first?” 占据全屏
-- step 2 (~8s) — 产品定位与 trader / agent 两类使用者进入画面
-- step 3 (~8s) — 录制当天快照中的 DreamDEX 价格二元合约及其 3/100 低风险结果并置
+- step 1 (~6s) — 真实 LevelField 首页与 “Who could know first?” 首屏，光标可见
+- step 2 (~8s) — 真实首页滚动展示产品定位、snapshot 和 proof rail
+- step 3 (~8s) — 点击 DreamDEX 价格二元合约，进入 3/100 低风险详情
 
 口播节选：
 > Every event contract gives you a price. It does not tell you who could know first.
@@ -82,8 +82,8 @@
 - step 1 (~7s) — 可复现 transcript 还原 LevelField MCP server 的真实 stdio 连接与 pre-action 调用位置
 - step 2 (~6s) — 可见策略把 low / moderate 映射为 PROCEED，把 elevated / high 映射为 DECLINE
 - step 3 (~7s) — MCP response transcript 依次展示 3 / PROCEED 与 95 / DECLINE 及解释
-- step 4 (~10s) — provenance-complete 的 Somnia Shannon Score Registry 字段与 immutable source 同屏
-- step 5 (~5s) — 读回 verifier 的完整字段比较与 fail-closed 结论
+- step 4 (~10s) — 真实 Somnia Shannon explorer 中的 ScoreRegistry 与 source-verification 状态；完整 provenance 保持未来时表达
+- step 5 (~5s) — 回到真实页面的 legacy / awaiting-republish 状态，说明 verifier fail closed
 
 口播节选：
 > Here, an agent calls the real LevelField MCP server over standard input and output before it acts.
@@ -113,7 +113,7 @@
 ## 素材清单
 
 ### 1. price-does-not-tell
-- ✓ Garden 主视觉：`apps/web/public/brand/levelfield-risk-field.webp`
+- ✓ 真实首页内使用的 Garden 品牌图：`apps/web/public/brand/levelfield-risk-field.webp`（只通过产品 UI 出镜）
 - ✓ LevelField glyph：`apps/web/public/brand/level-glyph.svg`
 - ✓ 首页录屏基准：`output/playwright/home-desktop.png`
 - ⚠️ 录制当天的公开部署 URL 与当前 DreamDEX market ID
@@ -144,7 +144,7 @@
 ## 自检
 
 - [x] 21 个 outline steps 与 `script.md` 的 21 个口播节拍一一对应。
-- [x] 每个 step 都是单句屏幕内容描述，没有规定动画或 CSS 实现。
+- [x] 每个 step 都映射真实 browser / terminal / explorer 画面，不是自动播放 slide。
 - [x] 每个口播 step 约为 4–13 秒；实测含 200 ms step 间隔合计 173.57 秒，低于 3:00。
 - [x] 每章 3–6 steps；每章信息池至少 4 条且均可回到 `article.md`。
 - [x] 素材按章节列出，并区分已就位素材与录制前置条件。

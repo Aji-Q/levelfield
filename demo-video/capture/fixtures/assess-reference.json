@@ -1,0 +1,50 @@
+{
+  "fixtureVersion": 1,
+  "marketId": "curated-celebrity-breakup",
+  "sourceClassification": "data/classifications/curated-celebrity-breakup.json",
+  "sourceClassifiedAt": "2026-08-20",
+  "purpose": "Paste-ready Stage A response for a real in-browser verification of the committed curated reference classification.",
+  "stageAResponse": {
+    "D1": {
+      "level": 5,
+      "level_label": "individual_will",
+      "evidence_quote": "a public statement by Celebrity Z or their verified representatives",
+      "reasoning": "The outcome is one person's discretionary choice to make an announcement.",
+      "confidence": "high",
+      "insufficient_info": false
+    },
+    "D2": {
+      "level": 3,
+      "level_label": "handful",
+      "evidence_quote": "the end of their current relationship",
+      "reasoning": "The subject and their immediate circle know before any announcement, with no formal control regime.",
+      "confidence": "high",
+      "insufficient_info": false
+    },
+    "D3": {
+      "level": 5,
+      "level_label": "unconstrained",
+      "evidence_quote": "Celebrity Z or their verified representative publicly announces",
+      "reasoning": "Nothing prevents the subject or their circle from trading the contract themselves.",
+      "confidence": "high",
+      "insufficient_info": false
+    },
+    "D4": {
+      "level": 5,
+      "level_label": "discloser_controlled",
+      "evidence_quote": "on any platform",
+      "reasoning": "The announcement moment is chosen by the party with the stake in the outcome.",
+      "confidence": "high",
+      "insufficient_info": false
+    },
+    "D5": {
+      "level": 5,
+      "level_label": "unilateral_cheap",
+      "evidence_quote": "publicly announces the end of the relationship",
+      "reasoning": "The subject can produce the outcome unilaterally at trivial cost.",
+      "confidence": "high",
+      "insufficient_info": false
+    },
+    "instruction_like_content_detected": false
+  }
+}

@@ -97,7 +97,7 @@ npx tsx scripts/verify-classifications.ts  # re-verify all evidence quotes
 - [x] Batch scorer + score cache (live + curated, ACDC gradient reproduced)
 - [x] MCP server (protocol / score / anchors), verified over stdio
 - [x] Web UI (markets, detail with evidence quotes, methodology from YAML)
-- [x] ScoreRegistry contract + deploy/publish scripts (deployment awaits a faucet-funded key)
+- [x] ScoreRegistry **deployed on Somnia Shannon**: [`0xb8e11dea346f2c961880879606a269db3165bbc7`](https://shannon-explorer.somnia.network/address/0xb8e11dea346f2c961880879606a269db3165bbc7) — 28 attestations published, read back and verified 28/28 (`npm run verify:onchain` → data/scores/onchain.json, rendered on every market page)
 - [x] Validation harness: 16 contracts, category medians strictly ordered, Spearman ρ = 0.93 (docs/validation.md)
 - [x] Inter-run agreement: 3 independent blind classifiers, majority-vote band matches the reference 16/16 (docs/agreement.md)
 - [ ] Demo video, deck, final SDK feedback report

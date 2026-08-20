@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BandWord } from "@/components/BandWord";
-import { readScoreIndex, readScoreResult } from "@/lib/scores";
+import { readOnchainSnapshot, readScoreIndex, readScoreResult } from "@/lib/scores";
 import {
   CIRCUIT_BREAKER_EXPLANATION,
   ORACLE_EXPLORER_ROOT,
@@ -38,6 +38,9 @@ export default async function MarketDetailPage({
 
   const insufficientDims = result.dimensions.filter((d) => d.insufficientInfo);
   const undeterminable = insufficientDims.length >= UNDETERMINABLE_THRESHOLD;
+
+  const onchain = readOnchainSnapshot();
+  const attestation = onchain?.markets[marketId] ?? null;
 
   return (
     <>
@@ -111,6 +114,47 @@ export default async function MarketDetailPage({
           <a className="oracle-link" href={ORACLE_EXPLORER_ROOT} target="_blank" rel="noopener noreferrer">
             Settlement questions are publicly auditable on the Somnia oracle explorer ↗
           </a>
+        </div>
+      )}
+
+      {onchain && attestation && (
+        <div className="onchain-facts">
+          <span className="onchain-facts-label">On-chain attestation</span>
+          <dl className="onchain-facts-grid">
+            <div>
+              <dt>Registry</dt>
+              <dd title={onchain.registryAddress}>
+                <a
+                  className="oracle-link"
+                  href={`${onchain.explorerBase}/address/${onchain.registryAddress}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {truncateMiddle(onchain.registryAddress)} ↗
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt>Attested score</dt>
+              <dd>
+                {attestation.score} · {attestation.band}
+                {attestation.matchesCache ? " — matches this page" : " — DIFFERS from this page (republish pending)"}
+              </dd>
+            </div>
+            <div>
+              <dt>Method hash</dt>
+              <dd title={attestation.methodHash}>{truncateMiddle(attestation.methodHash)}</dd>
+            </div>
+            <div>
+              <dt>Read back</dt>
+              <dd>{onchain.verifiedAt}</dd>
+            </div>
+          </dl>
+          <p className="section-note">
+            This score is published on Somnia Shannon (chain {onchain.chainId}) as a public good: any
+            contract or agent can read it from the registry without this site. The method hash pins it
+            to the exact anchor-library version that produced it.
+          </p>
         </div>
       )}
 

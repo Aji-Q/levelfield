@@ -18,7 +18,8 @@
     "demo:agent": "tsx scripts/agent-demo.ts",
     "validate": "tsx scripts/validate.ts",
     "registry:deploy": "tsx scripts/deploy-registry.ts",
-    "registry:publish": "tsx scripts/publish-scores.ts"
+    "registry:publish": "tsx scripts/publish-scores.ts",
+    "verify:onchain": "tsx scripts/verify-onchain.ts"
   },
   "dependencies": {
     "@somnia-chain/markets-sdk": "^0.27.0",

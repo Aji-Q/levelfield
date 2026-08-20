@@ -27,3 +27,23 @@ export function readScoreResult(marketId: string): ScoreResult | null {
   if (!existsSync(file)) return null;
   return JSON.parse(readFileSync(file, "utf8")) as ScoreResult;
 }
+
+// On-chain attestation snapshot written by scripts/verify-onchain.ts (reads every
+// attestation back from the ScoreRegistry on Somnia Shannon and cross-checks it
+// against this cache). Same no-network-at-request-time rule as everything else here.
+export interface OnchainSnapshot {
+  registryAddress: string;
+  chainId: number;
+  explorerBase: string;
+  verifiedAt: string;
+  markets: Record<
+    string,
+    { score: number; band: string; dims: number[]; methodHash: string; scoredAt: string; matchesCache: boolean }
+  >;
+}
+
+export function readOnchainSnapshot(): OnchainSnapshot | null {
+  const file = path.join(scoresDir(), "onchain.json");
+  if (!existsSync(file)) return null;
+  return JSON.parse(readFileSync(file, "utf8")) as OnchainSnapshot;
+}

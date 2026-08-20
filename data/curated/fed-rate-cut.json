@@ -1,0 +1,12 @@
+{
+  "marketId": "curated-fed-rate-cut",
+  "question": "Will the FOMC cut the federal funds target rate at its September 2026 meeting?",
+  "description": "This market resolves based on the Federal Open Market Committee's policy decision announced at the conclusion of its September 2026 meeting, per the official statement released at 2:00 PM ET on the Federal Reserve's website.",
+  "resolutionRules": "Resolves YES if the target range announced in the September 2026 FOMC statement is lower than the range in effect immediately before the meeting. Resolves NO otherwise, including if the meeting is cancelled.",
+  "closeTime": "2026-09-16T17:59:00Z",
+  "source": "curated",
+  "expected": {
+    "levels": { "D1": 4, "D2": 4, "D3": 2, "D4": 1, "D5": 3 },
+    "band": "moderate"
+  }
+}

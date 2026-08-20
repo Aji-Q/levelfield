@@ -1,0 +1,265 @@
+# LevelField Anchor Library
+# The single source of truth for the five-dimension classification framework.
+# Rendered into: the Stage A classifier prompt, the Methodology page, and README docs.
+# Scores are NEVER produced by a model. A model matches a contract to the anchor
+# levels below; the score is a deterministic function of the matched levels.
+version: "1.0.0"
+framework: >
+  Information asymmetry in an event contract cannot be observed directly, but the
+  structural properties that permit it are written in the contract's own text: who
+  produces the outcome, how many people know it early, whether they can trade on it,
+  how it gets disclosed, and whether it can be manufactured. This taxonomy follows the
+  outcome-maker classification that the Anti-Corruption Data Collective validated
+  against 435,000+ settled Polymarket markets (April 2026).
+
+dimensions:
+  - id: D1
+    name: Outcome Control
+    weight: 0.30
+    question: What produces the outcome of this event?
+    guidance: >
+      Classify by the most concentrated locus of control over the outcome itself,
+      not over its disclosure (that is D4). If the contract text is ambiguous between
+      two levels, pick the higher (riskier) one.
+    levels:
+      - level: 1
+        label: natural_process
+        definition: >
+          The outcome is produced by a natural or physical process, or by large-scale
+          market data that no identifiable party controls.
+        references:
+          - "Will BTC close at or above $120,000 on Dec 31? (exchange market price)"
+          - "Will the recorded high temperature in NYC exceed 100°F in August?"
+      - level: 2
+        label: statistical_procedure
+        definition: >
+          The outcome is produced by an official statistical procedure following a
+          predefined, published methodology.
+        references:
+          - "Will August CPI year-over-year exceed 3.0%? (BLS methodology)"
+          - "Will the unemployment rate fall below 4.0%?"
+      - level: 3
+        label: public_collective
+        definition: >
+          The outcome is the aggregate of behavior by a large public: votes, purchases,
+          viewership. No single participant meaningfully controls it.
+        references:
+          - "Who wins the presidential election?"
+          - "Will the film gross over $500M in its opening month?"
+      - level: 4
+        label: institutional_decision
+        definition: >
+          The outcome is produced by a decision of an institution, committee, or
+          organization: a vote, an order, a corporate action, a ruling.
+        references:
+          - "Will the FOMC cut rates at its September meeting?"
+          - "Will Company X announce layoffs before Q3 ends?"
+          - "Will country X conduct a military strike before the deadline?"
+      - level: 5
+        label: individual_will
+        definition: >
+          The outcome is decided by a single person's discretionary choice: what they
+          say, post, wear, or announce.
+        references:
+          - "Will person X tweet the word 'Y' this week?"
+          - "Will the couple publicly announce a breakup this month?"
+          - "Will the speaker use the phrase 'Z' in tonight's speech?"
+
+  - id: D2
+    name: Knowledge Circle
+    weight: 0.20
+    question: >
+      Between the moment the outcome is effectively determined and the moment it is
+      publicly disclosed, how many people already know it?
+    guidance: >
+      Estimate the size of the early-knowledge window population from the structure of
+      the event, not from any specific organization's current staffing. If the outcome
+      is determined and disclosed in the same instant, the circle is empty (level 1).
+    levels:
+      - level: 1
+        label: none
+        definition: >
+          No early-knowledge window exists: the outcome becomes known to everyone at
+          the moment it is produced.
+        references:
+          - "Live sports scores; on-chain or exchange price closes"
+      - level: 2
+        label: embargoed_few
+        definition: >
+          A small number of people know early inside a formal embargo/lockup regime
+          with access controls.
+        references:
+          - "CPI figures inside the BLS before the 8:30 ET release"
+      - level: 3
+        label: handful
+        definition: >
+          A handful of people know early with no formal control regime: the decision
+          maker and their immediate circle.
+        references:
+          - "A celebrity's personal announcement, known to the person and confidants"
+      - level: 4
+        label: dozens
+        definition: >
+          Dozens of people know early: a department, a planning group, an editorial or
+          product team.
+        references:
+          - "A corporate layoff plan weeks before announcement"
+          - "Google's 'Year in Search' list, known to its editorial team pre-publication
+             (traded on by an insider; CFTC charges, May 2026)"
+      - level: 5
+        label: large_or_unbounded
+        definition: >
+          Hundreds of people or an unbounded, unknowable set know early: multi-agency
+          operations, long planning chains.
+        references:
+          - "Military operation preparation chains (ACDC found 52% longshot win rates
+             in military/defense markets vs a 35% price-implied ceiling)"
+
+  - id: D3
+    name: Insider Tradability
+    weight: 0.25
+    question: Are the people who know the outcome early effectively prevented from trading on it?
+    guidance: >
+      Judge the constraint regime that applies to the likely knowers on the venue where
+      this contract trades. Cross-dimension rule: if D2 is level 1 (no early-knowledge
+      window exists), classify D3 as level 1 — there is no insider to constrain.
+    levels:
+      - level: 1
+        label: prohibited_enforced
+        definition: >
+          Clear legal prohibition, an enforcement track record, and a regulated venue.
+          Or no early-knowledge window exists at all (see guidance).
+        references:
+          - "Corporate insiders trading their own securities on a regulated exchange"
+      - level: 2
+        label: prohibited_weakly_enforced
+        definition: >
+          A legal prohibition arguably applies but enforcement is rare or novel.
+        references:
+          - "US-regulated event contracts after the first CFTC insider prosecutions (2026)"
+      - level: 3
+        label: policy_only
+        definition: >
+          Only employer NDAs or platform terms constrain the knowers; no specific law
+          clearly covers trading this contract on this venue.
+        references:
+          - "The Google 'Year in Search' insider: bound by employer confidentiality only,
+             traded $1.2M in profits across 23 markets before CFTC fraud charges"
+      - level: 4
+        label: ambiguous
+        definition: >
+          The applicable law or jurisdiction is unclear; constraints exist on paper
+          somewhere but plausibly do not reach the knowers or the venue.
+        references:
+          - "Most offshore prediction-market events with foreign-official knowers"
+      - level: 5
+        label: unconstrained
+        definition: >
+          Nothing prevents the knowers — including the outcome's decision maker — from
+          trading the contract themselves.
+        references:
+          - "A celebrity betting on their own announcement timing"
+
+  - id: D4
+    name: Disclosure Synchronicity
+    weight: 0.15
+    question: Is there an official moment when everyone learns the outcome at the same time?
+    guidance: >
+      Classify how the outcome reaches the public, per the contract's own resolution
+      source if one is named.
+    levels:
+      - level: 1
+        label: fixed_schedule
+        definition: >
+          A fixed, pre-announced release time on an official channel; everyone learns
+          simultaneously.
+        references:
+          - "BLS releases at 8:30 ET; FOMC statement at 14:00 ET"
+      - level: 2
+        label: official_roughly_scheduled
+        definition: >
+          An official channel with an approximately known release window.
+        references:
+          - "Quarterly earnings during a scheduled reporting season"
+      - level: 3
+        label: official_unscheduled
+        definition: >
+          An official channel exists but the timing is at the discloser's convenience.
+        references:
+          - "A company that 'will announce in the coming weeks'"
+      - level: 4
+        label: media_diffusion
+        definition: >
+          No single official channel; the outcome diffuses through media reporting and
+          confirmation over hours or days.
+        references:
+          - "Geopolitical events confirmed progressively by wire services"
+      - level: 5
+        label: discloser_controlled
+        definition: >
+          The disclosure moment itself is controlled by a party with a stake in the
+          outcome.
+        references:
+          - "A celebrity choosing when to post their announcement"
+
+  - id: D5
+    name: Outcome Manufacturability
+    weight: 0.10
+    question: Could someone cause the outcome to happen in order to win a bet on it?
+    guidance: >
+      This dimension is an amplifier: it asks about deliberately producing the event,
+      not merely knowing it early. Consider cost and coordination required.
+    levels:
+      - level: 1
+        label: impossible
+        definition: No party can plausibly cause the outcome.
+        references:
+          - "Macroeconomic statistics; weather"
+      - level: 2
+        label: prohibitively_costly
+        definition: Theoretically possible but the cost dwarfs any plausible bet size.
+        references:
+          - "Moving the global BTC price to cross a strike"
+      - level: 3
+        label: multiparty
+        definition: Manufacturing the outcome requires coordination across multiple parties.
+        references:
+          - "Steering an institutional decision"
+      - level: 4
+        label: small_group
+        definition: A small group acting together can produce or time the outcome.
+        references:
+          - "A department accelerating or delaying an announcement"
+      - level: 5
+        label: unilateral_cheap
+        definition: One party can produce the outcome unilaterally at trivial cost.
+        references:
+          - "Posting a tweet; using a phrase in a speech (a White House teleprompter
+             operator profited $100k+ on speech-word markets; referred to CFTC, 2026)"
+
+scoring:
+  # score = round(100 * sum(weight_d * (level_d - 1) / 4)), then circuit breakers.
+  bands:
+    - { name: low,      min: 0,  max: 24 }
+    - { name: moderate, min: 25, max: 49 }
+    - { name: elevated, min: 50, max: 74 }
+    - { name: high,     min: 75, max: 100 }
+  circuit_breakers:
+    - id: CB-1
+      condition: "D1 == 5 && D3 >= 4"
+      floor: 90
+      rationale: >
+        A person who decides the outcome and is free to trade it makes every other
+        dimension irrelevant. ACDC observed exactly this: individual-decided markets
+        look unremarkable on average while hiding a small set of perfect-win wallets.
+    - id: CB-2
+      condition: "D5 == 5 && D3 >= 4"
+      floor: 85
+      rationale: >
+        If the outcome can be manufactured unilaterally by someone free to trade it,
+        the market is an invitation to trade against its own author.
+  conservative_default:
+    level: 4
+    rationale: >
+      When a dimension cannot be determined from the contract text, we never guess low.
+      Ambiguity resolves toward higher risk, and the result is always flagged.

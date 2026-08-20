@@ -1,0 +1,13 @@
+{
+  "marketId": "curated-celebrity-breakup",
+  "question": "Will Celebrity Z publicly announce a breakup with their partner before September 30, 2026?",
+  "description": "This market resolves based on a public statement by Celebrity Z or their verified representatives, on any platform, announcing the end of their current relationship.",
+  "resolutionRules": "Resolves YES if, before 23:59 ET on 2026-09-30, Celebrity Z or their verified representative publicly announces the end of the relationship. Third-party reporting without confirmation from Celebrity Z does not count. Resolves NO otherwise.",
+  "closeTime": "2026-09-30T23:59:00Z",
+  "source": "curated",
+  "expected": {
+    "levels": { "D1": 5, "D2": 3, "D3": 5, "D4": 5, "D5": 5 },
+    "band": "high",
+    "circuitBreaker": "CB-1"
+  }
+}

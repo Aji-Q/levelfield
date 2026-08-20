@@ -1,0 +1,12 @@
+{
+  "marketId": "curated-military-strike",
+  "question": "Will Country X conduct airstrikes on targets in Country Y before October 15, 2026?",
+  "description": "This market resolves based on credible reporting of military action. Confirmation requires reporting by at least two of: Reuters, AP, AFP, or an official statement from either government.",
+  "resolutionRules": "Resolves YES if, before 23:59 UTC on 2026-10-15, Country X's armed forces conduct one or more airstrikes on territory controlled by Country Y, as confirmed per the description. Resolves NO otherwise.",
+  "closeTime": "2026-10-15T23:59:00Z",
+  "source": "curated",
+  "expected": {
+    "levels": { "D1": 4, "D2": 5, "D3": 4, "D4": 4, "D5": 3 },
+    "band": "high"
+  }
+}

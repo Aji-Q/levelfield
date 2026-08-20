@@ -1,0 +1,20 @@
+{
+  "name": "levelfield",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Structural information-asymmetry risk assessment for event contracts. Know who you're really betting against.",
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "test": "npm run test -w @levelfield/scoring",
+    "tracer": "tsx scripts/tracer.ts",
+    "probe": "tsx scripts/probe-dreamdex.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "marketId": "curated-btc-120k",
+  "question": "Will Bitcoin close at or above $120,000 on December 31, 2026?",
+  "description": "This market resolves based on the BTC/USD closing price on Coinbase at 23:59:59 UTC on December 31, 2026.",
+  "resolutionRules": "Resolves YES if the Coinbase BTC-USD last traded price at 23:59:59 UTC on 2026-12-31 is greater than or equal to $120,000.00. Resolves NO otherwise.",
+  "closeTime": "2026-12-31T23:59:00Z",
+  "source": "curated",
+  "expected": {
+    "levels": { "D1": 1, "D2": 1, "D3": 1, "D4": 1, "D5": 2 },
+    "band": "low"
+  }
+}

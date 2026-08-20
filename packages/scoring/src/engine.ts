@@ -26,7 +26,15 @@ export interface EngineOutput {
   band: Band;
   circuitBreaker: "CB-1" | "CB-2" | null;
   dimensions: ScoredDimension[];
+  // Deterministic corrections and breaker details, surfaced as caveats downstream.
+  notes: string[];
 }
+
+// Graduated circuit-breaker floors. A single hard threshold at D3>=4 put a 20-23 point
+// cliff on the single most subjective call in the library (policy_only vs ambiguous);
+// grading the floor by D3 keeps the ordering while removing the cliff.
+const CB1_FLOORS: Partial<Record<Level, number>> = { 3: 80, 4: 90, 5: 95 };
+const CB2_FLOORS: Partial<Record<Level, number>> = { 3: 75, 4: 85, 5: 90 };
 
 export function computeScore(voted: VotedDimension[], lib: AnchorLibrary): EngineOutput {
   if (voted.length !== 5) {
@@ -40,28 +48,57 @@ export function computeScore(voted: VotedDimension[], lib: AnchorLibrary): Engin
     return { ...v, name: anchor.name, weight: WEIGHTS[v.dimension], effectiveLevel };
   });
 
+  const notes: string[] = [];
+  const dim = (id: DimensionId): ScoredDimension => {
+    const d = dimensions.find((x) => x.dimension === id);
+    if (!d) throw new Error(`Missing dimension ${id}`);
+    return d;
+  };
+  const setLevel = (id: DimensionId, l: Level, why: string) => {
+    const d = dim(id);
+    if (d.effectiveLevel !== l) {
+      notes.push(`${id} adjusted from level ${d.effectiveLevel} to ${l}: ${why}`);
+      d.effectiveLevel = l;
+    }
+  };
+
+  // Cross-dimension rules, enforced in code (not just in the classifier prompt):
+  // R1 — a discretionary act's outcome is known to its decider before execution, so an
+  //      individual-will market cannot have an empty knowledge circle.
+  if (dim("D1").effectiveLevel === 5 && dim("D2").effectiveLevel === 1) {
+    setLevel("D2", 3, "the person who decides the outcome knows it before it is executed (anchor guidance, D2)");
+  }
+  // R2 — with no early-knowledge window AND no realistic way to manufacture the outcome,
+  //      there is no insider to constrain. When the outcome IS manufacturable (D5 >= 3),
+  //      a party can hold foreknowledge without any disclosure lag, so D3 stands.
+  if (dim("D2").effectiveLevel === 1 && dim("D5").effectiveLevel <= 2) {
+    setLevel("D3", 1, "no early-knowledge window and no realistic manufacturer — no insider to constrain (anchor guidance, D3)");
+  }
+
   const raw = dimensions.reduce((s, d) => s + d.weight * ((d.effectiveLevel - 1) / 4), 0);
   let overallScore = Math.round(raw * 100);
   let circuitBreaker: EngineOutput["circuitBreaker"] = null;
 
-  const level = (id: DimensionId): Level => {
-    const d = dimensions.find((x) => x.dimension === id);
-    if (!d) throw new Error(`Missing dimension ${id}`);
-    return d.effectiveLevel;
-  };
+  const level = (id: DimensionId): Level => dim(id).effectiveLevel;
 
-  // CB-1: a person decides the outcome and is free to trade it. Beats any averaging.
-  if (level("D1") === 5 && level("D3") >= 4) {
-    overallScore = Math.max(overallScore, 90);
+  // CB-1: a person decides the outcome and is not clearly barred from trading it.
+  const cb1Floor = level("D1") === 5 ? CB1_FLOORS[level("D3")] : undefined;
+  // CB-2: the outcome can be manufactured unilaterally by a party not clearly barred
+  // from trading — or by one who needs no disclosure lag at all (D2=1 with D5=5).
+  const cb2Floor =
+    level("D5") === 5 ? (CB2_FLOORS[level("D3")] ?? (level("D2") === 1 ? 85 : undefined)) : undefined;
+
+  if (cb1Floor !== undefined) {
+    overallScore = Math.max(overallScore, cb1Floor);
     circuitBreaker = "CB-1";
-  }
-  // CB-2: the outcome can be manufactured unilaterally by someone free to trade it.
-  else if (level("D5") === 5 && level("D3") >= 4) {
-    overallScore = Math.max(overallScore, 85);
+    notes.push(`CB-1 floor ${cb1Floor} applied (D1 at level 5, D3 at level ${level("D3")})`);
+  } else if (cb2Floor !== undefined) {
+    overallScore = Math.max(overallScore, cb2Floor);
     circuitBreaker = "CB-2";
+    notes.push(`CB-2 floor ${cb2Floor} applied (D5 at level 5, D3 at level ${level("D3")}, D2 at level ${level("D2")})`);
   }
 
-  return { overallScore, band: bandFor(overallScore), circuitBreaker, dimensions };
+  return { overallScore, band: bandFor(overallScore), circuitBreaker, dimensions, notes };
 }
 
 // Deterministic one-line summary: pick the highest-contribution risky dimension

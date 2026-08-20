@@ -82,9 +82,9 @@
   },
   "metadata": {
     "model": "claude-fable-5 (reference classification via LevelField protocol)",
-    "promptVersion": "ce41ed0a378021a5563ab5928e92837a99a19a28a7c9dbcf560249cfc73e2561",
-    "anchorLibraryVersion": "1.0.0",
+    "promptVersion": "01487b0453c676e3dfa590ba6ba6b7a16b9a847cf14b2d3dd5e2b08eb5dc46ba",
+    "anchorLibraryVersion": "1.1.0",
     "runs": 1,
-    "scoredAt": "2026-08-20T01:47:45.547Z"
+    "scoredAt": "2026-08-20T02:01:28.533Z"
   }
 }

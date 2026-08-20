@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { renderContractData, loadAnchors } from "../src/anchors.js";
-import { isVerbatimQuote } from "../src/classify.js";
+import { isVerbatimQuote } from "../src/verify.js";
 import { computeScore } from "../src/engine.js";
 import { DREAMDEX_TESTNET_VENUE, toNormalizedContract, type DreamDexMarketRow } from "../src/dreamdex.js";
 import { tryRuleClassify } from "../src/rule-classifier.js";

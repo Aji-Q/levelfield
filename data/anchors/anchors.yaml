@@ -3,14 +3,17 @@
 # Rendered into: the Stage A classifier prompt, the Methodology page, and README docs.
 # Scores are NEVER produced by a model. A model matches a contract to the anchor
 # levels below; the score is a deterministic function of the matched levels.
-version: "1.0.0"
+version: "1.1.0"
 framework: >
   Information asymmetry in an event contract cannot be observed directly, but the
   structural properties that permit it are written in the contract's own text: who
   produces the outcome, how many people know it early, whether they can trade on it,
   how it gets disclosed, and whether it can be manufactured. This taxonomy follows the
   outcome-maker classification that the Anti-Corruption Data Collective validated
-  against 435,000+ settled Polymarket markets (April 2026).
+  against 435,000+ settled Polymarket markets and $54B of volume (April 2026,
+  https://acdatacollective.org/work/insider-risks-in-polymarket-political-markets/).
+  Related quantitative work: the Information Leakage Score framework (arXiv:2605.00493)
+  and the CFTC's proposed public-interest factors for event contracts (RIN 3038-AF65).
 
 dimensions:
   - id: D1
@@ -18,9 +21,17 @@ dimensions:
     weight: 0.30
     question: What produces the outcome of this event?
     guidance: >
-      Classify by the most concentrated locus of control over the outcome itself,
-      not over its disclosure (that is D4). If the contract text is ambiguous between
-      two levels, pick the higher (riskier) one.
+      Classify by the most concentrated locus of control over the OUTCOME itself.
+      Work down this ladder and stop at the first match: (1) can a single person settle
+      the outcome by their own discretionary or unilateral act? -> level 5; (2) does a
+      bounded body or organization decide it by formal action (vote, order, ruling,
+      corporate act)? -> level 4; (3) is it the aggregate of mass public behavior, or of
+      an open competitive contest among many independent participants? -> level 3;
+      (4) is it an official statistical procedure measuring something external? -> level 2;
+      (5) otherwise a natural or market process -> level 1. Controlling the procedure,
+      timing, or disclosure around an outcome is NOT controlling the outcome — those
+      belong to D4 and D5. If the contract text is genuinely ambiguous between two
+      levels, pick the higher (riskier) one.
     levels:
       - level: 1
         label: natural_process
@@ -41,11 +52,13 @@ dimensions:
       - level: 3
         label: public_collective
         definition: >
-          The outcome is the aggregate of behavior by a large public: votes, purchases,
-          viewership. No single participant meaningfully controls it.
+          The outcome is the aggregate of behavior by a large public (mass voting,
+          mass purchasing), or of an open competitive contest among many independent
+          participants. No single participant meaningfully controls it.
         references:
           - "Who wins the presidential election?"
-          - "Will the film gross over $500M in its opening month?"
+          - "Will the film gross over $500M in its opening month? (or a viewership/ratings figure)"
+          - "Will Club Alpha win the league fixture? (a live competitive contest)"
       - level: 4
         label: institutional_decision
         definition: >
@@ -58,12 +71,13 @@ dimensions:
       - level: 5
         label: individual_will
         definition: >
-          The outcome is decided by a single person's discretionary choice: what they
-          say, post, wear, or announce.
+          The outcome is decided by a single person's discretionary choice — what they
+          say, post, wear, or announce — or by a unilateral official act that one person
+          alone can perform (a pardon, a veto, a resignation).
         references:
           - "Will person X tweet the word 'Y' this week?"
           - "Will the couple publicly announce a breakup this month?"
-          - "Will the speaker use the phrase 'Z' in tonight's speech?"
+          - "Will the president pardon person X? Will the CEO resign?"
 
   - id: D2
     name: Knowledge Circle
@@ -73,8 +87,13 @@ dimensions:
       publicly disclosed, how many people already know it?
     guidance: >
       Estimate the size of the early-knowledge window population from the structure of
-      the event, not from any specific organization's current staffing. If the outcome
-      is determined and disclosed in the same instant, the circle is empty (level 1).
+      the event, not from any specific organization's current staffing. The outcome is
+      "determined" when the person or body who controls it has settled on it, NOT when
+      it is executed: a discretionary act the actor has already decided to perform has
+      an early-knowledge window of at least one person (classify D2 at level 3 or
+      higher for individual-will outcomes). Only when no party can know the outcome
+      before it is public — it is produced and published in the same instant by a
+      process nobody steers — is the circle empty (level 1).
     levels:
       - level: 1
         label: none
@@ -121,8 +140,15 @@ dimensions:
     question: Are the people who know the outcome early effectively prevented from trading on it?
     guidance: >
       Judge the constraint regime that applies to the likely knowers on the venue where
-      this contract trades. Cross-dimension rule: if D2 is level 1 (no early-knowledge
-      window exists), classify D3 as level 1 — there is no insider to constrain.
+      this contract trades. The venue appears in the contract data when known; when it
+      is unspecified, assume an offshore venue that most legal regimes do not clearly
+      reach (level 3 or higher unless the knowers are independently constrained).
+      Cross-dimension rule: if D2 is level 1 AND D5 is level 2 or below, classify D3 as
+      level 1 — with no early-knowledge window and no realistic manufacturer, there is
+      no insider to constrain. If D5 is level 3 or higher, a party can hold
+      foreknowledge WITHOUT any disclosure lag (they intend to produce the outcome);
+      classify D3 on the constraint regime facing that party. This rule is also
+      enforced deterministically by the scoring engine.
     levels:
       - level: 1
         label: prohibited_enforced
@@ -165,8 +191,11 @@ dimensions:
     weight: 0.15
     question: Is there an official moment when everyone learns the outcome at the same time?
     guidance: >
-      Classify how the outcome reaches the public, per the contract's own resolution
-      source if one is named.
+      Classify the predictability of THIS outcome's release moment, not the reliability
+      of the channel: an official channel with a fixed calendar does not make a
+      discretionary act's timing scheduled — if the disclosing party chooses when the
+      channel fires, that is level 3 or 5, not level 1. Use the contract's own
+      resolution source when one is named.
     levels:
       - level: 1
         label: fixed_schedule
@@ -246,18 +275,30 @@ scoring:
     - { name: high,     min: 75, max: 100 }
   circuit_breakers:
     - id: CB-1
-      condition: "D1 == 5 && D3 >= 4"
-      floor: 90
+      condition: "D1 == 5 && D3 >= 3 (graduated floor: D3=3 -> 80, D3=4 -> 90, D3=5 -> 95)"
+      floor: 80
       rationale: >
-        A person who decides the outcome and is free to trade it makes every other
-        dimension irrelevant. ACDC observed exactly this: individual-decided markets
-        look unremarkable on average while hiding a small set of perfect-win wallets.
+        A person who decides the outcome and is not clearly barred from trading it
+        makes every other dimension nearly irrelevant. ACDC observed exactly this:
+        individual-decided markets look unremarkable on average while hiding a small
+        set of perfect-win wallets. The floor is graduated by D3 because the
+        policy_only/ambiguous boundary is the most subjective call in the library —
+        a single hard threshold would put a 20+ point cliff on it.
     - id: CB-2
-      condition: "D5 == 5 && D3 >= 4"
-      floor: 85
+      condition: "D5 == 5 && (D3 >= 3 (graduated: 75/85/90) || D2 == 1 (floor 85))"
+      floor: 75
       rationale: >
-        If the outcome can be manufactured unilaterally by someone free to trade it,
-        the market is an invitation to trade against its own author.
+        If the outcome can be manufactured unilaterally by someone not clearly barred
+        from trading it, the market is an invitation to trade against its own author.
+        The D2 == 1 alternative exists because a manufacturer needs no disclosure lag:
+        they hold foreknowledge of an outcome they intend to produce, which the
+        knowledge-circle dimension cannot see.
+  cross_dimension_rules: >
+    Two rules are enforced deterministically by the scoring engine, not just requested
+    of the classifier: (R1) if D1 is 5 and D2 is 1, D2 is raised to 3 — the decider
+    knows their own intent before executing it; (R2) if D2 is 1 and D5 is 2 or below,
+    D3 is set to 1 — no early-knowledge window and no realistic manufacturer means no
+    insider to constrain. Every adjustment is reported in the output's caveats.
   conservative_default:
     level: 4
     rationale: >

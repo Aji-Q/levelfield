@@ -571,3 +571,99 @@ table.level-table ul {
   font-size: 0.9rem;
   padding: 1.5rem 0;
 }
+
+/* ---- assess page ---- */
+
+.assess-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.field label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+}
+
+.textarea {
+  width: 100%;
+  resize: vertical;
+  background: var(--bg-inset);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  padding: 0.7rem 0.85rem;
+}
+
+.textarea:focus-visible {
+  outline: 1px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.textarea-mono {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.button {
+  display: inline-block;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.6rem 1.1rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.button-row {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.hint {
+  font-size: 0.85rem;
+  color: var(--fg-faint);
+}
+
+/* Error notices reuse .notice but swap the accent border for a neutral gray one —
+   no red, per the design language, but still visually distinct from informational notices. */
+.notice-error {
+  border-left-color: var(--fg-dim);
+}
+
+.quote-error-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.88rem;
+}
+
+.quote-error-list li {
+  margin-bottom: 0.5rem;
+}
+
+.quote-error-text {
+  color: var(--fg-dim);
+  font-style: italic;
+}

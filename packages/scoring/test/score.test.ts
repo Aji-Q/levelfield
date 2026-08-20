@@ -7,7 +7,8 @@ import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadAnchors } from "../src/anchors.js";
-import { MockClassifier, isVerbatimQuote, normalizeWhitespace } from "../src/classify.js";
+import { MockClassifier } from "../src/classify.js";
+import { isVerbatimQuote, normalizeWhitespace } from "../src/verify.js";
 import { scoreContract } from "../src/score.js";
 import type { DimensionId, Level, NormalizedContract } from "../src/types.js";
 

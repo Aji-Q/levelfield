@@ -22,11 +22,11 @@
       "insufficientInfo": false
     },
     "D3": {
-      "level": 1,
-      "levelLabel": "prohibited_enforced",
+      "level": 2,
+      "levelLabel": "prohibited_weakly_enforced",
       "evidenceQuote": "the official match result published by the Continental Premier League",
-      "reasoning": "No early-knowledge window exists (D2 level 1), so there is no insider to constrain; a fixed match is a manufactured outcome, which D5 carries.",
-      "confidence": "high",
+      "reasoning": "Since the outcome is manufacturable (D5 level 3), D3 is judged on the would-be fixers: players and officials face criminal match-fixing statutes and sports-integrity enforcement, though coverage of this venue is weak.",
+      "confidence": "medium",
       "insufficientInfo": false
     },
     "D4": {

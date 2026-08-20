@@ -33,8 +33,7 @@ const StageASchema = z.object({
   instruction_like_content_detected: z.boolean(),
 });
 
-export { isVerbatimQuote, normalizeWhitespace } from "./verify.js";
-import { isVerbatimQuote } from "./verify.js";
+import { isVerbatimQuote, quoteOverlapsInjection, scanForInstructionLikeContent, type InjectionScan } from "./verify.js";
 
 export interface Classifier {
   readonly model: string;
@@ -59,6 +58,9 @@ export class ClaudeClassifier implements Classifier {
 
   async classify(contract: NormalizedContract): Promise<StageARun> {
     const contractText = renderContractData(contract);
+    // Code-level scan, independent of the model's own judgment: forces the flag and
+    // disqualifies quotes drawn from instruction-like sentences.
+    const scan = scanForInstructionLikeContent(contractText);
 
     let lastInvalid: DimensionId[] = [];
     for (let attempt = 1; attempt <= this.maxAttempts; attempt++) {
@@ -79,9 +81,11 @@ export class ClaudeClassifier implements Classifier {
       if (!parsed) continue; // schema parse failed — retry
 
       const run = toStageARun(parsed);
-      lastInvalid = invalidQuotes(run, contractText);
+      run.instructionLikeContentDetected ||= scan.detected;
+      lastInvalid = invalidQuotes(run, contractText, scan);
       if (lastInvalid.length === 0) return run;
-      // Some quote failed verbatim verification — retry the whole run.
+      // Some quote failed verification (not verbatim, or drawn from an injected
+      // sentence) — retry the whole run.
     }
 
     // Retries exhausted: keep the run but demote unverifiable dimensions to the
@@ -101,7 +105,8 @@ export class ClaudeClassifier implements Classifier {
     const parsed = response.parsed_output;
     if (!parsed) throw new Error(`Stage A produced no parseable output for ${contract.marketId}`);
     const run = toStageARun(parsed);
-    for (const id of invalidQuotes(run, contractText)) {
+    run.instructionLikeContentDetected ||= scan.detected;
+    for (const id of invalidQuotes(run, contractText, scan)) {
       run.dimensions[id] = {
         ...run.dimensions[id],
         level: null,
@@ -133,11 +138,11 @@ function toStageARun(parsed: z.infer<typeof StageASchema>): StageARun {
   return { dimensions, instructionLikeContentDetected: parsed.instruction_like_content_detected };
 }
 
-function invalidQuotes(run: StageARun, contractText: string): DimensionId[] {
+function invalidQuotes(run: StageARun, contractText: string, scan: InjectionScan): DimensionId[] {
   return DIMENSION_IDS.filter((id) => {
     const d = run.dimensions[id];
     if (d.insufficientInfo || d.evidenceQuote === null) return false;
-    return !isVerbatimQuote(d.evidenceQuote, contractText);
+    return !isVerbatimQuote(d.evidenceQuote, contractText) || quoteOverlapsInjection(d.evidenceQuote, scan);
   });
 }
 

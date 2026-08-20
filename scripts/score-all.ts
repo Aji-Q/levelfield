@@ -29,7 +29,9 @@ import {
   fetchMarkets,
   isVerbatimQuote,
   loadAnchors,
+  quoteOverlapsInjection,
   renderContractData,
+  scanForInstructionLikeContent,
   toNormalizedContract,
   tryRuleClassify,
   voteDimension,
@@ -95,11 +97,25 @@ interface ClassificationFile {
 
 // One Stage A run -> full ScoreResult. Both tracks feed exactly one deterministic run
 // through voteDimension (agreement always "1/1") so the assembly logic is shared.
+// The code-level injection scan runs here for every track, independent of what any
+// classifier claimed (docs/review-2026-08-20.md §1.2: the quote check alone proves a
+// quote exists, not that it wasn't attacker-authored).
 function scoreRun(contract: NormalizedContract, run: StageARun, model: string): ScoreResult {
-  const voted = DIMENSION_IDS.map((id) => voteDimension([run.dimensions[id]]));
+  const scan = scanForInstructionLikeContent(renderContractData(contract));
+  const voted = DIMENSION_IDS.map((id) => voteDimension([run.dimensions[id]])).map((v) =>
+    v.evidenceQuote !== null && quoteOverlapsInjection(v.evidenceQuote, scan)
+      ? { ...v, level: null, evidenceQuote: null, insufficientInfo: true, confidence: "low" as const }
+      : v,
+  );
   const engine = computeScore(voted, lib);
 
   const caveats = [...STANDARD_CAVEATS];
+  if (scan.detected) {
+    caveats.push(
+      "Instruction-like content addressed at automated assessors was detected in the contract text; it was ignored for classification and disqualified as evidence.",
+    );
+  }
+  caveats.push(...engine.notes);
   for (const d of engine.dimensions) {
     if (d.insufficientInfo) {
       caveats.push(
@@ -118,7 +134,7 @@ function scoreRun(contract: NormalizedContract, run: StageARun, model: string): 
     summary: buildSummary(engine),
     dimensions: engine.dimensions,
     caveats,
-    flags: { instructionLikeContentDetected: run.instructionLikeContentDetected },
+    flags: { instructionLikeContentDetected: scan.detected || run.instructionLikeContentDetected },
     metadata: {
       model,
       promptVersion,
@@ -133,16 +149,19 @@ function scoreRun(contract: NormalizedContract, run: StageARun, model: string): 
 
 const expiryOf = (r: DreamDexMarketRow) => (r.expiry ? Number(r.expiry) : Infinity);
 
-// Collapses rows sharing the same question template down to one representative, keeping
-// the soonest-expiry Trading row (falling back to soonest-expiry overall if none of the
-// group is currently Trading). Only kicks in once the fetched batch is large enough that
-// duplication would make the cache unreadable.
-function dedupeLiveRows(rows: DreamDexMarketRow[]): { kept: DreamDexMarketRow[]; collapsedCount: number } {
-  if (rows.length <= 10) return { kept: rows, collapsedCount: 0 };
+// Selects the currently-tradable representative per market series. The indexer carries
+// hundreds of orphaned rows still marked "Trading" with expiries weeks in the past
+// (docs/review-2026-08-20.md §1.3), so: keep only future-expiry Trading rows, group by
+// the TYPED series key (asset|intervalSec, per Gotcha #13 — never the question text),
+// and keep the soonest FUTURE expiry in each series (the window a user could bet now).
+function selectLiveRows(rows: DreamDexMarketRow[]): { kept: DreamDexMarketRow[]; staleCount: number; collapsedCount: number } {
+  const nowSec = Date.now() / 1000;
+  const tradable = rows.filter((r) => r.clobStatus === "Trading" && r.expiry !== null && Number(r.expiry) > nowSec);
+  const staleCount = rows.length - tradable.length;
 
   const groups = new Map<string, DreamDexMarketRow[]>();
-  for (const row of rows) {
-    const key = row.question ?? `${row.marketType}|${row.asset}|${row.strike}`;
+  for (const row of tradable) {
+    const key = `${row.asset}|${row.intervalSec}`;
     const list = groups.get(key);
     if (list) list.push(row);
     else groups.set(key, [row]);
@@ -151,28 +170,24 @@ function dedupeLiveRows(rows: DreamDexMarketRow[]): { kept: DreamDexMarketRow[];
   const kept: DreamDexMarketRow[] = [];
   let collapsedCount = 0;
   for (const group of groups.values()) {
-    if (group.length === 1) {
-      kept.push(group[0]);
-      continue;
-    }
-    const trading = group.filter((r) => r.clobStatus === "Trading");
-    const pool = trading.length > 0 ? trading : group;
-    kept.push([...pool].sort((a, b) => expiryOf(a) - expiryOf(b))[0]);
+    kept.push([...group].sort((a, b) => expiryOf(a) - expiryOf(b))[0]);
     collapsedCount += group.length - 1;
   }
-  return { kept, collapsedCount };
+  return { kept, staleCount, collapsedCount };
 }
 
 async function runLiveTrack(): Promise<{ results: ScoreResult[]; entries: ScoreIndexEntry[] }> {
   const results: ScoreResult[] = [];
   const entries: ScoreIndexEntry[] = [];
 
-  const rows = await fetchMarkets({ statuses: ["Trading", "Locked"] });
-  const { kept, collapsedCount } = dedupeLiveRows(rows);
-  if (collapsedCount > 0) {
-    console.warn(
-      `[live] collapsed ${collapsedCount} duplicate-question row(s): ${rows.length} fetched -> ${kept.length} scored (kept soonest-expiry Trading row per distinct question)`,
-    );
+  const rows = await fetchMarkets({ statuses: ["Trading"] });
+  const { kept, staleCount, collapsedCount } = selectLiveRows(rows);
+  console.warn(
+    `[live] ${rows.length} Trading rows fetched: ${staleCount} stale (past expiry, indexer orphans) dropped, ` +
+      `${collapsedCount} duplicate series rows collapsed -> ${kept.length} currently-tradable market(s) scored`,
+  );
+  if (kept.length === 0) {
+    console.warn("[live] no currently-tradable market found (all Trading rows are past expiry) — live track is empty this run");
   }
 
   let declined = 0;
@@ -251,6 +266,14 @@ function runCuratedTrack(): { results: ScoreResult[]; entries: ScoreIndexEntry[]
           throw new Error(
             `Classification file ${classificationPath} dimension ${id}: evidenceQuote ${JSON.stringify(d.evidenceQuote)} ` +
               `is not a verbatim substring of the rendered contract text for ${contract.marketId} (${curatedPath}).`,
+          );
+        }
+        // Reference files must never cite injected text as evidence.
+        const scan = scanForInstructionLikeContent(contractText);
+        if (d.evidenceQuote !== null && quoteOverlapsInjection(d.evidenceQuote, scan)) {
+          throw new Error(
+            `Classification file ${classificationPath} dimension ${id}: evidenceQuote overlaps instruction-like ` +
+              `content in the contract text — a reference classification may not cite injected text.`,
           );
         }
         const run: RunClassification = {

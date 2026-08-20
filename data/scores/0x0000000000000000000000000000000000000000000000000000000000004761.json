@@ -1,32 +1,32 @@
 {
-  "marketId": "curated-election-winner",
-  "question": "Will Candidate A win the 2026 gubernatorial election in State X?",
-  "source": "curated",
-  "overallScore": 21,
+  "marketId": "0x0000000000000000000000000000000000000000000000000000000000004761",
+  "question": "ETH closes at or above its opening price",
+  "source": "dreamdex_testnet",
+  "overallScore": 3,
   "band": "low",
   "circuitBreaker": null,
   "summary": "No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.",
   "dimensions": [
     {
       "dimension": "D1",
-      "level": 3,
-      "levelLabel": "public_collective",
-      "evidenceQuote": "the November 2026 gubernatorial election",
-      "reasoning": "The outcome is the aggregate of votes cast by a large public; no single participant meaningfully controls it.",
+      "level": 1,
+      "levelLabel": "natural_process",
+      "evidenceQuote": "ETH closes at or above its opening price",
+      "reasoning": "The outcome is the exchange market price of a major crypto asset, a process no identifiable party controls.",
       "confidence": "high",
       "insufficientInfo": false,
       "agreement": "1/1",
       "name": "Outcome Control",
       "weight": 0.3,
-      "effectiveLevel": 3
+      "effectiveLevel": 1
     },
     {
       "dimension": "D2",
       "level": 1,
       "levelLabel": "none",
-      "evidenceQuote": "officially certified result",
-      "reasoning": "The result emerges from public counting; no closed group knows the certified outcome before the tally is public.",
-      "confidence": "medium",
+      "evidenceQuote": "ETH closes at or above its opening price",
+      "reasoning": "The settlement price becomes known to everyone at the moment it exists; there is no early-knowledge window.",
+      "confidence": "high",
       "insufficientInfo": false,
       "agreement": "1/1",
       "name": "Knowledge Circle",
@@ -37,9 +37,9 @@
       "dimension": "D3",
       "level": 1,
       "levelLabel": "prohibited_enforced",
-      "evidenceQuote": "certified as the winner by the State X electoral authority",
-      "reasoning": "No early-knowledge window exists (D2 level 1), so there is no insider to constrain.",
-      "confidence": "medium",
+      "evidenceQuote": "ETH closes at or above its opening price",
+      "reasoning": "With no early-knowledge window (D2 = none), there is no insider position for any constraint to apply to.",
+      "confidence": "high",
       "insufficientInfo": false,
       "agreement": "1/1",
       "name": "Insider Tradability",
@@ -48,23 +48,23 @@
     },
     {
       "dimension": "D4",
-      "level": 2,
-      "levelLabel": "official_roughly_scheduled",
-      "evidenceQuote": "officially certified as the winner by the State X electoral authority",
-      "reasoning": "Certification follows a known post-election schedule, though counting duration varies.",
-      "confidence": "medium",
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "ETH closes at or above its opening price",
+      "reasoning": "The market settles on a fixed window expiry via on-chain oracle publication, auditable at the Somnia oracle hub (https://prd.oracle.somnia.host/explore).",
+      "confidence": "high",
       "insufficientInfo": false,
       "agreement": "1/1",
       "name": "Disclosure Synchronicity",
       "weight": 0.15,
-      "effectiveLevel": 2
+      "effectiveLevel": 1
     },
     {
       "dimension": "D5",
       "level": 2,
       "levelLabel": "prohibitively_costly",
-      "evidenceQuote": "the officially certified result",
-      "reasoning": "Manufacturing an election outcome would require fraud at prohibitive cost and legal risk.",
+      "evidenceQuote": "ETH closes at or above its opening price",
+      "reasoning": "Moving the global market price of a major crypto asset enough to flip the strike dwarfs any plausible bet size.",
       "confidence": "high",
       "insufficientInfo": false,
       "agreement": "1/1",
@@ -81,10 +81,10 @@
     "instructionLikeContentDetected": false
   },
   "metadata": {
-    "model": "claude-fable-5 (reference classification via LevelField protocol)",
+    "model": "rule-classifier/v1",
     "promptVersion": "01487b0453c676e3dfa590ba6ba6b7a16b9a847cf14b2d3dd5e2b08eb5dc46ba",
     "anchorLibraryVersion": "1.1.0",
     "runs": 1,
-    "scoredAt": "2026-08-20T02:01:28.530Z"
+    "scoredAt": "2026-08-20T02:01:28.525Z"
   }
 }

@@ -112,6 +112,7 @@ export function toNormalizedContract(row: DreamDexMarketRow): NormalizedContract
     description,
     resolutionRules,
     closeTime,
+    venue: "DreamDEX on Somnia (Shannon testnet) — on-chain, non-custodial order book",
     source: "dreamdex_testnet",
   };
 }

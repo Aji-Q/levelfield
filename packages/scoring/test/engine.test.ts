@@ -101,3 +101,50 @@ describe("computeScore", () => {
     expect(out.overallScore).toBe(15); // 0.2 * 0.75 * 100
   });
 });
+
+describe("graduated circuit-breaker floors", () => {
+  it("CB-1 grades by D3: 3 -> 80, 4 -> 90, 5 -> 95", () => {
+    expect(computeScore(voted({ D1: 5, D2: 3, D3: 3, D4: 1, D5: 1 }), lib).overallScore).toBe(80);
+    expect(computeScore(voted({ D1: 5, D2: 3, D3: 4, D4: 1, D5: 1 }), lib).overallScore).toBe(90);
+    expect(computeScore(voted({ D1: 5, D2: 3, D3: 5, D4: 1, D5: 1 }), lib).overallScore).toBe(95);
+  });
+
+  it("CB-1 does not fire below D3 level 3", () => {
+    const out = computeScore(voted({ D1: 5, D2: 3, D3: 2, D4: 1, D5: 1 }), lib);
+    expect(out.circuitBreaker).toBeNull();
+  });
+
+  it("CB-2 grades by D3 and reports the floor in notes", () => {
+    const out = computeScore(voted({ D1: 4, D2: 3, D3: 3, D4: 1, D5: 5 }), lib);
+    expect(out.overallScore).toBe(75);
+    expect(out.circuitBreaker).toBe("CB-2");
+    expect(out.notes.some((n) => n.includes("CB-2 floor 75"))).toBe(true);
+  });
+
+  it("CB-2 alternative trigger: a manufacturer needs no disclosure lag (D2=1, D5=5)", () => {
+    const out = computeScore(voted({ D1: 3, D2: 1, D3: 1, D4: 1, D5: 5 }), lib);
+    expect(out.circuitBreaker).toBe("CB-2");
+    expect(out.overallScore).toBe(85);
+  });
+});
+
+describe("cross-dimension rules enforced in code", () => {
+  it("R1: individual-will outcomes cannot have an empty knowledge circle", () => {
+    const out = computeScore(voted({ D1: 5, D2: 1, D3: 5, D4: 5, D5: 5 }), lib);
+    const d2 = out.dimensions.find((d) => d.dimension === "D2");
+    expect(d2?.effectiveLevel).toBe(3);
+    expect(out.notes.some((n) => n.startsWith("D2 adjusted"))).toBe(true);
+    // CB-1 survives the D2=1 reading — the silent breaker-disable path is closed.
+    expect(out.circuitBreaker).toBe("CB-1");
+    expect(out.overallScore).toBeGreaterThanOrEqual(95);
+  });
+
+  it("R2: D3 collapses to 1 only when nothing is manufacturable (D5 <= 2)", () => {
+    const forced = computeScore(voted({ D1: 1, D2: 1, D3: 3, D4: 1, D5: 2 }), lib);
+    expect(forced.dimensions.find((d) => d.dimension === "D3")?.effectiveLevel).toBe(1);
+    expect(forced.notes.some((n) => n.startsWith("D3 adjusted"))).toBe(true);
+
+    const stands = computeScore(voted({ D1: 3, D2: 1, D3: 3, D4: 1, D5: 3 }), lib);
+    expect(stands.dimensions.find((d) => d.dimension === "D3")?.effectiveLevel).toBe(3);
+  });
+});

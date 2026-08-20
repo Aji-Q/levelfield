@@ -25,8 +25,11 @@ Two-stage pipeline; no model ever produces a number.
 - **D4 Disclosure Synchronicity** (15%) — whether everyone learns the outcome at once
 - **D5 Outcome Manufacturability** (10%) — whether someone could cause the outcome to win a bet
 
-Every classification must quote the contract's own text verbatim — mechanically verified as a
-substring, which also defends against prompt injection via market descriptions.
+Every classification must quote the contract's own text verbatim (mechanically verified as a
+substring), and a code-level scanner — independent of any model's judgment — detects
+instruction-like content addressed at automated assessors, flags it, and disqualifies any
+evidence quote drawn from those sentences. A market creator can neither talk a model into
+a low score nor have the attack text itself pass as evidence.
 
 Stage A has three providers, none of which calls a paid API:
 
@@ -39,8 +42,11 @@ Stage A has three providers, none of which calls a paid API:
 **Stage B — scoring (deterministic code).** Levels → weighted score 0–100 → band
 (low / moderate / elevated / high), plus two circuit breakers:
 
-- **CB-1:** outcome decided by one person who is free to trade it → score floor 90
-- **CB-2:** outcome manufacturable unilaterally by someone free to trade it → score floor 85
+- **CB-1:** outcome decided by one person not clearly barred from trading it → graduated floor 80/90/95 (by D3 level 3/4/5)
+- **CB-2:** outcome manufacturable unilaterally by such a party → graduated floor 75/85/90; also trips at D2=1 with D5=5 (a manufacturer needs no disclosure lag)
+
+Two cross-dimension rules are enforced deterministically in the engine (not just requested
+of the classifier), and every adjustment is reported in the output's caveats.
 
 Ambiguity never scores low: a dimension that can't be determined from the text defaults
 conservatively to level 4 and is flagged.
@@ -70,7 +76,7 @@ FEEDBACK.md             SDK & docs feedback journal (hackathon deliverable, 9 ev
 
 ```bash
 npm install
-npm test                      # 38 unit/integration tests
+npm test                      # 56 unit/integration tests
 npm run score:all             # score live testnet markets + curated set -> data/scores/
 npm run dev -w @levelfield/web    # UI at localhost:3000
 npm run mcp                   # stdio MCP server (see packages/mcp/README.md)
@@ -87,8 +93,8 @@ npx tsx scripts/verify-classifications.ts  # re-verify all evidence quotes
 - [x] Batch scorer + score cache (live + curated, ACDC gradient reproduced)
 - [x] MCP server (protocol / score / anchors), verified over stdio
 - [x] Web UI (markets, detail with evidence quotes, methodology from YAML)
-- [ ] On-chain ScoreRegistry attestations (Somnia Shannon)
-- [ ] Validation write-up: gradient + stability stats in README
+- [x] ScoreRegistry contract + deploy/publish scripts (deployment awaits a faucet-funded key)
+- [x] Validation harness: 16 contracts, category medians strictly ordered, Spearman ρ = 0.93 (docs/validation.md)
 - [ ] Demo video, deck, final SDK feedback report
 
 ## What this is not

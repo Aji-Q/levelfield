@@ -42,20 +42,20 @@ on its own.
 |---|---|---|
 | market_data | 1 | 3 |
 | statistical | 1 | 19 |
-| public | 2 | 20.5 |
+| public | 2 | 23.5 |
 | institutional | 8 | 60 |
-| individual | 4 | 90 |
+| individual | 4 | 95 |
 
 | adjacent pair | median A | median B | result |
 |---|---|---|---|
 | market_data <= statistical | 3 | 19 | PASS |
-| statistical <= public | 19 | 20.5 | PASS |
-| public < institutional | 20.5 | 60 | PASS |
-| institutional < individual | 60 | 90 | PASS |
+| statistical <= public | 19 | 23.5 | PASS |
+| public < institutional | 23.5 | 60 | PASS |
+| institutional < individual | 60 | 95 | PASS |
 
 ## 2. Spearman rank correlation
 
-rho = 0.911, n = 16.
+rho = 0.930, n = 16.
 
 Computed as the Pearson correlation of tie-aware ranks (average rank within ties) between
 each contract's `overallScore` and its category's position in the ACDC order
@@ -66,9 +66,10 @@ can share a category (e.g. `institutional`).
 
 | marketId | category | score | circuit breaker |
 |---|---|---|---|
-| curated-celebrity-breakup | individual | 90 | CB-1 |
-| curated-injection-test | individual | 90 | CB-1 |
-| curated-presidential-pardon | individual | 90 | CB-1 |
+| curated-celebrity-breakup | individual | 95 | CB-1 |
+| curated-ceo-resignation | individual | 80 | CB-1 |
+| curated-injection-test | individual | 95 | CB-1 |
+| curated-presidential-pardon | individual | 95 | CB-1 |
 
 ## 4. All curated markets
 
@@ -77,16 +78,16 @@ can share a category (e.g. `institutional`).
 | curated-award-show | institutional | 45 | moderate | — | scored |
 | curated-bill-passage | institutional | 73 | elevated | — | scored |
 | curated-btc-120k | market_data | 3 | low | — | scored |
-| curated-celebrity-breakup | individual | 90 | high | CB-1 | scored |
-| curated-ceo-resignation | individual | 75 | high | — | scored |
+| curated-celebrity-breakup | individual | 95 | high | CB-1 | scored |
+| curated-ceo-resignation | individual | 80 | high | CB-1 | scored |
 | curated-company-layoffs | institutional | 65 | elevated | — | scored |
 | curated-court-ruling | institutional | 54 | elevated | — | scored |
 | curated-cpi-above-3 | statistical | 19 | low | — | scored |
 | curated-earnings-beat | institutional | 55 | elevated | — | scored |
 | curated-election-winner | public | 21 | low | — | scored |
 | curated-fed-rate-cut | institutional | 49 | moderate | — | scored |
-| curated-football-match | public | 20 | low | — | scored |
-| curated-injection-test | individual | 90 | high | CB-1 | scored |
+| curated-football-match | public | 26 | moderate | — | scored |
+| curated-injection-test | individual | 95 | high | CB-1 | scored |
 | curated-military-strike | institutional | 78 | high | — | scored |
-| curated-presidential-pardon | individual | 90 | high | CB-1 | scored |
+| curated-presidential-pardon | individual | 95 | high | CB-1 | scored |
 | curated-protocol-upgrade | institutional | 68 | elevated | — | scored |

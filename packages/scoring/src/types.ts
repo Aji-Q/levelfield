@@ -14,6 +14,9 @@ export interface NormalizedContract {
   description: string;
   resolutionRules: string;
   closeTime?: string;
+  // Venue context for D3 (Insider Tradability): the constraint regime is a property of
+  // where the contract trades, not of its text. Unset -> the protocol's offshore default.
+  venue?: string;
   source: "dreamdex_testnet" | "curated" | "adhoc";
 }
 

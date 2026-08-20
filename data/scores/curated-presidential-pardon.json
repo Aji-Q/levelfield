@@ -2,7 +2,7 @@
   "marketId": "curated-presidential-pardon",
   "question": "Will the President of Vantia issue a pardon for former Minister Renata Kessler before January 20, 2027?",
   "source": "curated",
-  "overallScore": 90,
+  "overallScore": 95,
   "band": "high",
   "circuitBreaker": "CB-1",
   "summary": "The outcome is decided by a single person who faces no effective restriction on trading it.",
@@ -75,16 +75,17 @@
   ],
   "caveats": [
     "This score reflects the structural risk of the event type, not live detection of insider activity in this market.",
-    "This is not a prediction of the outcome and not trading advice."
+    "This is not a prediction of the outcome and not trading advice.",
+    "CB-1 floor 95 applied (D1 at level 5, D3 at level 5)"
   ],
   "flags": {
     "instructionLikeContentDetected": false
   },
   "metadata": {
     "model": "claude-fable-5 (reference classification via LevelField protocol)",
-    "promptVersion": "ce41ed0a378021a5563ab5928e92837a99a19a28a7c9dbcf560249cfc73e2561",
-    "anchorLibraryVersion": "1.0.0",
+    "promptVersion": "01487b0453c676e3dfa590ba6ba6b7a16b9a847cf14b2d3dd5e2b08eb5dc46ba",
+    "anchorLibraryVersion": "1.1.0",
     "runs": 1,
-    "scoredAt": "2026-08-20T01:47:45.547Z"
+    "scoredAt": "2026-08-20T02:01:28.533Z"
   }
 }

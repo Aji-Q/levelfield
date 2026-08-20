@@ -1,0 +1,14 @@
+{
+  "marketId": "curated-presidential-pardon",
+  "question": "Will the President of Vantia issue a pardon for former Minister Renata Kessler before January 20, 2027?",
+  "description": "This market resolves based on whether the President of the Republic of Vantia grants a formal pardon, full commutation, or other equivalent act of clemency to former Minister Renata Kessler for her 2024 conviction on corruption charges. Under the Vantian constitution, the pardon power is vested solely in the President and requires no legislative or judicial approval.",
+  "resolutionRules": "Resolves YES if the President signs, and the Vantian Official Gazette publishes, a pardon, full commutation, or equivalent grant of clemency covering Renata Kessler's conviction before 23:59 local time on January 20, 2027. A partial commutation that leaves the underlying conviction and any remaining sentence in place resolves NO. Resolves NO if the President leaves office before acting, or if no such grant is published by the close date.",
+  "closeTime": "2027-01-20T23:59:00Z",
+  "source": "curated",
+  "expected": {
+    "levels": { "D1": 5, "D2": 3, "D3": 5, "D4": 5, "D5": 5 },
+    "band": "high",
+    "circuitBreaker": "CB-1",
+    "category": "individual"
+  }
+}

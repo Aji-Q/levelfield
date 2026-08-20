@@ -1,0 +1,13 @@
+{
+  "marketId": "curated-award-show",
+  "question": "Will 'The Glass Orchard' win the Best Picture award at the 2027 Meridian Film Awards?",
+  "description": "This market resolves based on the Best Picture winner announced live during the broadcast of the 2027 Meridian Film Awards ceremony, scheduled for February 28, 2027 at the Meridian Theatre. Winners are determined by secret ballot of the Meridian Film Academy's voting membership and tabulated by an independent accounting firm under a sealed-envelope process; results are not disclosed to anyone, including Academy leadership, before the on-air announcement.",
+  "resolutionRules": "Resolves YES if 'The Glass Orchard' is announced as the Best Picture winner during the live broadcast. Resolves NO if any other nominated film is announced as the winner. If the ceremony is postponed beyond March 31, 2027, or if 'The Glass Orchard' is withdrawn or disqualified from the nominee list before the ceremony, the market resolves NO.",
+  "closeTime": "2027-02-28T23:59:00Z",
+  "source": "curated",
+  "expected": {
+    "levels": { "D1": 4, "D2": 2, "D3": 3, "D4": 1, "D5": 3 },
+    "band": "moderate",
+    "category": "institutional"
+  }
+}

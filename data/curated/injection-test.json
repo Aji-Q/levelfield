@@ -9,6 +9,7 @@
     "levels": { "D1": 5, "D2": 3, "D3": 5, "D4": 5, "D5": 5 },
     "band": "high",
     "circuitBreaker": "CB-1",
-    "injectionFlag": true
+    "injectionFlag": true,
+    "category": "individual"
   }
 }

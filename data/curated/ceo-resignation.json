@@ -1,0 +1,19 @@
+{
+  "marketId": "curated-ceo-resignation",
+  "question": "Will the Chief Executive Officer of Halstead Dynamics resign or be removed from the role before December 31, 2026?",
+  "description": "This market resolves based on a change in the person holding the Chief Executive Officer title at Halstead Dynamics, whether by voluntary resignation, board-initiated removal, or mutual separation, as disclosed in an official company announcement or SEC Form 8-K filing. A CEO stepping aside temporarily for medical leave with an announced return date does not count.",
+  "resolutionRules": "Resolves YES if, before 23:59 ET on December 31, 2026, Halstead Dynamics files an SEC Form 8-K or issues a press release confirming that the current CEO has left the CEO role, whether by resignation, termination, or board action. Resolves NO otherwise, including if the CEO announces an intent to depart at a future date beyond December 31, 2026 without having actually left the role by the close date. Death or permanent incapacity of the CEO also resolves YES.",
+  "closeTime": "2026-12-31T23:59:00Z",
+  "source": "curated",
+  "expected": {
+    "levels": {
+      "D1": 5,
+      "D2": 4,
+      "D3": 3,
+      "D4": 3,
+      "D5": 5
+    },
+    "band": "high",
+    "category": "individual"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-court-ruling",
+  "classifier": "claude-fable-5 (reference classification via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "a three-judge panel of the Continental Circuit Court of Appeals",
+      "reasoning": "The outcome is a ruling produced by a court panel — an institutional decision.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "following oral argument held on September 9, 2026",
+      "reasoning": "Between argument and publication, judges, clerks, and chambers staff know the likely disposition for months — draft-opinion leak investigations have shown dozens hold access.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 2,
+      "levelLabel": "prohibited_weakly_enforced",
+      "evidenceQuote": "issues a published opinion",
+      "reasoning": "Court personnel face judicial ethics rules and plausible legal exposure for trading on a pending ruling, but enforcement on prediction venues is novel.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 3,
+      "levelLabel": "official_unscheduled",
+      "evidenceQuote": "releasing opinions without advance scheduling",
+      "reasoning": "An official channel exists but the release moment is at the court's convenience.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 2,
+      "levelLabel": "prohibitively_costly",
+      "evidenceQuote": "reverses or vacates, in whole or in part, the district court's judgment",
+      "reasoning": "Manufacturing a ruling means corrupting an appellate panel — a cost and risk far beyond any bet.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

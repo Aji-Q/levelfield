@@ -1,0 +1,19 @@
+{
+  "marketId": "curated-earnings-beat",
+  "question": "Will Meridian Robotics report Q3 2026 GAAP diluted EPS above the Wall Street consensus estimate?",
+  "description": "This market resolves based on Meridian Robotics' Q3 2026 earnings release, scheduled for October 29, 2026 after market close, and the consensus diluted EPS estimate as reported by FactSet at market close on the trading day immediately preceding the release. Meridian Robotics reports under US GAAP and is subject to SEC quarterly reporting requirements.",
+  "resolutionRules": "Resolves YES if Meridian Robotics' reported GAAP diluted EPS for Q3 2026, as stated in its official earnings press release, is strictly greater than the FactSet consensus estimate captured per the description. Resolves NO if the reported EPS is equal to or below consensus, or if the earnings release is delayed past November 15, 2026. Restatements issued after the initial release do not affect resolution; only the figure in the original press release counts.",
+  "closeTime": "2026-10-29T21:00:00Z",
+  "source": "curated",
+  "expected": {
+    "levels": {
+      "D1": 4,
+      "D2": 4,
+      "D3": 2,
+      "D4": 2,
+      "D5": 4
+    },
+    "band": "elevated",
+    "category": "institutional"
+  }
+}

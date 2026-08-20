@@ -1,0 +1,49 @@
+{
+  "marketId": "curated-football-match",
+  "classifier": "claude-fable-5 (reference classification via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "notes": "D1 is an acknowledged anchor gap: a live competitive contest among ~22 identifiable participants fits none of the five levels cleanly; public_collective is the least-wrong match and the manipulation risk is carried by D5. Candidate anchor fix logged for v1.1.",
+  "dimensions": {
+    "D1": {
+      "level": 3,
+      "levelLabel": "public_collective",
+      "evidenceQuote": "the final result of the Matchday 8 fixture between Club Alpha and Club Bravo",
+      "reasoning": "The outcome is produced by a live competitive contest among many participants; no single party is entitled to decide it.",
+      "confidence": "low",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 1,
+      "levelLabel": "none",
+      "evidenceQuote": "recorded as the winner at the final whistle",
+      "reasoning": "The result is produced live in public; there is no early-knowledge window.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 1,
+      "levelLabel": "prohibited_enforced",
+      "evidenceQuote": "the official match result published by the Continental Premier League",
+      "reasoning": "No early-knowledge window exists (D2 level 1), so there is no insider to constrain; a fixed match is a manufactured outcome, which D5 carries.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "scheduled to kick off at 15:00 local time on October 4, 2026",
+      "reasoning": "The outcome unfolds at a fixed, pre-announced time in front of everyone simultaneously.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "the full 90 minutes plus stoppage time",
+      "reasoning": "Manufacturing the result (match-fixing) requires coordination among players or officials.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

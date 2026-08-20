@@ -1,9 +1,9 @@
 {
-  "marketId": "curated-fed-rate-cut",
-  "question": "Will the FOMC cut the federal funds target rate at its September 2026 meeting?",
+  "marketId": "curated-protocol-upgrade",
+  "question": "Will the Solendra protocol's 'Aurora' hard fork activate on mainnet by November 30, 2026?",
   "source": "curated",
-  "overallScore": 49,
-  "band": "moderate",
+  "overallScore": 68,
+  "band": "elevated",
   "circuitBreaker": null,
   "summary": "The outcome is produced by an institutional decision, which widens the circle of people who know it early.",
   "dimensions": [
@@ -11,8 +11,8 @@
       "dimension": "D1",
       "level": 4,
       "levelLabel": "institutional_decision",
-      "evidenceQuote": "the Federal Open Market Committee's policy decision",
-      "reasoning": "The outcome is produced by a committee vote of a government institution.",
+      "evidenceQuote": "the Solendra Core development team successfully activates the 'Aurora' hard fork",
+      "reasoning": "The outcome is produced by the coordinated action of a development organization and validator set.",
       "confidence": "high",
       "insufficientInfo": false,
       "agreement": "1/1",
@@ -24,8 +24,8 @@
       "dimension": "D2",
       "level": 4,
       "levelLabel": "dozens",
-      "evidenceQuote": "announced at the conclusion of its September 2026 meeting",
-      "reasoning": "Between the vote and the statement, committee members plus senior staff know the decision — dozens of people, under blackout rules.",
+      "evidenceQuote": "targeted for mid-November 2026 per Solendra Improvement Proposal SIP-47",
+      "reasoning": "Much of the process is public, but readiness and postponement decisions are known to the core team and insiders before any announcement — dozens of people.",
       "confidence": "medium",
       "insufficientInfo": false,
       "agreement": "1/1",
@@ -35,42 +35,42 @@
     },
     {
       "dimension": "D3",
-      "level": 2,
-      "levelLabel": "prohibited_weakly_enforced",
-      "evidenceQuote": "the September 2026 FOMC statement",
-      "reasoning": "FOMC participants are barred from trading under post-2022 ethics rules with real enforcement, but coverage of prediction venues is untested.",
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "a supermajority of Solendra mainnet validators",
+      "reasoning": "Developers and validator operators face no clear trading constraint; any foundation policies plausibly do not reach this venue.",
       "confidence": "medium",
       "insufficientInfo": false,
       "agreement": "1/1",
       "name": "Insider Tradability",
       "weight": 0.25,
-      "effectiveLevel": 2
+      "effectiveLevel": 4
     },
     {
       "dimension": "D4",
-      "level": 1,
-      "levelLabel": "fixed_schedule",
-      "evidenceQuote": "released at 2:00 PM ET on the Federal Reserve's website",
-      "reasoning": "The decision reaches everyone simultaneously at a fixed, pre-announced release time.",
+      "level": 2,
+      "levelLabel": "official_roughly_scheduled",
+      "evidenceQuote": "as measured by the protocol's own on-chain signaling mechanism",
+      "reasoning": "Activation is observable on-chain by everyone at once, on a roughly known schedule.",
       "confidence": "high",
       "insufficientInfo": false,
       "agreement": "1/1",
       "name": "Disclosure Synchronicity",
       "weight": 0.15,
-      "effectiveLevel": 1
+      "effectiveLevel": 2
     },
     {
       "dimension": "D5",
-      "level": 3,
-      "levelLabel": "multiparty",
-      "evidenceQuote": "the target range announced",
-      "reasoning": "Producing a rate cut requires a committee majority — multiparty coordination.",
-      "confidence": "high",
+      "level": 4,
+      "levelLabel": "small_group",
+      "evidenceQuote": "formally postponed past November 30, 2026 by a published Solendra Core announcement",
+      "reasoning": "A small core group can time the outcome — announcing a postponement manufactures a NO resolution.",
+      "confidence": "medium",
       "insufficientInfo": false,
       "agreement": "1/1",
       "name": "Outcome Manufacturability",
       "weight": 0.1,
-      "effectiveLevel": 3
+      "effectiveLevel": 4
     }
   ],
   "caveats": [
@@ -85,6 +85,6 @@
     "promptVersion": "ce41ed0a378021a5563ab5928e92837a99a19a28a7c9dbcf560249cfc73e2561",
     "anchorLibraryVersion": "1.0.0",
     "runs": 1,
-    "scoredAt": "2026-08-20T01:47:45.546Z"
+    "scoredAt": "2026-08-20T01:47:45.547Z"
   }
 }

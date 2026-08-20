@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-award-show",
+  "classifier": "claude-fable-5 (reference classification via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "determined by secret ballot of the Meridian Film Academy's voting membership",
+      "reasoning": "The outcome is produced by the vote of a bounded institution's membership.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 2,
+      "levelLabel": "embargoed_few",
+      "evidenceQuote": "results are not disclosed to anyone, including Academy leadership, before the on-air announcement",
+      "reasoning": "Only the independent tabulators know the result, inside a formal sealed-envelope control regime.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 3,
+      "levelLabel": "policy_only",
+      "evidenceQuote": "tabulated by an independent accounting firm under a sealed-envelope process",
+      "reasoning": "The knowers are bound by professional and contractual confidentiality, but no specific law clearly covers trading this contract on this venue.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 1,
+      "levelLabel": "fixed_schedule",
+      "evidenceQuote": "announced as the Best Picture winner during the live broadcast",
+      "reasoning": "Everyone learns the outcome simultaneously at a scheduled live announcement.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 3,
+      "levelLabel": "multiparty",
+      "evidenceQuote": "secret ballot of the Meridian Film Academy's voting membership",
+      "reasoning": "Steering a large secret-ballot vote to win a bet would require broad multiparty influence.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

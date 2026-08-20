@@ -1,0 +1,49 @@
+{
+  "marketId": "curated-presidential-pardon",
+  "classifier": "claude-fable-5 (reference classification via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "notes": "D1 was flagged as arguable (individual vs institutional). Resolved to individual_will: the contract text itself establishes sole, unchecked discretion, which is the level-5 definition verbatim. The formal trappings of the office do not widen who decides.",
+  "dimensions": {
+    "D1": {
+      "level": 5,
+      "levelLabel": "individual_will",
+      "evidenceQuote": "vested solely in the President and requires no legislative or judicial approval",
+      "reasoning": "One person decides the outcome at their sole discretion; no other approval is required.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 3,
+      "levelLabel": "handful",
+      "evidenceQuote": "the President signs, and the Vantian Official Gazette publishes",
+      "reasoning": "Before publication, the decision is known to the President and the small circle preparing the instrument, with no formal control regime.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 5,
+      "levelLabel": "unconstrained",
+      "evidenceQuote": "grants a formal pardon, full commutation, or other equivalent act of clemency",
+      "reasoning": "Nothing realistically prevents a head of state or their circle from trading this contract on this venue.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 5,
+      "levelLabel": "discloser_controlled",
+      "evidenceQuote": "the President leaves office before acting",
+      "reasoning": "The signing moment — and therefore the disclosure — is chosen by the decision-maker themself.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 5,
+      "levelLabel": "unilateral_cheap",
+      "evidenceQuote": "requires no legislative or judicial approval",
+      "reasoning": "One signature manufactures the outcome at trivial cost.",
+      "confidence": "high",
+      "insufficientInfo": false
+    }
+  }
+}

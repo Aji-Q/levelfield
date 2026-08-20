@@ -31,23 +31,33 @@ const MARKET_FIELDS =
   "marketId question context marketType asset strike intervalSec tradingStart expiry clobStatus venueId oracleQuestionId";
 
 export async function fetchMarkets(
-  opts?: { indexerUrl?: string; venueId?: string; limit?: number; statuses?: string[] },
+  opts?: { indexerUrl?: string; venueId?: string; limit?: number; statuses?: string[]; marketId?: string },
 ): Promise<DreamDexMarketRow[]> {
   const indexerUrl = opts?.indexerUrl ?? process.env.INDEXER_URL ?? DEFAULT_INDEXER_URL;
-  const venueId = opts?.venueId ?? DREAMDEX_TESTNET_VENUE;
-  const statuses = opts?.statuses ?? ["Trading"];
   const limit = opts?.limit ?? 500;
 
-  const statusList = statuses.map((s) => JSON.stringify(s)).join(", ");
+  // A marketId lookup identifies the row uniquely, so it skips the marketType/venueId/status
+  // gate entirely — those exist to narrow a listing query, and narrowing them further here
+  // would turn "market exists but isn't a rule-classifiable price binary" into a false
+  // "not found" for callers doing a single-market lookup (see @levelfield/mcp's assess_market).
+  const where = opts?.marketId
+    ? `{ marketId: { _eq: ${JSON.stringify(opts.marketId)} } }`
+    : (() => {
+        const venueId = opts?.venueId ?? DREAMDEX_TESTNET_VENUE;
+        const statuses = opts?.statuses ?? ["Trading"];
+        const statusList = statuses.map((s) => JSON.stringify(s)).join(", ");
+        return `{
+          marketType: { _eq: "BINARY" }
+          venueId: { _eq: ${JSON.stringify(venueId)} }
+          clobStatus: { _in: [${statusList}] }
+        }`;
+      })();
+
   const query = `{
     Market(
       limit: ${limit}
       order_by: { createdAtTimestamp: desc }
-      where: {
-        marketType: { _eq: "BINARY" }
-        venueId: { _eq: ${JSON.stringify(venueId)} }
-        clobStatus: { _in: [${statusList}] }
-      }
+      where: ${where}
     ) {
       ${MARKET_FIELDS}
     }

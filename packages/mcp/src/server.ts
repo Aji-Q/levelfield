@@ -9,6 +9,7 @@
  * See docs/design/no-api.md "MCP protocol" for the two-step design this implements.
  */
 import { createHash } from "node:crypto";
+import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
@@ -20,18 +21,28 @@ import {
   buildSummary,
   buildSystemPrompt,
   computeScore,
+  fetchMarkets,
   isVerbatimQuote,
   loadAnchors,
   renderContractData,
+  toNormalizedContract,
+  tryRuleClassify,
   voteDimension,
+  type Band,
   type DimensionId,
+  type DreamDexMarketRow,
   type Level,
+  type NormalizedContract,
   type RunClassification,
   type ScoreResult,
+  type StageARun,
 } from "@levelfield/scoring";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
-const lib = loadAnchors(path.join(here, "../../../data/anchors/anchors.yaml"));
+const dataDir = path.join(here, "../../../data");
+const scoresDir = path.join(dataDir, "scores");
+const scoresIndexPath = path.join(scoresDir, "index.json");
+const lib = loadAnchors(path.join(dataDir, "anchors/anchors.yaml"));
 const systemPrompt = buildSystemPrompt(lib);
 // Mirrors ClaudeClassifier's promptVersion formula in packages/scoring/src/classify.ts
 // so a promptVersion hash means the same thing regardless of which classifier produced it.
@@ -231,6 +242,161 @@ mcpServer.registerTool(
     description: "Returns the full parsed anchor library (dimensions, levels, weights, bands, circuit breakers) as JSON.",
   },
   async () => textResult(JSON.stringify(lib, null, 2)),
+);
+
+// --- list_scored_markets / assess_market -----------------------------------------
+// These two tools read/produce the same score cache shape as scripts/score-all.ts
+// (see docs/design/no-api.md "Score cache"). They add no new scoring logic: the rule
+// track below mirrors score-all.ts's scoreRun exactly (same voteDimension/computeScore/
+// buildSummary call sequence, same "rule-classifier/v1" model tag) since that helper
+// lives in a script, not in @levelfield/scoring, and isn't importable from here.
+
+interface ScoreIndexEntry {
+  marketId: string;
+  question: string;
+  source: NormalizedContract["source"];
+  overallScore: number;
+  band: Band;
+  circuitBreaker: "CB-1" | "CB-2" | null;
+  summary: string;
+  expiry: string | null;
+  clobStatus: string | null;
+  oracleQuestionId: string | null;
+}
+
+function scoreRuleClassifiedContract(contract: NormalizedContract, run: StageARun): ScoreResult {
+  const voted = DIMENSION_IDS.map((id) => voteDimension([run.dimensions[id]]));
+  const engine = computeScore(voted, lib);
+
+  const caveats = [...STANDARD_CAVEATS];
+  for (const d of engine.dimensions) {
+    if (d.insufficientInfo) {
+      caveats.push(
+        `${d.dimension} (${d.name}) could not be determined from the contract text; scored conservatively at level ${d.effectiveLevel}.`,
+      );
+    }
+  }
+
+  return {
+    marketId: contract.marketId,
+    question: contract.question,
+    source: contract.source,
+    overallScore: engine.overallScore,
+    band: engine.band,
+    circuitBreaker: engine.circuitBreaker,
+    summary: buildSummary(engine),
+    dimensions: engine.dimensions,
+    caveats,
+    flags: { instructionLikeContentDetected: run.instructionLikeContentDetected },
+    metadata: {
+      model: "rule-classifier/v1",
+      promptVersion,
+      anchorLibraryVersion: lib.version,
+      runs: 1,
+      scoredAt: new Date().toISOString(),
+    },
+  };
+}
+
+mcpServer.registerTool(
+  "list_scored_markets",
+  {
+    title: "List scored markets",
+    description:
+      "Returns entries from the score cache (data/scores/index.json), optionally filtered by risk band and/or " +
+      "source. Includes generatedAt. This is a cache read only — it never hits the network or a model.",
+    inputSchema: {
+      band: z.enum(["low", "moderate", "elevated", "high"]).optional(),
+      source: z.enum(["dreamdex_testnet", "curated"]).optional(),
+    },
+  },
+  async (args) => {
+    let raw: string;
+    try {
+      raw = readFileSync(scoresIndexPath, "utf8");
+    } catch {
+      return textResult(
+        `Score cache not found at ${scoresIndexPath}. Run \`npm run score:all\` from the repo root to generate it, ` +
+          "then retry.",
+        true,
+      );
+    }
+
+    const index = JSON.parse(raw) as { generatedAt: string; markets: ScoreIndexEntry[] };
+    const markets = index.markets.filter(
+      (m) => (args.band === undefined || m.band === args.band) && (args.source === undefined || m.source === args.source),
+    );
+
+    return textResult(JSON.stringify({ generatedAt: index.generatedAt, markets }, null, 2));
+  },
+);
+
+mcpServer.registerTool(
+  "assess_market",
+  {
+    title: "Assess a market",
+    description:
+      "Resolves a LevelField risk score for one market. Resolution order: (1) return the cached score if " +
+      "data/scores/{market_id}.json exists; (2) else fetch the live row from the DreamDEX indexer and score it " +
+      "with the deterministic rule classifier if the row is rule-classifiable; (3) else return the normalized " +
+      "contract text and instructions to run the get_assessment_protocol / score_classification two-step " +
+      "protocol yourself; (4) else report the market as not found.",
+    inputSchema: { market_id: z.string() },
+  },
+  async (args) => {
+    const marketId = args.market_id;
+
+    const cachePath = path.join(scoresDir, `${marketId}.json`);
+    if (existsSync(cachePath)) {
+      const cached = JSON.parse(readFileSync(cachePath, "utf8"));
+      return textResult(JSON.stringify({ note: "from cache", ...cached }, null, 2));
+    }
+
+    let rows: DreamDexMarketRow[];
+    try {
+      rows = await fetchMarkets({ marketId });
+    } catch (err) {
+      return textResult(
+        `Failed to reach the DreamDEX indexer while looking up market ${marketId}: ${(err as Error).message} ` +
+          "The indexer URL is known-unstable — set INDEXER_URL to override it, then retry.",
+        true,
+      );
+    }
+
+    const row = rows[0];
+    if (!row) {
+      return textResult(
+        `Market ${marketId} not found: no cached score at ${cachePath} and no matching row from the DreamDEX indexer.`,
+        true,
+      );
+    }
+
+    const contract = toNormalizedContract(row);
+    const run = tryRuleClassify(row, contract);
+
+    if (run) {
+      const result = scoreRuleClassifiedContract(contract, run);
+      return textResult(JSON.stringify({ note: "scored live, not cached", ...result }, null, 2));
+    }
+
+    return textResult(
+      JSON.stringify(
+        {
+          status: "needs_model_classification",
+          message:
+            "This market needs model classification — call get_assessment_protocol, classify the following " +
+            "contract text yourself, then call score_classification with your classification to get the score.",
+          market_id: contract.marketId,
+          question: contract.question,
+          description: contract.description,
+          resolution_rules: contract.resolutionRules,
+          close_time: contract.closeTime,
+        },
+        null,
+        2,
+      ),
+    );
+  },
 );
 
 const transport = new StdioServerTransport();

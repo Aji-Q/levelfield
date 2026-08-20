@@ -1,0 +1,19 @@
+{
+  "marketId": "curated-bill-passage",
+  "question": "Will the Continental Infrastructure Modernization Act pass both chambers of the Federal Assembly of Vantia before March 31, 2027?",
+  "description": "This market resolves based on final passage of the Continental Infrastructure Modernization Act (Assembly Bill 214) by both the House of Representatives and the Senate of the Federal Assembly of Vantia, as recorded in the official Assembly voting records. The bill passed committee markup in the House on July 22, 2026 and is pending scheduling for a floor vote in both chambers.",
+  "resolutionRules": "Resolves YES if both chambers of the Federal Assembly pass an identical version of Assembly Bill 214, or a reconciled conference version, by roll-call or recorded voice vote before 23:59 ET on March 31, 2027, regardless of whether the head of state subsequently signs or vetoes it. Resolves NO if either chamber affirmatively votes down the bill, if the current legislative session ends before passage, or if no final vote occurs by the close date. A bill that passes in materially different form in each chamber without reconciliation before the close date resolves NO.",
+  "closeTime": "2027-03-31T23:59:00Z",
+  "source": "curated",
+  "expected": {
+    "levels": {
+      "D1": 4,
+      "D2": 5,
+      "D3": 4,
+      "D4": 2,
+      "D5": 4
+    },
+    "band": "elevated",
+    "category": "institutional"
+  }
+}

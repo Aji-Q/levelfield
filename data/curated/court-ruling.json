@@ -1,0 +1,19 @@
+{
+  "marketId": "curated-court-ruling",
+  "question": "Will the Continental Circuit Court of Appeals reverse the district court's judgment in Meridian Holdings v. Vantage Industries before June 30, 2027?",
+  "description": "This market resolves based on the disposition of the pending appeal in Meridian Holdings v. Vantage Industries (Case No. 26-1147), currently before a three-judge panel of the Continental Circuit Court of Appeals following oral argument held on September 9, 2026. The court has not announced a target date for its opinion, consistent with its ordinary practice of releasing opinions without advance scheduling.",
+  "resolutionRules": "Resolves YES if the Court of Appeals issues a published opinion before 23:59 ET on June 30, 2027 that reverses or vacates, in whole or in part, the district court's judgment. Resolves NO if the court affirms the judgment in full, or if no opinion has been issued by the close date. If the case is dismissed, settled, or mooted before an opinion issues, the market resolves NO. A summary affirmance or summary reversal counts as a full affirmance or reversal, respectively, for resolution purposes.",
+  "closeTime": "2027-06-30T23:59:00Z",
+  "source": "curated",
+  "expected": {
+    "levels": {
+      "D1": 4,
+      "D2": 4,
+      "D3": 2,
+      "D4": 3,
+      "D5": 2
+    },
+    "band": "elevated",
+    "category": "institutional"
+  }
+}

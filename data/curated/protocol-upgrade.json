@@ -1,0 +1,19 @@
+{
+  "marketId": "curated-protocol-upgrade",
+  "question": "Will the Solendra protocol's 'Aurora' hard fork activate on mainnet by November 30, 2026?",
+  "description": "This market resolves based on whether the Solendra Core development team successfully activates the 'Aurora' hard fork on the Solendra mainnet. The upgrade is currently scheduled for activation at block height 19,800,000, targeted for mid-November 2026 per Solendra Improvement Proposal SIP-47, merged into the solendra-core public repository on July 14, 2026. Client releases implementing the fork are published on the project's public GitHub releases page.",
+  "resolutionRules": "Resolves YES if a supermajority of Solendra mainnet validators, as measured by the protocol's own on-chain signaling mechanism, have upgraded to a fork-compatible client and the fork activates at or before the block height corresponding to November 30, 2026 23:59 UTC, without a subsequent rollback or chain split lasting more than 6 hours. Resolves NO if activation is formally postponed past November 30, 2026 by a published Solendra Core announcement, or if the fork does not activate by the close date. A contentious hard fork resulting in two persistent chains does not count as activation and resolves NO.",
+  "closeTime": "2026-11-30T23:59:00Z",
+  "source": "curated",
+  "expected": {
+    "levels": {
+      "D1": 4,
+      "D2": 4,
+      "D3": 4,
+      "D4": 2,
+      "D5": 4
+    },
+    "band": "elevated",
+    "category": "institutional"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-bill-passage",
+  "classifier": "claude-fable-5 (reference classification via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "by both the House of Representatives and the Senate of the Federal Assembly of Vantia",
+      "reasoning": "The outcome is produced by votes of a legislature — an institutional decision.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 5,
+      "levelLabel": "large_or_unbounded",
+      "evidenceQuote": "pending scheduling for a floor vote in both chambers",
+      "reasoning": "Whip counts, leadership intentions, and lobbying spread outcome-relevant knowledge across an effectively unbounded population.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "as recorded in the official Assembly voting records",
+      "reasoning": "Rules restraining legislators or staff from trading this contract on this venue are unclear at best.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 2,
+      "levelLabel": "official_roughly_scheduled",
+      "evidenceQuote": "by roll-call or recorded voice vote",
+      "reasoning": "Final votes are public official events held on roughly known schedules; everyone observes the result as it happens.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 4,
+      "levelLabel": "small_group",
+      "evidenceQuote": "if the current legislative session ends before passage",
+      "reasoning": "Chamber leadership can time or block the outcome — declining to schedule the vote manufactures a NO.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "marketId": "curated-earnings-beat",
+  "classifier": "claude-fable-5 (reference classification via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "notes": "D1 resolved to institutional_decision over statistical_procedure: GAAP EPS is produced by the company itself with real management discretion over accruals and timing (earnings-management bunching around consensus is well documented), unlike an independent statistical agency measuring an external economy.",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "as stated in its official earnings press release",
+      "reasoning": "The reported figure is a corporate product over which management holds accrual and timing discretion — an institutional output, not an independent statistical measurement.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "scheduled for October 29, 2026 after market close",
+      "reasoning": "The finance organization and auditors know the quarter's numbers weeks before release.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 2,
+      "levelLabel": "prohibited_weakly_enforced",
+      "evidenceQuote": "subject to SEC quarterly reporting requirements",
+      "reasoning": "Insider-trading law arguably reaches trading on pre-release earnings knowledge even on this venue, but enforcement there is novel.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 2,
+      "levelLabel": "official_roughly_scheduled",
+      "evidenceQuote": "delayed past November 15, 2026",
+      "reasoning": "Earnings land on a pre-announced date through an official channel, with modest timing discretion.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 4,
+      "levelLabel": "small_group",
+      "evidenceQuote": "reported GAAP diluted EPS for Q3 2026",
+      "reasoning": "Management can steer the beat-or-miss margin through accrual and recognition timing.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

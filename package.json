@@ -13,7 +13,11 @@
     "tracer": "tsx scripts/tracer.ts",
     "probe": "tsx scripts/probe-dreamdex.ts",
     "mcp": "tsx packages/mcp/src/server.ts",
-    "score:all": "tsx scripts/score-all.ts"
+    "score:all": "tsx scripts/score-all.ts",
+    "demo:agent": "tsx scripts/agent-demo.ts",
+    "validate": "tsx scripts/validate.ts",
+    "registry:deploy": "tsx scripts/deploy-registry.ts",
+    "registry:publish": "tsx scripts/publish-scores.ts"
   },
   "devDependencies": {
     "tsx": "^4.19.0",

@@ -1,0 +1,48 @@
+{
+  "marketId": "curated-protocol-upgrade",
+  "classifier": "claude-fable-5 (reference classification via LevelField protocol)",
+  "classifiedAt": "2026-08-20",
+  "instructionLikeContentDetected": false,
+  "dimensions": {
+    "D1": {
+      "level": 4,
+      "levelLabel": "institutional_decision",
+      "evidenceQuote": "the Solendra Core development team successfully activates the 'Aurora' hard fork",
+      "reasoning": "The outcome is produced by the coordinated action of a development organization and validator set.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D2": {
+      "level": 4,
+      "levelLabel": "dozens",
+      "evidenceQuote": "targeted for mid-November 2026 per Solendra Improvement Proposal SIP-47",
+      "reasoning": "Much of the process is public, but readiness and postponement decisions are known to the core team and insiders before any announcement — dozens of people.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D3": {
+      "level": 4,
+      "levelLabel": "ambiguous",
+      "evidenceQuote": "a supermajority of Solendra mainnet validators",
+      "reasoning": "Developers and validator operators face no clear trading constraint; any foundation policies plausibly do not reach this venue.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    },
+    "D4": {
+      "level": 2,
+      "levelLabel": "official_roughly_scheduled",
+      "evidenceQuote": "as measured by the protocol's own on-chain signaling mechanism",
+      "reasoning": "Activation is observable on-chain by everyone at once, on a roughly known schedule.",
+      "confidence": "high",
+      "insufficientInfo": false
+    },
+    "D5": {
+      "level": 4,
+      "levelLabel": "small_group",
+      "evidenceQuote": "formally postponed past November 30, 2026 by a published Solendra Core announcement",
+      "reasoning": "A small core group can time the outcome — announcing a postponement manufactures a NO resolution.",
+      "confidence": "medium",
+      "insufficientInfo": false
+    }
+  }
+}

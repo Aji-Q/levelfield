@@ -1,0 +1,13 @@
+{
+  "marketId": "curated-football-match",
+  "question": "Will Club Alpha defeat Club Bravo in their October 4, 2026 Continental Premier League fixture?",
+  "description": "This market resolves based on the final result of the Matchday 8 fixture between Club Alpha and Club Bravo in the Continental Premier League, scheduled to kick off at 15:00 local time on October 4, 2026 at Alpha Park. Resolution follows the official match result published by the Continental Premier League on its results portal, including any additions for stoppage time.",
+  "resolutionRules": "Resolves YES if Club Alpha is recorded as the winner at the final whistle of the full 90 minutes plus stoppage time (a draw does not count as a win for either side). Resolves NO if Club Bravo wins or the match ends in a draw. If the match is postponed and not completed by October 11, 2026, the market resolves NO. If the match is abandoned after kickoff and its result is not officially ratified by the league before the close time, the market voids and all stakes are refunded.",
+  "closeTime": "2026-10-04T18:00:00Z",
+  "source": "curated",
+  "expected": {
+    "levels": { "D1": 3, "D2": 1, "D3": 1, "D4": 1, "D5": 3 },
+    "band": "low",
+    "category": "public"
+  }
+}

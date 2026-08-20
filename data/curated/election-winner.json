@@ -7,6 +7,7 @@
   "source": "curated",
   "expected": {
     "levels": { "D1": 3, "D2": 1, "D3": 1, "D4": 2, "D5": 2 },
-    "band": "low"
+    "band": "low",
+    "category": "public"
   }
 }

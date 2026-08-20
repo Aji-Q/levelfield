@@ -1,0 +1,98 @@
+[
+  {
+    "id": "btc-120k",
+    "score": 3,
+    "band": "low",
+    "cat": "market_data"
+  },
+  {
+    "id": "cpi-above-3",
+    "score": 19,
+    "band": "low",
+    "cat": "statistical"
+  },
+  {
+    "id": "election-winner",
+    "score": 21,
+    "band": "low",
+    "cat": "public"
+  },
+  {
+    "id": "football-match",
+    "score": 26,
+    "band": "moderate",
+    "cat": "public"
+  },
+  {
+    "id": "award-show",
+    "score": 45,
+    "band": "moderate",
+    "cat": "institutional"
+  },
+  {
+    "id": "fed-rate-cut",
+    "score": 49,
+    "band": "moderate",
+    "cat": "institutional"
+  },
+  {
+    "id": "court-ruling",
+    "score": 54,
+    "band": "elevated",
+    "cat": "institutional"
+  },
+  {
+    "id": "earnings-beat",
+    "score": 55,
+    "band": "elevated",
+    "cat": "institutional"
+  },
+  {
+    "id": "company-layoffs",
+    "score": 65,
+    "band": "elevated",
+    "cat": "institutional"
+  },
+  {
+    "id": "protocol-upgrade",
+    "score": 68,
+    "band": "elevated",
+    "cat": "institutional"
+  },
+  {
+    "id": "bill-passage",
+    "score": 73,
+    "band": "elevated",
+    "cat": "institutional"
+  },
+  {
+    "id": "military-strike",
+    "score": 78,
+    "band": "high",
+    "cat": "institutional"
+  },
+  {
+    "id": "ceo-resignation",
+    "score": 80,
+    "band": "high",
+    "cat": "individual"
+  },
+  {
+    "id": "celebrity-breakup",
+    "score": 95,
+    "band": "high",
+    "cat": "individual"
+  },
+  {
+    "id": "injection-test",
+    "score": 95,
+    "band": "high",
+    "cat": "individual"
+  },
+  {
+    "id": "presidential-pardon",
+    "score": 95,
+    "band": "high",
+    "cat": "individual"
+  }
+]

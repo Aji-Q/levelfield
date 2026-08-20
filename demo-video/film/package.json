@@ -1,0 +1,18 @@
+{
+  "name": "@levelfield/film",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts Film out/levelfield-film.mp4 --codec h264 --color-space bt709 --concurrency 8",
+    "still": "remotion still src/index.ts Film"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.0",
+    "@remotion/paths": "^4.0.0",
+    "@remotion/transitions": "^4.0.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "remotion": "^4.0.0"
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "fps": 25,
+  "totalSeconds": 169.363,
+  "beats": [
+    {
+      "chapter": "price-does-not-tell",
+      "step": 1,
+      "text": "Every event contract gives you a price. It does not tell you who could know first.",
+      "audio": "price-does-not-tell/1.mp3",
+      "start": 0.0,
+      "duration": 5.354
+    },
+    {
+      "chapter": "price-does-not-tell",
+      "step": 2,
+      "text": "LevelField is a pre-trade risk layer for DreamDEX. It measures structural information asymmetry before a trader or agent takes a side.",
+      "audio": "price-does-not-tell/2.mp3",
+      "start": 5.354,
+      "duration": 8.93
+    },
+    {
+      "chapter": "price-does-not-tell",
+      "step": 3,
+      "text": "Start with a captured DreamDEX price binary on Somnia Shannon. LevelField scores it three out of one hundred: low risk.",
+      "audio": "price-does-not-tell/3.mp3",
+      "start": 14.284,
+      "duration": 8.092
+    },
+    {
+      "chapter": "three-vs-ninety-five",
+      "step": 1,
+      "text": "No participant controls the global reference price. Its outcome is public, and disclosure is nearly simultaneous.",
+      "audio": "three-vs-ninety-five/1.mp3",
+      "start": 22.376,
+      "duration": 8.164
+    },
+    {
+      "chapter": "three-vs-ninety-five",
+      "step": 2,
+      "text": "Now change only the event. This curated reference contract resolves on one person's private decision.",
+      "audio": "three-vs-ninety-five/2.mp3",
+      "start": 30.54,
+      "duration": 6.805
+    },
+    {
+      "chapter": "three-vs-ninety-five",
+      "step": 3,
+      "text": "The same engine returns ninety-five out of one hundred: high risk.",
+      "audio": "three-vs-ninety-five/3.mp3",
+      "start": 37.345,
+      "duration": 4.294
+    },
+    {
+      "chapter": "three-vs-ninety-five",
+      "step": 4,
+      "text": "One person controls the outcome. No clear restriction stops an early knower from trading. Circuit breaker one sets a high-risk floor.",
+      "audio": "three-vs-ninety-five/4.mp3",
+      "start": 41.639,
+      "duration": 8.884
+    },
+    {
+      "chapter": "three-vs-ninety-five",
+      "step": 5,
+      "text": "That three-to-ninety-five contrast is the product. LevelField explains who can know first, not which side will win.",
+      "audio": "three-vs-ninety-five/5.mp3",
+      "start": 50.523,
+      "duration": 7.879
+    },
+    {
+      "chapter": "three-vs-ninety-five",
+      "step": 6,
+      "text": "It does not allege wrongdoing or detect live insider activity.",
+      "audio": "three-vs-ninety-five/6.mp3",
+      "start": 58.402,
+      "duration": 3.915
+    },
+    {
+      "chapter": "model-classifies-code-decides",
+      "step": 1,
+      "text": "Under the interface is a public, five-dimension anchor library. A model classifies each dimension against those anchors.",
+      "audio": "model-classifies-code-decides/1.mp3",
+      "start": 62.317,
+      "duration": 7.978
+    },
+    {
+      "chapter": "model-classifies-code-decides",
+      "step": 2,
+      "text": "Every evidence quote must match the contract's exact words. Code rejects instruction-like text aimed at the assessor.",
+      "audio": "model-classifies-code-decides/2.mp3",
+      "start": 70.295,
+      "duration": 7.769
+    },
+    {
+      "chapter": "model-classifies-code-decides",
+      "step": 3,
+      "text": "If information is missing, LevelField defaults conservatively to level four instead of guessing low.",
+      "audio": "model-classifies-code-decides/3.mp3",
+      "start": 78.065,
+      "duration": 6.69
+    },
+    {
+      "chapter": "model-classifies-code-decides",
+      "step": 4,
+      "text": "Then deterministic code applies fixed weights, cross-dimension rules, and circuit breakers. The model never generates the numeric score.",
+      "audio": "model-classifies-code-decides/4.mp3",
+      "start": 84.754,
+      "duration": 9.356
+    },
+    {
+      "chapter": "agent-to-chain",
+      "step": 1,
+      "text": "Here, an agent calls the real LevelField MCP server over standard input and output before it acts.",
+      "audio": "agent-to-chain/1.mp3",
+      "start": 94.11,
+      "duration": 6.935
+    },
+    {
+      "chapter": "agent-to-chain",
+      "step": 2,
+      "text": "The policy is visible: low or moderate risk can proceed. Elevated or high risk is declined.",
+      "audio": "agent-to-chain/2.mp3",
+      "start": 101.046,
+      "duration": 6.28
+    },
+    {
+      "chapter": "agent-to-chain",
+      "step": 3,
+      "text": "The DreamDEX example returns PROCEED at three. The individual-decision case returns DECLINE at ninety-five, with the reason attached.",
+      "audio": "agent-to-chain/3.mp3",
+      "start": 107.325,
+      "duration": 8.95
+    },
+    {
+      "chapter": "agent-to-chain",
+      "step": 4,
+      "text": "After a provenance-complete republish, each current score will bind its band, five dimensions, method hash, timestamp, and immutable source on Somnia Shannon.",
+      "audio": "agent-to-chain/4.mp3",
+      "start": 116.275,
+      "duration": 11.966
+    },
+    {
+      "chapter": "agent-to-chain",
+      "step": 5,
+      "text": "The verifier reads every field back and fails closed on anything missing or changed.",
+      "audio": "agent-to-chain/5.mp3",
+      "start": 128.241,
+      "duration": 5.337
+    },
+    {
+      "chapter": "proof-and-growth",
+      "step": 1,
+      "text": "Across sixteen curated contracts, scores span three to ninety-five. Category risk rises in the expected order, with a Spearman rho of point nine three.",
+      "audio": "proof-and-growth/1.mp3",
+      "start": 133.578,
+      "duration": 10.788
+    },
+    {
+      "chapter": "proof-and-growth",
+      "step": 2,
+      "text": "Sixty-nine software tests and eight smart-contract tests pass. The official DreamDEX SDK independently cross-checks active-market discovery, read-only and without a private key.",
+      "audio": "proof-and-growth/2.mp3",
+      "start": 144.366,
+      "duration": 12.596
+    },
+    {
+      "chapter": "proof-and-growth",
+      "step": 3,
+      "text": "We delivered eleven evidence-backed SDK and documentation findings. As DreamDEX grows, LevelField helps agents, venues, and traders know who can know before they do.",
+      "audio": "proof-and-growth/3.mp3",
+      "start": 156.962,
+      "duration": 12.401
+    }
+  ]
+}

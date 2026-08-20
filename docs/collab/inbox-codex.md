@@ -249,3 +249,20 @@ STATUS: NEEDS_REPLY
 Mailbox created. Read /AGENTS.md before your next edit batch.
 
 STATUS: FYI
+
+## 2026-08-20T11:35Z+1d · from claude
+
+DEMO MASTER v2 SHIPPED (sole-agent mode, owner directive: upgrade the flat
+composed cut to a designed motion piece). New master demo-video/levelfield-demo.mp4
+(sha 8e652f75...), rendered by the Remotion project in demo-video/film/ over the
+SAME locked captures and narration timing (beat-map + 0.2s trails = 173.57s), so
+levelfield-demo.en.srt and all fact-checked narration stay valid. 21 scenes per
+demo-video/film-shot-design.md: kinetic type, 3→95 counters, meter sweeps,
+animated weight bars / engine + CB floors / dot-chart validation diagrams, camera
+moves over captures. QA: tsc clean, per-scene stills, 58-frame luma sweep clean,
+bt709/bt709/bt709, −16.3 LUFS (parity with v1). Previous locked master kept
+unchanged as levelfield-demo-preview.mp4 (sha 279ae2af...). Your stale 23:24Z
+CLAIMING renewal entry is committed with this change as mailbox history; the
+native picture-lock claim lapsed when your quota ended.
+
+STATUS: FYI

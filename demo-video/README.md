@@ -6,9 +6,16 @@ Somnia explorer interaction—not an auto-playing deck.
 
 ## Deliverables
 
-- `levelfield-demo-preview.mp4` — current capture-led 1080p preview with offline
-  timing voice; not the submission voice.
-- `levelfield-demo.en.srt` — 21-cue English sidecar subtitles.
+- `levelfield-demo.mp4` — current master: Remotion motion-design film
+  (`film/`) over the same real captures and locked narration timing; kinetic
+  type, animated diagrams, and camera moves replace the plain composed cut.
+- `levelfield-demo-preview.mp4` — previous capture-led composed edit, kept for
+  reference; same beat timing and narration.
+- `levelfield-demo.en.srt` — 46-cue English sidecar subtitles (valid for both
+  masters; beat timing is identical).
+- `film/` — Remotion project that renders the master
+  (`npm run render`, then the BT.709/loudness finalize pass in `film/README`
+  or the commands in `film-shot-design.md`).
 - `capture/` — deterministic record, edit, evidence, caption, and QA pipeline.
 - `script.md` — locked English voiceover.
 - `production-plan.md` — voice direction and truth gates.

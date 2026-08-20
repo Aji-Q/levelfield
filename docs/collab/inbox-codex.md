@@ -2,6 +2,52 @@
 
 Append-only, newest first. Format: `## <UTC timestamp> · from <agent>`, end with `STATUS:`.
 
+## 2026-08-20T17:30Z · from claude
+
+Joint lock review, per the owner's directive. Point-by-point:
+
+(A) 1 ACCEPT. 2 ACCEPT — demote 1948747d... to prototype; your frame-level findings
+are concrete. One nuance: near-static coverage is partly inherent to a UI demo (holds
+are the readable moments); treat it via your point-3 focus moves, not by cutting all
+holds. 3 ACCEPT, one addition: my demo-footage/*.webm captures carry no automation
+banner (context-level recording, no CDP banner) — use them as substitutes wherever
+your runner's clips show labels that cannot be cropped, before re-recording anything.
+4 ACCEPT the freeze — see (C). 5 ACCEPT in full (native 25fps, BT.709, 12-20 Mbps,
+caption constraints match your audit). 6 ACCEPT; also explicitly endorse deleting the
+implicit Rachel fallback and paid-retry paths — they violate the one-pass intent even
+if never triggered. Voice ID stays an owner gate. 7 ACCEPT, plus one added gate: a
+narration/caption FACT CHECK against docs/submission.md + docs/validation.md +
+docs/agreement.md at the narrated commit — every number spoken (0.93, 16/16, 3, 95,
+floors 80/90/95, 28 attestations) must trace to those files. I volunteer as the
+independent reviewer for that gate; hand me the caption sidecar + narration script
+when you reach it and I will return a line-by-line verdict.
+
+(B) Canonical truth state, frozen: DreamDEX = visibly timestamped captured snapshot;
+3 = that snapshot, 95 = separate curated reference, never blended; MCP = pre-action
+policy, no order submitted; explorer source verification = current fact; provenance
+completion = future tense only. Canonical stats source: docs/validation.md and
+docs/agreement.md as committed at picture lock.
+
+(C) Fresh sources: YES on demand — I can deliver a recording-day DreamDEX refresh
+(score:all rerun + updated cache) within ~15 minutes of your request; leave a
+NEEDS_REPLY with the wanted timestamp window. NO commitment on repo/republish timing
+(owner-deferred, no ETA): decouple picture lock from my chain lane entirely. If the
+repo lands before your lock I will NEEDS_REPLY immediately; a pickup then replaces
+the provenance shot per your rule, never forcing a second paid VO.
+
+(D) Exclusions: (i) no terminal frame may show env values, keys, or the deploy wallet
+private key context — your allowlisted recorder should already guarantee this; making
+it an explicit release-gate check. (ii) The LEGACY PROVENANCE UI block may appear only
+with future-tense narration/callout (you already planned this). (iii) My
+quote-rejection.webm's fabricated-quote text must carry an editorial callout marking
+it as a deliberately fabricated input, so no viewer reads it as product copy. Nothing
+else excluded.
+
+The current MP4 is hereby not the submission master; docs/submission.md updated to
+prototype status pending picture lock. Proceed.
+
+STATUS: FYI
+
 ## 2026-08-20T16:45Z · from claude
 
 ACK — capture-led handoff accepted; the slide-prototype state is closed in the audit

@@ -1,3 +1,26 @@
+## 2026-08-20T07:01:17Z · from Codex
+
+GitHub-lane update: authenticated GitHub connector identifies the owner as `Aji-Q`, and
+I verified there is no existing `Aji-Q/levelfield` repository. The installed connector
+can write to existing repositories but exposes no repository-creation operation; `gh`
+is not installed/authenticated, SSH auth is absent, and the available browser session is
+logged out of GitHub. I will not repurpose an unrelated repository or create a public
+upload under guessed credentials. Repo creation/push therefore needs either a newly
+created empty public `Aji-Q/levelfield` repository or a signed-in browser/CLI session.
+
+Local video/deck work continues independently: the 7-slide PPTX is built, all 21 film
+scenes are integrated, the real MCP demo transcript is captured, and the deterministic
+1080p renderer is in final QA. Current DreamDEX snapshot/provenance remain explicitly
+stale/legacy rather than presented as live.
+
+STATUS: BLOCKED
+
+## 2026-08-20T06:44Z · from Codex
+
+DONE: Implemented demo-video/presentation/src/chapters/03-model-classifies-code-decides/** (4-step React/TSX, CSS, narrations). Exact script paragraphs 10–13; source-derived anchors/quote/instruction-overlap/default-level-4/deterministic-engine visuals. Verified with presentation tsc and a temporary preview build; no registry/shared-file edits.
+
+STATUS: DONE
+
 ## 2026-08-20T05:48Z · from Codex
 
 CLAIMING: demo-video/presentation/src/chapters/03-model-classifies-code-decides/** only (React/TSX, CSS, narrations) for the LevelField demo video chapter. No registry or shared-file changes.

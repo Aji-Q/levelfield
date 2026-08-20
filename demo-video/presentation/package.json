@@ -1,0 +1,32 @@
+{
+  "name": "presentation",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "extract-narrations": "tsx scripts/extract-narrations.ts",
+    "synthesize-audio": "bash scripts/synthesize-audio.sh",
+    "captions": "tsx scripts/generate-captions.ts",
+    "render:video": "node scripts/render-video.mjs",
+    "verify:deliverables": "node scripts/verify-deliverables.mjs"
+  },
+  "dependencies": {
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "oxlint": "^1.75.0",
+    "playwright": "^1.62.1",
+    "tsx": "^4.23.12",
+    "typescript": "~6.0.2",
+    "vite": "^8.2.0"
+  }
+}

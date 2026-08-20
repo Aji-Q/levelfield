@@ -1,0 +1,84 @@
+LEVELFIELD HACKATHON DECK — WORKING BRIEF
+
+Communication job
+By the end, Somnia × DreamDEX judges should see LevelField as a working, defensible
+pre-trade risk layer because it turns event-contract information structure into an
+explainable score, an agent decision, and a verifiable Somnia record.
+
+Audience
+- Somnia / DreamDEX hackathon judges
+- Prediction-market and agent developers
+- Ecosystem partners evaluating adoption potential
+
+Format
+- 7 slides, 16:9, English
+- Optional companion to the 2:54 preview video; readable in 4–5 minutes
+- LevelField forensic-field-notebook visual system: warm black #0a0a08, bone #eeeae1,
+  muted brass #d0a24c; Instrument Serif + IBM Plex Sans + IBM Plex Mono
+- One claim per slide; no dashboard/card-grid look; facts use real project captures only
+
+Narrative
+
+01 — Know who can know before you do.
+Job: establish the tension in one sentence.
+Visible copy: LevelField / Pre-trade structural risk for DreamDEX Event Contracts.
+Visual: brand glyph over the existing risk-field hero.
+Source: README.md; apps/web/public/brand/levelfield-risk-field.webp.
+
+02 — A market price does not reveal who may know first.
+Job: define the unmet problem without alleging misconduct.
+Visible copy: Price expresses belief. It does not describe the event’s information structure.
+Visual: one trade price recedes behind two contrasting outcome structures.
+Source: demo-video/article.md §Product thesis.
+
+03 — The same protocol separates 3 from 95.
+Job: make the product legible through one concrete contrast.
+Visible copy: DreamDEX price binary — 3 / LOW. Curated individual decision — 95 / HIGH.
+Visual: real LevelField UI capture; CB-1 and evidence quote remain readable.
+Source: recording-day DreamDEX snapshot; curated-celebrity-breakup score result.
+Gate: refresh the DreamDEX snapshot before final capture and retain its UTC timestamp.
+
+04 — The model classifies. Code decides.
+Job: explain why the number is auditable.
+Visible copy: Public anchors → verbatim evidence → deterministic score.
+Supporting line: Instruction-like evidence is rejected. Missing information defaults
+conservatively.
+Visual: flat three-stage progression, plus one real Assess error/result capture.
+Source: packages/scoring/src/verify.ts; packages/scoring/src/engine.ts; methodology page.
+
+05 — A transparent policy turns a score into a decision.
+Job: prove composability as a pre-action policy gate.
+Visible copy: 3 / LOW → PROCEED. 95 / HIGH → DECLINE.
+Visual: real `npm run demo:agent` terminal output, tightly cropped.
+Source: scripts/agent-demo.ts output.
+
+06 — The result is reproducible and designed for public verification.
+Job: show engineering evidence without overstating external validation.
+Visible copy: 16 / 16 band agreement. rho 0.930. 69 + 8 passing tests.
+Supporting line: Score Registry deployed on Somnia Shannon.
+Visual: one rising category line plus compact evidence figures; provenance status shown
+only after immutable-source republish and verify-onchain pass.
+Source: docs/agreement.md; docs/validation.md; test outputs; ScoreRegistry explorer.
+Gate: replace release-workflow language with completion language only after republish.
+
+07 — A risk primitive for the next event-contract categories.
+Job: resolve the opening tension and state ecosystem value.
+Visible copy: One transparent pre-trade check for agents, venues, and traders.
+Supporting copy: DreamDEX contracts. MCP decisions. Somnia attestations.
+CTA: Know who may know before you do. Add public GitHub and deployment links only
+after they exist.
+Source: README.md; demo-video/article.md §Evidence and ecosystem value.
+Gate: insert final public GitHub and deployment URLs.
+
+Required assets
+- apps/web/public/brand/level-glyph.svg
+- apps/web/public/brand/levelfield-risk-field.webp
+- recording-day homepage and two market-detail captures
+- real Assess verification and injection-rejection captures
+- reproducible MCP PROCEED / DECLINE transcript backed by demo-video/evidence/agent-demo.txt
+- fresh validation, agreement, test, and SDK cross-check output
+- provenance-complete market page and Somnia explorer capture after Claude republish
+
+Speaker-note source rule
+Every final slide receives a [Sources] block with repository paths, commands, and any
+external URL used. No claim advances from conditional to completed until its gate is met.

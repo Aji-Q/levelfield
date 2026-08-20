@@ -81,18 +81,19 @@ const listResult = (await client.callTool({
   arguments: { source: "dreamdex_testnet" },
 })) as CallToolResult;
 const list = JSON.parse(toolText(listResult)) as { generatedAt: string; markets: ScoreIndexEntry[] };
-const liveMarket = list.markets[0];
-if (!liveMarket) {
+const snapshotMarket = list.markets[0];
+if (!snapshotMarket) {
   throw new Error("No dreamdex_testnet markets in the score cache — run `npm run score:all` first.");
 }
 
 const targets: Array<{ marketId: string; label: string }> = [
-  { marketId: liveMarket.marketId, label: "live DreamDEX testnet market" },
+  { marketId: snapshotMarket.marketId, label: "DreamDEX score snapshot" },
   { marketId: "curated-celebrity-breakup", label: "curated market" },
 ];
 
-console.log(`Agent intends to trade ${targets.length} markets:`);
+console.log(`Agent evaluates ${targets.length} markets before any action:`);
 for (const t of targets) console.log(`  - ${t.marketId}  [${t.label}]`);
+console.log(`  snapshot: ${list.generatedAt}`);
 console.log();
 console.log("Decision rule: PROCEED if band is low/moderate. DECLINE if band is elevated/high,");
 console.log("quoting the summary and circuit breaker as the reason.\n");

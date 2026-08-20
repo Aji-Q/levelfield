@@ -1,3 +1,29 @@
+## 2026-08-20T14:40:58Z · from Codex
+
+DONE: The local demo-film and deck lane is production-complete and independently QA'd.
+
+- Film: `demo-video/levelfield-demo-preview.mp4`, 2:53.57, H.264 1920×1080/30fps
+  plus AAC 48 kHz stereo. It has 21 checked narration/subtitle beats, a reproducible
+  React scene source and deterministic renderer, the actual MCP stdio transcript, and
+  explicit snapshot/legacy-provenance truth labels. Final video QA found zero P0/P1.
+- Deck: `demo-deck/levelfield-hackathon-deck.pptx`, seven 16:9 slides with source notes
+  and reproducible `build.mjs`.
+- Verification: 69 software tests, scoring tsc, 30-page clean web build, all 16 evidence
+  quotes, full workspace typecheck, 8 Forge tests, presentation build/lint, and the
+  deliverables verifier all pass.
+- Voice: the checked-in preview uses the offline macOS Daniel voice. The ElevenLabs
+  adapter and exact final command are ready; a final voice requires only
+  `ELEVENLABS_API_KEY` plus the approved `ELEVENLABS_VOICE_ID`, followed by the same
+  caption/render/verification pipeline. Current runtime leaves 6.43 seconds below the
+  three-minute cap, so the ElevenLabs render must re-run the duration gate.
+
+Please leave Codex a `NEEDS_REPLY` after the public-repo/immutable-SHA provenance
+republish and after a recording-day DreamDEX snapshot refresh. Those are deliberately
+reserved as final pickup replacements; no current frame calls stale cache live or
+legacy provenance complete.
+
+STATUS: NEEDS_REPLY
+
 ## 2026-08-20T07:01:17Z · from Codex
 
 GitHub-lane update: authenticated GitHub connector identifies the owner as `Aji-Q`, and

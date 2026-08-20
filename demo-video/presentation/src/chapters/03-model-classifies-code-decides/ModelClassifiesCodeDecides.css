@@ -1,0 +1,965 @@
+.mccd-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  color: var(--text);
+  background: var(--surface);
+}
+
+.mccd-eyebrow,
+.mccd-anchor-note,
+.mccd-sheet-heading,
+.mccd-chip-label,
+.mccd-chip-result,
+.mccd-verbatim-caption,
+.mccd-lane-label,
+.mccd-rejection-status,
+.mccd-default-status,
+.mccd-gate-caption,
+.mccd-weight-row,
+.mccd-engine-core-label,
+.mccd-engine-core-detail,
+.mccd-output-label,
+.mccd-engine-caption {
+  font-family: var(--font-mono);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.mccd-eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.mccd-anchor-scene::before,
+.mccd-verbatim-scene::before,
+.mccd-gate-scene::before,
+.mccd-engine-scene::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Step 0 — five public anchors resolve outward from the classifier. */
+.mccd-anchor-scene {
+  padding: 126px 142px 96px;
+}
+
+.mccd-anchor-scene::before {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--surface-2) 64%, transparent), transparent 57%),
+    linear-gradient(0deg, color-mix(in srgb, var(--surface-2) 58%, transparent), transparent 42%);
+}
+
+.mccd-anchor-copy {
+  position: relative;
+  z-index: 2;
+  width: 700px;
+}
+
+.mccd-anchor-copy h2,
+.mccd-verbatim-copy h2,
+.mccd-gate-copy h2,
+.mccd-engine-copy h2 {
+  margin: 30px 0 0;
+  font-family: var(--font-display-en);
+  font-size: 108px;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+}
+
+.mccd-anchor-copy h2 em,
+.mccd-verbatim-copy h2 em,
+.mccd-gate-copy h2 em,
+.mccd-engine-copy h2 em {
+  display: block;
+  color: var(--accent);
+  font-weight: 400;
+}
+
+.mccd-support-copy {
+  max-width: 530px;
+  margin: 42px 0 0;
+  color: var(--text-2);
+  font-family: var(--font-body);
+  font-size: 24px;
+  line-height: 1.52;
+}
+
+.mccd-anchor-map {
+  position: absolute;
+  z-index: 2;
+  right: 58px;
+  top: 126px;
+  width: 1010px;
+  height: 790px;
+}
+
+.mccd-anchor-svg {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+}
+
+.mccd-anchor-orbit {
+  fill: none;
+  stroke: var(--rule);
+}
+
+.mccd-anchor-orbit--outer {
+  opacity: 0;
+  stroke-dasharray: 1785;
+  stroke-dashoffset: 1785;
+  animation: mccd-orbit-draw 1500ms 120ms var(--ease-quart) forwards;
+}
+
+.mccd-anchor-orbit--inner {
+  opacity: 0;
+  stroke-dasharray: 742;
+  stroke-dashoffset: 742;
+  animation: mccd-orbit-draw 950ms 550ms var(--ease-quart) forwards;
+}
+
+.mccd-anchor-spoke {
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-dasharray: 370;
+  stroke-dashoffset: 370;
+}
+
+.mccd-anchor-spoke--d1 { animation: mccd-stroke-draw 720ms 360ms var(--ease-quart) forwards; }
+.mccd-anchor-spoke--d2 { animation: mccd-stroke-draw 720ms 520ms var(--ease-quart) forwards; }
+.mccd-anchor-spoke--d3 { animation: mccd-stroke-draw 720ms 680ms var(--ease-quart) forwards; }
+.mccd-anchor-spoke--d4 { animation: mccd-stroke-draw 720ms 840ms var(--ease-quart) forwards; }
+.mccd-anchor-spoke--d5 { animation: mccd-stroke-draw 720ms 1000ms var(--ease-quart) forwards; }
+
+.mccd-anchor-core-ring {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mccd-core-arrive 850ms 160ms var(--ease-quart) both;
+}
+
+.mccd-anchor-core-dot {
+  fill: var(--accent);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mccd-core-dot 600ms 950ms var(--ease-quart) both;
+}
+
+.mccd-anchor-center {
+  position: absolute;
+  left: 413px;
+  top: 326px;
+  width: 134px;
+  display: grid;
+  gap: 7px;
+  text-align: center;
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+}
+
+.mccd-anchor-center strong {
+  color: var(--text);
+  font-family: var(--font-display-en);
+  font-size: 23px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.mccd-anchor-node {
+  position: absolute;
+  width: 192px;
+  display: grid;
+  gap: 7px;
+  opacity: 0;
+  transform: translateY(22px);
+  animation: mccd-anchor-node-arrive 560ms var(--ease-quart) forwards;
+}
+
+.mccd-anchor-node::before {
+  content: "";
+  position: absolute;
+  left: -19px;
+  top: 2px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--accent);
+  background: var(--surface);
+  transform: rotate(45deg);
+}
+
+.mccd-anchor-node--d1 { left: 384px; top: 7px; animation-delay: 740ms; }
+.mccd-anchor-node--d2 { left: 794px; top: 222px; animation-delay: 900ms; }
+.mccd-anchor-node--d3 { left: 680px; top: 627px; animation-delay: 1060ms; }
+.mccd-anchor-node--d4 { left: 197px; top: 627px; animation-delay: 1220ms; }
+.mccd-anchor-node--d5 { left: 15px; top: 222px; animation-delay: 1380ms; }
+
+.mccd-anchor-id {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+}
+
+.mccd-anchor-name {
+  font-family: var(--font-display-en);
+  font-size: 29px;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+}
+
+.mccd-anchor-weight {
+  color: var(--text-mute);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.mccd-anchor-note {
+  position: absolute;
+  z-index: 3;
+  left: 142px;
+  bottom: 96px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 650px;
+  color: var(--text-mute);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.mccd-anchor-note-rule {
+  width: 72px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: mccd-rule-enter 700ms 1550ms var(--ease-quart) forwards;
+}
+
+/* Step 1 — the exact source substring is isolated and mechanically matched. */
+.mccd-verbatim-scene {
+  padding: 116px 140px 100px;
+}
+
+.mccd-verbatim-scene::before {
+  background:
+    linear-gradient(90deg, transparent 0%, transparent 60%, color-mix(in srgb, var(--surface-2) 66%, transparent) 100%),
+    linear-gradient(0deg, color-mix(in srgb, var(--surface-2) 70%, transparent), transparent 48%);
+}
+
+.mccd-verbatim-copy {
+  position: relative;
+  z-index: 2;
+  width: 760px;
+}
+
+.mccd-verbatim-copy h2 {
+  font-size: 111px;
+}
+
+.mccd-source-sheet {
+  position: absolute;
+  z-index: 2;
+  left: 140px;
+  bottom: 150px;
+  width: 1030px;
+  padding: 30px 38px 36px;
+  border-top: 1px solid var(--accent);
+  border-bottom: 1px solid var(--rule);
+  background: var(--surface-2);
+  box-shadow: 22px 22px 0 color-mix(in srgb, var(--surface-3) 82%, transparent);
+  animation: mccd-sheet-enter 760ms 120ms var(--ease-quart) both;
+}
+
+.mccd-sheet-heading {
+  display: flex;
+  justify-content: space-between;
+  color: var(--text-mute);
+  font-size: 11px;
+}
+
+.mccd-source-line {
+  position: relative;
+  z-index: 2;
+  margin: 34px 0 0;
+  max-width: 940px;
+  color: var(--text-2);
+  font-family: var(--font-body);
+  font-size: 28px;
+  line-height: 1.52;
+}
+
+.mccd-source-line mark {
+  position: relative;
+  display: inline-block;
+  color: var(--text);
+  background: var(--accent-soft);
+  white-space: nowrap;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.mccd-verbatim-bracket {
+  position: absolute;
+  z-index: 3;
+  top: -8px;
+  width: 11px;
+  height: calc(100% + 16px);
+  border-top: 1px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
+  opacity: 0;
+  animation: mccd-bracket-enter 460ms 1180ms var(--ease-quart) forwards;
+}
+
+.mccd-verbatim-bracket--left {
+  left: -11px;
+  border-left: 1px solid var(--accent);
+  transform: translateX(15px);
+}
+
+.mccd-verbatim-bracket--right {
+  right: -11px;
+  border-right: 1px solid var(--accent);
+  transform: translateX(-15px);
+}
+
+.mccd-verbatim-scan {
+  position: absolute;
+  z-index: 4;
+  left: 0;
+  top: calc(100% + 7px);
+  width: 2px;
+  height: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+  animation: mccd-quote-scan 1250ms 1440ms var(--ease-quart) both;
+}
+
+.mccd-evidence-bridge {
+  position: absolute;
+  z-index: 2;
+  left: 1165px;
+  top: 604px;
+  width: 150px;
+  height: 1px;
+  background: var(--rule);
+  transform: rotate(-32deg) scaleX(0);
+  transform-origin: left;
+  animation: mccd-bridge-enter 740ms 1580ms var(--ease-quart) forwards;
+}
+
+.mccd-evidence-bridge-dot {
+  position: absolute;
+  right: -5px;
+  top: -4px;
+  width: 9px;
+  height: 9px;
+  background: var(--accent);
+  transform: rotate(45deg);
+}
+
+.mccd-evidence-chip {
+  position: absolute;
+  z-index: 2;
+  right: 142px;
+  bottom: 185px;
+  width: 520px;
+  padding: 34px 38px 31px;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+  animation: mccd-chip-enter 820ms 1760ms var(--ease-quart) both;
+}
+
+.mccd-chip-label {
+  color: var(--accent);
+  font-size: 11px;
+}
+
+.mccd-evidence-chip blockquote {
+  margin: 25px 0 31px;
+  color: var(--text);
+  font-family: var(--font-display-en);
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.05;
+}
+
+.mccd-chip-result {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: var(--text-mute);
+  font-size: 11px;
+}
+
+.mccd-chip-result i {
+  width: 34px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.mccd-verbatim-caption {
+  position: absolute;
+  z-index: 2;
+  right: 142px;
+  bottom: 100px;
+  width: 520px;
+  margin: 0;
+  color: var(--text-mute);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* Step 2 — the evidence gate shuts, while missing information is made explicit. */
+.mccd-gate-scene {
+  padding: 114px 142px 100px;
+}
+
+.mccd-gate-scene::before {
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--surface-2) 55%, transparent), transparent 34%, transparent 66%, color-mix(in srgb, var(--surface-2) 55%, transparent)),
+    linear-gradient(0deg, color-mix(in srgb, var(--surface-2) 74%, transparent), transparent 52%);
+}
+
+.mccd-gate-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.mccd-gate-copy h2 {
+  font-size: 101px;
+}
+
+.mccd-gate-grid {
+  position: absolute;
+  z-index: 2;
+  left: 142px;
+  right: 142px;
+  bottom: 158px;
+  display: grid;
+  grid-template-columns: 1fr 112px 1fr;
+  gap: 34px;
+  align-items: stretch;
+}
+
+.mccd-rejection-lane,
+.mccd-default-lane {
+  position: relative;
+  min-height: 328px;
+  padding: 32px 38px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--surface-2) 74%, transparent);
+  animation: mccd-lane-enter 740ms var(--ease-quart) both;
+}
+
+.mccd-rejection-lane { animation-delay: 180ms; }
+.mccd-default-lane { animation-delay: 520ms; }
+
+.mccd-lane-label {
+  margin: 0;
+  max-width: 440px;
+  color: var(--text-mute);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.mccd-rejection-lane blockquote {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+  margin: 37px 0 28px;
+  color: var(--text-2);
+  font-family: var(--font-display-en);
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.96;
+}
+
+.mccd-rejection-strike {
+  position: absolute;
+  z-index: 2;
+  left: 30px;
+  right: 30px;
+  top: 140px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0) rotate(-4deg);
+  transform-origin: left;
+  animation: mccd-strike-enter 660ms 840ms var(--ease-quart) forwards;
+}
+
+.mccd-rejection-strike i {
+  position: absolute;
+  right: 0;
+  top: -6px;
+  width: 13px;
+  height: 13px;
+  border: 1px solid var(--accent);
+  background: var(--surface);
+  transform: rotate(45deg);
+}
+
+.mccd-rejection-status,
+.mccd-default-status {
+  margin: 0;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.mccd-lane-note {
+  margin: 16px 0 0;
+  color: var(--text-mute);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.mccd-gate-divider {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  gap: 12px;
+}
+
+.mccd-gate-divider span {
+  width: 1px;
+  height: 90px;
+  background: var(--rule);
+  transform: scaleY(0);
+  animation: mccd-divider-enter 460ms 660ms var(--ease-quart) forwards;
+}
+
+.mccd-gate-divider span:last-child { animation-delay: 820ms; }
+
+.mccd-gate-divider i {
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--accent);
+  background: var(--surface);
+  transform: rotate(45deg) scale(0);
+  animation: mccd-divider-mark 440ms 980ms var(--ease-quart) forwards;
+}
+
+.mccd-default-equation {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 19px;
+  align-items: center;
+  margin-top: 59px;
+}
+
+.mccd-default-equation > span {
+  color: var(--text-mute);
+  font-family: var(--font-mono);
+  font-size: 19px;
+  letter-spacing: 0.14em;
+}
+
+.mccd-default-equation i {
+  height: 1px;
+  background: var(--rule);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: mccd-rule-enter 700ms 1100ms var(--ease-quart) forwards;
+}
+
+.mccd-default-equation strong {
+  color: var(--accent);
+  font-family: var(--font-display-en);
+  font-size: 62px;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  opacity: 0;
+  transform: translateX(-18px);
+  animation: mccd-level-arrive 620ms 1460ms var(--ease-quart) forwards;
+}
+
+.mccd-default-status {
+  margin-top: 38px;
+}
+
+.mccd-gate-caption {
+  position: absolute;
+  z-index: 2;
+  left: 142px;
+  bottom: 101px;
+  margin: 0;
+  color: var(--text-mute);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* Step 3 — fixed inputs flow through a named deterministic function, not a model. */
+.mccd-engine-scene {
+  padding: 113px 142px 98px;
+}
+
+.mccd-engine-scene::before {
+  background:
+    radial-gradient(circle at 56% 62%, color-mix(in srgb, var(--accent-soft) 68%, transparent), transparent 24%),
+    linear-gradient(0deg, color-mix(in srgb, var(--surface-2) 64%, transparent), transparent 48%);
+}
+
+.mccd-engine-copy {
+  position: relative;
+  z-index: 2;
+  width: 780px;
+}
+
+.mccd-engine-copy h2 {
+  font-size: 111px;
+}
+
+.mccd-engine-copy > p:last-child {
+  margin: 31px 0 0;
+  color: var(--text-2);
+  font-family: var(--font-body);
+  font-size: 22px;
+}
+
+.mccd-engine-diagram {
+  position: absolute;
+  z-index: 2;
+  left: 142px;
+  right: 142px;
+  bottom: 178px;
+  display: grid;
+  grid-template-columns: 560px 115px 340px 115px 1fr;
+  gap: 0;
+  align-items: center;
+}
+
+.mccd-weight-stack {
+  display: grid;
+  gap: 14px;
+  padding: 26px 30px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  background: color-mix(in srgb, var(--surface-2) 60%, transparent);
+}
+
+.mccd-weight-row {
+  display: grid;
+  grid-template-columns: 35px 170px 1fr 44px;
+  gap: 12px;
+  align-items: center;
+  color: var(--text-mute);
+  font-size: 11px;
+}
+
+.mccd-weight-id {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.mccd-weight-name {
+  letter-spacing: 0.06em;
+}
+
+.mccd-weight-track {
+  position: relative;
+  height: 2px;
+  overflow: hidden;
+  background: var(--rule);
+}
+
+.mccd-weight-track i {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: mccd-weight-fill 700ms var(--ease-quart) forwards;
+}
+
+.mccd-weight-row--d1 .mccd-weight-track i { width: 100%; animation-delay: 200ms; }
+.mccd-weight-row--d3 .mccd-weight-track i { width: 83.333%; animation-delay: 350ms; }
+.mccd-weight-row--d2 .mccd-weight-track i { width: 66.667%; animation-delay: 500ms; }
+.mccd-weight-row--d4 .mccd-weight-track i { width: 50%; animation-delay: 650ms; }
+.mccd-weight-row--d5 .mccd-weight-track i { width: 33.333%; animation-delay: 800ms; }
+
+.mccd-weight-value {
+  color: var(--text-2);
+  text-align: right;
+}
+
+.mccd-flow-rail {
+  position: relative;
+  height: 1px;
+  background: var(--rule);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: mccd-flow-enter 630ms 990ms var(--ease-quart) forwards;
+}
+
+.mccd-flow-rail--out {
+  transform-origin: left;
+  animation-delay: 1480ms;
+}
+
+.mccd-flow-rail-marker {
+  position: absolute;
+  right: -5px;
+  top: -4px;
+  width: 9px;
+  height: 9px;
+  background: var(--accent);
+  transform: rotate(45deg) scale(0);
+  animation: mccd-flow-marker 360ms 1530ms var(--ease-quart) forwards;
+}
+
+.mccd-flow-rail--out .mccd-flow-rail-marker { animation-delay: 1950ms; }
+
+.mccd-engine-core {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 15px;
+  padding: 38px 18px;
+  border: 1px solid var(--accent);
+  background: var(--surface);
+  opacity: 0;
+  transform: translateY(24px);
+  animation: mccd-engine-core-arrive 720ms 1280ms var(--ease-quart) forwards;
+}
+
+.mccd-engine-core::before,
+.mccd-engine-core::after {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--accent);
+  background: var(--surface);
+  transform: rotate(45deg);
+}
+
+.mccd-engine-core::before { left: -7px; top: -7px; }
+.mccd-engine-core::after { right: -7px; bottom: -7px; }
+
+.mccd-engine-core-label,
+.mccd-engine-core-detail,
+.mccd-output-label {
+  color: var(--text-mute);
+  font-size: 11px;
+}
+
+.mccd-engine-core strong {
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.mccd-engine-core-rule {
+  width: 86px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.mccd-engine-output {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  padding-left: 35px;
+  opacity: 0;
+  transform: translateX(-16px);
+  animation: mccd-output-arrive 650ms 2180ms var(--ease-quart) forwards;
+}
+
+.mccd-engine-output strong {
+  color: var(--text);
+  font-family: var(--font-display-en);
+  font-size: 112px;
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.8;
+}
+
+.mccd-engine-output > span:last-child {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.mccd-engine-caption {
+  position: absolute;
+  z-index: 2;
+  left: 142px;
+  bottom: 101px;
+  max-width: 900px;
+  margin: 0;
+  color: var(--text-mute);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+@keyframes mccd-orbit-draw {
+  to { opacity: 1; stroke-dashoffset: 0; }
+}
+
+@keyframes mccd-stroke-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes mccd-core-arrive {
+  from { opacity: 0; transform: scale(0.56); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes mccd-core-dot {
+  from { opacity: 0; transform: scale(0); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes mccd-anchor-node-arrive {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mccd-rule-enter {
+  to { transform: scaleX(1); }
+}
+
+@keyframes mccd-sheet-enter {
+  from { opacity: 0; transform: translateY(34px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mccd-bracket-enter {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes mccd-quote-scan {
+  from { left: 0; opacity: 0; }
+  15% { opacity: 1; }
+  82% { opacity: 1; }
+  to { left: 100%; opacity: 0; }
+}
+
+@keyframes mccd-bridge-enter {
+  to { transform: rotate(-32deg) scaleX(1); }
+}
+
+@keyframes mccd-chip-enter {
+  from { opacity: 0; transform: translateX(36px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes mccd-lane-enter {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mccd-strike-enter {
+  to { transform: scaleX(1) rotate(-4deg); }
+}
+
+@keyframes mccd-divider-enter {
+  to { transform: scaleY(1); }
+}
+
+@keyframes mccd-divider-mark {
+  to { transform: rotate(45deg) scale(1); }
+}
+
+@keyframes mccd-level-arrive {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes mccd-weight-fill {
+  to { transform: scaleX(1); }
+}
+
+@keyframes mccd-flow-enter {
+  to { transform: scaleX(1); }
+}
+
+@keyframes mccd-flow-marker {
+  to { transform: rotate(45deg) scale(1); }
+}
+
+@keyframes mccd-engine-core-arrive {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes mccd-output-arrive {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mccd-scene *,
+  .mccd-scene *::before,
+  .mccd-scene *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .mccd-anchor-orbit,
+  .mccd-anchor-node,
+  .mccd-anchor-core-ring,
+  .mccd-anchor-core-dot,
+  .mccd-verbatim-bracket,
+  .mccd-evidence-chip,
+  .mccd-rejection-lane,
+  .mccd-default-lane,
+  .mccd-default-equation strong,
+  .mccd-engine-core,
+  .mccd-engine-output {
+    opacity: 1;
+  }
+
+  .mccd-anchor-orbit,
+  .mccd-anchor-spoke {
+    stroke-dashoffset: 0;
+  }
+
+  .mccd-anchor-node,
+  .mccd-anchor-core-ring,
+  .mccd-anchor-core-dot,
+  .mccd-verbatim-bracket,
+  .mccd-evidence-chip,
+  .mccd-rejection-lane,
+  .mccd-default-lane,
+  .mccd-default-equation strong,
+  .mccd-engine-core,
+  .mccd-engine-output {
+    transform: none;
+  }
+
+  .mccd-anchor-note-rule,
+  .mccd-evidence-bridge,
+  .mccd-default-equation i,
+  .mccd-weight-track i,
+  .mccd-flow-rail,
+  .mccd-rejection-strike,
+  .mccd-gate-divider span {
+    transform: none;
+  }
+
+  .mccd-gate-divider i,
+  .mccd-flow-rail-marker {
+    transform: rotate(45deg);
+  }
+}

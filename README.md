@@ -3,7 +3,8 @@
 **Know who you're really betting against.**
 
 LevelField assesses the *structural information-asymmetry risk* of prediction-market event
-contracts — before you bet, from the contract text alone, with no trading data.
+contracts — before you bet, from the contract text alone, with no trading data and
+**no LLM API dependency**.
 
 It does not predict outcomes, track smart money, or detect anomalies after the fact. It answers
 one question: **does the structure of this event allow a group of people to know the answer
@@ -13,65 +14,82 @@ Built for the Somnia × DreamDEX Event Contracts Hackathon (2026).
 
 ## How it works
 
-Two-stage pipeline; the model never produces a number.
+Two-stage pipeline; no model ever produces a number.
 
-1. **Stage A — classification (LLM).** A contract's text is matched against a fixed, public
-   [anchor library](data/anchors/anchors.yaml) on five dimensions:
-   - **D1 Outcome Control** (30%) — what produces the outcome, from natural process to one person's will
-   - **D3 Insider Tradability** (25%) — whether the people who know early can trade on it
-   - **D2 Knowledge Circle** (20%) — how many people know before disclosure
-   - **D4 Disclosure Synchronicity** (15%) — whether everyone learns the outcome at once
-   - **D5 Outcome Manufacturability** (10%) — whether someone could cause the outcome to win a bet
+**Stage A — classification.** A contract is matched against a fixed, public
+[anchor library](data/anchors/anchors.yaml) on five dimensions:
 
-   Every classification must quote the contract's own text verbatim (mechanically verified as a
-   substring — this also defends against prompt injection via market descriptions). Each contract
-   is classified in 3 independent runs with per-dimension majority voting; disagreement downgrades
-   confidence and resolves toward higher risk.
+- **D1 Outcome Control** (30%) — what produces the outcome, from natural process to one person's will
+- **D3 Insider Tradability** (25%) — whether the people who know early can trade on it
+- **D2 Knowledge Circle** (20%) — how many people know before disclosure
+- **D4 Disclosure Synchronicity** (15%) — whether everyone learns the outcome at once
+- **D5 Outcome Manufacturability** (10%) — whether someone could cause the outcome to win a bet
 
-2. **Stage B — scoring (deterministic code).** Levels → weighted score 0–100 → band
-   (low / moderate / elevated / high), plus two circuit breakers:
-   - **CB-1:** outcome decided by one person who is free to trade it → score floor 90
-   - **CB-2:** outcome manufacturable unilaterally by someone free to trade it → score floor 85
+Every classification must quote the contract's own text verbatim — mechanically verified as a
+substring, which also defends against prompt injection via market descriptions.
 
-   Ambiguity never scores low: a dimension that can't be determined from the text defaults
-   conservatively to level 4 and is flagged.
+Stage A has three providers, none of which calls a paid API:
+
+| Track | Provider |
+|---|---|
+| Live DreamDEX markets | Deterministic rules over typed on-chain fields (per official guidance, question text is never parsed) |
+| Curated risk spectrum | [Reference classifications](data/classifications/) produced once via the open protocol, auditable in git |
+| Any contract text | **Your agent's own model**, via the [LevelField MCP server](packages/mcp/) — the server hands out the protocol, verifies quotes, and computes; the host model classifies |
+
+**Stage B — scoring (deterministic code).** Levels → weighted score 0–100 → band
+(low / moderate / elevated / high), plus two circuit breakers:
+
+- **CB-1:** outcome decided by one person who is free to trade it → score floor 90
+- **CB-2:** outcome manufacturable unilaterally by someone free to trade it → score floor 85
+
+Ambiguity never scores low: a dimension that can't be determined from the text defaults
+conservatively to level 4 and is flagged.
 
 The taxonomy follows the outcome-maker classification the Anti-Corruption Data Collective
-validated against 435,000+ settled Polymarket markets ($54B volume, 2021–2026).
+validated against 435,000+ settled Polymarket markets ($54B volume, 2021–2026). Running the
+full pipeline over live testnet markets plus the curated set reproduces that risk gradient
+end-to-end with zero API calls: 3 (price binaries) → 19–21 (statistics, elections) → 49 (FOMC)
+→ 65 (layoffs) → 78 (military) → 90 (individual-will, circuit breaker).
 
 ## Repository layout
 
 ```
-packages/scoring/   two-stage pipeline: anchors, classifier, voting, engine
-data/anchors/       the anchor library (single source of truth, YAML)
-data/curated/       curated contracts spanning the risk spectrum + injection test
-scripts/tracer.ts   one contract end-to-end:  npx tsx scripts/tracer.ts <file> [--mock]
-scripts/probe-dreamdex.ts   field-coverage probe of the Shannon testnet indexer
-FEEDBACK.md         running SDK & docs feedback journal (hackathon deliverable)
+packages/scoring/       two-stage pipeline: anchors, classifiers, voting, engine, DreamDEX fetcher
+packages/mcp/           MCP server: assessment protocol + verification + scoring, zero LLM deps
+apps/web/               Next.js UI: markets, per-market detail, methodology (reads the score cache)
+data/anchors/           the anchor library (single source of truth, YAML)
+data/curated/           curated contracts spanning the risk spectrum + injection test
+data/classifications/   reference classifications (open protocol, quotes mechanically verified)
+data/scores/            score cache written by score:all (in git for reproducible demos)
+docs/design/no-api.md   architecture decision record
+docs/research-dreamdex.md  verified integration reference (field mapping, gotchas, live findings)
+FEEDBACK.md             SDK & docs feedback journal (hackathon deliverable, 9 evidence-backed entries)
 ```
 
-## Quick start
+## Quick start (no API key needed)
 
 ```bash
 npm install
-npm test                                                  # 30 unit/integration tests
-npx tsx scripts/tracer.ts data/curated/celebrity-breakup.json --mock   # no API key needed
-cp .env.example .env                                      # add ANTHROPIC_API_KEY for live scoring
-npx tsx scripts/tracer.ts data/curated/celebrity-breakup.json          # live 3-run scoring
-npx tsx scripts/probe-dreamdex.ts                         # DreamDEX testnet field coverage
+npm test                      # 38 unit/integration tests
+npm run score:all             # score live testnet markets + curated set -> data/scores/
+npm run dev -w @levelfield/web    # UI at localhost:3000
+npm run mcp                   # stdio MCP server (see packages/mcp/README.md)
+npx tsx scripts/probe-dreamdex.ts          # indexer field-coverage probe
+npx tsx scripts/verify-classifications.ts  # re-verify all evidence quotes
 ```
 
 ## Status
 
 - [x] Anchor library v1 (5 dimensions × 5 levels, reference cases)
 - [x] Deterministic scoring engine + circuit breakers (unit-tested)
-- [x] 3-run majority-vote classifier with verbatim-quote verification
-- [x] DreamDEX Shannon testnet field-coverage probe
-- [ ] Live batch scoring of testnet markets
-- [ ] Web UI (markets list, detail with evidence highlighting, methodology)
-- [ ] MCP server (`assess_market`, `assess_contract_text`)
+- [x] Rule classifier for live price binaries (typed fields only)
+- [x] Reference classifications for the curated spectrum (40 quotes verified)
+- [x] Batch scorer + score cache (live + curated, ACDC gradient reproduced)
+- [x] MCP server (protocol / score / anchors), verified over stdio
+- [x] Web UI (markets, detail with evidence quotes, methodology from YAML)
 - [ ] On-chain ScoreRegistry attestations (Somnia Shannon)
-- [ ] Validation run: 15 contracts vs the ACDC risk gradient, agreement stats
+- [ ] Validation write-up: gradient + stability stats in README
+- [ ] Demo video, deck, final SDK feedback report
 
 ## What this is not
 

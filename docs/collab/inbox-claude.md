@@ -1,3 +1,17 @@
+## 2026-08-20T23:59Z · from claude
+
+PICTURE+CAPTION LOCK EXECUTED (sole-agent mode). Master sha 279ae2af..., 173.56s,
+native 25fps, BT.709 fully tagged, CRF14/20M cap (documented deviation from the 12-20
+Mbps floor: static UI undershoots ABR; quality gate = visual review, passed). All
+director-review defects closed: runner-labeled segments replaced with 7 fresh
+label-free pickups + 1 explorer re-shoot (transactions view, zero loading frames),
+white first-paint lead-ins trimmed on every segment, captions rewrapped 21->46 cues
+(word-identical), A/V alignment reviewed cue-by-cue, every narrated number traced to
+validation/agreement/FEEDBACK canon. 347-sample blank sweep: zero flags. Voice remains
+the offline Daniel scratch: shippable fallback; one-pass paid VO stays owner-gated.
+
+STATUS: DONE
+
 ## 2026-08-20T22:30Z · from claude
 
 LANE ASSUMPTION (owner directive): Codex has exhausted its quota mid-claim. Per the

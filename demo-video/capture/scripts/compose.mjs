@@ -92,7 +92,8 @@ export function buildClipFilter(clip) {
     `setpts=${factor.toFixed(9)}*PTS`,
     "scale=1920:1080:force_original_aspect_ratio=decrease:flags=lanczos",
     "pad=1920:1080:(ow-iw)/2:(oh-ih)/2:color=0x080807",
-    "fps=30",
+    "fps=25,scale=in_range=tv:out_range=tv,format=yuv420p",
+    "setparams=color_primaries=bt709:color_trc=bt709:colorspace=bt709",
     "format=yuv420p",
     "settb=1/90000",
   ].join(",");
@@ -188,7 +189,8 @@ export async function compose({ manifestPath, runDir, outputPath }) {
       "-y", "-hide_banner", "-loglevel", "error", "-i", input,
       "-an", "-vf", buildClipFilter(clip),
       "-t", clip.outputDuration.toFixed(6),
-      "-r", "30", "-c:v", "libx264", "-preset", "medium", "-crf", "18",
+      "-r", "25", "-c:v", "libx264", "-preset", "slow", "-crf", "14", "-maxrate", "20M", "-bufsize", "40M",
+      "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
       "-g", "60", "-keyint_min", "60", "-sc_threshold", "0", "-pix_fmt", "yuv420p",
       segment,
     ]);

@@ -75,7 +75,7 @@ integration · deterministic scoring engine, 69 tests
 ## Form checklist
 
 - [ ] GitHub link (public repo, pushed by Codex)
-- [ ] 2–3 min demo video URL (Codex; capture-led prototype sha 1948747d... verified truthful but demoted pending joint picture lock of 2026-08-20T17:30Z — final master: native 25fps BT.709 12-20Mbps, fact-check gate against validation/agreement docs, one-pass paid VO after owner voice approval)
+- [ ] 2–3 min demo video URL — MASTER READY (Claude, 2026-08-20): sha 279ae2af..., 2:53.56, native 25fps BT.709 CRF14, 100% real capture, 0 blank/label/loading frames (347-sample sweep), captions 46 cues all within 2x42/7s/17CPS, all narrated numbers fact-checked against validation/agreement docs. Offline Daniel voice = shippable; optional one-pass ElevenLabs upgrade needs owner voice choice. Upload to YouTube then paste URL.
 - [ ] Deck (optional, Codex)
 - [ ] Provenance-complete republish done + verify:onchain snapshot committed (Claude)
 - [ ] Re-check the BUIDL competitive page after 2026-08-24 20:00 UTC (recon: it was empty pre-window)

@@ -1,83 +1,220 @@
 1
 00:00:00,000 --> 00:00:05,354
-Every event contract gives you a price. It does not tell you who could know first.
+Every event contract gives you a price. It
+does not tell you who could know first.
 
 2
-00:00:05,554 --> 00:00:14,484
-LevelField is a pre-trade risk layer for DreamDEX. It measures structural information asymmetry before a trader or agent takes a side.
+00:00:05,554 --> 00:00:08,911
+LevelField is a pre-trade risk layer for
+DreamDEX.
 
 3
-00:00:14,684 --> 00:00:22,776
-Start with a captured DreamDEX price binary on Somnia Shannon. LevelField scores it three out of one hundred: low risk.
+00:00:08,911 --> 00:00:11,901
+It measures structural information
+asymmetry
 
 4
-00:00:22,976 --> 00:00:31,140
-No participant controls the global reference price. Its outcome is public, and disclosure is nearly simultaneous.
+00:00:11,901 --> 00:00:14,484
+before a trader or agent takes a side.
 
 5
-00:00:31,340 --> 00:00:38,145
-Now change only the event. This curated reference contract resolves on one person's private decision.
+00:00:14,684 --> 00:00:18,936
+Start with a captured DreamDEX price
+binary on Somnia Shannon.
 
 6
-00:00:38,345 --> 00:00:42,639
-The same engine returns ninety-five out of one hundred: high risk.
+00:00:18,936 --> 00:00:22,776
+LevelField scores it three out of one
+hundred: low risk.
 
 7
-00:00:42,839 --> 00:00:51,723
-One person controls the outcome. No clear restriction stops an early knower from trading. Circuit breaker one sets a high-risk floor.
+00:00:22,976 --> 00:00:26,694
+No participant controls the global
+reference price.
 
 8
-00:00:51,923 --> 00:00:59,802
-That three-to-ninety-five contrast is the product. LevelField explains who can know first, not which side will win.
+00:00:26,694 --> 00:00:31,140
+Its outcome is public, and disclosure is
+nearly simultaneous.
 
 9
-00:01:00,002 --> 00:01:03,917
-It does not allege wrongdoing or detect live insider activity.
+00:00:31,340 --> 00:00:33,109
+Now change only the event.
 
 10
-00:01:04,117 --> 00:01:12,095
-Under the interface is a public, five-dimension anchor library. A model classifies each dimension against those anchors.
+00:00:33,109 --> 00:00:38,145
+This curated reference contract resolves
+on one person's private decision.
 
 11
-00:01:12,295 --> 00:01:20,065
-Every evidence quote must match the contract's exact words. Code rejects instruction-like text aimed at the assessor.
+00:00:38,345 --> 00:00:42,639
+The same engine returns ninety-five out of
+one hundred: high risk.
 
 12
-00:01:20,265 --> 00:01:26,954
-If information is missing, LevelField defaults conservatively to level four instead of guessing low.
+00:00:42,839 --> 00:00:45,017
+One person controls the outcome.
 
 13
-00:01:27,154 --> 00:01:36,510
-Then deterministic code applies fixed weights, cross-dimension rules, and circuit breakers. The model never generates the numeric score.
+00:00:45,017 --> 00:00:48,829
+No clear restriction stops an early knower
+from trading.
 
 14
-00:01:36,710 --> 00:01:43,646
-Here, an agent calls the real LevelField MCP server over standard input and output before it acts.
+00:00:48,829 --> 00:00:51,723
+Circuit breaker one sets a high-risk
+floor.
 
 15
-00:01:43,846 --> 00:01:50,125
-The policy is visible: low or moderate risk can proceed. Elevated or high risk is declined.
+00:00:51,923 --> 00:00:55,379
+That three-to-ninety-five contrast is the
+product.
 
 16
-00:01:50,325 --> 00:01:59,275
-The DreamDEX example returns PROCEED at three. The individual-decision case returns DECLINE at ninety-five, with the reason attached.
+00:00:55,379 --> 00:00:59,802
+LevelField explains who can know first,
+not which side will win.
 
 17
-00:01:59,475 --> 00:02:11,441
-After a provenance-complete republish, each current score will bind its band, five dimensions, method hash, timestamp, and immutable source on Somnia Shannon.
+00:01:00,002 --> 00:01:03,917
+It does not allege wrongdoing or detect
+live insider activity.
 
 18
-00:02:11,641 --> 00:02:16,978
-The verifier reads every field back and fails closed on anything missing or changed.
+00:01:04,117 --> 00:01:08,341
+Under the interface is a public,
+five-dimension anchor library.
 
 19
-00:02:17,178 --> 00:02:27,966
-Across sixteen curated contracts, scores span three to ninety-five. Category risk rises in the expected order, with a Spearman rho of point nine three.
+00:01:08,341 --> 00:01:12,095
+A model classifies each dimension against
+those anchors.
 
 20
-00:02:28,166 --> 00:02:40,762
-Sixty-nine software tests and eight smart-contract tests pass. The official DreamDEX SDK independently cross-checks active-market discovery, read-only and without a private key.
+00:01:12,295 --> 00:01:16,247
+Every evidence quote must match the
+contract's exact words.
 
 21
-00:02:40,962 --> 00:02:53,363
-We delivered eleven evidence-backed SDK and documentation findings. As DreamDEX grows, LevelField helps agents, venues, and traders know who can know before they do.
+00:01:16,247 --> 00:01:20,065
+Code rejects instruction-like text aimed
+at the assessor.
+
+22
+00:01:20,265 --> 00:01:22,022
+If information is missing,
+
+23
+00:01:22,022 --> 00:01:26,954
+LevelField defaults conservatively to
+level four instead of guessing low.
+
+24
+00:01:27,154 --> 00:01:30,378
+Then deterministic code applies fixed
+weights,
+
+25
+00:01:30,378 --> 00:01:33,461
+cross-dimension rules, and circuit
+breakers.
+
+26
+00:01:33,461 --> 00:01:36,510
+The model never generates the numeric
+score.
+
+27
+00:01:36,710 --> 00:01:37,068
+Here,
+
+28
+00:01:37,068 --> 00:01:40,321
+an agent calls the real LevelField MCP
+server
+
+29
+00:01:40,321 --> 00:01:43,646
+over standard input and output before it
+acts.
+
+30
+00:01:43,846 --> 00:01:47,753
+The policy is visible: low or moderate
+risk can proceed.
+
+31
+00:01:47,753 --> 00:01:50,125
+Elevated or high risk is declined.
+
+32
+00:01:50,325 --> 00:01:53,444
+The DreamDEX example returns PROCEED at
+three.
+
+33
+00:01:53,444 --> 00:01:57,560
+The individual-decision case returns
+DECLINE at ninety-five,
+
+34
+00:01:57,560 --> 00:01:59,275
+with the reason attached.
+
+35
+00:01:59,475 --> 00:02:05,344
+After a provenance-complete republish,
+each current score will bind its band,
+
+36
+00:02:05,344 --> 00:02:11,441
+five dimensions, method hash, timestamp,
+and immutable source on Somnia Shannon.
+
+37
+00:02:11,641 --> 00:02:14,149
+The verifier reads every field back and
+
+38
+00:02:14,149 --> 00:02:16,978
+fails closed on anything missing or
+changed.
+
+39
+00:02:17,178 --> 00:02:21,997
+Across sixteen curated contracts, scores
+span three to ninety-five.
+
+40
+00:02:21,997 --> 00:02:27,966
+Category risk rises in the expected order,
+with a Spearman rho of point nine three.
+
+41
+00:02:28,166 --> 00:02:32,603
+Sixty-nine software tests and eight
+smart-contract tests pass.
+
+42
+00:02:32,603 --> 00:02:38,163
+The official DreamDEX SDK independently
+cross-checks active-market discovery,
+
+43
+00:02:38,163 --> 00:02:40,762
+read-only and without a private key.
+
+44
+00:02:40,962 --> 00:02:46,028
+We delivered eleven evidence-backed SDK
+and documentation findings.
+
+45
+00:02:46,028 --> 00:02:49,925
+As DreamDEX grows, LevelField helps
+agents, venues,
+
+46
+00:02:49,925 --> 00:02:53,363
+and traders know who can know before they
+do.

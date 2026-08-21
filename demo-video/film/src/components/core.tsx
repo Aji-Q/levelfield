@@ -217,15 +217,25 @@ export const Chip: React.FC<{ label: string; delay?: number; tone?: "accent" | "
   );
 };
 
-export const LowerThird: React.FC<{ title: string; sub?: string; delay?: number }> = ({ title, sub, delay = 0 }) => {
+const LOWER_THIRD_POS: Record<string, React.CSSProperties> = {
+  bl: { left: 90, bottom: 84 },
+  tl: { left: 90, top: 110 },
+  tr: { right: 90, top: 110 },
+};
+
+export const LowerThird: React.FC<{ title: string; sub?: string; delay?: number; pos?: "bl" | "tl" | "tr" }> = ({
+  title,
+  sub,
+  delay = 0,
+  pos = "bl",
+}) => {
   const frame = useCurrentFrame();
   const s = spring({ frame: frame - delay, fps: 25, config: { damping: 100, stiffness: 120 } });
   return (
     <div
       style={{
         position: "absolute",
-        left: 90,
-        bottom: 84,
+        ...LOWER_THIRD_POS[pos],
         opacity: s,
         transform: `translateY(${(1 - s) * 18}px)`,
         background: "rgba(12,11,9,0.85)",
@@ -236,6 +246,41 @@ export const LowerThird: React.FC<{ title: string; sub?: string; delay?: number 
       <div style={{ fontFamily: SANS, fontSize: 40, color: FG, fontWeight: 600 }}>{title}</div>
       {sub && <div style={{ fontFamily: MONO, fontSize: 26, color: FG_DIM, marginTop: 6 }}>{sub}</div>}
     </div>
+  );
+};
+
+// ---------- burned captions ----------
+// Quiet, design-system caption: Plex Sans on a sharp dark plate, gentle fade+rise.
+export const Caption: React.FC<{ text: string; durationFrames: number }> = ({ text, durationFrames }) => {
+  const frame = useCurrentFrame();
+  const a = interpolate(frame, [0, 5, Math.max(6, durationFrames - 4), durationFrames], [0, 1, 1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const rise = interpolate(frame, [0, 5], [8, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" });
+  return (
+    <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", pointerEvents: "none" }}>
+      <div
+        style={{
+          marginBottom: 56,
+          maxWidth: 1240,
+          opacity: a,
+          transform: `translateY(${rise}px)`,
+          background: "rgba(12,11,9,0.78)",
+          backdropFilter: "blur(6px)",
+          padding: "13px 30px 15px",
+          fontFamily: SANS,
+          fontSize: 33,
+          lineHeight: 1.45,
+          color: "#f2ede3",
+          letterSpacing: "0.012em",
+          textAlign: "center",
+          textWrap: "balance",
+        } as React.CSSProperties}
+      >
+        {text}
+      </div>
+    </AbsoluteFill>
   );
 };
 

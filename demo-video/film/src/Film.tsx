@@ -2,8 +2,9 @@ import React from "react";
 import { AbsoluteFill, Audio, Sequence, interpolate, spring, staticFile, useCurrentFrame } from "remotion";
 import { BEATS, FPS } from "./beats";
 import { ACCENT, ACCENT_BRIGHT, FG, FG_DIM, FG_FAINT, MONO, SANS, SERIF } from "./theme";
-import { CameraVideo, Card, Chip, Counter, Glyph, Grid, KineticLine, LowerThird, MeterSweep } from "./components/core";
+import { CameraVideo, Caption, Card, Chip, Counter, Glyph, Grid, KineticLine, LowerThird, MeterSweep } from "./components/core";
 import { ConservativeDefault, DimBars, DotChart, EngineDiagram, SchemaCard } from "./components/diagrams";
+import captions from "./captions.json";
 
 const FONT_CSS = `
 @font-face { font-family: LFInstrumentSerif; src: url('${staticFile("fonts/instrument-serif.woff2")}') format('woff2'); }
@@ -36,8 +37,8 @@ const S0: React.FC<{ d: number }> = () => {
     <AbsoluteFill>
       <Grid opacity={gridIn} />
       <Center gap={54}>
-        <KineticLine text="Every event contract gives you a price." size={84} delay={6} />
-        <KineticLine text="It does not tell you who could know first." size={96} delay={52} color={ACCENT_BRIGHT} />
+        <KineticLine text="A price tells you what the crowd believes." size={84} delay={6} />
+        <KineticLine text="It doesn't tell you who could already know." size={96} delay={52} color={ACCENT_BRIGHT} />
       </Center>
     </AbsoluteFill>
   );
@@ -73,7 +74,7 @@ const S2: React.FC<{ d: number }> = ({ d }) => (
         <MeterSweep score={3} delay={52} />
       </div>
     </Center>
-    <LowerThird title="Live DreamDEX market · Somnia Shannon" sub="captured snapshot · timestamped on screen" delay={20} />
+    <LowerThird title="Live DreamDEX market · Somnia Shannon" sub="captured snapshot · timestamped on screen" delay={20} pos="tr" />
   </AbsoluteFill>
 );
 
@@ -98,7 +99,7 @@ const S4: React.FC<{ d: number }> = ({ d }) => {
       <Center>
         <KineticLine text="Same instrument. Very different field." size={88} delay={16} />
       </Center>
-      <LowerThird title="Curated reference contract" sub="individual-decision event · separate source" delay={40} />
+      <LowerThird title="Curated reference contract" sub="individual-decision event · separate source" delay={40} pos="tr" />
     </AbsoluteFill>
   );
 };
@@ -216,7 +217,7 @@ const S12: React.FC<{ d: number }> = ({ d }) => {
 const S13: React.FC<{ d: number }> = ({ d }) => (
   <AbsoluteFill>
     <CameraVideo src="captures/mcp-policy.webm" startFrom={2.8} durationFrames={d} move={{ from: { scale: 1.0, x: 0, y: 0 }, to: { scale: 1.1, x: 0, y: 20 } }} dim={0.1} />
-    <LowerThird title="Real MCP server · stdio transcript" sub="assessment only — no order submitted" delay={26} />
+    <LowerThird title="Real MCP server · stdio transcript" sub="assessment only — no order submitted" delay={26} pos="tl" />
   </AbsoluteFill>
 );
 
@@ -242,7 +243,7 @@ const S16: React.FC<{ d: number }> = ({ d }) => (
     <div style={{ position: "absolute", left: 110, top: 140 }}>
       <SchemaCard delay={30} />
     </div>
-    <LowerThird title="Somnia Shannon · ScoreRegistry" sub="real publishBatch transactions · source verified" delay={16} />
+    <LowerThird title="Somnia Shannon · ScoreRegistry" sub="real publishBatch transactions · source verified" delay={16} pos="tr" />
   </AbsoluteFill>
 );
 
@@ -299,6 +300,14 @@ const S20: React.FC<{ d: number }> = ({ d }) => {
 
 const SCENES: React.FC<{ d: number }>[] = [S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12, S13, S14, S15, S16, S17, S18, S19, S20];
 
+// Cues whose exact words are already on screen as full-size kinetic type;
+// burning them again as a caption would double the text. (Sidecar SRT keeps them.)
+const SKIP_BURN = new Set([
+  "A price tells you what the crowd believes.",
+  "It doesn't tell you who could already know.",
+  "Know who can know — before you do.",
+]);
+
 export const Film: React.FC = () => (
   <AbsoluteFill style={{ backgroundColor: "#0c0b09" }}>
     <style>{FONT_CSS}</style>
@@ -313,8 +322,17 @@ export const Film: React.FC = () => (
     })}
     {BEATS.map((b) => (
       <Sequence key={`a${b.index}`} from={b.startFrame} durationInFrames={b.durationFrames} name={`audio ${b.index}`}>
-        <Audio src={staticFile(`audio/${b.audio}`)} />
+        <Audio src={staticFile(b.audio)} />
       </Sequence>
     ))}
+    {(captions as { start: number; end: number; text: string }[]).filter((c) => !SKIP_BURN.has(c.text)).map((c, i) => {
+      const from = Math.round(c.start * FPS);
+      const dur = Math.max(10, Math.round((c.end - c.start) * FPS));
+      return (
+        <Sequence key={`c${i}`} from={from} durationInFrames={dur} name={`cap ${i}`}>
+          <Caption text={c.text} durationFrames={dur} />
+        </Sequence>
+      );
+    })}
   </AbsoluteFill>
 );

@@ -75,7 +75,7 @@ integration · deterministic scoring engine, 69 tests
 ## Form checklist
 
 - [ ] GitHub link (public repo, pushed by Codex)
-- [ ] 2–3 min demo video URL — MASTER v2 READY (Claude, 2026-08-20): demo-video/levelfield-demo.mp4, sha 8e652f75..., 2:53.57, Remotion motion-design film (kinetic type, animated engine/validation diagrams, camera moves) over the same real captures and locked narration timing; 1080p25 BT.709, −16.3 LUFS, 58-frame luma sweep clean; per-scene stills verified. SRT (46 cues) unchanged and still valid. Previous composed master kept as levelfield-demo-preview.mp4 (sha 279ae2af...). Offline Daniel voice = shippable; optional one-pass ElevenLabs upgrade needs owner voice choice. Upload to YouTube then paste URL.
+- [ ] 2–3 min demo video URL — MASTER v2.1 READY (Claude, 2026-08-20): demo-video/levelfield-demo.mp4, sha bc9a1585..., 2:46.7, Remotion motion-design film with rewritten v2 narration (script-v2.md) and 51 burned caption cues + matching sidecar SRT; 1080p25 BT.709 fully tagged, loudnorm −16.2 LUFS, luma sweep clean, per-scene stills verified. Voice is the offline Daniel timing voice = shippable; final ElevenLabs Brian pass blocked ONLY on the owner's sk_ API key (JAY.docx currently holds the key ID, not the key — create/rotate at elevenlabs.io → API Keys, then run `node scripts/build-narration.mjs` + render per demo-video/film/README.md). Previous masters kept: composed v1 levelfield-demo-preview.mp4 (sha 279ae2af...). Upload to YouTube then paste URL.
 - [ ] Deck (optional, Codex)
 - [ ] Provenance-complete republish done + verify:onchain snapshot committed (Claude)
 - [ ] Re-check the BUIDL competitive page after 2026-08-24 20:00 UTC (recon: it was empty pre-window)

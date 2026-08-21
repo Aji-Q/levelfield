@@ -1,220 +1,204 @@
 1
-00:00:00,000 --> 00:00:05,354
-Every event contract gives you a price. It
-does not tell you who could know first.
+00:00:00,000 --> 00:00:02,199
+A price tells you what the crowd believes.
 
 2
-00:00:05,554 --> 00:00:08,911
-LevelField is a pre-trade risk layer for
-DreamDEX.
+00:00:02,199 --> 00:00:04,450
+It doesn't tell you who could already know.
 
 3
-00:00:08,911 --> 00:00:11,901
-It measures structural information
-asymmetry
+00:00:04,650 --> 00:00:08,803
+LevelField is a pre-trade risk layer for DreamDEX event contracts.
 
 4
-00:00:11,901 --> 00:00:14,484
-before a trader or agent takes a side.
+00:00:08,803 --> 00:00:11,382
+Before a trader or an agent takes a side,
 
 5
-00:00:14,684 --> 00:00:18,936
-Start with a captured DreamDEX price
-binary on Somnia Shannon.
+00:00:11,382 --> 00:00:15,346
+it measures the field itself: structural information asymmetry.
 
 6
-00:00:18,936 --> 00:00:22,776
-LevelField scores it three out of one
-hundred: low risk.
+00:00:15,546 --> 00:00:19,825
+Start with a real DreamDEX price binary, captured on Somnia Shannon.
 
 7
-00:00:22,976 --> 00:00:26,694
-No participant controls the global
-reference price.
+00:00:19,825 --> 00:00:23,349
+LevelField scores it three out of one hundred. Low risk.
 
 8
-00:00:26,694 --> 00:00:31,140
-Its outcome is public, and disclosure is
-nearly simultaneous.
+00:00:23,549 --> 00:00:26,159
+Bitcoin's closing price answers to no one.
 
 9
-00:00:31,340 --> 00:00:33,109
-Now change only the event.
+00:00:26,159 --> 00:00:28,024
+The outcome is public, global,
 
 10
-00:00:33,109 --> 00:00:38,145
-This curated reference contract resolves
-on one person's private decision.
+00:00:28,024 --> 00:00:31,318
+and disclosed to everyone at almost the same instant.
 
 11
-00:00:38,345 --> 00:00:42,639
-The same engine returns ninety-five out of
-one hundred: high risk.
+00:00:31,518 --> 00:00:33,442
+Now change nothing but the event.
 
 12
-00:00:42,839 --> 00:00:45,017
-One person controls the outcome.
+00:00:33,442 --> 00:00:37,698
+This curated reference contract settles on one person's private decision.
 
 13
-00:00:45,017 --> 00:00:48,829
-No clear restriction stops an early knower
-from trading.
+00:00:37,898 --> 00:00:39,604
+Same engine, same rules.
 
 14
-00:00:48,829 --> 00:00:51,723
-Circuit breaker one sets a high-risk
-floor.
+00:00:39,604 --> 00:00:42,590
+Ninety-five out of one hundred. High risk.
 
 15
-00:00:51,923 --> 00:00:55,379
-That three-to-ninety-five contrast is the
-product.
+00:00:42,790 --> 00:00:44,577
+One person controls the outcome,
 
 16
-00:00:55,379 --> 00:00:59,802
-LevelField explains who can know first,
-not which side will win.
+00:00:44,577 --> 00:00:47,871
+and no clear rule stops an early knower from trading on it.
 
 17
-00:01:00,002 --> 00:01:03,917
-It does not allege wrongdoing or detect
-live insider activity.
+00:00:47,871 --> 00:00:50,606
+A circuit breaker floors this score at high risk.
 
 18
-00:01:04,117 --> 00:01:08,341
-Under the interface is a public,
-five-dimension anchor library.
+00:00:50,806 --> 00:00:53,817
+That gap, three to ninety-five, is the product.
 
 19
-00:01:08,341 --> 00:01:12,095
-A model classifies each dimension against
-those anchors.
+00:00:53,817 --> 00:00:58,109
+LevelField explains who can know first — never which side will win.
 
 20
-00:01:12,295 --> 00:01:16,247
-Every evidence quote must match the
-contract's exact words.
+00:00:58,309 --> 00:01:01,049
+No accusations. No live surveillance.
 
 21
-00:01:16,247 --> 00:01:20,065
-Code rejects instruction-like text aimed
-at the assessor.
+00:01:01,049 --> 00:01:03,270
+Just structure, read honestly.
 
 22
-00:01:20,265 --> 00:01:22,022
-If information is missing,
+00:01:03,470 --> 00:01:07,058
+Underneath sits a public anchor library: five dimensions,
 
 23
-00:01:22,022 --> 00:01:26,954
-LevelField defaults conservatively to
-level four instead of guessing low.
+00:01:07,058 --> 00:01:10,206
+from outcome control to outcome manufacturability.
 
 24
-00:01:27,154 --> 00:01:30,378
-Then deterministic code applies fixed
-weights,
+00:01:10,206 --> 00:01:13,354
+A model classifies each one against those anchors.
 
 25
-00:01:30,378 --> 00:01:33,461
-cross-dimension rules, and circuit
-breakers.
+00:01:13,554 --> 00:01:16,837
+Every evidence quote must match the contract word for word.
 
 26
-00:01:33,461 --> 00:01:36,510
-The model never generates the numeric
-score.
+00:01:16,837 --> 00:01:21,011
+Text that tries to talk to the assessor is caught by code and disqualified.
 
 27
-00:01:36,710 --> 00:01:37,068
-Here,
+00:01:21,211 --> 00:01:25,065
+And when information is missing, the engine refuses to guess low.
 
 28
-00:01:37,068 --> 00:01:40,321
-an agent calls the real LevelField MCP
-server
+00:01:25,065 --> 00:01:26,903
+Unknown defaults to level four.
 
 29
-00:01:40,321 --> 00:01:43,646
-over standard input and output before it
-acts.
+00:01:27,103 --> 00:01:29,402
+Then deterministic code takes over —
 
 30
-00:01:43,846 --> 00:01:47,753
-The policy is visible: low or moderate
-risk can proceed.
+00:01:29,402 --> 00:01:32,914
+fixed weights, cross-dimension rules, circuit breakers.
 
 31
-00:01:47,753 --> 00:01:50,125
-Elevated or high risk is declined.
+00:01:32,914 --> 00:01:35,788
+The model never writes the number. Code does.
 
 32
-00:01:50,325 --> 00:01:53,444
-The DreamDEX example returns PROCEED at
-three.
+00:01:35,988 --> 00:01:41,452
+Here, an agent calls the real LevelField MCP server over standard input and output,
 
 33
-00:01:53,444 --> 00:01:57,560
-The individual-decision case returns
-DECLINE at ninety-five,
+00:01:41,452 --> 00:01:42,440
+before it acts.
 
 34
-00:01:57,560 --> 00:01:59,275
-with the reason attached.
+00:01:42,640 --> 00:01:46,079
+The policy fits in one line: low and moderate proceed.
 
 35
-00:01:59,475 --> 00:02:05,344
-After a provenance-complete republish,
-each current score will bind its band,
+00:01:46,079 --> 00:01:47,735
+Elevated and high decline.
 
 36
-00:02:05,344 --> 00:02:11,441
-five dimensions, method hash, timestamp,
-and immutable source on Somnia Shannon.
+00:01:47,935 --> 00:01:50,627
+The DreamDEX binary returns PROCEED at three.
 
 37
-00:02:11,641 --> 00:02:14,149
-The verifier reads every field back and
+00:01:50,627 --> 00:01:54,216
+The individual-decision case returns DECLINE at ninety-five,
 
 38
-00:02:14,149 --> 00:02:16,978
-fails closed on anything missing or
-changed.
+00:01:54,216 --> 00:01:55,711
+with the reason attached.
 
 39
-00:02:17,178 --> 00:02:21,997
-Across sixteen curated contracts, scores
-span three to ninety-five.
+00:01:55,911 --> 00:02:01,526
+After a provenance-complete republish, every current score will live on Somnia Shannon —
 
 40
-00:02:21,997 --> 00:02:27,966
-Category risk rises in the expected order,
-with a Spearman rho of point nine three.
+00:02:01,526 --> 00:02:04,397
+its band, five dimension levels, method hash,
 
 41
-00:02:28,166 --> 00:02:32,603
-Sixty-nine software tests and eight
-smart-contract tests pass.
+00:02:04,397 --> 00:02:07,076
+timestamp, and an immutable source record.
 
 42
-00:02:32,603 --> 00:02:38,163
-The official DreamDEX SDK independently
-cross-checks active-market discovery,
+00:02:07,276 --> 00:02:09,362
+A verifier reads every field back,
 
 43
-00:02:38,163 --> 00:02:40,762
-read-only and without a private key.
+00:02:09,362 --> 00:02:12,307
+and fails closed on anything missing or changed.
 
 44
-00:02:40,962 --> 00:02:46,028
-We delivered eleven evidence-backed SDK
-and documentation findings.
+00:02:12,507 --> 00:02:20,318
+Across sixteen curated contracts, scores span three to ninety-five, and category risk rises in exactly the expected order —
 
 45
-00:02:46,028 --> 00:02:49,925
-As DreamDEX grows, LevelField helps
-agents, venues,
+00:02:20,318 --> 00:02:22,541
+a Spearman rho of point nine three.
 
 46
-00:02:49,925 --> 00:02:53,363
-and traders know who can know before they
-do.
+00:02:22,741 --> 00:02:26,806
+Sixty-nine software tests and eight smart-contract tests pass.
+
+47
+00:02:26,806 --> 00:02:31,921
+The official DreamDEX SDK independently cross-checks active-market discovery —
+
+48
+00:02:31,921 --> 00:02:34,215
+read-only, no private key required.
+
+49
+00:02:34,415 --> 00:02:39,256
+Building this surfaced eleven evidence-backed SDK and documentation findings.
+
+50
+00:02:39,256 --> 00:02:44,285
+As event contracts grow beyond price, one question decides who keeps their edge.
+
+51
+00:02:44,285 --> 00:02:46,423
+Know who can know — before you do.
+

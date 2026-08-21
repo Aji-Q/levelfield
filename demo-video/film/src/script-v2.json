@@ -1,0 +1,35 @@
+{
+  "version": "v2",
+  "language": "en",
+  "voice": {
+    "provider": "elevenlabs",
+    "voice_name": "Brian",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "model_id": "eleven_multilingual_v2",
+    "settings": { "stability": 0.45, "similarity_boost": 0.75, "style": 0.25 },
+    "fallback": "macos-say Daniel (timing scratch only)"
+  },
+  "beats": [
+    { "chapter": "price-does-not-tell", "step": 1, "text": "A price tells you what the crowd believes. It doesn't tell you who could already know." },
+    { "chapter": "price-does-not-tell", "step": 2, "text": "LevelField is a pre-trade risk layer for DreamDEX event contracts. Before a trader or an agent takes a side, it measures the field itself: structural information asymmetry." },
+    { "chapter": "price-does-not-tell", "step": 3, "text": "Start with a real DreamDEX price binary, captured on Somnia Shannon. LevelField scores it three out of one hundred. Low risk." },
+    { "chapter": "three-vs-ninety-five", "step": 1, "text": "Bitcoin's closing price answers to no one. The outcome is public, global, and disclosed to everyone at almost the same instant." },
+    { "chapter": "three-vs-ninety-five", "step": 2, "text": "Now change nothing but the event. This curated reference contract settles on one person's private decision." },
+    { "chapter": "three-vs-ninety-five", "step": 3, "text": "Same engine, same rules. Ninety-five out of one hundred. High risk." },
+    { "chapter": "three-vs-ninety-five", "step": 4, "text": "One person controls the outcome, and no clear rule stops an early knower from trading on it. A circuit breaker floors this score at high risk." },
+    { "chapter": "three-vs-ninety-five", "step": 5, "text": "That gap, three to ninety-five, is the product. LevelField explains who can know first — never which side will win." },
+    { "chapter": "three-vs-ninety-five", "step": 6, "text": "No accusations. No live surveillance. Just structure, read honestly." },
+    { "chapter": "model-classifies-code-decides", "step": 1, "text": "Underneath sits a public anchor library: five dimensions, from outcome control to outcome manufacturability. A model classifies each one against those anchors." },
+    { "chapter": "model-classifies-code-decides", "step": 2, "text": "Every evidence quote must match the contract word for word. Text that tries to talk to the assessor is caught by code and disqualified." },
+    { "chapter": "model-classifies-code-decides", "step": 3, "text": "And when information is missing, the engine refuses to guess low. Unknown defaults to level four." },
+    { "chapter": "model-classifies-code-decides", "step": 4, "text": "Then deterministic code takes over — fixed weights, cross-dimension rules, circuit breakers. The model never writes the number. Code does." },
+    { "chapter": "agent-to-chain", "step": 1, "text": "Here, an agent calls the real LevelField MCP server over standard input and output, before it acts." },
+    { "chapter": "agent-to-chain", "step": 2, "text": "The policy fits in one line: low and moderate proceed. Elevated and high decline." },
+    { "chapter": "agent-to-chain", "step": 3, "text": "The DreamDEX binary returns PROCEED at three. The individual-decision case returns DECLINE at ninety-five, with the reason attached." },
+    { "chapter": "agent-to-chain", "step": 4, "text": "After a provenance-complete republish, every current score will live on Somnia Shannon — its band, five dimension levels, method hash, timestamp, and an immutable source record." },
+    { "chapter": "agent-to-chain", "step": 5, "text": "A verifier reads every field back, and fails closed on anything missing or changed." },
+    { "chapter": "proof-and-growth", "step": 1, "text": "Across sixteen curated contracts, scores span three to ninety-five, and category risk rises in exactly the expected order — a Spearman rho of point nine three." },
+    { "chapter": "proof-and-growth", "step": 2, "text": "Sixty-nine software tests and eight smart-contract tests pass. The official DreamDEX SDK independently cross-checks active-market discovery — read-only, no private key required." },
+    { "chapter": "proof-and-growth", "step": 3, "text": "Building this surfaced eleven evidence-backed SDK and documentation findings. As event contracts grow beyond price, one question decides who keeps their edge. Know who can know — before you do." }
+  ]
+}

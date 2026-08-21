@@ -1,257 +1,257 @@
 [
   {
     "start": 0,
-    "end": 2.117,
+    "end": 2.245,
     "text": "A price tells you what the crowd believes."
   },
   {
-    "start": 2.388,
-    "end": 4.412,
+    "start": 2.249,
+    "end": 4.458,
     "text": "It doesn't tell you who could already know."
   },
   {
-    "start": 4.612,
-    "end": 8.563,
+    "start": 4.658,
+    "end": 9.05,
     "text": "LevelField is a pre-trade risk layer for DreamDEX event contracts."
   },
   {
-    "start": 8.718,
-    "end": 11.303,
+    "start": 9.577,
+    "end": 12.429,
     "text": "Before a trader or an agent takes a side,"
   },
   {
-    "start": 11.342,
-    "end": 15.339,
+    "start": 12.538,
+    "end": 16.918,
     "text": "it measures the field itself: structural information asymmetry."
   },
   {
-    "start": 15.539,
-    "end": 20.013,
+    "start": 17.118,
+    "end": 21.452,
     "text": "Start with a real DreamDEX price binary, captured on Somnia Shannon."
   },
   {
-    "start": 20.284,
-    "end": 23.759,
+    "start": 21.608,
+    "end": 25.338,
     "text": "LevelField scores it three out of one hundred. Low risk."
   },
   {
-    "start": 23.959,
-    "end": 26.413,
+    "start": 25.538,
+    "end": 28.061,
     "text": "Bitcoin's closing price answers to no one."
   },
   {
-    "start": 26.626,
-    "end": 28.827,
+    "start": 28.216,
+    "end": 30.302,
     "text": "The outcome is public, global,"
   },
   {
-    "start": 28.704,
-    "end": 31.808,
+    "start": 30.26,
+    "end": 33.247,
     "text": "and disclosed to everyone at almost the same instant."
   },
   {
-    "start": 32.008,
-    "end": 33.928,
+    "start": 33.447,
+    "end": 35.343,
     "text": "Now change nothing but the event."
   },
   {
-    "start": 34.199,
-    "end": 38.416,
+    "start": 35.777,
+    "end": 39.81,
     "text": "This curated reference contract settles on one person's private decision."
   },
   {
-    "start": 38.616,
-    "end": 40.756,
+    "start": 40.01,
+    "end": 41.628,
     "text": "Same engine, same rules."
   },
   {
-    "start": 40.969,
-    "end": 43.307,
+    "start": 41.841,
+    "end": 44.282,
     "text": "Ninety-five out of one hundred. High risk."
   },
   {
-    "start": 43.507,
-    "end": 45.322,
+    "start": 44.482,
+    "end": 46.251,
     "text": "One person controls the outcome,"
   },
   {
-    "start": 45.477,
-    "end": 48.712,
+    "start": 46.115,
+    "end": 49.176,
     "text": "and no clear rule stops an early knower from trading on it."
   },
   {
-    "start": 48.983,
-    "end": 52.145,
+    "start": 49.819,
+    "end": 52.795,
     "text": "A circuit breaker floors this score at high risk."
   },
   {
-    "start": 52.345,
-    "end": 54.95,
+    "start": 52.995,
+    "end": 55.994,
     "text": "That gap, three to ninety-five, is the product."
   },
   {
-    "start": 55.221,
-    "end": 59.218,
+    "start": 56.428,
+    "end": 60.286,
     "text": "LevelField explains who can know first — never which side will win."
   },
   {
-    "start": 59.418,
-    "end": 61.419,
+    "start": 60.486,
+    "end": 62.615,
     "text": "No accusations. No live surveillance."
   },
   {
-    "start": 61.493,
-    "end": 63.69,
+    "start": 62.491,
+    "end": 64.48,
     "text": "Just structure, read honestly."
   },
   {
-    "start": 63.89,
-    "end": 67.481,
+    "start": 64.68,
+    "end": 68.446,
     "text": "Underneath sits a public anchor library: five dimensions,"
   },
   {
-    "start": 67.381,
-    "end": 70.755,
+    "start": 68.485,
+    "end": 71.406,
     "text": "from outcome control to outcome manufacturability."
   },
   {
-    "start": 71.189,
-    "end": 74.246,
+    "start": 71.933,
+    "end": 74.989,
     "text": "A model classifies each one against those anchors."
   },
   {
-    "start": 74.446,
-    "end": 77.561,
+    "start": 75.189,
+    "end": 78.583,
     "text": "Every evidence quote must match the contract word for word."
   },
   {
-    "start": 77.833,
-    "end": 81.644,
+    "start": 79.017,
+    "end": 83.131,
     "text": "Text that tries to talk to the assessor is caught by code and disqualified."
   },
   {
-    "start": 81.844,
-    "end": 85.586,
+    "start": 83.331,
+    "end": 87.352,
     "text": "And when information is missing, the engine refuses to guess low."
   },
   {
-    "start": 86.113,
-    "end": 88.16,
+    "start": 87.879,
+    "end": 90.018,
     "text": "Unknown defaults to level four."
   },
   {
-    "start": 88.36,
-    "end": 90.465,
+    "start": 90.218,
+    "end": 92.254,
     "text": "Then deterministic code takes over —"
   },
   {
-    "start": 90.806,
-    "end": 94.03,
+    "start": 92.258,
+    "end": 95.586,
     "text": "fixed weights, cross-dimension rules, circuit breakers."
   },
   {
-    "start": 94.185,
-    "end": 97.555,
+    "start": 96.112,
+    "end": 98.856,
     "text": "The model never writes the number. Code does."
   },
   {
-    "start": 97.755,
-    "end": 102.531,
+    "start": 99.056,
+    "end": 104.203,
     "text": "Here, an agent calls the real LevelField MCP server over standard input and output,"
   },
   {
-    "start": 102.395,
-    "end": 103.421,
+    "start": 104.207,
+    "end": 105.464,
     "text": "before it acts."
   },
   {
-    "start": 103.621,
-    "end": 106.62,
+    "start": 105.664,
+    "end": 109.801,
     "text": "The policy fits in one line: low and moderate proceed."
   },
   {
-    "start": 106.833,
-    "end": 108.497,
+    "start": 110.328,
+    "end": 112.445,
     "text": "Elevated and high decline."
   },
   {
-    "start": 108.697,
-    "end": 111.987,
+    "start": 112.645,
+    "end": 115.493,
     "text": "The DreamDEX binary returns PROCEED at three."
   },
   {
-    "start": 112.258,
-    "end": 116.05,
+    "start": 115.834,
+    "end": 119.406,
     "text": "The individual-decision case returns DECLINE at ninety-five,"
   },
   {
-    "start": 116.205,
-    "end": 117.799,
+    "start": 119.352,
+    "end": 120.864,
     "text": "with the reason attached."
   },
   {
-    "start": 117.999,
-    "end": 123.193,
+    "start": 121.064,
+    "end": 126.141,
     "text": "After a provenance-complete republish, every current score will live on Somnia Shannon —"
   },
   {
-    "start": 123.464,
-    "end": 126.803,
+    "start": 126.355,
+    "end": 129.984,
     "text": "its band, five dimension levels, method hash,"
   },
   {
-    "start": 126.912,
-    "end": 129.609,
+    "start": 129.965,
+    "end": 132.953,
     "text": "timestamp, and an immutable source record."
   },
   {
-    "start": 129.809,
-    "end": 131.996,
+    "start": 133.153,
+    "end": 135.491,
     "text": "A verifier reads every field back,"
   },
   {
-    "start": 131.872,
-    "end": 134.361,
+    "start": 135.564,
+    "end": 138.865,
     "text": "and fails closed on anything missing or changed."
   },
   {
-    "start": 134.561,
-    "end": 142.274,
+    "start": 139.065,
+    "end": 146.511,
     "text": "Across sixteen curated contracts, scores span three to ninety-five, and category risk rises in exactly the expected order —"
   },
   {
-    "start": 142.545,
-    "end": 145.056,
+    "start": 146.585,
+    "end": 149.143,
     "text": "a Spearman rho of point nine three."
   },
   {
-    "start": 145.256,
-    "end": 148.905,
+    "start": 149.343,
+    "end": 152.934,
     "text": "Sixty-nine software tests and eight smart-contract tests pass."
   },
   {
-    "start": 149.177,
-    "end": 154.118,
+    "start": 153.461,
+    "end": 158.379,
     "text": "The official DreamDEX SDK independently cross-checks active-market discovery —"
   },
   {
-    "start": 154.459,
-    "end": 156.634,
+    "start": 158.418,
+    "end": 160.86,
     "text": "read-only, no private key required."
   },
   {
-    "start": 156.834,
-    "end": 161.61,
+    "start": 161.06,
+    "end": 165.987,
     "text": "Building this surfaced eleven evidence-backed SDK and documentation findings."
   },
   {
-    "start": 162.043,
-    "end": 167.101,
+    "start": 166.513,
+    "end": 171.536,
     "text": "As event contracts grow beyond price, one question decides who keeps their edge."
   },
   {
-    "start": 167.372,
-    "end": 170.116,
+    "start": 172.063,
+    "end": 174.667,
     "text": "Know who can know — before you do."
   }
 ]

@@ -75,7 +75,7 @@ integration · deterministic scoring engine, 69 tests
 ## Form checklist
 
 - [ ] GitHub link (public repo, pushed by Codex)
-- [ ] 2–3 min demo video URL — MASTER v2.2 FINAL (Claude, 2026-08-20): demo-video/levelfield-demo.mp4, sha 0944cf73..., 2:50.4, Remotion motion-design film, rewritten v2 narration (script-v2.md) in the final ElevenLabs Brian voice (one pass, char-timestamp-aligned), 51 burned caption cues + matching sidecar SRT; 1080p25 BT.709 fully tagged, loudnorm −16.1 LUFS, luma sweep clean, per-scene stills verified. Video deliverable is COMPLETE — remaining step is owner upload to YouTube, then paste URL here. Previous master kept: composed v1 levelfield-demo-preview.mp4 (sha 279ae2af...).
+- [ ] 2–3 min demo video URL — MASTER v2.3 FINAL (Claude, 2026-08-20): demo-video/levelfield-demo.mp4, sha 5d91fb13..., 2:55.0, Remotion motion-design film, rewritten v2 narration (script-v2.md) in ElevenLabs Liam — young/energetic per owner directive (one pass, char-timestamp-aligned), 51 burned caption cues + matching sidecar SRT; 1080p25 BT.709 fully tagged, loudnorm −16.2 LUFS, luma sweep clean, per-scene stills verified. Video deliverable is COMPLETE — remaining step is owner upload to YouTube, then paste URL here. Previous master kept: composed v1 levelfield-demo-preview.mp4 (sha 279ae2af...).
 - [ ] Deck (optional, Codex)
 - [ ] Provenance-complete republish done + verify:onchain snapshot committed (Claude)
 - [ ] Re-check the BUIDL competitive page after 2026-08-24 20:00 UTC (recon: it was empty pre-window)

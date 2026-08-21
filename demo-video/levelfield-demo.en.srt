@@ -1,204 +1,204 @@
 1
-00:00:00,000 --> 00:00:02,117
+00:00:00,000 --> 00:00:02,245
 A price tells you what the crowd believes.
 
 2
-00:00:02,388 --> 00:00:04,412
+00:00:02,249 --> 00:00:04,458
 It doesn't tell you who could already know.
 
 3
-00:00:04,612 --> 00:00:08,563
+00:00:04,658 --> 00:00:09,050
 LevelField is a pre-trade risk layer for DreamDEX event contracts.
 
 4
-00:00:08,718 --> 00:00:11,303
+00:00:09,577 --> 00:00:12,429
 Before a trader or an agent takes a side,
 
 5
-00:00:11,342 --> 00:00:15,339
+00:00:12,538 --> 00:00:16,918
 it measures the field itself: structural information asymmetry.
 
 6
-00:00:15,539 --> 00:00:20,013
+00:00:17,118 --> 00:00:21,452
 Start with a real DreamDEX price binary, captured on Somnia Shannon.
 
 7
-00:00:20,284 --> 00:00:23,759
+00:00:21,608 --> 00:00:25,338
 LevelField scores it three out of one hundred. Low risk.
 
 8
-00:00:23,959 --> 00:00:26,413
+00:00:25,538 --> 00:00:28,061
 Bitcoin's closing price answers to no one.
 
 9
-00:00:26,626 --> 00:00:28,827
+00:00:28,216 --> 00:00:30,302
 The outcome is public, global,
 
 10
-00:00:28,704 --> 00:00:31,808
+00:00:30,260 --> 00:00:33,247
 and disclosed to everyone at almost the same instant.
 
 11
-00:00:32,008 --> 00:00:33,928
+00:00:33,447 --> 00:00:35,343
 Now change nothing but the event.
 
 12
-00:00:34,199 --> 00:00:38,416
+00:00:35,777 --> 00:00:39,810
 This curated reference contract settles on one person's private decision.
 
 13
-00:00:38,616 --> 00:00:40,756
+00:00:40,010 --> 00:00:41,628
 Same engine, same rules.
 
 14
-00:00:40,969 --> 00:00:43,307
+00:00:41,841 --> 00:00:44,282
 Ninety-five out of one hundred. High risk.
 
 15
-00:00:43,507 --> 00:00:45,322
+00:00:44,482 --> 00:00:46,251
 One person controls the outcome,
 
 16
-00:00:45,477 --> 00:00:48,712
+00:00:46,115 --> 00:00:49,176
 and no clear rule stops an early knower from trading on it.
 
 17
-00:00:48,983 --> 00:00:52,145
+00:00:49,819 --> 00:00:52,795
 A circuit breaker floors this score at high risk.
 
 18
-00:00:52,345 --> 00:00:54,950
+00:00:52,995 --> 00:00:55,994
 That gap, three to ninety-five, is the product.
 
 19
-00:00:55,221 --> 00:00:59,218
+00:00:56,428 --> 00:01:00,286
 LevelField explains who can know first — never which side will win.
 
 20
-00:00:59,418 --> 00:01:01,419
+00:01:00,486 --> 00:01:02,615
 No accusations. No live surveillance.
 
 21
-00:01:01,493 --> 00:01:03,690
+00:01:02,491 --> 00:01:04,480
 Just structure, read honestly.
 
 22
-00:01:03,890 --> 00:01:07,481
+00:01:04,680 --> 00:01:08,446
 Underneath sits a public anchor library: five dimensions,
 
 23
-00:01:07,381 --> 00:01:10,755
+00:01:08,485 --> 00:01:11,406
 from outcome control to outcome manufacturability.
 
 24
-00:01:11,189 --> 00:01:14,246
+00:01:11,933 --> 00:01:14,989
 A model classifies each one against those anchors.
 
 25
-00:01:14,446 --> 00:01:17,561
+00:01:15,189 --> 00:01:18,583
 Every evidence quote must match the contract word for word.
 
 26
-00:01:17,833 --> 00:01:21,644
+00:01:19,017 --> 00:01:23,131
 Text that tries to talk to the assessor is caught by code and disqualified.
 
 27
-00:01:21,844 --> 00:01:25,586
+00:01:23,331 --> 00:01:27,352
 And when information is missing, the engine refuses to guess low.
 
 28
-00:01:26,113 --> 00:01:28,160
+00:01:27,879 --> 00:01:30,018
 Unknown defaults to level four.
 
 29
-00:01:28,360 --> 00:01:30,465
+00:01:30,218 --> 00:01:32,254
 Then deterministic code takes over —
 
 30
-00:01:30,806 --> 00:01:34,030
+00:01:32,258 --> 00:01:35,586
 fixed weights, cross-dimension rules, circuit breakers.
 
 31
-00:01:34,185 --> 00:01:37,555
+00:01:36,112 --> 00:01:38,856
 The model never writes the number. Code does.
 
 32
-00:01:37,755 --> 00:01:42,531
+00:01:39,056 --> 00:01:44,203
 Here, an agent calls the real LevelField MCP server over standard input and output,
 
 33
-00:01:42,395 --> 00:01:43,421
+00:01:44,207 --> 00:01:45,464
 before it acts.
 
 34
-00:01:43,621 --> 00:01:46,620
+00:01:45,664 --> 00:01:49,801
 The policy fits in one line: low and moderate proceed.
 
 35
-00:01:46,833 --> 00:01:48,497
+00:01:50,328 --> 00:01:52,445
 Elevated and high decline.
 
 36
-00:01:48,697 --> 00:01:51,987
+00:01:52,645 --> 00:01:55,493
 The DreamDEX binary returns PROCEED at three.
 
 37
-00:01:52,258 --> 00:01:56,050
+00:01:55,834 --> 00:01:59,406
 The individual-decision case returns DECLINE at ninety-five,
 
 38
-00:01:56,205 --> 00:01:57,799
+00:01:59,352 --> 00:02:00,864
 with the reason attached.
 
 39
-00:01:57,999 --> 00:02:03,193
+00:02:01,064 --> 00:02:06,141
 After a provenance-complete republish, every current score will live on Somnia Shannon —
 
 40
-00:02:03,464 --> 00:02:06,803
+00:02:06,355 --> 00:02:09,984
 its band, five dimension levels, method hash,
 
 41
-00:02:06,912 --> 00:02:09,609
+00:02:09,965 --> 00:02:12,953
 timestamp, and an immutable source record.
 
 42
-00:02:09,809 --> 00:02:11,996
+00:02:13,153 --> 00:02:15,491
 A verifier reads every field back,
 
 43
-00:02:11,872 --> 00:02:14,361
+00:02:15,564 --> 00:02:18,865
 and fails closed on anything missing or changed.
 
 44
-00:02:14,561 --> 00:02:22,274
+00:02:19,065 --> 00:02:26,511
 Across sixteen curated contracts, scores span three to ninety-five, and category risk rises in exactly the expected order —
 
 45
-00:02:22,545 --> 00:02:25,056
+00:02:26,585 --> 00:02:29,143
 a Spearman rho of point nine three.
 
 46
-00:02:25,256 --> 00:02:28,905
+00:02:29,343 --> 00:02:32,934
 Sixty-nine software tests and eight smart-contract tests pass.
 
 47
-00:02:29,177 --> 00:02:34,118
+00:02:33,461 --> 00:02:38,379
 The official DreamDEX SDK independently cross-checks active-market discovery —
 
 48
-00:02:34,459 --> 00:02:36,634
+00:02:38,418 --> 00:02:40,860
 read-only, no private key required.
 
 49
-00:02:36,834 --> 00:02:41,610
+00:02:41,060 --> 00:02:45,987
 Building this surfaced eleven evidence-backed SDK and documentation findings.
 
 50
-00:02:42,043 --> 00:02:47,101
+00:02:46,513 --> 00:02:51,536
 As event contracts grow beyond price, one question decides who keeps their edge.
 
 51
-00:02:47,372 --> 00:02:50,116
+00:02:52,063 --> 00:02:54,667
 Know who can know — before you do.
 

@@ -1,6 +1,6 @@
 {
   "fps": 25,
-  "totalSeconds": 170.316,
+  "totalSeconds": 174.867,
   "beats": [
     {
       "chapter": "price-does-not-tell",
@@ -8,22 +8,22 @@
       "text": "A price tells you what the crowd believes. It doesn't tell you who could already know.",
       "audio": "audio-v2/price-does-not-tell-1.mp3",
       "start": 0,
-      "duration": 4.412
+      "duration": 4.458
     },
     {
       "chapter": "price-does-not-tell",
       "step": 2,
       "text": "LevelField is a pre-trade risk layer for DreamDEX event contracts. Before a trader or an agent takes a side, it measures the field itself: structural information asymmetry.",
       "audio": "audio-v2/price-does-not-tell-2.mp3",
-      "start": 4.612,
-      "duration": 10.728
+      "start": 4.658,
+      "duration": 12.26
     },
     {
       "chapter": "price-does-not-tell",
       "step": 3,
       "text": "Start with a real DreamDEX price binary, captured on Somnia Shannon. LevelField scores it three out of one hundred. Low risk.",
       "audio": "audio-v2/price-does-not-tell-3.mp3",
-      "start": 15.539,
+      "start": 17.118,
       "duration": 8.22
     },
     {
@@ -31,144 +31,144 @@
       "step": 1,
       "text": "Bitcoin's closing price answers to no one. The outcome is public, global, and disclosed to everyone at almost the same instant.",
       "audio": "audio-v2/three-vs-ninety-five-1.mp3",
-      "start": 23.959,
-      "duration": 7.848
+      "start": 25.538,
+      "duration": 7.709
     },
     {
       "chapter": "three-vs-ninety-five",
       "step": 2,
       "text": "Now change nothing but the event. This curated reference contract settles on one person's private decision.",
       "audio": "audio-v2/three-vs-ninety-five-2.mp3",
-      "start": 32.008,
-      "duration": 6.409
+      "start": 33.447,
+      "duration": 6.362
     },
     {
       "chapter": "three-vs-ninety-five",
       "step": 3,
       "text": "Same engine, same rules. Ninety-five out of one hundred. High risk.",
       "audio": "audio-v2/three-vs-ninety-five-3.mp3",
-      "start": 38.616,
-      "duration": 4.69
+      "start": 40.01,
+      "duration": 4.272
     },
     {
       "chapter": "three-vs-ninety-five",
       "step": 4,
       "text": "One person controls the outcome, and no clear rule stops an early knower from trading on it. A circuit breaker floors this score at high risk.",
       "audio": "audio-v2/three-vs-ninety-five-4.mp3",
-      "start": 43.507,
-      "duration": 8.638
+      "start": 44.482,
+      "duration": 8.313
     },
     {
       "chapter": "three-vs-ninety-five",
       "step": 5,
       "text": "That gap, three to ninety-five, is the product. LevelField explains who can know first — never which side will win.",
       "audio": "audio-v2/three-vs-ninety-five-5.mp3",
-      "start": 52.345,
-      "duration": 6.873
+      "start": 52.995,
+      "duration": 7.291
     },
     {
       "chapter": "three-vs-ninety-five",
       "step": 6,
       "text": "No accusations. No live surveillance. Just structure, read honestly.",
       "audio": "audio-v2/three-vs-ninety-five-6.mp3",
-      "start": 59.418,
-      "duration": 4.272
+      "start": 60.486,
+      "duration": 3.994
     },
     {
       "chapter": "model-classifies-code-decides",
       "step": 1,
       "text": "Underneath sits a public anchor library: five dimensions, from outcome control to outcome manufacturability. A model classifies each one against those anchors.",
       "audio": "audio-v2/model-classifies-code-decides-1.mp3",
-      "start": 63.89,
-      "duration": 10.356
+      "start": 64.68,
+      "duration": 10.31
     },
     {
       "chapter": "model-classifies-code-decides",
       "step": 2,
       "text": "Every evidence quote must match the contract word for word. Text that tries to talk to the assessor is caught by code and disqualified.",
       "audio": "audio-v2/model-classifies-code-decides-2.mp3",
-      "start": 74.446,
-      "duration": 7.198
+      "start": 75.189,
+      "duration": 7.941
     },
     {
       "chapter": "model-classifies-code-decides",
       "step": 3,
       "text": "And when information is missing, the engine refuses to guess low. Unknown defaults to level four.",
       "audio": "audio-v2/model-classifies-code-decides-3.mp3",
-      "start": 81.844,
-      "duration": 6.316
+      "start": 83.331,
+      "duration": 6.687
     },
     {
       "chapter": "model-classifies-code-decides",
       "step": 4,
       "text": "Then deterministic code takes over — fixed weights, cross-dimension rules, circuit breakers. The model never writes the number. Code does.",
       "audio": "audio-v2/model-classifies-code-decides-4.mp3",
-      "start": 88.36,
-      "duration": 9.195
+      "start": 90.218,
+      "duration": 8.638
     },
     {
       "chapter": "agent-to-chain",
       "step": 1,
       "text": "Here, an agent calls the real LevelField MCP server over standard input and output, before it acts.",
       "audio": "audio-v2/agent-to-chain-1.mp3",
-      "start": 97.755,
-      "duration": 5.666
+      "start": 99.056,
+      "duration": 6.409
     },
     {
       "chapter": "agent-to-chain",
       "step": 2,
       "text": "The policy fits in one line: low and moderate proceed. Elevated and high decline.",
       "audio": "audio-v2/agent-to-chain-2.mp3",
-      "start": 103.621,
-      "duration": 4.876
+      "start": 105.664,
+      "duration": 6.78
     },
     {
       "chapter": "agent-to-chain",
       "step": 3,
       "text": "The DreamDEX binary returns PROCEED at three. The individual-decision case returns DECLINE at ninety-five, with the reason attached.",
       "audio": "audio-v2/agent-to-chain-3.mp3",
-      "start": 108.697,
-      "duration": 9.102
+      "start": 112.645,
+      "duration": 8.22
     },
     {
       "chapter": "agent-to-chain",
       "step": 4,
       "text": "After a provenance-complete republish, every current score will live on Somnia Shannon — its band, five dimension levels, method hash, timestamp, and an immutable source record.",
       "audio": "audio-v2/agent-to-chain-4.mp3",
-      "start": 117.999,
-      "duration": 11.61
+      "start": 121.064,
+      "duration": 11.889
     },
     {
       "chapter": "agent-to-chain",
       "step": 5,
       "text": "A verifier reads every field back, and fails closed on anything missing or changed.",
       "audio": "audio-v2/agent-to-chain-5.mp3",
-      "start": 129.809,
-      "duration": 4.551
+      "start": 133.153,
+      "duration": 5.712
     },
     {
       "chapter": "proof-and-growth",
       "step": 1,
       "text": "Across sixteen curated contracts, scores span three to ninety-five, and category risk rises in exactly the expected order — a Spearman rho of point nine three.",
       "audio": "audio-v2/proof-and-growth-1.mp3",
-      "start": 134.561,
-      "duration": 10.495
+      "start": 139.065,
+      "duration": 10.077
     },
     {
       "chapter": "proof-and-growth",
       "step": 2,
       "text": "Sixty-nine software tests and eight smart-contract tests pass. The official DreamDEX SDK independently cross-checks active-market discovery — read-only, no private key required.",
       "audio": "audio-v2/proof-and-growth-2.mp3",
-      "start": 145.256,
-      "duration": 11.378
+      "start": 149.343,
+      "duration": 11.517
     },
     {
       "chapter": "proof-and-growth",
       "step": 3,
       "text": "Building this surfaced eleven evidence-backed SDK and documentation findings. As event contracts grow beyond price, one question decides who keeps their edge. Know who can know — before you do.",
       "audio": "audio-v2/proof-and-growth-3.mp3",
-      "start": 156.834,
-      "duration": 13.282
+      "start": 161.06,
+      "duration": 13.607
     }
   ]
 }

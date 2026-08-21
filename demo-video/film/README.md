@@ -30,19 +30,19 @@ gain for loudness parity with the previous master, faststart):
 ```bash
 ffmpeg -y -i out/levelfield-film.mp4 -map 0:v -map 0:a -c:v copy \
   -bsf:v "h264_metadata=colour_primaries=1:transfer_characteristics=1:matrix_coefficients=1" \
-  -af volume=3.1dB -c:a aac -b:a 192k -movflags +faststart \
+  -af loudnorm=I=-16:TP=-1.5:LRA=7 -c:a aac -b:a 192k -movflags +faststart \
   out/levelfield-film-final.mp4
 cp out/levelfield-film-final.mp4 ../levelfield-demo.mp4
 ```
 
-## QA reference (2026-08-20 master v2.2 FINAL VOICE, sha256 0944cf73…)
+## QA reference (2026-08-20 master v2.3 FINAL VOICE, sha256 5d91fb13…)
 
-- Narration: ElevenLabs Brian, one pass per beat via with-timestamps; char
+- Narration: ElevenLabs Liam (young/energetic, owner directive; Brian retired), one pass per beat via with-timestamps; char
   alignment drives the 51 burned caption cues (Plex Sans plate, balanced
   two-line breaks; cues duplicating on-screen kinetic type are skipped) and
   the matching 51-cue sidecar SRT.
-- 170.4 s, 1920×1080 @ 25 fps, yuv420p, bt709/bt709/bt709, faststart.
-- 57-frame luma sweep: no blank/black/washed frames (all 3 < YAVG < 235).
-- Audio: loudnorm to −16.1 LUFS integrated.
+- 175.0 s, 1920×1080 @ 25 fps, yuv420p, bt709/bt709/bt709, faststart.
+- 59-frame luma sweep: no blank/black/washed frames (all 3 < YAVG < 235).
+- Audio: loudnorm to −16.2 LUFS integrated.
 - Scene design: `../film-shot-design.md`; per-scene stills verified in
   `out/stills/`.

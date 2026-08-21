@@ -23,15 +23,21 @@
 2. [ ] **（Claude）提交批次准备** — `npm run score:all` 刷新实时市场快照
    （须紧贴推送前做，否则快照再次过期）→ 全门禁重跑 → 补两个小缺口
    （根 package.json 声明 MCP SDK 依赖；agreement.ts 加 npm script 入口）→ commit。
-3. [ ] **（你）建公开 GitHub 仓库并推送全历史** — 需要 `gh auth login` 或给我仓库
-   URL+推送权限。按审查建议：历史原样推（改写历史会毁掉评委要看的增量记录）。
+3. [~] **GitHub 通路已半通** — owner 已给 fine-grained PAT（Aji-Q，已验证，存
+   gitignored .env）：可读写仓库内容，但无 Administration 权限（API 建仓库 403）。
+   剩一步（owner 二选一）：github.com/new 手建空 Public 仓库 `levelfield`（推荐，
+   30 秒）；或重签 PAT 加 Administration write。之后推送/republish 全部 Claude 执行，
+   按审查建议排在 08-25 窗口开启后（窗口内 commit 证据）。历史原样推。
 4. [ ] **（Claude）链上溯源补全（杀掉 P0-1 死链）** — 钉住提交 SHA →
    `registry:publish --send`（钱包余 0.611 STT 足够）→ `verify:onchain` →
    commit 新 onchain.json（站点从 "awaiting republish" 翻转为 verified）→ push。
 5. [~] **live URL 已上线，收尾两件** — https://temporary-express-dune-jjgodnq.vercel.app
    （静态导出 STATIC_EXPORT=1；全页 200 验证 + 移动端抽查通过；构建产物零密钥）。
-   (a) owner 确认认领落在哪个账号（连接器账号 jayqin04-4344 名下当前查不到该项目）；
-   (b) owner 在 dashboard 把项目改名为 levelfield（URL 变体面）。
+   (a) 认领确认 ✓（dashboard 截图，Hobby 账号）；连接器仍看不到项目 —— 安装时
+   scope 未含新项目，可选修复：Vercel Settings → Integrations → Claude → All Projects；
+   (b) dashboard 显示 No Production Deployment，URL 仍 200 —— 可点 Promote to
+   Production 兜底；最终方案是 08-25 仓库推送后建 git 连接的正式 levelfield 项目，
+   临时项目届时删除。
    快照刷新 + republish 完成后 Claude 重部署一次，让线上站显示
    provenance-complete 状态；最终 URL 回填 README/submission。
 6. [ ] **（你）上传 YouTube** — `demo-video/levelfield-demo.mp4`（v2.3, 2:55）

@@ -41,44 +41,15 @@ const mock = new MockClassifier(
 // All 16 curated contracts carry reference classifications in data/classifications/
 // (reconciled 2026-08-20; verified by verify-classifications and the 3-run agreement
 // harness, band agreement 16/16), so every contract gets the exact band/CB assertion.
-const SETTLED_IDS = new Set([
-  "curated-award-show",
-  "curated-bill-passage",
-  "curated-btc-120k",
-  "curated-celebrity-breakup",
-  "curated-ceo-resignation",
-  "curated-company-layoffs",
-  "curated-court-ruling",
-  "curated-cpi-above-3",
-  "curated-earnings-beat",
-  "curated-election-winner",
-  "curated-fed-rate-cut",
-  "curated-football-match",
-  "curated-injection-test",
-  "curated-military-strike",
-  "curated-presidential-pardon",
-  "curated-protocol-upgrade",
-]);
-
-const BAND_PATTERN = /^(low|moderate|elevated|high)$/;
-
 describe("curated contracts end-to-end (mock Stage A)", () => {
   for (const c of curated) {
-    if (SETTLED_IDS.has(c.marketId)) {
-      it(`${c.marketId} lands in band "${c.expected.band}"`, async () => {
-        const result = await scoreContract(c, lib, mock);
-        expect(result.band).toBe(c.expected.band);
-        expect(result.circuitBreaker).toBe(c.expected.circuitBreaker ?? null);
-        expect(result.flags.instructionLikeContentDetected).toBe(c.expected.injectionFlag ?? false);
-        expect(result.metadata.runs).toBe(3);
-      });
-    } else {
-      it(`${c.marketId} scores without error and produces a valid band (draft classification, pending reconciliation)`, async () => {
-        const result = await scoreContract(c, lib, mock);
-        expect(result.band).toMatch(BAND_PATTERN);
-        expect(result.metadata.runs).toBe(3);
-      });
-    }
+    it(`${c.marketId} lands in band "${c.expected.band}"`, async () => {
+      const result = await scoreContract(c, lib, mock);
+      expect(result.band).toBe(c.expected.band);
+      expect(result.circuitBreaker).toBe(c.expected.circuitBreaker ?? null);
+      expect(result.flags.instructionLikeContentDetected).toBe(c.expected.injectionFlag ?? false);
+      expect(result.metadata.runs).toBe(3);
+    });
   }
 
   it("risk ordering matches the ACDC gradient (settled contracts only)", async () => {

@@ -35,7 +35,6 @@ import type {
 interface AssessClientProps {
   systemPrompt: string;
   anchorLibrary: AnchorLibrary;
-  anchorVersion: string;
 }
 
 // Mirrors packages/scoring/src/score.ts STANDARD_CAVEATS. Copied by hand rather than
@@ -213,7 +212,7 @@ interface QuoteError {
   reason: "not_verbatim" | "overlaps_injected_content";
 }
 
-export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: AssessClientProps) {
+export function AssessClient({ systemPrompt, anchorLibrary }: AssessClientProps) {
   const [question, setQuestion] = useState("");
   const [description, setDescription] = useState("");
   const [resolutionRules, setResolutionRules] = useState("");
@@ -565,7 +564,7 @@ export function AssessClient({ systemPrompt, anchorLibrary, anchorVersion }: Ass
 
           <div className="metadata-footer">
             <span>Model: your model (via LevelField protocol)</span>
-            <span>Anchor library: v{anchorVersion}</span>
+            <span>Anchor library: v{anchorLibrary.version}</span>
             <span>Runs: 1</span>
           </div>
         </section>

@@ -13,11 +13,5 @@ export default function AssessPage() {
   const anchorLibrary = loadAnchors(path.join(findRepoRoot(), "data", "anchors", "anchors.yaml"));
   const systemPrompt = buildSystemPrompt(anchorLibrary);
 
-  return (
-    <AssessClient
-      systemPrompt={systemPrompt}
-      anchorLibrary={anchorLibrary}
-      anchorVersion={anchorLibrary.version}
-    />
-  );
+  return <AssessClient systemPrompt={systemPrompt} anchorLibrary={anchorLibrary} />;
 }

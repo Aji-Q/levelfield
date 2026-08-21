@@ -1,23 +1,15 @@
-# LevelField hackathon deck
+# LevelField hackathon deck (v2)
 
-- `levelfield-hackathon-deck.pptx` — seven-slide 16:9 submission deck.
-- `brief.txt` — concise narrative and fact guardrails.
-- `build.mjs` — reproducible source for the PPTX. It uses the Codex workspace
-  `@oai/artifact-tool` runtime and reads project assets from the repository root.
+`levelfield-deck.pptx` / `levelfield-deck.pdf` — 10 slides, dark editorial
+brand, real product screenshots (live deployed site, MCP transcript, explorer),
+audited numbers only (see docs/review/fable-review-2026-08-20.md). The PDF is
+the canonical shareable (fonts baked); the PPTX edits in PowerPoint.
 
-Every slide contains speaker notes with a `[Sources]` block. The deck separates
-the DreamDEX Shannon score snapshot from the curated 95-point reference, calls
-the MCP flow a pre-action policy gate rather than order execution, and marks
-source-bound attestation republishing as pending.
+Rebuild: `cd gen && npm install && node deck.cjs`, then export PDF
+(PowerPoint or LibreOffice). Screenshots live in `assets-v2/`.
 
-Before submission, refresh the DreamDEX snapshot, republish and verify current
-provenance against an immutable public commit, then regenerate any slide whose
-status changed.
+Before submission: update the live-site URL on slides 1 and 10 if the Vercel
+project is renamed, and swap the GitHub line once the repo is public.
 
-In a Codex workspace, rebuild with the bundled dependency path returned by
-`load_workspace_dependencies`:
-
-```bash
-CODEX_WORKSPACE_NODE_MODULES="/path/to/workspace/node/node_modules" \
-  node demo-deck/build.mjs
-```
+The Codex-era deck was removed 2026-08-21 (stale numbers; rebuildable only in
+a Codex workspace runtime) — see git history for the artifact.

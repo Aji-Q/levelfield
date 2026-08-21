@@ -35,14 +35,14 @@ ffmpeg -y -i out/levelfield-film.mp4 -map 0:v -map 0:a -c:v copy \
 cp out/levelfield-film-final.mp4 ../levelfield-demo.mp4
 ```
 
-## QA reference (2026-08-20 master v2.1, sha256 bc9a1585…)
+## QA reference (2026-08-20 master v2.2 FINAL VOICE, sha256 0944cf73…)
 
-- v2 narration script (`src/script-v2.json`, see `../script-v2.md`) with
-  51 burned caption cues (Plex Sans plate, balanced two-line breaks; cues that
-  duplicate on-screen kinetic type are skipped) + matching 51-cue sidecar SRT.
-- 166.7 s, 1920×1080 @ 25 fps, yuv420p, bt709/bt709/bt709, faststart.
-- 56-frame luma sweep: no blank/black/washed frames (all 3 < YAVG < 235).
-- Audio: loudnorm to −16.2 LUFS integrated (offline Daniel timing voice;
-  ElevenLabs Brian pass pending the owner's sk_ API key).
+- Narration: ElevenLabs Brian, one pass per beat via with-timestamps; char
+  alignment drives the 51 burned caption cues (Plex Sans plate, balanced
+  two-line breaks; cues duplicating on-screen kinetic type are skipped) and
+  the matching 51-cue sidecar SRT.
+- 170.4 s, 1920×1080 @ 25 fps, yuv420p, bt709/bt709/bt709, faststart.
+- 57-frame luma sweep: no blank/black/washed frames (all 3 < YAVG < 235).
+- Audio: loudnorm to −16.1 LUFS integrated.
 - Scene design: `../film-shot-design.md`; per-scene stills verified in
   `out/stills/`.

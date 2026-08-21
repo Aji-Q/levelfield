@@ -7,9 +7,10 @@
 
 ## 主链（每项阻塞其后所有项）
 
-1. [ ] **（你，08-24 之后）资格三问** — 打开 DoraHacks BUIDL 赛事页，确认：
-   (a) 窗口前完成的构建是否有资格；(b) demo 视频是否允许 TTS/AI 配音；
-   (c) 必交物清单原文。页面含糊就去赛事 Discord 直接问——沉默≠允许。
+1. [~] **资格三问**（进行中）— (a) 窗口前构建资格；(b) TTS/AI 配音及 AI 生成
+   画面；(c) 必交物清单原文。已行动：owner 已邮件主办方（08-20/21）；sonnet
+   侦察 agent 并行排查公开证据（赛事页/平台默认/往届先例）→
+   docs/review/research-eligibility-rules.md。08-24 后仍需 owner 复核赛事页。
    → 答案决定 2-8 是否照常执行（分支预案见文末）。
 2. [ ] **（Claude）提交批次准备** — `npm run score:all` 刷新实时市场快照
    （须紧贴推送前做，否则快照再次过期）→ 全门禁重跑 → 补两个小缺口
@@ -19,9 +20,11 @@
 4. [ ] **（Claude）链上溯源补全（杀掉 P0-1 死链）** — 钉住提交 SHA →
    `registry:publish --send`（钱包余 0.611 STT 足够）→ `verify:onchain` →
    commit 新 onchain.json（站点从 "awaiting republish" 翻转为 verified）→ push。
-5. [ ] **（你，可选但杠杆最大）部署 live URL** — 30 页纯静态站，Vercel/Netlify/
-   GitHub Pages 任一，需你的账号授权；URL 进 README 与提交表。
-   审查依据：DoraHacks 审核明确看重可点击的 https demo 链接。
+5. [ ] **部署 live URL（方案已定：Vercel CLI 本地直推，不依赖 GitHub）** —
+   你只做一步：`npx vercel login`（邮箱验证，约 1 分钟）；其余（link、--prod
+   部署、线上 30 页验证、URL 回填 README/submission）Claude 执行。
+   依据：DoraHacks 审核看重可点击 https demo 链接；此方案不被第 3 项阻塞，
+   仓库推送后可再接自动部署。备选：Netlify（同流程）/GitHub Pages（需先推仓库）。
 6. [ ] **（你）上传 YouTube** — `demo-video/levelfield-demo.mp4`（v2.3, 2:55）
    + 同目录 SRT 字幕文件；链接回填给我。
 7. [ ] **（Claude）提交文案定稿** — submission.md 填全部 TODO（仓库/视频 URL）、

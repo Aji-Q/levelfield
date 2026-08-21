@@ -27,6 +27,7 @@ markets. Scores are produced by a two-stage pipeline in which **no model ever ou
 number**: classification is matched to public anchors with mechanically verified verbatim
 evidence quotes (which also defeats prompt-injection via market descriptions — try it on
 our injection test contract), and the score is a deterministic, unit-tested function.
+Unlike LLM-scored risk tools, no model ever writes the number here.
 
 Built DreamDEX-native and agent-native:
 
@@ -70,7 +71,7 @@ evidence-backed findings from real integration) is part of the same contribution
 
 TypeScript monorepo · Next.js web app · MCP server (zero LLM deps) · Solidity
 ScoreRegistry on Somnia Shannon (Foundry) · DreamDEX indexer + @somnia-chain/markets-sdk
-integration · deterministic scoring engine, 69 tests
+integration · deterministic scoring engine, 70 software tests + 8 contract tests
 
 ## Form checklist
 
@@ -78,5 +79,5 @@ integration · deterministic scoring engine, 69 tests
 - [ ] 2–3 min demo video URL — MASTER v2.3 FINAL (Claude, 2026-08-20): demo-video/levelfield-demo.mp4, sha 5d91fb13..., 2:55.0, Remotion motion-design film, rewritten v2 narration (script-v2.md) in ElevenLabs Liam — young/energetic per owner directive (one pass, char-timestamp-aligned), 51 burned caption cues + matching sidecar SRT; 1080p25 BT.709 fully tagged, loudnorm −16.2 LUFS, luma sweep clean, per-scene stills verified. Video deliverable is COMPLETE — remaining step is owner upload to YouTube, then paste URL here. Previous master kept: composed v1 levelfield-demo-preview.mp4 (sha 279ae2af...).
 - [ ] Deck (optional, Codex)
 - [ ] Provenance-complete republish done + verify:onchain snapshot committed (Claude)
-- [ ] Re-check the BUIDL competitive page after 2026-08-24 20:00 UTC (recon: it was empty pre-window)
+- [ ] Re-check the BUIDL competitive page after 2026-08-24 20:00 UTC (recon: it was empty pre-window). MUST answer before uploading/submitting: (a) are pre-window builds eligible? (b) is TTS/AI narration allowed in the demo video? (c) exact required artifact list. Ask in the event Discord if the page is ambiguous — silence is not permission.
 - [ ] Final owner read-through of this copy before pasting

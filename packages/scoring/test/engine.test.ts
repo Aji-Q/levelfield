@@ -27,6 +27,15 @@ describe("weights", () => {
     const sum = Object.values(WEIGHTS).reduce((a, b) => a + b, 0);
     expect(sum).toBeCloseTo(1.0, 9);
   });
+
+  // anchors.yaml carries weight: per dimension (rendered by /methodology and the MCP
+  // protocol) while the engine computes from this hardcoded map. Nothing else links the
+  // two — this assertion is the only guard against silent divergence.
+  it("match anchors.yaml exactly", () => {
+    for (const d of lib.dimensions) {
+      expect(WEIGHTS[d.id], `weight drift on ${d.id}: engine vs anchors.yaml`).toBe(d.weight);
+    }
+  });
 });
 
 describe("bands", () => {

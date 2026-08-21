@@ -9,3 +9,4 @@ dist/
 output/
 /cache/
 /out/
+apps/web/tsconfig.tsbuildinfo

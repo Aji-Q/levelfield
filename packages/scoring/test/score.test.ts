@@ -38,21 +38,26 @@ const mock = new MockClassifier(
   ),
 );
 
-// The original 8 curated contracts carry reference classifications in data/classifications/
-// (produced via the LevelField protocol) and their expected.band/circuitBreaker are settled.
-// The 8 contracts added alongside the validation harness are drafts: their expected.levels
-// are this worker's best-effort classification, pending independent reconciliation by the
-// project lead. Asserting an exact band on a draft would break every time the lead's
-// reconciled levels differ from the draft — so drafts only get a smoke test.
+// All 16 curated contracts carry reference classifications in data/classifications/
+// (reconciled 2026-08-20; verified by verify-classifications and the 3-run agreement
+// harness, band agreement 16/16), so every contract gets the exact band/CB assertion.
 const SETTLED_IDS = new Set([
+  "curated-award-show",
+  "curated-bill-passage",
   "curated-btc-120k",
   "curated-celebrity-breakup",
+  "curated-ceo-resignation",
   "curated-company-layoffs",
+  "curated-court-ruling",
   "curated-cpi-above-3",
+  "curated-earnings-beat",
   "curated-election-winner",
   "curated-fed-rate-cut",
+  "curated-football-match",
   "curated-injection-test",
   "curated-military-strike",
+  "curated-presidential-pardon",
+  "curated-protocol-upgrade",
 ]);
 
 const BAND_PATTERN = /^(low|moderate|elevated|high)$/;

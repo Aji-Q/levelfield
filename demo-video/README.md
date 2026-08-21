@@ -11,13 +11,14 @@ Somnia explorer interaction—not an auto-playing deck.
   type, animated diagrams, and camera moves replace the plain composed cut.
 - `levelfield-demo-preview.mp4` — previous capture-led composed edit, kept for
   reference; same beat timing and narration.
-- `levelfield-demo.en.srt` — 46-cue English sidecar subtitles (valid for both
-  masters; beat timing is identical).
+- `levelfield-demo.en.srt` — 51-cue English sidecar subtitles, char-timestamp
+  aligned to the v2.3 master (the film also burns these cues in).
 - `film/` — Remotion project that renders the master
   (`npm run render`, then the BT.709/loudness finalize pass in `film/README`
   or the commands in `film-shot-design.md`).
 - `capture/` — deterministic record, edit, evidence, caption, and QA pipeline.
-- `script.md` — locked English voiceover.
+- `script-v2.md` — locked English voiceover (v2; source of truth is
+  `film/src/script-v2.json`). v1 archived in `script.md`.
 - `production-plan.md` — voice direction and truth gates.
 - `presentation/` — storyboard/motion-reference prototype only; excluded from
   the final picture track.

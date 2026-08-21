@@ -11,8 +11,9 @@ snapshot; 3 and 95 come from separate sources; the MCP demo submits no order;
 provenance completion stays future-tense; ρ=0.930, 69+8 tests, 16 contracts,
 11 SDK findings are the audited numbers.
 
-Voice (final pass): ElevenLabs **Brian** (`nPczCjzI2devNBz1zQrb`),
-`eleven_multilingual_v2`, stability 0.45 / similarity 0.75 / style 0.25,
+Voice (final pass): ElevenLabs **Liam** (`TX3LPaxmHKxFdv7VOQHJ`, young/energetic
+per owner directive; Brian retired), `eleven_multilingual_v2`,
+stability 0.42 / similarity 0.75 / style 0.4,
 generated once per beat via the with-timestamps endpoint (char alignment
 drives frame-accurate captions). Interim renders use macOS `say` Daniel for
 timing only.

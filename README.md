@@ -12,6 +12,21 @@ before you do — and is anything stopping them from trading on it?**
 
 Built for the Somnia × DreamDEX Event Contracts Hackathon (2026).
 
+**Judge in three commands** (Node ≥ 20.9, no API key, no wallet):
+
+```bash
+npm install && npm test        # 70 software tests
+npm run demo:agent             # an agent asks the real MCP server before acting: PROCEED at 3/100, DECLINE at 95/100
+npm run validate               # 16-contract validation: category order + Spearman rho = 0.930
+```
+
+- **ScoreRegistry on Somnia Shannon** (source-verified):
+  [`0xb8e11dea346f2c961880879606a269db3165bbc7`](https://shannon-explorer.somnia.network/address/0xb8e11dea346f2c961880879606a269db3165bbc7)
+- **Demo video**: `demo-video/levelfield-demo.mp4` (2:55, burned captions + SRT)
+- **SDK feedback report** (hackathon deliverable): [`docs/sdk-feedback-report.md`](docs/sdk-feedback-report.md)
+- Unlike LLM-scored risk tools, **no model ever writes the number here** — classification is
+  anchor-matched with verbatim-verified evidence; the score is deterministic, unit-tested code.
+
 ## How it works
 
 Two-stage pipeline; no model ever produces a number.
@@ -55,7 +70,7 @@ The taxonomy follows the outcome-maker classification the Anti-Corruption Data C
 validated against 435,000+ settled Polymarket markets ($54B volume, 2021–2026). Running the
 full pipeline over live testnet markets plus the curated set reproduces that risk gradient
 end-to-end with zero API calls: 3 (price binaries) → 19–21 (statistics, elections) → 49 (FOMC)
-→ 65 (layoffs) → 78 (military) → 90 (individual-will, circuit breaker).
+→ 65 (layoffs) → 78 (military) → 80–95 (individual-will, circuit-breaker floors).
 
 ## Repository layout
 
@@ -78,7 +93,10 @@ Requires Node.js 20.9 or newer (the current Next.js 16 runtime floor).
 
 ```bash
 npm install
-npm test                      # 69 unit/integration tests
+npm test                      # 70 unit/integration tests
+npm run demo:agent            # agent → MCP server pre-trade check (PROCEED 3/100, DECLINE 95/100)
+npm run validate              # 16-contract validation: ordering + Spearman rho (docs/validation.md)
+npx tsx scripts/agreement.ts  # 3 blind runs vs reference: band agreement 16/16 (docs/agreement.md)
 npm run score:all             # score live testnet markets + curated set -> data/scores/
 npm run dev -w @levelfield/web    # UI at localhost:3000
 rm -rf apps/web/.next && npm run build -w @levelfield/web  # production build — the rm -rf is
@@ -97,7 +115,7 @@ GITHUB_REPO=OWNER/REPO GITHUB_REF="$(git rev-parse HEAD)" npm run verify:onchain
 - [x] Anchor library v1 (5 dimensions × 5 levels, reference cases)
 - [x] Deterministic scoring engine + circuit breakers (unit-tested)
 - [x] Rule classifier for live price binaries (typed fields only)
-- [x] Reference classifications for the curated spectrum (40 quotes verified)
+- [x] Reference classifications for the curated spectrum (80 quotes verified)
 - [x] Batch scorer + score cache (live + curated, ACDC gradient reproduced)
 - [x] MCP server (protocol / score / anchors), verified over stdio
 - [x] Web UI (auditable snapshot, market evidence, methodology, local assessment workspace)
@@ -105,7 +123,8 @@ GITHUB_REPO=OWNER/REPO GITHUB_REF="$(git rev-parse HEAD)" npm run verify:onchain
 - [x] Validation harness: 16 contracts, category medians strictly ordered, Spearman ρ = 0.93 (docs/validation.md)
 - [x] Inter-run agreement: 3 independent blind classifiers, majority-vote band matches the reference 16/16 (docs/agreement.md)
 - [x] Final SDK feedback report (`docs/sdk-feedback-report.md`)
-- [ ] Required 2–3 minute demo video
+- [x] Required 2–3 minute demo video — master complete (`demo-video/levelfield-demo.mp4`, 2:55,
+      QA chain in `demo-video/film/README.md`); YouTube upload pending
 - [ ] Optional presentation deck
 
 ## What this is not

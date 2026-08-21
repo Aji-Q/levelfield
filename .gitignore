@@ -10,3 +10,4 @@ output/
 /cache/
 /out/
 apps/web/tsconfig.tsbuildinfo
+apps/web/out/

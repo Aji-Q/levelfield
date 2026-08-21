@@ -28,11 +28,12 @@
 4. [ ] **（Claude）链上溯源补全（杀掉 P0-1 死链）** — 钉住提交 SHA →
    `registry:publish --send`（钱包余 0.611 STT 足够）→ `verify:onchain` →
    commit 新 onchain.json（站点从 "awaiting republish" 翻转为 verified）→ push。
-5. [ ] **部署 live URL（方案已定：Vercel CLI 本地直推，不依赖 GitHub）** —
-   你只做一步：`npx vercel login`（邮箱验证，约 1 分钟）；其余（link、--prod
-   部署、线上 30 页验证、URL 回填 README/submission）Claude 执行。
-   依据：DoraHacks 审核看重可点击 https demo 链接；此方案不被第 3 项阻塞，
-   仓库推送后可再接自动部署。备选：Netlify（同流程）/GitHub Pages（需先推仓库）。
+5. [~] **live URL 已上线，收尾两件** — https://temporary-express-dune-jjgodnq.vercel.app
+   （静态导出 STATIC_EXPORT=1；全页 200 验证 + 移动端抽查通过；构建产物零密钥）。
+   (a) owner 确认认领落在哪个账号（连接器账号 jayqin04-4344 名下当前查不到该项目）；
+   (b) owner 在 dashboard 把项目改名为 levelfield（URL 变体面）。
+   快照刷新 + republish 完成后 Claude 重部署一次，让线上站显示
+   provenance-complete 状态；最终 URL 回填 README/submission。
 6. [ ] **（你）上传 YouTube** — `demo-video/levelfield-demo.mp4`（v2.3, 2:55）
    + 同目录 SRT 字幕文件；链接回填给我。
 7. [ ] **（Claude）提交文案定稿** — submission.md 填全部 TODO（仓库/视频 URL）、

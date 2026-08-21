@@ -7,11 +7,19 @@
 
 ## 主链（每项阻塞其后所有项）
 
-1. [~] **资格三问**（进行中）— (a) 窗口前构建资格；(b) TTS/AI 配音及 AI 生成
-   画面；(c) 必交物清单原文。已行动：owner 已邮件主办方（08-20/21）；sonnet
-   侦察 agent 并行排查公开证据（赛事页/平台默认/往届先例）→
-   docs/review/research-eligibility-rules.md。08-24 后仍需 owner 复核赛事页。
-   → 答案决定 2-8 是否照常执行（分支预案见文末）。
+1. [~] **资格三问**（侦察完成，待窗口开启复核）— 证据链见
+   docs/review/research-eligibility-rules.md（赛事页全文已读 + 平台规则 + 往届先例）：
+   (a) 窗口前构建：本赛事页**无** fresh-code 条款（DoraHacks 该条款为主办方
+   自选项，本主办方未选），平台自带 "Apply with Existing BUIDL" 通道，两个
+   Somnia 姊妹赛事亦无此要求 → 风险判为幻影，主链照常推进；
+   (b) TTS/AI 配音：赛事页/行为准则/服务条款均无限制 → 照常；AI 生成画面同判，
+   若被问及如实说明即可；
+   (c) 必交物（赛事页原文）：testnet 可跑原型 + GitHub 仓库 + 2–3 分钟视频；
+   deck 和 SDK 反馈报告为**可选加分项**（我们已备）。
+   判分权重：Technical 25% / Innovation 20% / UX & Design 20% /
+   Ecosystem Impact 20% / Presentation 15%。
+   残余动作：提交开放时（页面部件示 08-24 20:00 UTC）owner 复核规则页有无
+   临时新增条款；主办方邮件回复到达后同步核对。
 2. [ ] **（Claude）提交批次准备** — `npm run score:all` 刷新实时市场快照
    （须紧贴推送前做，否则快照再次过期）→ 全门禁重跑 → 补两个小缺口
    （根 package.json 声明 MCP SDK 依赖；agreement.ts 加 npm script 入口）→ commit。

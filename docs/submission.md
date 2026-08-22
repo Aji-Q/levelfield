@@ -61,7 +61,7 @@ evidence-backed findings from real integration) is part of the same contribution
 
 ## Links
 
-- GitHub: **TODO(owner/repo)**
+- GitHub: https://github.com/Aji-Q/levelfield
 - Demo video: **TODO(url)**
 - ScoreRegistry (Somnia Shannon): https://shannon-explorer.somnia.network/address/0xb8e11dea346f2c961880879606a269db3165bbc7
 - SDK & docs feedback report: docs/sdk-feedback-report.md (in repo)
@@ -75,7 +75,7 @@ integration · deterministic scoring engine, 70 software tests + 8 contract test
 
 ## Form checklist
 
-- [ ] GitHub link (public repo, pushed by Codex)
+- [x] GitHub link: https://github.com/Aji-Q/levelfield (full history, main + codex branch, pushed 2026-08-21)
 - [ ] 2–3 min demo video URL — MASTER v2.3 FINAL (Claude, 2026-08-20): demo-video/levelfield-demo.mp4, sha 5d91fb13..., 2:55.0, Remotion motion-design film, rewritten v2 narration (script-v2.md) in ElevenLabs Liam — young/energetic per owner directive (one pass, char-timestamp-aligned), 51 burned caption cues + matching sidecar SRT; 1080p25 BT.709 fully tagged, loudnorm −16.2 LUFS, luma sweep clean, per-scene stills verified. Video deliverable is COMPLETE — remaining step is owner upload to YouTube, then paste URL here. Previous master kept: composed v1 levelfield-demo-preview.mp4 (sha 279ae2af...).
 - [ ] Deck (optional, Codex)
 - [ ] Provenance-complete republish done + verify:onchain snapshot committed (Claude)

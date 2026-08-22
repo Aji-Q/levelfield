@@ -23,7 +23,9 @@
 2. [ ] **（Claude）提交批次准备** — `npm run score:all` 刷新实时市场快照
    （须紧贴推送前做，否则快照再次过期）→ 全门禁重跑 → 补两个小缺口
    （根 package.json 声明 MCP SDK 依赖；agreement.ts 加 npm script 入口）→ commit。
-3. [~] **GitHub 通路已半通** — owner 已给 fine-grained PAT（Aji-Q，已验证，存
+3. [x] **GitHub 仓库已上线** — https://github.com/Aji-Q/levelfield（全历史 45 commits，
+   main + codex 分支与本地核验一致；旧不合规仓库已删；homepage/topics 已设）。
+   原文（已完成）：**GitHub 通路已半通** — owner 已给 fine-grained PAT（Aji-Q，已验证，存
    gitignored .env）：可读写仓库内容，但无 Administration 权限（API 建仓库 403）。
    剩一步（owner 二选一）：github.com/new 手建空 Public 仓库 `levelfield`（推荐，
    30 秒）；或重签 PAT 加 Administration write。之后推送/republish 全部 Claude 执行，
@@ -60,7 +62,7 @@
 | 必交物 | 状态 |
 |---|---|
 | 可跑原型（Shannon 测试网） | ✅ 全门禁绿（70+8 测试；agent demo PROCEED 3 / DECLINE 95） |
-| 公开 GitHub 仓库 | ⬜ 第 3 项（owner） |
+| 公开 GitHub 仓库 | ✅ github.com/Aji-Q/levelfield（45 commits 全历史） |
 | 2–3 分钟 demo 视频 | ✅ 母带完成（2:55，烧录字幕）；⬜ 上传（第 6 项） |
 | SDK/文档反馈报告 | ✅ docs/sdk-feedback-report.md（11 条，审查评价"超出获奖标准线"） |
 | 链上可验证性 | ✅ 合约已部署+源码验证；⬜ URI 死链待第 4 项翻转 |

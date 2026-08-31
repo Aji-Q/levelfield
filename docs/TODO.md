@@ -13,7 +13,10 @@
   1. DoraHacks 账号自查：将用于提交的账号是否注册满 7 天（新账号首周最多建
      3 个 BUIDL 的平台限制，Q&A 有实例）；顺手点 Register as Hacker；
   2. 备好表单 4 答案：Telegram handle（必填）/ 所在地（必填）/
-     **领奖钱包地址（必填）** / Discord 或 X（选填）；
+     **领奖钱包地址（必填）** / Discord 或 X（选填）。
+     注：这 4 题只在 Submit BUIDL 流程最后一步（选定 BUIDL 后的赛事问卷页）
+     出现，提交日才会看到（08-31 实测确认 required 定义仍在）；钱包填 owner
+     个人地址，勿用部署钱包 0x8676…0c37（其私钥经手过 .env，赛后弃用）；
   3. （可选）加入赛事 Telegram t.me/+XHq0F0JXMyhmMzM0。
 
 ## D1 · 09-01（执行日）

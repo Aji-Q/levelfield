@@ -20,7 +20,7 @@ npm run demo:agent             # an agent asks the real MCP server before acting
 npm run validate               # 16-contract validation: category order + Spearman rho = 0.930
 ```
 
-- **Live site**: https://temporary-express-dune-jjgodnq.vercel.app
+- **Live site**: https://levelfield.vercel.app
 - **ScoreRegistry on Somnia Shannon** (source-verified):
   [`0xb8e11dea346f2c961880879606a269db3165bbc7`](https://shannon-explorer.somnia.network/address/0xb8e11dea346f2c961880879606a269db3165bbc7)
 - **Demo video**: https://youtu.be/XDMKRzUT_nI (also in-repo: `demo-video/levelfield-demo.mp4`)

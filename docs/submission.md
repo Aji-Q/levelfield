@@ -62,6 +62,7 @@ evidence-backed findings from real integration) is part of the same contribution
 ## Links
 
 - GitHub: https://github.com/Aji-Q/levelfield
+- Live site: https://levelfield.vercel.app
 - Demo video: https://youtu.be/XDMKRzUT_nI
 - ScoreRegistry (Somnia Shannon): https://shannon-explorer.somnia.network/address/0xb8e11dea346f2c961880879606a269db3165bbc7
 - SDK & docs feedback report: docs/sdk-feedback-report.md (in repo)

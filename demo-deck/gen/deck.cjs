@@ -126,7 +126,7 @@ function rows(s, items, x, y, w, opts = {}) {
   });
   s.addText([
     { text: "Live  ", options: { color: FAINT } },
-    { text: "temporary-express-dune-jjgodnq.vercel.app", options: { color: DIM, breakLine: true } },
+    { text: "levelfield.vercel.app", options: { color: DIM, breakLine: true } },
     { text: "Registry  ", options: { color: FAINT } },
     { text: "0xb8e11dea…3165bbc7 · Somnia Shannon · source-verified", options: { color: DIM } },
   ], { x: 0.55, y: 4.62, w: 4.6, h: 0.6, fontFace: MONO, fontSize: 8.5, margin: 0 });
@@ -345,7 +345,7 @@ function rows(s, items, x, y, w, opts = {}) {
   s.addShape(pres.shapes.RECTANGLE, { x: rx, y: 1.3, w: rw, h: 2.5, fill: { color: PANEL }, line: { color: BORDER, width: 1 } });
   s.addText([
     { text: "LIVE SITE", options: { color: FAINT, breakLine: true } },
-    { text: "temporary-express-dune-jjgodnq.vercel.app", options: { color: INK, breakLine: true } },
+    { text: "levelfield.vercel.app", options: { color: INK, breakLine: true } },
     { text: "", options: { breakLine: true } },
     { text: "SCOREREGISTRY · SOMNIA SHANNON", options: { color: FAINT, breakLine: true } },
     { text: "0xb8e11dea…3165bbc7 (source-verified)", options: { color: INK, breakLine: true } },

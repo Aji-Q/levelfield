@@ -1,6 +1,6 @@
 # LevelField validation report
 
-Generated 2026-08-20 by `scripts/validate.ts`. Reads `data/scores/index.json` (produced by
+Generated 2026-08-31 by `scripts/validate.ts`. Reads `data/scores/index.json` (produced by
 `scripts/score-all.ts`) and each curated contract's `expected.category` field
 (`data/curated/*.json`); does not itself run any classification.
 

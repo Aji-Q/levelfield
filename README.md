@@ -23,7 +23,7 @@ npm run validate               # 16-contract validation: category order + Spearm
 - **Live site**: https://temporary-express-dune-jjgodnq.vercel.app
 - **ScoreRegistry on Somnia Shannon** (source-verified):
   [`0xb8e11dea346f2c961880879606a269db3165bbc7`](https://shannon-explorer.somnia.network/address/0xb8e11dea346f2c961880879606a269db3165bbc7)
-- **Demo video**: `demo-video/levelfield-demo.mp4` (2:55, burned captions + SRT)
+- **Demo video**: https://youtu.be/XDMKRzUT_nI (also in-repo: `demo-video/levelfield-demo.mp4`)
 - **SDK feedback report** (hackathon deliverable): [`docs/sdk-feedback-report.md`](docs/sdk-feedback-report.md)
 - Unlike LLM-scored risk tools, **no model ever writes the number here** — classification is
   anchor-matched with verbatim-verified evidence; the score is deterministic, unit-tested code.
@@ -125,7 +125,7 @@ GITHUB_REPO=OWNER/REPO GITHUB_REF="$(git rev-parse HEAD)" npm run verify:onchain
 - [x] Inter-run agreement: 3 independent blind classifiers, majority-vote band matches the reference 16/16 (docs/agreement.md)
 - [x] Final SDK feedback report (`docs/sdk-feedback-report.md`)
 - [x] Required 2–3 minute demo video — master complete (`demo-video/levelfield-demo.mp4`, 2:55,
-      QA chain in `demo-video/film/README.md`); YouTube upload pending
+      QA chain in `demo-video/film/README.md`); live at https://youtu.be/XDMKRzUT_nI
 - [ ] Optional presentation deck
 
 ## What this is not

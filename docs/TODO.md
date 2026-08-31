@@ -30,8 +30,7 @@
       选 Aji-Q/levelfield，Root Directory 填 `apps/web`，顺手把项目 rename 成
       `levelfield`（URL 变体面且自动 production；此后每次 push 自动部署）。
       备选：Claude 重发 --temporary 部署 + 认领链接。
-- [ ] Owner：**YouTube 上传** demo-video/levelfield-demo.mp4（+同名 SRT）——
-      表单 video link 为硬必填；回传 URL。
+- [x] YouTube 上线：https://youtu.be/XDMKRzUT_nI（Public，标题/描述/章节 Claude 补齐，字幕 owner 已挂）。
 
 ## D2 · 09-02（打包日，Claude）
 

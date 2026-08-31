@@ -1,8 +1,0 @@
-{
-  "id": "forge-test",
-  "command": "cd contracts && forge test -vv",
-  "status": "passed",
-  "exitCode": 0,
-  "signal": null,
-  "assertionError": null
-}

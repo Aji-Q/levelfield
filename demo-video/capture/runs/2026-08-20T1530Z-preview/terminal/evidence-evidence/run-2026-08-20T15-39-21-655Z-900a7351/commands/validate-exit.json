@@ -1,8 +1,0 @@
-{
-  "id": "validate",
-  "command": "npm run validate",
-  "status": "passed",
-  "exitCode": 0,
-  "signal": null,
-  "assertionError": null
-}

@@ -1,8 +1,0 @@
-{
-  "id": "sdk-crosscheck",
-  "command": "npm run sdk:crosscheck",
-  "status": "passed",
-  "exitCode": 0,
-  "signal": null,
-  "assertionError": null
-}

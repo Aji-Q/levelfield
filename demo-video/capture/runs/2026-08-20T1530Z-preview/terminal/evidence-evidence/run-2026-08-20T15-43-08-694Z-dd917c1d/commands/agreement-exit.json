@@ -1,8 +1,0 @@
-{
-  "id": "agreement",
-  "command": "npx tsx scripts/agreement.ts",
-  "status": "passed",
-  "exitCode": 0,
-  "signal": null,
-  "assertionError": null
-}

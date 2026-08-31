@@ -1,8 +1,0 @@
-$ npx tsx scripts/agreement.ts
-Contracts: 16; band agreement (voted vs reference): 16/16
-D1: unanimous 13/16, majority 3/16, split 0/16, modal=ref 15/16
-D2: unanimous 13/16, majority 3/16, split 0/16, modal=ref 13/16
-D3: unanimous 7/16, majority 7/16, split 2/16, modal=ref 10/16
-D4: unanimous 14/16, majority 2/16, split 0/16, modal=ref 14/16
-D5: unanimous 10/16, majority 6/16, split 0/16, modal=ref 14/16
-Wrote docs/agreement.md

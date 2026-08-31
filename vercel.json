@@ -1,6 +1,4 @@
 {
-  "installCommand": "npm install",
   "buildCommand": "STATIC_EXPORT=1 npm run build -w @levelfield/web",
-  "outputDirectory": "apps/web/out",
   "cleanUrls": true
 }

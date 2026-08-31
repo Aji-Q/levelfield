@@ -112,7 +112,7 @@ exists.
 Next.js RSC app (`x-powered-by: Next.js`, `vary: rsc, next-router-state-tree, ...`); a component
 named `ChainGuard` in the bundle's script manifest suggests data may be sourced client-side (wallet
 RPC or a private API), not from a public REST/RSC data endpoint. **UNVERIFIED**: whether an
-authenticated/internal API exists — not probed further per instructions not to brute-force.
+authenticated/internal API exists — not probed further, to avoid brute-forcing endpoints.
 
 **⚠ `oracleQuestionId` does not reliably point at the matching question — verified 3/3 mismatches:**
 
@@ -122,7 +122,7 @@ authenticated/internal API exists — not probed further per instructions not to
 | `0x...4754`, BTC, Trading, expiry 2026-08-20 02:00 UTC | `43546` | "What will ETH price in USDC at unix time 1786832100?" — right asset-family shape (a price question) but wrong asset (ETH not BTC) and already resolved 2026-08-15, four days before the DreamDEX market that cites it even opens |
 | `0x...4757`, ETH, Trading, expiry 2026-08-20 01:15 UTC | `43549` | "What will the ETH price in USDC be at unix time 1786833000 UTC?" — right asset this time, but resolved 2026-08-15, ~5 days before the citing market's own expiry |
 
-Recommendation for the team: do not surface the oracle deep link as a "verify this market's
+Recommendation: do not surface the oracle deep link as a "verify this market's
 settlement" feature until DreamDEX confirms whether `oracleQuestionId` is populated correctly on
 this testnet snapshot — right now it looks like either stale/placeholder data or an id-space that
 doesn't match what BINARY markets actually settle against.
@@ -169,11 +169,10 @@ A **different venue** on the same indexer (`venueId`
 places / cents-of-a-dollar precision), for both BTC and ETH. Cross-checked three independent
 question/strike pairs where the question text spells out the decimal price explicitly
 (`64165.10`, `1870.65`) and the raw `strike` integer equals `price × 100` exactly in both cases;
-the `FEEDBACK.md` sample (`"6341665"` → `$63,416.65`) is consistent with the $63k–$124k BTC range
-given in the task and needs no unit reinterpretation. No rounding or off-by-one observed in the two
+the `FEEDBACK.md` sample (`"6341665"` → `$63,416.65`) is consistent with BTC's actual price range and needs no unit reinterpretation. No rounding or off-by-one observed in the two
 directly-checked pairs. This "strike-ladder" style is **not observed on the currently-documented
 DreamDEX testnet venue** (`0x679795a0...5e8a28c`) — it appears to belong to a different
-venue/product sharing the same indexer. Flag to the team: don't assume every venue on this indexer
+venue/product sharing the same indexer. Caution: don't assume every venue on this indexer
 uses the same strike convention as the one `no-api.md` documents; always branch on `venueId`.
 
 ## 6. Facts affecting a read-only analytics integration
@@ -225,7 +224,7 @@ uses the same strike convention as the one `no-api.md` documents; always branch 
   finalized markets by default. No GraphQL examples were present in that doc; the query in §2 was
   built directly against the live schema, not copied from docs.
 
-## 7. New SDK/docs feedback candidates (for `FEEDBACK.md` — not added there, listed for triage)
+## 7. New SDK/docs feedback candidates (since incorporated into `FEEDBACK.md`)
 
 1. **`oracleQuestionId` does not reliably identify the matching settlement question on
    `prd.oracle.somnia.host`** — 3/3 sampled DreamDEX BINARY markets pointed to unrelated or

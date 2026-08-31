@@ -2,7 +2,7 @@
 // `npm run dev -w @levelfield/web` from the repo root sets cwd to apps/web;
 // running `next dev`/`next build` directly from apps/web does too. Either way
 // we walk up looking for the one file that unambiguously marks the repo root:
-// the anchor library, which every worker treats as the single source of truth.
+// the anchor library — the single source of truth every script and app reads.
 
 import { existsSync } from "node:fs";
 import path from "node:path";

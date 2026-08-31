@@ -89,7 +89,7 @@ ScoreRegistry.Attestation memory a = registry.get(keccak256(bytes("curated-btc-1
 ## Live deployment (Somnia Shannon, chain 50312)
 
 - ScoreRegistry: [`0xb8e11dea346f2c961880879606a269db3165bbc7`](https://shannon-explorer.somnia.network/address/0xb8e11dea346f2c961880879606a269db3165bbc7) (deploy tx `0xa6947b332d8b4476e96f1997cc3545611ee7c7a810c2bbe466b5a9cdcb1a5574`)
-- 28 legacy attestations were published in 6 `publishBatch` transactions. Before final release,
-  set `GITHUB_REPO` and immutable `GITHUB_REF` to the public submission repository/commit,
-  republish the current score index to replace legacy placeholder URIs, then run
-  `npm run verify:onchain` for a complete field-by-field check.
+- 26 current attestations, published in 6 `publishBatch` transactions with source URIs
+  pinned to an immutable commit of this repository. To republish after rescoring, set
+  `GITHUB_REPO` and `GITHUB_REF` (a commit SHA) and run `npm run registry:publish -- --send`,
+  then `npm run verify:onchain` for a complete field-by-field read-back check.

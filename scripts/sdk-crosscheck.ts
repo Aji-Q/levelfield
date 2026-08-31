@@ -110,7 +110,7 @@ if (onlyOurs.length === 0 && onlySdk.length === 0) {
     `marketId sets DISAGREE: our raw clobStatus="Trading" filter returns ${ourRows.length} row(s); the SDK's ` +
       `time-window "active" derivation (tradingStart <= now < expiry, not Resolved/Voided — computed from ` +
       `timestamps, NOT the indexed status) returns ${sdkActiveOnVenue.length}. This corroborates ` +
-      `docs/review-2026-08-20.md §1.3: most "Trading" rows on this venue are expired zombies the indexer never ` +
+      `a known indexer quirk: most "Trading" rows on this venue are expired zombies the indexer never ` +
       `transitioned to "Finalized"; clobStatus alone is not a liveness signal on this venue.`,
   );
 }

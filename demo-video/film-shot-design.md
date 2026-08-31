@@ -1,4 +1,4 @@
-# LevelField film v2 — shot design (Claude, 2026-08-21)
+# LevelField film v2 — shot design
 
 Narration audio locked (21 beats, 169.36s + 0.2s trails = 173.56s). Captions unchanged.
 Real captures = evidence layer for every product claim; motion design carries concept

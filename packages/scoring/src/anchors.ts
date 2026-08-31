@@ -84,7 +84,7 @@ RULES:
 
 // Serializes a contract as the untrusted-data block for the user message.
 // The VENUE line makes D3's venue assumption explicit contract data rather than
-// unstated world knowledge (docs/review-2026-08-20.md §2.6 edit 4).
+// unstated world knowledge.
 export const DEFAULT_VENUE_CONTEXT =
   "unspecified — assume an offshore venue that most legal regimes do not clearly reach";
 

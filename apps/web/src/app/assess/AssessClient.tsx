@@ -65,8 +65,8 @@ const ASSESS_EXAMPLES = {
   },
 } as const;
 
-// Mirrors market/[marketId]/page.tsx's UNDETERMINABLE_THRESHOLD (docs/review-2026-08-20.md
-// §3.3): at 3+ insufficient_info dimensions the numeric score reads as a verdict rather
+// Mirrors market/[marketId]/page.tsx's UNDETERMINABLE_THRESHOLD :
+// at 3+ insufficient_info dimensions the numeric score reads as a verdict rather
 // than the absence it actually represents, so both result views suppress it the same way.
 const UNDETERMINABLE_THRESHOLD = 3;
 

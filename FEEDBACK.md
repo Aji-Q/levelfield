@@ -115,7 +115,7 @@ Ran `scripts/sdk-crosscheck.ts` (`npm run sdk:crosscheck`): loads the full marke
 `SomniaMarkets.loadMarkets(true)` (read-only, no `privateKey`), filters to active binary markets on
 the DreamDEX venue, and diffs the result against our own hand-rolled GraphQL fetcher
 (`packages/scoring/src/dreamdex.ts`). This is the SDK's first real exercise in this repo — until now
-it was a declared dependency with zero imports (review §3.1).
+it was a declared dependency with zero imports.
 
 ### 10. The SDK's `active` flag (not `clobStatus`) is the real liveness signal — and it agrees with our own fetcher where both apply
 

@@ -1,6 +1,6 @@
 // Integration: curated contracts through the full pipeline with a mock Stage A.
-// This is the same harness the real validation run (§9 of the plan) will use,
-// with MockClassifier swapped for ClaudeClassifier.
+// The validation run uses this same harness with MockClassifier swapped for the
+// protocol classifier.
 
 import { describe, expect, it } from "vitest";
 import { readFileSync, readdirSync } from "node:fs";
@@ -39,7 +39,7 @@ const mock = new MockClassifier(
 );
 
 // All 16 curated contracts carry reference classifications in data/classifications/
-// (reconciled 2026-08-20; verified by verify-classifications and the 3-run agreement
+// (verified by verify-classifications and the 3-run agreement
 // harness, band agreement 16/16), so every contract gets the exact band/CB assertion.
 describe("curated contracts end-to-end (mock Stage A)", () => {
   for (const c of curated) {

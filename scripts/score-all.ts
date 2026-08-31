@@ -100,7 +100,7 @@ interface ClassificationFile {
 // One Stage A run -> full ScoreResult. Both tracks feed exactly one deterministic run
 // through voteDimension (agreement always "1/1") so the assembly logic is shared.
 // The code-level injection scan runs here for every track, independent of what any
-// classifier claimed (docs/review-2026-08-20.md §1.2: the quote check alone proves a
+// classifier claimed (the quote check alone proves a
 // quote exists, not that it wasn't attacker-authored).
 function scoreRun(contract: NormalizedContract, run: StageARun, model: string): ScoreResult {
   const scan = scanForInstructionLikeContent(renderContractData(contract));
@@ -156,7 +156,7 @@ const expiryOf = (r: DreamDexMarketRow) => (r.expiry ? Number(r.expiry) : Infini
 
 // Selects the currently-tradable representative per market series. The indexer carries
 // hundreds of orphaned rows still marked "Trading" with expiries weeks in the past
-// (docs/review-2026-08-20.md §1.3), so: keep only future-expiry Trading rows, group by
+// so: keep only future-expiry Trading rows, group by
 // the TYPED series key (asset|intervalSec, per Gotcha #13 — never the question text),
 // and keep the soonest FUTURE expiry in each series (the window a user could bet now).
 function selectLiveRows(rows: DreamDexMarketRow[]): { kept: DreamDexMarketRow[]; staleCount: number; collapsedCount: number } {

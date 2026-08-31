@@ -24,8 +24,8 @@ sidecar SRT. Without the key (or with `FORCE_OFFLINE=1`) it falls back to macOS
 `say` for timing-only scratch audio. Generated audio is cached per engine;
 `REGEN=1` forces regeneration.
 
-Finalize (adds full BT.709 tags to the copied video stream, +3.1 dB narration
-gain for loudness parity with the previous master, faststart):
+Finalize (adds full BT.709 tags to the copied video stream, normalizes
+narration loudness, faststart):
 
 ```bash
 ffmpeg -y -i out/levelfield-film.mp4 -map 0:v -map 0:a -c:v copy \
@@ -35,9 +35,9 @@ ffmpeg -y -i out/levelfield-film.mp4 -map 0:v -map 0:a -c:v copy \
 cp out/levelfield-film-final.mp4 ../levelfield-demo.mp4
 ```
 
-## QA reference (2026-08-20 master v2.3 FINAL VOICE, sha256 5d91fb13…)
+## QA reference (2026-08-20 master, sha256 5d91fb13…)
 
-- Narration: ElevenLabs Liam (young/energetic, owner directive; Brian retired), one pass per beat via with-timestamps; char
+- Narration: ElevenLabs Liam, one pass per beat via with-timestamps; char
   alignment drives the 51 burned caption cues (Plex Sans plate, balanced
   two-line breaks; cues duplicating on-screen kinetic type are skipped) and
   the matching 51-cue sidecar SRT.

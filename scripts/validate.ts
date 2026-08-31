@@ -6,8 +6,8 @@
  * Reads data/scores/index.json (written by scripts/score-all.ts) and every
  * data/curated/*.json contract's `expected.category` — a hand-assigned ACDC-taxonomy
  * bucket (market_data < statistical < public < institutional < individual), not itself
- * a scoring input. New curated contracts have no data/classifications/ file until the
- * project lead reconciles their draft expected.levels, so score-all.ts skips them and
+ * a scoring input. A curated contract without a committed
+ * data/classifications/ file is skipped by score-all.ts and
  * they will not appear in the score index. This script must not fail on that — it
  * reports which curated contracts are awaiting classification instead.
  *

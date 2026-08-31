@@ -21,7 +21,7 @@ import {
   windowLabel,
 } from "@/lib/format";
 
-// Review §3.3: an opaque contract (many dimensions insufficient_info) rendered a
+// An opaque contract (many dimensions insufficient_info) once rendered a
 // numeric score that read as a verdict rather than an absence. At this threshold the
 // text-derived signal is thin enough that the number is more misleading than useful.
 const UNDETERMINABLE_THRESHOLD = 3;

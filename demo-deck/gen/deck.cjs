@@ -1,6 +1,6 @@
 // LevelField hackathon deck v2 — dark editorial brand, real product screenshots.
 //   cd demo-deck/gen && node deck.cjs   -> ../levelfield-deck.pptx
-// All numbers herein are the audited ones (see docs/review/fable-review-2026-08-20.md).
+// All numbers herein are the audited ones.
 const pptxgen = require("pptxgenjs");
 const path = require("path");
 

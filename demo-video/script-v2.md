@@ -3,16 +3,14 @@
 Source of truth: `film/src/script-v2.json` (the film builds beats, captions,
 and the sidecar SRT from that file — edit it there, not here).
 
-Design intent vs v1: same 21-beat structure and verified facts, rewritten for
-delivery — a belief-vs-knowledge hook, a single-variable experiment frame
+Design intent: a 21-beat structure built for delivery — a belief-vs-knowledge hook, a single-variable experiment frame
 ("change nothing but the event"), tighter cadence, and a closing callback to
 the tagline. All truth gates hold: DreamDEX examples are a timestamped
 snapshot; 3 and 95 come from separate sources; the MCP demo submits no order;
 provenance completion stays future-tense; ρ=0.930, 69+8 tests, 16 contracts,
 11 SDK findings are the audited numbers.
 
-Voice (final pass): ElevenLabs **Liam** (`TX3LPaxmHKxFdv7VOQHJ`, young/energetic
-per owner directive; Brian retired), `eleven_multilingual_v2`,
+Voice: ElevenLabs **Liam** (`TX3LPaxmHKxFdv7VOQHJ`), `eleven_multilingual_v2`,
 stability 0.42 / similarity 0.75 / style 0.4,
 generated once per beat via the with-timestamps endpoint (char alignment
 drives frame-accurate captions). Interim renders use macOS `say` Daniel for
@@ -42,4 +40,3 @@ timing only.
 | 19 | tests | Sixty-nine software tests and eight smart-contract tests pass. The official DreamDEX SDK independently cross-checks active-market discovery — read-only, no private key required. |
 | 20 | close | Building this surfaced eleven evidence-backed SDK and documentation findings. As event contracts grow beyond price, one question decides who keeps their edge. Know who can know — before you do. |
 
-v1 remains in `script.md` for the archived composed master.

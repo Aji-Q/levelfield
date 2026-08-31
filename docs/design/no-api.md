@@ -48,9 +48,9 @@ The MCP server owns the anchors and the math; the host owns the model. Tools:
 3. `list_anchor_library` → the full anchor YAML as JSON, for display/audit.
 
 Voting note: the MCP path is single-run by design (the host can call the protocol multiple
-times and submit a majority itself; document this in the MCP README).
+times and submit a majority itself; see "Single-run design" in packages/mcp/README.md).
 
-## Shared data contracts (all workers code against these)
+## Shared data contracts
 
 ### DreamDexMarketRow (indexer → us)
 

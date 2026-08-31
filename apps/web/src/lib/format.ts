@@ -27,7 +27,7 @@ export const ORACLE_EXPLORER_ROOT = "https://prd.oracle.somnia.host/explore";
 export const DREAMDEX_EVENT_CONTRACTS_URL = "https://app.dreamdex.io/event-contracts";
 
 // "individual_will" -> "Individual will": internal enum labels are never shown raw
-// (docs/review-2026-08-20.md §3.3). Caller is expected to keep the raw label available
+// Caller is expected to keep the raw label available
 // in a title attribute alongside this.
 export function humanizeLevelLabel(label: string): string {
   const spaced = label.replace(/_/g, " ");
@@ -64,7 +64,7 @@ export function formatRelativeToNow(expiry: string, now: number = Date.now()): s
 }
 
 // intervalSec (900, 3600, ...) -> "15-minute window" / "1-hour window". Derived from the
-// typed indexer field, never inferred from question text (docs/review-2026-08-20.md §3.1 —
+// typed indexer field, never inferred from question text (
 // the index previously lacked intervalSec entirely).
 export function windowLabel(intervalSec: string | null | undefined): string | null {
   if (intervalSec === null || intervalSec === undefined) return null;

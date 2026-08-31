@@ -1,6 +1,6 @@
 // Frame-accurate beat boundaries derived from the locked narration audio.
-// Each beat = its mp3 duration + a 0.2s trail (matching the previous master's pacing),
-// so total runtime stays 173.56s and the shipped SRT stays valid.
+// Each beat = its mp3 duration + a 0.2s trail, so the beat boundaries, the burned
+// captions, and the shipped SRT all share one timeline.
 import beatMap from "./beat-map.json";
 
 export const FPS = 25;

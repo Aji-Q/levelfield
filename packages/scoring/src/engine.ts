@@ -146,7 +146,7 @@ export function buildSummary(out: EngineOutput): string {
     // A low overall score can still carry one dimension the classifier read as elevated
     // (e.g. a lightly-weighted amplifier dimension at level 5) — the generic sentence below
     // would then contradict the dimension list a reader sees right underneath it
-    // (docs/review-2026-08-20.md §1.5). Name the highest-contribution such dimension instead.
+    // — so name the highest-contribution such dimension instead.
     const elevated = [...out.dimensions]
       .filter((d) => d.effectiveLevel >= 4)
       .sort((a, b) => b.weight * (b.effectiveLevel - 1) - a.weight * (a.effectiveLevel - 1));

@@ -1,68 +1,71 @@
-# 提交前 TODO（依据 docs/review/fable-review-2026-08-20.md §4）
+# 提交 Timeline（2026-08-31 定稿；截止 2026-09-08 18:00 UTC = 北京时间 09-09 02:00）
 
-时间锚点：窗口开启 2026-08-25，截止 2026-09-08 14:00。
-每项标注负责人；序号即依赖顺序，前项未完成不做后项。
-审查报告标记 [agent] 的前置修复（README 门面、权重漂移测试、16 合约断言、
-文档纠错、死代码清理）已于 08-20 完成（commits 885b644 / fa526bd）。
+三路核查依据：docs/review/（fable 审查、资格侦察）+ 08-31 workflow 三重审计
+（GitHub / 赛事页 / 本地资产）。规则与判分权重零变化；表单新增 4 必答项；
+竞品 12 个 BUIDL 已可见，MCP 角度无人占据。
 
-## 主链（每项阻塞其后所有项）
+## D0 · 08-31（今天）
 
-1. [~] **资格三问**（侦察完成，待窗口开启复核）— 证据链见
-   docs/review/research-eligibility-rules.md（赛事页全文已读 + 平台规则 + 往届先例）：
-   (a) 窗口前构建：本赛事页**无** fresh-code 条款（DoraHacks 该条款为主办方
-   自选项，本主办方未选），平台自带 "Apply with Existing BUIDL" 通道，两个
-   Somnia 姊妹赛事亦无此要求 → 风险判为幻影，主链照常推进；
-   (b) TTS/AI 配音：赛事页/行为准则/服务条款均无限制 → 照常；AI 生成画面同判，
-   若被问及如实说明即可；
-   (c) 必交物（赛事页原文）：testnet 可跑原型 + GitHub 仓库 + 2–3 分钟视频；
-   deck 和 SDK 反馈报告为**可选加分项**（我们已备）。
-   判分权重：Technical 25% / Innovation 20% / UX & Design 20% /
-   Ecosystem Impact 20% / Presentation 15%。
-   残余动作：提交开放时（页面部件示 08-24 20:00 UTC）owner 复核规则页有无
-   临时新增条款；主办方邮件回复到达后同步核对。
-2. [ ] **（Claude）提交批次准备** — `npm run score:all` 刷新实时市场快照
-   （须紧贴推送前做，否则快照再次过期）→ 全门禁重跑 → 补两个小缺口
-   （根 package.json 声明 MCP SDK 依赖；agreement.ts 加 npm script 入口）→ commit。
-3. [x] **GitHub 仓库已上线** — https://github.com/Aji-Q/levelfield（全历史 45 commits，
-   main + codex 分支与本地核验一致；旧不合规仓库已删；homepage/topics 已设）。
-   原文（已完成）：**GitHub 通路已半通** — owner 已给 fine-grained PAT（Aji-Q，已验证，存
-   gitignored .env）：可读写仓库内容，但无 Administration 权限（API 建仓库 403）。
-   剩一步（owner 二选一）：github.com/new 手建空 Public 仓库 `levelfield`（推荐，
-   30 秒）；或重签 PAT 加 Administration write。之后推送/republish 全部 Claude 执行，
-   按审查建议排在 08-25 窗口开启后（窗口内 commit 证据）。历史原样推。
-4. [ ] **（Claude）链上溯源补全（杀掉 P0-1 死链）** — 钉住提交 SHA →
-   `registry:publish --send`（钱包余 0.611 STT 足够）→ `verify:onchain` →
-   commit 新 onchain.json（站点从 "awaiting republish" 翻转为 verified）→ push。
-5. [~] **live URL 已上线，收尾两件** — https://temporary-express-dune-jjgodnq.vercel.app
-   （静态导出 STATIC_EXPORT=1；全页 200 验证 + 移动端抽查通过；构建产物零密钥）。
-   (a) 认领确认 ✓（dashboard 截图，Hobby 账号）；连接器仍看不到项目 —— 安装时
-   scope 未含新项目，可选修复：Vercel Settings → Integrations → Claude → All Projects；
-   (b) dashboard 显示 No Production Deployment，URL 仍 200 —— 可点 Promote to
-   Production 兜底；最终方案是 08-25 仓库推送后建 git 连接的正式 levelfield 项目，
-   临时项目届时删除。
-   快照刷新 + republish 完成后 Claude 重部署一次，让线上站显示
-   provenance-complete 状态；最终 URL 回填 README/submission。
-6. [ ] **（你）上传 YouTube** — `demo-video/levelfield-demo.mp4`（v2.3, 2:55）
-   + 同目录 SRT 字幕文件；链接回填给我。
-7. [ ] **（Claude）提交文案定稿** — submission.md 填全部 TODO（仓库/视频 URL）、
-   加"溯源已补全 + attestation 浏览器链接"一句（P2-1）、注明 ScoreRegistry
-   无输入边界为已知限制（P3）、deck 刷新或从提交中移除（二选一，你拍板）。
-8. [ ] **（你）终读提交文案 → 窗口开启后在 DoraHacks 提交**。
+- [x] Claude：Codex 复活遗留处理（NEEDS_REPLY 按 owner 后续指令关闭；
+      capture-led 候选分支保留并推送）；LICENSE（MIT）；README 补 live URL；
+      本时间线入库；main + 两条 codex 分支推送。
+- [ ] Owner（10 分钟）：
+  1. DoraHacks 账号自查：将用于提交的账号是否注册满 7 天（新账号首周最多建
+     3 个 BUIDL 的平台限制，Q&A 有实例）；顺手点 Register as Hacker；
+  2. 备好表单 4 答案：Telegram handle（必填）/ 所在地（必填）/
+     **领奖钱包地址（必填）** / Discord 或 X（选填）；
+  3. （可选）加入赛事 Telegram t.me/+XHq0F0JXMyhmMzM0。
 
-## 分支预案（第 1 项的答案触发）
+## D1 · 09-01（执行日）
 
-- **TTS 被禁** → 用 film 工程的 FORCE_OFFLINE 通道换人声/无旁白重制
-  （demo-video/film/README.md 有完整重建命令；约半天）。
-- **窗口前构建不合格** → 立即 Discord 申诉/确认口径；同时把第 2、4、5、7 项
-  安排为窗口开启后的真实提交（窗口内时间戳的实质性工作）。
-- **两项都过** → 按主链直行。
+- [ ] Claude（链式，一次跑完）：`score:all` 刷新（08-31 已验 indexer 有当日
+      Trading 行）→ 全门禁 → commit/push → 钉 SHA →
+      `GITHUB_REPO=Aji-Q/levelfield GITHUB_REF=<SHA> registry:publish --send`
+      （余额 0.611 STT，够一次；杀掉 28 条 PLACEHOLDER URI）→ `verify:onchain`
+      → commit onchain.json → push → 静态导出重建。
+- [ ] Owner（5 分钟）：Vercel dashboard → 项目 → **Connect Git Repository**
+      选 Aji-Q/levelfield，Root Directory 填 `apps/web`，顺手把项目 rename 成
+      `levelfield`（URL 变体面且自动 production；此后每次 push 自动部署）。
+      备选：Claude 重发 --temporary 部署 + 认领链接。
+- [ ] Owner：**YouTube 上传** demo-video/levelfield-demo.mp4（+同名 SRT）——
+      表单 video link 为硬必填；回传 URL。
 
-## 交付物状态速览
+## D2 · 09-02（打包日，Claude）
 
-| 必交物 | 状态 |
-|---|---|
-| 可跑原型（Shannon 测试网） | ✅ 全门禁绿（70+8 测试；agent demo PROCEED 3 / DECLINE 95） |
-| 公开 GitHub 仓库 | ✅ github.com/Aji-Q/levelfield（45 commits 全历史） |
-| 2–3 分钟 demo 视频 | ✅ 母带完成（2:55，烧录字幕）；⬜ 上传（第 6 项） |
-| SDK/文档反馈报告 | ✅ docs/sdk-feedback-report.md（11 条，审查评价"超出获奖标准线"） |
-| 链上可验证性 | ✅ 合约已部署+源码验证；⬜ URI 死链待第 4 项翻转 |
+- [ ] submission.md 终稿：video URL、"provenance 已补全 + attestation 浏览器
+      链接"句、ScoreRegistry 无输入边界=已知限制句、**差异化段落**
+      （对 Dreamdesk/Vitamin M：他们是 LLM 评审团/红绿灯打分——我们
+      "没有任何模型写出数字"+ 全场唯一 MCP-native 预交易钩子）。
+- [ ] README：重写 122 行（placeholder 句 → 已完成句）、127 行（YouTube 链接）、
+      live URL 换正式域名；deck 幻灯 1/10 换 URL 重导 PDF；全部 push。
+
+## D3 · 09-03（提交日）
+
+- [ ] Owner：终读 submission.md → DoraHacks 登录提交（repo link + video link +
+      4 答案）→ 告知 Claude。
+- [ ] Claude：核验 BUIDL 页公开渲染（文案/链接/封面）。
+
+## D5 · 09-05（复查，Claude）
+
+- [ ] 赛事页复查（规则/公告/竞品增量；今日 showAnnouncements=false）；
+      live 站与链上链接抽查；有变动时向 owner 提修改建议。
+
+## 缓冲 · 09-06 → 09-08 18:00 UTC
+
+预留应急（republish 失败需 faucet 补 STT、YouTube 处理慢、表单被平台卡）。
+
+## 已消解的风险（存档）
+
+- 窗口前构建 / TTS / AI 画面：赛事页 08-31 全文比对零变化，无任何限制条款。
+- "testnet 原型"疑云（Q&A 竞品提问）：我们的 ScoreRegistry 部署与 28+ 条
+  attestation 交易本身就是 Shannon 测试网链上活动，SDK 只读交叉核验 8/8；
+  submission 文案 D2 显式写明。
+- Codex 8-23/24 复活争议：owner 后续指令（动效升级 + v2.1–v2.3 验收）覆盖
+  其引用的旧指令；v2.3 为最终母带，candidate 分支保留存档。
+
+## 竞品速记（08-31，12 BUIDLs）
+
+最近邻：Dreamdesk（LLM 评审团 + 风险闸门 + 哈希链上链、有 Shannon 实盘 tx、
+08-30 更新）、Vitamin M（AI 打分红绿灯）。次邻：Rivo / rampart / SLUICE / Sigma。
+无人做 MCP。我们的护城河句：deterministic scoring（零模型出数）+ 机器核验
+verbatim 证据 + 注入防御 + 公开可复算验证（ρ=0.930）+ MCP-native。

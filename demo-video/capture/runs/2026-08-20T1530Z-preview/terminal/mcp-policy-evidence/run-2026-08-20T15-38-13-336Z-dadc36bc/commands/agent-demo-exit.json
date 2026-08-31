@@ -1,0 +1,8 @@
+{
+  "id": "agent-demo",
+  "command": "npm run demo:agent",
+  "status": "passed",
+  "exitCode": 0,
+  "signal": null,
+  "assertionError": null
+}

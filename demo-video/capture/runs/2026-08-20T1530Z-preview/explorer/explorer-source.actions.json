@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "status": "recorded",
+  "sourceUrl": "https://shannon-explorer.somnia.network/address/0xb8e11dea346f2c961880879606a269db3165bbc7",
+  "capturedAt": "2026-08-20T15:38:49.645Z",
+  "actions": [
+    {
+      "id": "explorer.open-registry",
+      "type": "navigate",
+      "target": "fixed ScoreRegistry address"
+    },
+    {
+      "id": "explorer.click-contract-tab",
+      "type": "click",
+      "target": "Contract"
+    },
+    {
+      "id": "explorer.assert-source-verified",
+      "type": "assert",
+      "target": "Contract source code verified (exact match)"
+    },
+    {
+      "id": "explorer.assert-registry",
+      "type": "assert",
+      "target": "ScoreRegistry"
+    }
+  ],
+  "truthLabel": "Source verified; current score provenance remains separately gated."
+}

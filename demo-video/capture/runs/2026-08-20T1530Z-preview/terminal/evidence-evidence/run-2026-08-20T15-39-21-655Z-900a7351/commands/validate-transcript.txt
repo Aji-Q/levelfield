@@ -1,0 +1,11 @@
+$ npm run validate
+
+> levelfield@0.1.0 validate
+> tsx scripts/validate.ts
+
+Validated 16/16 curated contracts (0 awaiting classification).
+Category medians: market_data=3, statistical=19, public=23.5, institutional=60, individual=95
+Ordering checks: market_data<=statistical:pass, statistical<=public:pass, public<institutional:pass, institutional<individual:pass
+Spearman rho = 0.930 (n=16)
+Circuit breaker hits: curated-celebrity-breakup(CB-1), curated-ceo-resignation(CB-1), curated-injection-test(CB-1), curated-presidential-pardon(CB-1)
+Wrote docs/validation.md

@@ -1,0 +1,427 @@
+{
+  "status": "recorded",
+  "startedAtUtc": "2026-08-20T15:30:47.408Z",
+  "endedAtUtc": "2026-08-20T15:31:25.416Z",
+  "baseUrl": "http://127.0.0.1:3000",
+  "timezoneId": "UTC",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "events": [
+    {
+      "utc": "2026-08-20T15:30:47.408Z",
+      "event": "capture-start",
+      "baseUrl": "http://127.0.0.1:3000",
+      "outputDir": "/Users/qinjiaji/Desktop/GitProject/levelfield/demo-video/capture/runs/2026-08-20T1530Z-preview/browser/assess-prepared-json",
+      "timezoneId": "UTC",
+      "flowIds": [
+        "assess-prepared-json"
+      ]
+    },
+    {
+      "utc": "2026-08-20T15:30:47.646Z",
+      "event": "playwright-loaded",
+      "candidate": "/Users/qinjiaji/.npm/_npx/e41f203b7505f1fb/node_modules/playwright/index.js"
+    },
+    {
+      "utc": "2026-08-20T15:30:47.647Z",
+      "event": "browser-launch-attempt",
+      "launcher": "bundled Chromium"
+    },
+    {
+      "utc": "2026-08-20T15:30:47.654Z",
+      "event": "browser-launch-failed",
+      "launcher": "bundled Chromium",
+      "message": "browserType.launch: Executable doesn't exist at /Users/qinjiaji/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+    },
+    {
+      "utc": "2026-08-20T15:30:47.654Z",
+      "event": "browser-launch-attempt",
+      "launcher": "system Chrome channel"
+    },
+    {
+      "utc": "2026-08-20T15:30:48.567Z",
+      "event": "browser-launched",
+      "launcher": "system Chrome channel"
+    },
+    {
+      "utc": "2026-08-20T15:30:49.088Z",
+      "event": "context-created",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "timezoneId": "UTC"
+    },
+    {
+      "utc": "2026-08-20T15:30:49.088Z",
+      "event": "capture-bootstrap",
+      "flowId": "assess-prepared-json",
+      "url": "http://127.0.0.1:3000/"
+    },
+    {
+      "utc": "2026-08-20T15:30:50.222Z",
+      "event": "flow-start",
+      "flowId": "assess-prepared-json",
+      "title": "Assess → prepared protocol JSON → 95/100 CB-1",
+      "url": "http://127.0.0.1:3000/"
+    },
+    {
+      "utc": "2026-08-20T15:30:50.222Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 1,
+      "kind": "click",
+      "description": "Open the local assessment workspace",
+      "url": "http://127.0.0.1:3000/"
+    },
+    {
+      "utc": "2026-08-20T15:30:52.130Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 1,
+      "kind": "click",
+      "description": "Open the local assessment workspace",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:30:52.131Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 2,
+      "kind": "assert",
+      "description": "Assessment workspace loaded",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:30:52.142Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 2,
+      "kind": "assert",
+      "description": "Assessment workspace loaded",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:30:52.142Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 3,
+      "kind": "hold",
+      "description": "Hold the local-verification explanation",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:30:55.146Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 3,
+      "kind": "hold",
+      "description": "Hold the local-verification explanation",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:30:55.148Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 4,
+      "kind": "click",
+      "description": "Load the curated individual-decision example",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:30:56.498Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 4,
+      "kind": "click",
+      "description": "Load the curated individual-decision example",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:30:56.500Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 5,
+      "kind": "assert",
+      "description": "Example contract fields are present",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:30:56.507Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 5,
+      "kind": "assert",
+      "description": "Example contract fields are present",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:30:56.508Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 6,
+      "kind": "click",
+      "description": "Copy the open classification protocol",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:30:57.836Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 6,
+      "kind": "click",
+      "description": "Copy the open classification protocol",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:30:57.838Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 7,
+      "kind": "assert",
+      "description": "Copy feedback is rendered",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:30:57.849Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 7,
+      "kind": "assert",
+      "description": "Copy feedback is rendered",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:30:57.850Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 8,
+      "kind": "hold",
+      "description": "Hold the open-protocol copy acknowledgement",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:01.860Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 8,
+      "kind": "hold",
+      "description": "Hold the open-protocol copy acknowledgement",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:01.862Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 9,
+      "kind": "fill",
+      "description": "Paste a protocol-compatible prepared response",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:03.202Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 9,
+      "kind": "fill",
+      "description": "Paste a protocol-compatible prepared response",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:03.203Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 10,
+      "kind": "hold",
+      "description": "Hold the pasted response before verification",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:05.707Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 10,
+      "kind": "hold",
+      "description": "Hold the pasted response before verification",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:05.708Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 11,
+      "kind": "click",
+      "description": "Run browser-local verification and deterministic scoring",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:07.117Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 11,
+      "kind": "click",
+      "description": "Run browser-local verification and deterministic scoring",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:07.124Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 12,
+      "kind": "assert",
+      "description": "Assessment result region is focused",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:07.156Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 12,
+      "kind": "assert",
+      "description": "Assessment result region is focused",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:07.159Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 13,
+      "kind": "assert",
+      "description": "Browser-local score is rendered",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:07.177Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 13,
+      "kind": "assert",
+      "description": "Browser-local score is rendered",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:07.179Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 14,
+      "kind": "assert",
+      "description": "Browser-local CB-1 notice is rendered",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:07.184Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 14,
+      "kind": "assert",
+      "description": "Browser-local CB-1 notice is rendered",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:07.185Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 15,
+      "kind": "hover",
+      "description": "Hover the applied circuit-breaker explanation",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:10.824Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 15,
+      "kind": "hover",
+      "description": "Hover the applied circuit-breaker explanation",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:10.825Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 16,
+      "kind": "hold",
+      "description": "Hold the 95/100 verified assessment result",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:17.829Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 16,
+      "kind": "hold",
+      "description": "Hold the 95/100 verified assessment result",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:17.831Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 17,
+      "kind": "click",
+      "description": "Open result evidence for D1",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:19.191Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 17,
+      "kind": "click",
+      "description": "Open result evidence for D1",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:19.192Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 18,
+      "kind": "assert",
+      "description": "Verbatim evidence quote is rendered",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:19.208Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 18,
+      "kind": "assert",
+      "description": "Verbatim evidence quote is rendered",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:19.208Z",
+      "event": "action-start",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 19,
+      "kind": "hold",
+      "description": "Hold deterministic rationale and quote",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:24.213Z",
+      "event": "action-complete",
+      "flowId": "assess-prepared-json",
+      "actionIndex": 19,
+      "kind": "hold",
+      "description": "Hold deterministic rationale and quote",
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:24.215Z",
+      "event": "flow-complete",
+      "flowId": "assess-prepared-json",
+      "title": "Assess → prepared protocol JSON → 95/100 CB-1",
+      "durationMs": 33993,
+      "url": "http://127.0.0.1:3000/assess"
+    },
+    {
+      "utc": "2026-08-20T15:31:25.416Z",
+      "event": "capture-complete",
+      "videoPath": "/Users/qinjiaji/Desktop/GitProject/levelfield/demo-video/capture/runs/2026-08-20T1530Z-preview/browser/assess-prepared-json/assess-prepared-json.webm"
+    }
+  ],
+  "videoPath": "/Users/qinjiaji/Desktop/GitProject/levelfield/demo-video/capture/runs/2026-08-20T1530Z-preview/browser/assess-prepared-json/assess-prepared-json.webm"
+}

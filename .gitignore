@@ -11,3 +11,6 @@ output/
 /out/
 apps/web/tsconfig.tsbuildinfo
 apps/web/out/
+docs/TODO.md
+docs/youtube-upload-kit.md
+docs/submission.md

@@ -1,0 +1,7 @@
+{
+  "alias": "evidence",
+  "status": "failed",
+  "exitCode": 0,
+  "signal": null,
+  "assertionError": "Missing required npm-test evidence: [redacted-path] tests/"
+}

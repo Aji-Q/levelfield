@@ -1,0 +1,34 @@
+$ npm run demo:agent
+
+> levelfield@0.1.0 demo:agent
+> tsx scripts/agent-demo.ts
+
+LevelField agent demo: pre-trade risk check
+============================================================
+Connected to the LevelField MCP server over stdio (npx tsx packages/mcp/src/server.ts).
+
+Agent evaluates 2 markets before any action:
+  - 0x0000000000000000000000000000000000000000000000000000000000004746  [DreamDEX score snapshot]
+  - curated-celebrity-breakup  [curated market]
+  snapshot: 2026-08-20T02:25:38.554Z
+
+Decision rule: PROCEED if band is low/moderate. DECLINE if band is elevated/high,
+quoting the summary and circuit breaker as the reason.
+
+------------------------------------------------------------
+Assessing 0x0000000000000000000000000000000000000000000000000000000000004746
+  question:  BTC closes at or above its opening price
+  score:     3/100 (low)  [from cache]
+  summary:   No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.
+  rationale: D5 (Outcome Manufacturability): Moving the global market price of a major crypto asset enough to flip the strike dwarfs any plausible bet size.
+  decision:  PROCEED (3/100 low)
+
+------------------------------------------------------------
+Assessing curated-celebrity-breakup
+  question:  Will Celebrity Z publicly announce a breakup with their partner before September 30, 2026?
+  score:     95/100 (high)  [from cache]
+  summary:   The outcome is decided by a single person who faces no effective restriction on trading it.
+  rationale: D1 (Outcome Control): The outcome is one person's discretionary choice to make an announcement.
+  decision:  DECLINE (95/100 high, CB-1: The outcome is decided by a single person who faces no effective restriction on trading it.)
+
+Demo complete.

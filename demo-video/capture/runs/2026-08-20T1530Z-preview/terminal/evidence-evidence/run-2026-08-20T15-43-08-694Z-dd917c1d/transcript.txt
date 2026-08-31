@@ -1,0 +1,135 @@
+$ npm run validate
+
+> levelfield@0.1.0 validate
+> tsx scripts/validate.ts
+
+Validated 16/16 curated contracts (0 awaiting classification).
+Category medians: market_data=3, statistical=19, public=23.5, institutional=60, individual=95
+Ordering checks: market_data<=statistical:pass, statistical<=public:pass, public<institutional:pass, institutional<individual:pass
+Spearman rho = 0.930 (n=16)
+Circuit breaker hits: curated-celebrity-breakup(CB-1), curated-ceo-resignation(CB-1), curated-injection-test(CB-1), curated-presidential-pardon(CB-1)
+Wrote docs/validation.md
+$ npx tsx scripts/agreement.ts
+Contracts: 16; band agreement (voted vs reference): 16/16
+D1: unanimous 13/16, majority 3/16, split 0/16, modal=ref 15/16
+D2: unanimous 13/16, majority 3/16, split 0/16, modal=ref 13/16
+D3: unanimous 7/16, majority 7/16, split 2/16, modal=ref 10/16
+D4: unanimous 14/16, majority 2/16, split 0/16, modal=ref 14/16
+D5: unanimous 10/16, majority 6/16, split 0/16, modal=ref 14/16
+Wrote docs/agreement.md
+$ npm test
+
+> levelfield@0.1.0 test
+> npm run test -w @levelfield/scoring && npm run test -w @levelfield/web
+
+
+> @levelfield/scoring@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 [redacted-path]
+
+ ✓ test/verify.test.ts (9 tests) 10ms
+ ✓ test/vote.test.ts (7 tests) 7ms
+ ✓ test/rule-classifier.test.ts (8 tests) 4ms
+ ✓ test/engine.test.ts (20 tests) 28ms
+ ✓ test/score.test.ts (20 tests) 8ms
+ ✓ test/classify.test.ts (1 test) 6ms
+
+ Test Files  6 passed (6)
+      Tests  65 passed (65)
+   Start at  11:43:15
+   Duration  531ms (transform 478ms, setup 0ms, import 1.33s, tests 62ms, environment 0ms)
+
+
+> @levelfield/web@0.1.0 test
+> vitest run src/lib/scores.test.ts
+
+
+ RUN  v4.1.11 [redacted-path]
+
+ ✓ src/lib/scores.test.ts (4 tests) 3ms
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  11:43:16
+   Duration  137ms (transform 22ms, setup 0ms, import 30ms, tests 3ms, environment 0ms)
+
+$ cd contracts && forge test -vv
+No files changed, compilation skipped
+
+Ran 8 tests for test/ScoreRegistry.t.sol:ScoreRegistryTest
+[PASS] test_AcceptOwnership_NotPendingOwner_Reverts() (gas: 35467)
+[PASS] test_Get_Unpublished_ReturnsZeroValue() (gas: 21164)
+[PASS] test_PublishAndGet() (gas: 198857)
+[PASS] test_PublishBatch() (gas: 392874)
+[PASS] test_PublishBatch_LengthMismatch_Reverts() (gas: 16500)
+[PASS] test_Publish_OnlyOwner_Reverts() (gas: 15260)
+[PASS] test_Publish_Overwrite() (gas: 207167)
+[PASS] test_TransferOwnership_TwoStep() (gas: 34548)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 44.05ms (44.75ms CPU time)
+
+Ran 1 test suite in 57.23ms (44.05ms CPU time): 8 tests passed, 0 failed, 0 skipped (8 total tests)
+$ npm run sdk:crosscheck
+
+> levelfield@0.1.0 sdk:crosscheck
+> tsx scripts/sdk-crosscheck.ts
+
+LevelField SDK cross-check: @somnia-chain/markets-sdk vs packages/scoring/src/dreamdex.ts
+========================================================================================
+indexer: https://dev.smk.somnia.host/v1/graphql
+venue:   0x679795a0195a1b76cdebb7c51d74e058aee92919b8c3389af86ef24535e8a28c
+
+[1/2] fetchMarkets({ indexerUrl }) -- our GraphQL query, clobStatus IN (Trading)...
+      -> 500 row(s) (raw indexer status only, no liveness/expiry filter)
+
+[2/2] new SomniaMarkets({ indexerUrl, chain: somniaShannon }) -- no privateKey (read-only)...
+      -> 556 total market(s) loaded (all types, every venue)
+      -> 8 active binary market(s) on the DreamDEX venue
+
+Comparison table
+----------------------------------------------------------------------------------------
+metric                                        our fetchMarkets() (status=Trading)   SDK loadMarkets() (active)
+market count                                  500                                   8
+marketId set equal?                           no                                    
+in common                                     8
+only in ours (stale "Trading" rows)           492
+only in SDK's active set                      0
+
+Sample of the 8 common market(s) (question text agreement):
+  0x0000000000000000000000000000000000000000000000000000000000004cb3
+    ours: "BTC closes at or above its opening price"
+    sdk:  "BTC closes at or above its opening price"  (match)
+  0x0000000000000000000000000000000000000000000000000000000000004cb4
+    ours: "ETH closes at or above its opening price"
+    sdk:  "ETH closes at or above its opening price"  (match)
+  0x0000000000000000000000000000000000000000000000000000000000004c65
+    ours: "BTC closes at or above its opening price"
+    sdk:  "BTC closes at or above its opening price"  (match)
+  0x0000000000000000000000000000000000000000000000000000000000004c66
+    ours: "ETH closes at or above its opening price"
+    sdk:  "ETH closes at or above its opening price"  (match)
+  0x0000000000000000000000000000000000000000000000000000000000004a96
+    ours: "ETH closes at or above its opening price"
+    sdk:  "ETH closes at or above its opening price"  (match)
+  0x0000000000000000000000000000000000000000000000000000000000004a95
+    ours: "BTC closes at or above its opening price"
+    sdk:  "BTC closes at or above its opening price"  (match)
+  0x0000000000000000000000000000000000000000000000000000000000004746
+    ours: "BTC closes at or above its opening price"
+    sdk:  "BTC closes at or above its opening price"  (match)
+  0x0000000000000000000000000000000000000000000000000000000000004747
+    ours: "ETH closes at or above its opening price"
+    sdk:  "ETH closes at or above its opening price"  (match)
+
+Rows only our fetcher returns (indexer says "Trading" but SDK's active window disagrees), sample:
+  0x0000000000000000000000000000000000000000000000000000000000003ac7  expiry=2026-08-07T09:17:00.000Z  clobStatus=Trading
+  0x0000000000000000000000000000000000000000000000000000000000003ac5  expiry=2026-08-07T09:20:00.000Z  clobStatus=Trading
+  0x0000000000000000000000000000000000000000000000000000000000003ac4  expiry=2026-08-07T09:20:00.000Z  clobStatus=Trading
+  0x0000000000000000000000000000000000000000000000000000000000003927  expiry=2026-08-07T04:55:00.000Z  clobStatus=Trading
+  0x00000000000000000000000000000000000000000000000000000000000032d0  expiry=2026-08-06T11:50:00.000Z  clobStatus=Trading
+
+Verdict
+----------------------------------------------------------------------------------------
+marketId sets DISAGREE: our raw clobStatus="Trading" filter returns 500 row(s); the SDK's time-window "active" derivation (tradingStart <= now < expiry, not Resolved/Voided — computed from timestamps, NOT the indexed status) returns 8. This corroborates docs/review-2026-08-20.md §1.3: most "Trading" rows on this venue are expired zombies the indexer never transitioned to "Finalized"; clobStatus alone is not a liveness signal on this venue.
+Question text for all 8 common market(s) matches exactly between the two paths.

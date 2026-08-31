@@ -1,0 +1,38 @@
+$ npm test
+
+> levelfield@0.1.0 test
+> npm run test -w @levelfield/scoring && npm run test -w @levelfield/web
+
+
+> @levelfield/scoring@0.1.0 test
+> vitest run
+
+
+ RUN  v4.1.11 [redacted-path]
+
+ ✓ test/verify.test.ts (9 tests) 6ms
+ ✓ test/vote.test.ts (7 tests) 7ms
+ ✓ test/engine.test.ts (20 tests) 15ms
+ ✓ test/rule-classifier.test.ts (8 tests) 6ms
+ ✓ test/classify.test.ts (1 test) 6ms
+ ✓ test/score.test.ts (20 tests) 8ms
+
+ Test Files  6 passed (6)
+      Tests  65 passed (65)
+   Start at  11:39:28
+   Duration  399ms (transform 363ms, setup 0ms, import 836ms, tests 47ms, environment 0ms)
+
+
+> @levelfield/web@0.1.0 test
+> vitest run src/lib/scores.test.ts
+
+
+ RUN  v4.1.11 [redacted-path]
+
+ ✓ src/lib/scores.test.ts (4 tests) 3ms
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  11:39:29
+   Duration  163ms (transform 30ms, setup 0ms, import 40ms, tests 3ms, environment 0ms)
+

@@ -1,0 +1,15 @@
+$ cd contracts && forge test -vv
+No files changed, compilation skipped
+
+Ran 8 tests for test/ScoreRegistry.t.sol:ScoreRegistryTest
+[PASS] test_AcceptOwnership_NotPendingOwner_Reverts() (gas: 35467)
+[PASS] test_Get_Unpublished_ReturnsZeroValue() (gas: 21164)
+[PASS] test_PublishAndGet() (gas: 198857)
+[PASS] test_PublishBatch() (gas: 392874)
+[PASS] test_PublishBatch_LengthMismatch_Reverts() (gas: 16500)
+[PASS] test_Publish_OnlyOwner_Reverts() (gas: 15260)
+[PASS] test_Publish_Overwrite() (gas: 207167)
+[PASS] test_TransferOwnership_TwoStep() (gas: 34548)
+Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 44.05ms (44.75ms CPU time)
+
+Ran 1 test suite in 57.23ms (44.05ms CPU time): 8 tests passed, 0 failed, 0 skipped (8 total tests)

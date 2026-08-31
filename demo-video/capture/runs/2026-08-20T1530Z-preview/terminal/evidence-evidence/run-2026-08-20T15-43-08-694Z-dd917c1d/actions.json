@@ -1,0 +1,1679 @@
+[
+  {
+    "atMs": 0,
+    "type": "session-created",
+    "alias": "evidence",
+    "command": "npm run validate"
+  },
+  {
+    "atMs": 784,
+    "type": "typed-char",
+    "char": "n",
+    "index": 0
+  },
+  {
+    "atMs": 846,
+    "type": "typed-char",
+    "char": "p",
+    "index": 1
+  },
+  {
+    "atMs": 902,
+    "type": "typed-char",
+    "char": "m",
+    "index": 2
+  },
+  {
+    "atMs": 956,
+    "type": "typed-char",
+    "char": " ",
+    "index": 3
+  },
+  {
+    "atMs": 1010,
+    "type": "typed-char",
+    "char": "r",
+    "index": 4
+  },
+  {
+    "atMs": 1064,
+    "type": "typed-char",
+    "char": "u",
+    "index": 5
+  },
+  {
+    "atMs": 1117,
+    "type": "typed-char",
+    "char": "n",
+    "index": 6
+  },
+  {
+    "atMs": 1170,
+    "type": "typed-char",
+    "char": " ",
+    "index": 7
+  },
+  {
+    "atMs": 1223,
+    "type": "typed-char",
+    "char": "v",
+    "index": 8
+  },
+  {
+    "atMs": 1284,
+    "type": "typed-char",
+    "char": "a",
+    "index": 9
+  },
+  {
+    "atMs": 1339,
+    "type": "typed-char",
+    "char": "l",
+    "index": 10
+  },
+  {
+    "atMs": 1395,
+    "type": "typed-char",
+    "char": "i",
+    "index": 11
+  },
+  {
+    "atMs": 1448,
+    "type": "typed-char",
+    "char": "d",
+    "index": 12
+  },
+  {
+    "atMs": 1519,
+    "type": "typed-char",
+    "char": "a",
+    "index": 13
+  },
+  {
+    "atMs": 1578,
+    "type": "typed-char",
+    "char": "t",
+    "index": 14
+  },
+  {
+    "atMs": 1634,
+    "type": "typed-char",
+    "char": "e",
+    "index": 15
+  },
+  {
+    "atMs": 1681,
+    "type": "typing-complete"
+  },
+  {
+    "atMs": 2209,
+    "type": "evidence-workspace-created"
+  },
+  {
+    "atMs": 2209,
+    "type": "fixed-command-started",
+    "command": "validate",
+    "executable": "npm",
+    "args": "run validate",
+    "shell": false
+  },
+  {
+    "atMs": 2729,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 2729,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "> levelfield@0.1.0 validate\n"
+  },
+  {
+    "atMs": 2729,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "> tsx scripts/validate.ts\n"
+  },
+  {
+    "atMs": 2729,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 3069,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "Validated 16/16 curated contracts (0 awaiting classification).\n"
+  },
+  {
+    "atMs": 3069,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "Category medians: market_data=3, statistical=19, public=23.5, institutional=60, individual=95\n"
+  },
+  {
+    "atMs": 3069,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "Ordering checks: market_data<=statistical:pass, statistical<=public:pass, public<institutional:pass, institutional<individual:pass\n"
+  },
+  {
+    "atMs": 3069,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "Spearman rho = 0.930 (n=16)\n"
+  },
+  {
+    "atMs": 3069,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "Circuit breaker hits: curated-celebrity-breakup(CB-1), curated-ceo-resignation(CB-1), curated-injection-test(CB-1), curated-presidential-pardon(CB-1)\n"
+  },
+  {
+    "atMs": 3069,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "Wrote docs/validation.md\n"
+  },
+  {
+    "atMs": 3090,
+    "type": "command-finished",
+    "command": "validate",
+    "status": "passed",
+    "exitCode": 0,
+    "signal": null,
+    "assertionError": ""
+  },
+  {
+    "atMs": 3101,
+    "type": "next-command",
+    "command": "agreement"
+  },
+  {
+    "atMs": 3195,
+    "type": "typed-char",
+    "char": "n",
+    "index": 0
+  },
+  {
+    "atMs": 3254,
+    "type": "typed-char",
+    "char": "p",
+    "index": 1
+  },
+  {
+    "atMs": 3308,
+    "type": "typed-char",
+    "char": "x",
+    "index": 2
+  },
+  {
+    "atMs": 3366,
+    "type": "typed-char",
+    "char": " ",
+    "index": 3
+  },
+  {
+    "atMs": 3422,
+    "type": "typed-char",
+    "char": "t",
+    "index": 4
+  },
+  {
+    "atMs": 3486,
+    "type": "typed-char",
+    "char": "s",
+    "index": 5
+  },
+  {
+    "atMs": 3550,
+    "type": "typed-char",
+    "char": "x",
+    "index": 6
+  },
+  {
+    "atMs": 3614,
+    "type": "typed-char",
+    "char": " ",
+    "index": 7
+  },
+  {
+    "atMs": 3668,
+    "type": "typed-char",
+    "char": "s",
+    "index": 8
+  },
+  {
+    "atMs": 3723,
+    "type": "typed-char",
+    "char": "c",
+    "index": 9
+  },
+  {
+    "atMs": 3778,
+    "type": "typed-char",
+    "char": "r",
+    "index": 10
+  },
+  {
+    "atMs": 3840,
+    "type": "typed-char",
+    "char": "i",
+    "index": 11
+  },
+  {
+    "atMs": 3897,
+    "type": "typed-char",
+    "char": "p",
+    "index": 12
+  },
+  {
+    "atMs": 3951,
+    "type": "typed-char",
+    "char": "t",
+    "index": 13
+  },
+  {
+    "atMs": 4006,
+    "type": "typed-char",
+    "char": "s",
+    "index": 14
+  },
+  {
+    "atMs": 4060,
+    "type": "typed-char",
+    "char": "/",
+    "index": 15
+  },
+  {
+    "atMs": 4114,
+    "type": "typed-char",
+    "char": "a",
+    "index": 16
+  },
+  {
+    "atMs": 4169,
+    "type": "typed-char",
+    "char": "g",
+    "index": 17
+  },
+  {
+    "atMs": 4223,
+    "type": "typed-char",
+    "char": "r",
+    "index": 18
+  },
+  {
+    "atMs": 4279,
+    "type": "typed-char",
+    "char": "e",
+    "index": 19
+  },
+  {
+    "atMs": 4334,
+    "type": "typed-char",
+    "char": "e",
+    "index": 20
+  },
+  {
+    "atMs": 4388,
+    "type": "typed-char",
+    "char": "m",
+    "index": 21
+  },
+  {
+    "atMs": 4442,
+    "type": "typed-char",
+    "char": "e",
+    "index": 22
+  },
+  {
+    "atMs": 4495,
+    "type": "typed-char",
+    "char": "n",
+    "index": 23
+  },
+  {
+    "atMs": 4551,
+    "type": "typed-char",
+    "char": "t",
+    "index": 24
+  },
+  {
+    "atMs": 4604,
+    "type": "typed-char",
+    "char": ".",
+    "index": 25
+  },
+  {
+    "atMs": 4658,
+    "type": "typed-char",
+    "char": "t",
+    "index": 26
+  },
+  {
+    "atMs": 4713,
+    "type": "typed-char",
+    "char": "s",
+    "index": 27
+  },
+  {
+    "atMs": 4726,
+    "type": "typing-complete"
+  },
+  {
+    "atMs": 4727,
+    "type": "fixed-command-started",
+    "command": "agreement",
+    "executable": "npx",
+    "args": "tsx scripts/agreement.ts",
+    "shell": false
+  },
+  {
+    "atMs": 5685,
+    "type": "output",
+    "command": "agreement",
+    "stream": "stdout",
+    "text": "Contracts: 16; band agreement (voted vs reference): 16/16\n"
+  },
+  {
+    "atMs": 5686,
+    "type": "output",
+    "command": "agreement",
+    "stream": "stdout",
+    "text": "D1: unanimous 13/16, majority 3/16, split 0/16, modal=ref 15/16\n"
+  },
+  {
+    "atMs": 5686,
+    "type": "output",
+    "command": "agreement",
+    "stream": "stdout",
+    "text": "D2: unanimous 13/16, majority 3/16, split 0/16, modal=ref 13/16\n"
+  },
+  {
+    "atMs": 5686,
+    "type": "output",
+    "command": "agreement",
+    "stream": "stdout",
+    "text": "D3: unanimous 7/16, majority 7/16, split 2/16, modal=ref 10/16\n"
+  },
+  {
+    "atMs": 5686,
+    "type": "output",
+    "command": "agreement",
+    "stream": "stdout",
+    "text": "D4: unanimous 14/16, majority 2/16, split 0/16, modal=ref 14/16\n"
+  },
+  {
+    "atMs": 5686,
+    "type": "output",
+    "command": "agreement",
+    "stream": "stdout",
+    "text": "D5: unanimous 10/16, majority 6/16, split 0/16, modal=ref 14/16\n"
+  },
+  {
+    "atMs": 5686,
+    "type": "output",
+    "command": "agreement",
+    "stream": "stdout",
+    "text": "Wrote docs/agreement.md\n"
+  },
+  {
+    "atMs": 5697,
+    "type": "command-finished",
+    "command": "agreement",
+    "status": "passed",
+    "exitCode": 0,
+    "signal": null,
+    "assertionError": ""
+  },
+  {
+    "atMs": 5698,
+    "type": "next-command",
+    "command": "npm-test"
+  },
+  {
+    "atMs": 5768,
+    "type": "typed-char",
+    "char": "n",
+    "index": 0
+  },
+  {
+    "atMs": 5846,
+    "type": "typed-char",
+    "char": "p",
+    "index": 1
+  },
+  {
+    "atMs": 5905,
+    "type": "typed-char",
+    "char": "m",
+    "index": 2
+  },
+  {
+    "atMs": 5964,
+    "type": "typed-char",
+    "char": " ",
+    "index": 3
+  },
+  {
+    "atMs": 6020,
+    "type": "typed-char",
+    "char": "t",
+    "index": 4
+  },
+  {
+    "atMs": 6077,
+    "type": "typed-char",
+    "char": "e",
+    "index": 5
+  },
+  {
+    "atMs": 6132,
+    "type": "typed-char",
+    "char": "s",
+    "index": 6
+  },
+  {
+    "atMs": 6188,
+    "type": "typed-char",
+    "char": "t",
+    "index": 7
+  },
+  {
+    "atMs": 6192,
+    "type": "typing-complete"
+  },
+  {
+    "atMs": 6193,
+    "type": "fixed-command-started",
+    "command": "npm-test",
+    "executable": "npm",
+    "args": "test",
+    "shell": false
+  },
+  {
+    "atMs": 6389,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 6390,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "> levelfield@0.1.0 test\n"
+  },
+  {
+    "atMs": 6390,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "> npm run test -w @levelfield/scoring && npm run test -w @levelfield/web\n"
+  },
+  {
+    "atMs": 6390,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 6547,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 6547,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "> @levelfield/scoring@0.1.0 test\n"
+  },
+  {
+    "atMs": 6547,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "> vitest run\n"
+  },
+  {
+    "atMs": 6547,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 6796,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 6796,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " RUN  v4.1.11 [redacted-path]\n"
+  },
+  {
+    "atMs": 6796,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 7116,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " ✓ test/verify.test.ts (9 tests) 10ms\n"
+  },
+  {
+    "atMs": 7116,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " ✓ test/vote.test.ts (7 tests) 7ms\n"
+  },
+  {
+    "atMs": 7289,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " ✓ test/rule-classifier.test.ts (8 tests) 4ms\n"
+  },
+  {
+    "atMs": 7299,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " ✓ test/engine.test.ts (20 tests) 28ms\n"
+  },
+  {
+    "atMs": 7320,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " ✓ test/score.test.ts (20 tests) 8ms\n"
+  },
+  {
+    "atMs": 7324,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " ✓ test/classify.test.ts (1 test) 6ms\n"
+  },
+  {
+    "atMs": 7331,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 7332,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " Test Files  6 passed (6)\n"
+  },
+  {
+    "atMs": 7332,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "      Tests  65 passed (65)\n"
+  },
+  {
+    "atMs": 7332,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "   Start at  11:43:15\n"
+  },
+  {
+    "atMs": 7332,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "   Duration  531ms (transform 478ms, setup 0ms, import 1.33s, tests 62ms, environment 0ms)\n"
+  },
+  {
+    "atMs": 7332,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 7543,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 7543,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "> @levelfield/web@0.1.0 test\n"
+  },
+  {
+    "atMs": 7543,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "> vitest run src/lib/scores.test.ts\n"
+  },
+  {
+    "atMs": 7543,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 7818,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 7818,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " RUN  v4.1.11 [redacted-path]\n"
+  },
+  {
+    "atMs": 7818,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 7960,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " ✓ src/lib/scores.test.ts (4 tests) 3ms\n"
+  },
+  {
+    "atMs": 7961,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 7962,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " Test Files  1 passed (1)\n"
+  },
+  {
+    "atMs": 7962,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "      Tests  4 passed (4)\n"
+  },
+  {
+    "atMs": 7962,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "   Start at  11:43:16\n"
+  },
+  {
+    "atMs": 7962,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "   Duration  137ms (transform 22ms, setup 0ms, import 30ms, tests 3ms, environment 0ms)\n"
+  },
+  {
+    "atMs": 7962,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 8031,
+    "type": "command-finished",
+    "command": "npm-test",
+    "status": "passed",
+    "exitCode": 0,
+    "signal": null,
+    "assertionError": ""
+  },
+  {
+    "atMs": 8032,
+    "type": "next-command",
+    "command": "forge-test"
+  },
+  {
+    "atMs": 8089,
+    "type": "typed-char",
+    "char": "c",
+    "index": 0
+  },
+  {
+    "atMs": 8143,
+    "type": "typed-char",
+    "char": "d",
+    "index": 1
+  },
+  {
+    "atMs": 8204,
+    "type": "typed-char",
+    "char": " ",
+    "index": 2
+  },
+  {
+    "atMs": 8260,
+    "type": "typed-char",
+    "char": "c",
+    "index": 3
+  },
+  {
+    "atMs": 8318,
+    "type": "typed-char",
+    "char": "o",
+    "index": 4
+  },
+  {
+    "atMs": 8374,
+    "type": "typed-char",
+    "char": "n",
+    "index": 5
+  },
+  {
+    "atMs": 8430,
+    "type": "typed-char",
+    "char": "t",
+    "index": 6
+  },
+  {
+    "atMs": 8488,
+    "type": "typed-char",
+    "char": "r",
+    "index": 7
+  },
+  {
+    "atMs": 8543,
+    "type": "typed-char",
+    "char": "a",
+    "index": 8
+  },
+  {
+    "atMs": 8603,
+    "type": "typed-char",
+    "char": "c",
+    "index": 9
+  },
+  {
+    "atMs": 8660,
+    "type": "typed-char",
+    "char": "t",
+    "index": 10
+  },
+  {
+    "atMs": 8719,
+    "type": "typed-char",
+    "char": "s",
+    "index": 11
+  },
+  {
+    "atMs": 8774,
+    "type": "typed-char",
+    "char": " ",
+    "index": 12
+  },
+  {
+    "atMs": 8830,
+    "type": "typed-char",
+    "char": "&",
+    "index": 13
+  },
+  {
+    "atMs": 8885,
+    "type": "typed-char",
+    "char": "&",
+    "index": 14
+  },
+  {
+    "atMs": 8939,
+    "type": "typed-char",
+    "char": " ",
+    "index": 15
+  },
+  {
+    "atMs": 8993,
+    "type": "typed-char",
+    "char": "f",
+    "index": 16
+  },
+  {
+    "atMs": 9050,
+    "type": "typed-char",
+    "char": "o",
+    "index": 17
+  },
+  {
+    "atMs": 9105,
+    "type": "typed-char",
+    "char": "r",
+    "index": 18
+  },
+  {
+    "atMs": 9159,
+    "type": "typed-char",
+    "char": "g",
+    "index": 19
+  },
+  {
+    "atMs": 9215,
+    "type": "typed-char",
+    "char": "e",
+    "index": 20
+  },
+  {
+    "atMs": 9272,
+    "type": "typed-char",
+    "char": " ",
+    "index": 21
+  },
+  {
+    "atMs": 9329,
+    "type": "typed-char",
+    "char": "t",
+    "index": 22
+  },
+  {
+    "atMs": 9390,
+    "type": "typed-char",
+    "char": "e",
+    "index": 23
+  },
+  {
+    "atMs": 9447,
+    "type": "typed-char",
+    "char": "s",
+    "index": 24
+  },
+  {
+    "atMs": 9504,
+    "type": "typed-char",
+    "char": "t",
+    "index": 25
+  },
+  {
+    "atMs": 9565,
+    "type": "typed-char",
+    "char": " ",
+    "index": 26
+  },
+  {
+    "atMs": 9625,
+    "type": "typed-char",
+    "char": "-",
+    "index": 27
+  },
+  {
+    "atMs": 9685,
+    "type": "typed-char",
+    "char": "v",
+    "index": 28
+  },
+  {
+    "atMs": 9742,
+    "type": "typed-char",
+    "char": "v",
+    "index": 29
+  },
+  {
+    "atMs": 9744,
+    "type": "typing-complete"
+  },
+  {
+    "atMs": 9789,
+    "type": "fixed-command-started",
+    "command": "forge-test",
+    "executable": "forge",
+    "args": "test -vv",
+    "shell": false
+  },
+  {
+    "atMs": 10354,
+    "type": "output",
+    "command": "forge-test",
+    "stream": "stdout",
+    "text": "No files changed, compilation skipped\n"
+  },
+  {
+    "atMs": 10423,
+    "type": "output",
+    "command": "forge-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 10424,
+    "type": "output",
+    "command": "forge-test",
+    "stream": "stdout",
+    "text": "Ran 8 tests for test/ScoreRegistry.t.sol:ScoreRegistryTest\n"
+  },
+  {
+    "atMs": 10424,
+    "type": "output",
+    "command": "forge-test",
+    "stream": "stdout",
+    "text": "[PASS] test_AcceptOwnership_NotPendingOwner_Reverts() (gas: 35467)\n"
+  },
+  {
+    "atMs": 10424,
+    "type": "output",
+    "command": "forge-test",
+    "stream": "stdout",
+    "text": "[PASS] test_Get_Unpublished_ReturnsZeroValue() (gas: 21164)\n"
+  },
+  {
+    "atMs": 10424,
+    "type": "output",
+    "command": "forge-test",
+    "stream": "stdout",
+    "text": "[PASS] test_PublishAndGet() (gas: 198857)\n"
+  },
+  {
+    "atMs": 10424,
+    "type": "output",
+    "command": "forge-test",
+    "stream": "stdout",
+    "text": "[PASS] test_PublishBatch() (gas: 392874)\n"
+  },
+  {
+    "atMs": 10424,
+    "type": "output",
+    "command": "forge-test",
+    "stream": "stdout",
+    "text": "[PASS] test_PublishBatch_LengthMismatch_Reverts() (gas: 16500)\n"
+  },
+  {
+    "atMs": 10424,
+    "type": "output",
+    "command": "forge-test",
+    "stream": "stdout",
+    "text": "[PASS] test_Publish_OnlyOwner_Reverts() (gas: 15260)\n"
+  },
+  {
+    "atMs": 10424,
+    "type": "output",
+    "command": "forge-test",
+    "stream": "stdout",
+    "text": "[PASS] test_Publish_Overwrite() (gas: 207167)\n"
+  },
+  {
+    "atMs": 10424,
+    "type": "output",
+    "command": "forge-test",
+    "stream": "stdout",
+    "text": "[PASS] test_TransferOwnership_TwoStep() (gas: 34548)\n"
+  },
+  {
+    "atMs": 10425,
+    "type": "output",
+    "command": "forge-test",
+    "stream": "stdout",
+    "text": "Suite result: ok. 8 passed; 0 failed; 0 skipped; finished in 44.05ms (44.75ms CPU time)\n"
+  },
+  {
+    "atMs": 10425,
+    "type": "output",
+    "command": "forge-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 10425,
+    "type": "output",
+    "command": "forge-test",
+    "stream": "stdout",
+    "text": "Ran 1 test suite in 57.23ms (44.05ms CPU time): 8 tests passed, 0 failed, 0 skipped (8 total tests)\n"
+  },
+  {
+    "atMs": 10434,
+    "type": "command-finished",
+    "command": "forge-test",
+    "status": "passed",
+    "exitCode": 0,
+    "signal": null,
+    "assertionError": ""
+  },
+  {
+    "atMs": 10434,
+    "type": "next-command",
+    "command": "sdk-crosscheck"
+  },
+  {
+    "atMs": 10512,
+    "type": "typed-char",
+    "char": "n",
+    "index": 0
+  },
+  {
+    "atMs": 10567,
+    "type": "typed-char",
+    "char": "p",
+    "index": 1
+  },
+  {
+    "atMs": 10622,
+    "type": "typed-char",
+    "char": "m",
+    "index": 2
+  },
+  {
+    "atMs": 10679,
+    "type": "typed-char",
+    "char": " ",
+    "index": 3
+  },
+  {
+    "atMs": 10739,
+    "type": "typed-char",
+    "char": "r",
+    "index": 4
+  },
+  {
+    "atMs": 10794,
+    "type": "typed-char",
+    "char": "u",
+    "index": 5
+  },
+  {
+    "atMs": 10850,
+    "type": "typed-char",
+    "char": "n",
+    "index": 6
+  },
+  {
+    "atMs": 10904,
+    "type": "typed-char",
+    "char": " ",
+    "index": 7
+  },
+  {
+    "atMs": 10963,
+    "type": "typed-char",
+    "char": "s",
+    "index": 8
+  },
+  {
+    "atMs": 11024,
+    "type": "typed-char",
+    "char": "d",
+    "index": 9
+  },
+  {
+    "atMs": 11082,
+    "type": "typed-char",
+    "char": "k",
+    "index": 10
+  },
+  {
+    "atMs": 11139,
+    "type": "typed-char",
+    "char": ":",
+    "index": 11
+  },
+  {
+    "atMs": 11197,
+    "type": "typed-char",
+    "char": "c",
+    "index": 12
+  },
+  {
+    "atMs": 11255,
+    "type": "typed-char",
+    "char": "r",
+    "index": 13
+  },
+  {
+    "atMs": 11310,
+    "type": "typed-char",
+    "char": "o",
+    "index": 14
+  },
+  {
+    "atMs": 11365,
+    "type": "typed-char",
+    "char": "s",
+    "index": 15
+  },
+  {
+    "atMs": 11430,
+    "type": "typed-char",
+    "char": "s",
+    "index": 16
+  },
+  {
+    "atMs": 11486,
+    "type": "typed-char",
+    "char": "c",
+    "index": 17
+  },
+  {
+    "atMs": 11551,
+    "type": "typed-char",
+    "char": "h",
+    "index": 18
+  },
+  {
+    "atMs": 11608,
+    "type": "typed-char",
+    "char": "e",
+    "index": 19
+  },
+  {
+    "atMs": 11663,
+    "type": "typed-char",
+    "char": "c",
+    "index": 20
+  },
+  {
+    "atMs": 11719,
+    "type": "typed-char",
+    "char": "k",
+    "index": 21
+  },
+  {
+    "atMs": 11726,
+    "type": "typing-complete"
+  },
+  {
+    "atMs": 11727,
+    "type": "fixed-command-started",
+    "command": "sdk-crosscheck",
+    "executable": "npm",
+    "args": "run sdk:crosscheck",
+    "shell": false
+  },
+  {
+    "atMs": 11914,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 11914,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "> levelfield@0.1.0 sdk:crosscheck\n"
+  },
+  {
+    "atMs": 11914,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "> tsx scripts/sdk-crosscheck.ts\n"
+  },
+  {
+    "atMs": 11914,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 12647,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "LevelField SDK cross-check: @somnia-chain/markets-sdk vs packages/scoring/src/dreamdex.ts\n"
+  },
+  {
+    "atMs": 12648,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "========================================================================================\n"
+  },
+  {
+    "atMs": 12648,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "indexer: https://dev.smk.somnia.host/v1/graphql\n"
+  },
+  {
+    "atMs": 12648,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "venue:   0x679795a0195a1b76cdebb7c51d74e058aee92919b8c3389af86ef24535e8a28c\n"
+  },
+  {
+    "atMs": 12648,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 12648,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "[1/2] fetchMarkets({ indexerUrl }) -- our GraphQL query, clobStatus IN (Trading)...\n"
+  },
+  {
+    "atMs": 13049,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "      -> 500 row(s) (raw indexer status only, no liveness/expiry filter)\n"
+  },
+  {
+    "atMs": 13049,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 13049,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "[2/2] new SomniaMarkets({ indexerUrl, chain: somniaShannon }) -- no privateKey (read-only)...\n"
+  },
+  {
+    "atMs": 14216,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "      -> 556 total market(s) loaded (all types, every venue)\n"
+  },
+  {
+    "atMs": 14217,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "      -> 8 active binary market(s) on the DreamDEX venue\n"
+  },
+  {
+    "atMs": 14217,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 14217,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "Comparison table\n"
+  },
+  {
+    "atMs": 14217,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "----------------------------------------------------------------------------------------\n"
+  },
+  {
+    "atMs": 14217,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "metric                                        our fetchMarkets() (status=Trading)   SDK loadMarkets() (active)\n"
+  },
+  {
+    "atMs": 14217,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "market count                                  500                                   8\n"
+  },
+  {
+    "atMs": 14217,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "marketId set equal?                           no                                    \n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "in common                                     8\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "only in ours (stale \"Trading\" rows)           492\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "only in SDK's active set                      0\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "Sample of the 8 common market(s) (question text agreement):\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "  0x0000000000000000000000000000000000000000000000000000000000004cb3\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "    ours: \"BTC closes at or above its opening price\"\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "    sdk:  \"BTC closes at or above its opening price\"  (match)\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "  0x0000000000000000000000000000000000000000000000000000000000004cb4\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "    ours: \"ETH closes at or above its opening price\"\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "    sdk:  \"ETH closes at or above its opening price\"  (match)\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "  0x0000000000000000000000000000000000000000000000000000000000004c65\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "    ours: \"BTC closes at or above its opening price\"\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "    sdk:  \"BTC closes at or above its opening price\"  (match)\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "  0x0000000000000000000000000000000000000000000000000000000000004c66\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "    ours: \"ETH closes at or above its opening price\"\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "    sdk:  \"ETH closes at or above its opening price\"  (match)\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "  0x0000000000000000000000000000000000000000000000000000000000004a96\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "    ours: \"ETH closes at or above its opening price\"\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "    sdk:  \"ETH closes at or above its opening price\"  (match)\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "  0x0000000000000000000000000000000000000000000000000000000000004a95\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "    ours: \"BTC closes at or above its opening price\"\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "    sdk:  \"BTC closes at or above its opening price\"  (match)\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "  0x0000000000000000000000000000000000000000000000000000000000004746\n"
+  },
+  {
+    "atMs": 14218,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "    ours: \"BTC closes at or above its opening price\"\n"
+  },
+  {
+    "atMs": 14219,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "    sdk:  \"BTC closes at or above its opening price\"  (match)\n"
+  },
+  {
+    "atMs": 14219,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "  0x0000000000000000000000000000000000000000000000000000000000004747\n"
+  },
+  {
+    "atMs": 14219,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "    ours: \"ETH closes at or above its opening price\"\n"
+  },
+  {
+    "atMs": 14219,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "    sdk:  \"ETH closes at or above its opening price\"  (match)\n"
+  },
+  {
+    "atMs": 14219,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 14219,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "Rows only our fetcher returns (indexer says \"Trading\" but SDK's active window disagrees), sample:\n"
+  },
+  {
+    "atMs": 14219,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "  0x0000000000000000000000000000000000000000000000000000000000003ac7  expiry=2026-08-07T09:17:00.000Z  clobStatus=Trading\n"
+  },
+  {
+    "atMs": 14219,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "  0x0000000000000000000000000000000000000000000000000000000000003ac5  expiry=2026-08-07T09:20:00.000Z  clobStatus=Trading\n"
+  },
+  {
+    "atMs": 14219,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "  0x0000000000000000000000000000000000000000000000000000000000003ac4  expiry=2026-08-07T09:20:00.000Z  clobStatus=Trading\n"
+  },
+  {
+    "atMs": 14219,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "  0x0000000000000000000000000000000000000000000000000000000000003927  expiry=2026-08-07T04:55:00.000Z  clobStatus=Trading\n"
+  },
+  {
+    "atMs": 14219,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "  0x00000000000000000000000000000000000000000000000000000000000032d0  expiry=2026-08-06T11:50:00.000Z  clobStatus=Trading\n"
+  },
+  {
+    "atMs": 14220,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 14220,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "Verdict\n"
+  },
+  {
+    "atMs": 14220,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "----------------------------------------------------------------------------------------\n"
+  },
+  {
+    "atMs": 14220,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "marketId sets DISAGREE: our raw clobStatus=\"Trading\" filter returns 500 row(s); the SDK's time-window \"active\" derivation (tradingStart <= now < expiry, not Resolved/Voided — computed from timestamps, NOT the indexed status) returns 8. This corroborates docs/review-2026-08-20.md §1.3: most \"Trading\" rows on this venue are expired zombies the indexer never transitioned to \"Finalized\"; clobStatus alone is not a liveness signal on this venue.\n"
+  },
+  {
+    "atMs": 14220,
+    "type": "output",
+    "command": "sdk-crosscheck",
+    "stream": "stdout",
+    "text": "Question text for all 8 common market(s) matches exactly between the two paths.\n"
+  },
+  {
+    "atMs": 14239,
+    "type": "command-finished",
+    "command": "sdk-crosscheck",
+    "status": "passed",
+    "exitCode": 0,
+    "signal": null,
+    "assertionError": ""
+  },
+  {
+    "atMs": 14241,
+    "type": "finished",
+    "status": "passed",
+    "exitCode": 0,
+    "signal": null,
+    "assertionError": ""
+  }
+]

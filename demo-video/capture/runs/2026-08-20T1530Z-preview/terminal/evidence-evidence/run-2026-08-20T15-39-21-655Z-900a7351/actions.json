@@ -1,0 +1,783 @@
+[
+  {
+    "atMs": 0,
+    "type": "session-created",
+    "alias": "evidence",
+    "command": "npm run validate"
+  },
+  {
+    "atMs": 668,
+    "type": "typed-char",
+    "char": "n",
+    "index": 0
+  },
+  {
+    "atMs": 754,
+    "type": "typed-char",
+    "char": "p",
+    "index": 1
+  },
+  {
+    "atMs": 809,
+    "type": "typed-char",
+    "char": "m",
+    "index": 2
+  },
+  {
+    "atMs": 862,
+    "type": "typed-char",
+    "char": " ",
+    "index": 3
+  },
+  {
+    "atMs": 916,
+    "type": "typed-char",
+    "char": "r",
+    "index": 4
+  },
+  {
+    "atMs": 968,
+    "type": "typed-char",
+    "char": "u",
+    "index": 5
+  },
+  {
+    "atMs": 1021,
+    "type": "typed-char",
+    "char": "n",
+    "index": 6
+  },
+  {
+    "atMs": 1074,
+    "type": "typed-char",
+    "char": " ",
+    "index": 7
+  },
+  {
+    "atMs": 1127,
+    "type": "typed-char",
+    "char": "v",
+    "index": 8
+  },
+  {
+    "atMs": 1179,
+    "type": "typed-char",
+    "char": "a",
+    "index": 9
+  },
+  {
+    "atMs": 1233,
+    "type": "typed-char",
+    "char": "l",
+    "index": 10
+  },
+  {
+    "atMs": 1294,
+    "type": "typed-char",
+    "char": "i",
+    "index": 11
+  },
+  {
+    "atMs": 1348,
+    "type": "typed-char",
+    "char": "d",
+    "index": 12
+  },
+  {
+    "atMs": 1403,
+    "type": "typed-char",
+    "char": "a",
+    "index": 13
+  },
+  {
+    "atMs": 1462,
+    "type": "typed-char",
+    "char": "t",
+    "index": 14
+  },
+  {
+    "atMs": 1525,
+    "type": "typed-char",
+    "char": "e",
+    "index": 15
+  },
+  {
+    "atMs": 1544,
+    "type": "typing-complete"
+  },
+  {
+    "atMs": 2136,
+    "type": "evidence-workspace-created"
+  },
+  {
+    "atMs": 2136,
+    "type": "fixed-command-started",
+    "command": "validate",
+    "executable": "npm",
+    "args": "run validate",
+    "shell": false
+  },
+  {
+    "atMs": 2491,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 2492,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "> levelfield@0.1.0 validate\n"
+  },
+  {
+    "atMs": 2492,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "> tsx scripts/validate.ts\n"
+  },
+  {
+    "atMs": 2492,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 2854,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "Validated 16/16 curated contracts (0 awaiting classification).\n"
+  },
+  {
+    "atMs": 2854,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "Category medians: market_data=3, statistical=19, public=23.5, institutional=60, individual=95\n"
+  },
+  {
+    "atMs": 2854,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "Ordering checks: market_data<=statistical:pass, statistical<=public:pass, public<institutional:pass, institutional<individual:pass\n"
+  },
+  {
+    "atMs": 2854,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "Spearman rho = 0.930 (n=16)\n"
+  },
+  {
+    "atMs": 2854,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "Circuit breaker hits: curated-celebrity-breakup(CB-1), curated-ceo-resignation(CB-1), curated-injection-test(CB-1), curated-presidential-pardon(CB-1)\n"
+  },
+  {
+    "atMs": 2854,
+    "type": "output",
+    "command": "validate",
+    "stream": "stdout",
+    "text": "Wrote docs/validation.md\n"
+  },
+  {
+    "atMs": 2874,
+    "type": "command-finished",
+    "command": "validate",
+    "status": "passed",
+    "exitCode": 0,
+    "signal": null,
+    "assertionError": ""
+  },
+  {
+    "atMs": 2876,
+    "type": "next-command",
+    "command": "agreement"
+  },
+  {
+    "atMs": 2952,
+    "type": "typed-char",
+    "char": "n",
+    "index": 0
+  },
+  {
+    "atMs": 3010,
+    "type": "typed-char",
+    "char": "p",
+    "index": 1
+  },
+  {
+    "atMs": 3071,
+    "type": "typed-char",
+    "char": "x",
+    "index": 2
+  },
+  {
+    "atMs": 3125,
+    "type": "typed-char",
+    "char": " ",
+    "index": 3
+  },
+  {
+    "atMs": 3182,
+    "type": "typed-char",
+    "char": "t",
+    "index": 4
+  },
+  {
+    "atMs": 3237,
+    "type": "typed-char",
+    "char": "s",
+    "index": 5
+  },
+  {
+    "atMs": 3292,
+    "type": "typed-char",
+    "char": "x",
+    "index": 6
+  },
+  {
+    "atMs": 3346,
+    "type": "typed-char",
+    "char": " ",
+    "index": 7
+  },
+  {
+    "atMs": 3401,
+    "type": "typed-char",
+    "char": "s",
+    "index": 8
+  },
+  {
+    "atMs": 3454,
+    "type": "typed-char",
+    "char": "c",
+    "index": 9
+  },
+  {
+    "atMs": 3508,
+    "type": "typed-char",
+    "char": "r",
+    "index": 10
+  },
+  {
+    "atMs": 3562,
+    "type": "typed-char",
+    "char": "i",
+    "index": 11
+  },
+  {
+    "atMs": 3622,
+    "type": "typed-char",
+    "char": "p",
+    "index": 12
+  },
+  {
+    "atMs": 3675,
+    "type": "typed-char",
+    "char": "t",
+    "index": 13
+  },
+  {
+    "atMs": 3733,
+    "type": "typed-char",
+    "char": "s",
+    "index": 14
+  },
+  {
+    "atMs": 3787,
+    "type": "typed-char",
+    "char": "/",
+    "index": 15
+  },
+  {
+    "atMs": 3842,
+    "type": "typed-char",
+    "char": "a",
+    "index": 16
+  },
+  {
+    "atMs": 3896,
+    "type": "typed-char",
+    "char": "g",
+    "index": 17
+  },
+  {
+    "atMs": 3950,
+    "type": "typed-char",
+    "char": "r",
+    "index": 18
+  },
+  {
+    "atMs": 4003,
+    "type": "typed-char",
+    "char": "e",
+    "index": 19
+  },
+  {
+    "atMs": 4056,
+    "type": "typed-char",
+    "char": "e",
+    "index": 20
+  },
+  {
+    "atMs": 4109,
+    "type": "typed-char",
+    "char": "m",
+    "index": 21
+  },
+  {
+    "atMs": 4163,
+    "type": "typed-char",
+    "char": "e",
+    "index": 22
+  },
+  {
+    "atMs": 4217,
+    "type": "typed-char",
+    "char": "n",
+    "index": 23
+  },
+  {
+    "atMs": 4271,
+    "type": "typed-char",
+    "char": "t",
+    "index": 24
+  },
+  {
+    "atMs": 4324,
+    "type": "typed-char",
+    "char": ".",
+    "index": 25
+  },
+  {
+    "atMs": 4379,
+    "type": "typed-char",
+    "char": "t",
+    "index": 26
+  },
+  {
+    "atMs": 4434,
+    "type": "typed-char",
+    "char": "s",
+    "index": 27
+  },
+  {
+    "atMs": 4440,
+    "type": "typing-complete"
+  },
+  {
+    "atMs": 4441,
+    "type": "fixed-command-started",
+    "command": "agreement",
+    "executable": "npx",
+    "args": "tsx scripts/agreement.ts",
+    "shell": false
+  },
+  {
+    "atMs": 5334,
+    "type": "output",
+    "command": "agreement",
+    "stream": "stdout",
+    "text": "Contracts: 16; band agreement (voted vs reference): 16/16\n"
+  },
+  {
+    "atMs": 5335,
+    "type": "output",
+    "command": "agreement",
+    "stream": "stdout",
+    "text": "D1: unanimous 13/16, majority 3/16, split 0/16, modal=ref 15/16\n"
+  },
+  {
+    "atMs": 5335,
+    "type": "output",
+    "command": "agreement",
+    "stream": "stdout",
+    "text": "D2: unanimous 13/16, majority 3/16, split 0/16, modal=ref 13/16\n"
+  },
+  {
+    "atMs": 5335,
+    "type": "output",
+    "command": "agreement",
+    "stream": "stdout",
+    "text": "D3: unanimous 7/16, majority 7/16, split 2/16, modal=ref 10/16\n"
+  },
+  {
+    "atMs": 5335,
+    "type": "output",
+    "command": "agreement",
+    "stream": "stdout",
+    "text": "D4: unanimous 14/16, majority 2/16, split 0/16, modal=ref 14/16\n"
+  },
+  {
+    "atMs": 5335,
+    "type": "output",
+    "command": "agreement",
+    "stream": "stdout",
+    "text": "D5: unanimous 10/16, majority 6/16, split 0/16, modal=ref 14/16\n"
+  },
+  {
+    "atMs": 5335,
+    "type": "output",
+    "command": "agreement",
+    "stream": "stdout",
+    "text": "Wrote docs/agreement.md\n"
+  },
+  {
+    "atMs": 5351,
+    "type": "command-finished",
+    "command": "agreement",
+    "status": "passed",
+    "exitCode": 0,
+    "signal": null,
+    "assertionError": ""
+  },
+  {
+    "atMs": 5352,
+    "type": "next-command",
+    "command": "npm-test"
+  },
+  {
+    "atMs": 5418,
+    "type": "typed-char",
+    "char": "n",
+    "index": 0
+  },
+  {
+    "atMs": 5477,
+    "type": "typed-char",
+    "char": "p",
+    "index": 1
+  },
+  {
+    "atMs": 5536,
+    "type": "typed-char",
+    "char": "m",
+    "index": 2
+  },
+  {
+    "atMs": 5593,
+    "type": "typed-char",
+    "char": " ",
+    "index": 3
+  },
+  {
+    "atMs": 5647,
+    "type": "typed-char",
+    "char": "t",
+    "index": 4
+  },
+  {
+    "atMs": 5701,
+    "type": "typed-char",
+    "char": "e",
+    "index": 5
+  },
+  {
+    "atMs": 5758,
+    "type": "typed-char",
+    "char": "s",
+    "index": 6
+  },
+  {
+    "atMs": 5819,
+    "type": "typed-char",
+    "char": "t",
+    "index": 7
+  },
+  {
+    "atMs": 5826,
+    "type": "typing-complete"
+  },
+  {
+    "atMs": 5827,
+    "type": "fixed-command-started",
+    "command": "npm-test",
+    "executable": "npm",
+    "args": "test",
+    "shell": false
+  },
+  {
+    "atMs": 6068,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 6068,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "> levelfield@0.1.0 test\n"
+  },
+  {
+    "atMs": 6068,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "> npm run test -w @levelfield/scoring && npm run test -w @levelfield/web\n"
+  },
+  {
+    "atMs": 6068,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 6231,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 6231,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "> @levelfield/scoring@0.1.0 test\n"
+  },
+  {
+    "atMs": 6231,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "> vitest run\n"
+  },
+  {
+    "atMs": 6231,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 6605,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 6605,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " RUN  v4.1.11 [redacted-path]\n"
+  },
+  {
+    "atMs": 6605,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 6871,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " ✓ test/verify.test.ts (9 tests) 6ms\n"
+  },
+  {
+    "atMs": 6883,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " ✓ test/vote.test.ts (7 tests) 7ms\n"
+  },
+  {
+    "atMs": 6953,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " ✓ test/engine.test.ts (20 tests) 15ms\n"
+  },
+  {
+    "atMs": 6971,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " ✓ test/rule-classifier.test.ts (8 tests) 6ms\n"
+  },
+  {
+    "atMs": 7000,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " ✓ test/classify.test.ts (1 test) 6ms\n"
+  },
+  {
+    "atMs": 7007,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " ✓ test/score.test.ts (20 tests) 8ms\n"
+  },
+  {
+    "atMs": 7010,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 7010,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " Test Files  6 passed (6)\n"
+  },
+  {
+    "atMs": 7010,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "      Tests  65 passed (65)\n"
+  },
+  {
+    "atMs": 7010,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "   Start at  11:39:28\n"
+  },
+  {
+    "atMs": 7011,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "   Duration  399ms (transform 363ms, setup 0ms, import 836ms, tests 47ms, environment 0ms)\n"
+  },
+  {
+    "atMs": 7011,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 7277,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 7277,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "> @levelfield/web@0.1.0 test\n"
+  },
+  {
+    "atMs": 7277,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "> vitest run src/lib/scores.test.ts\n"
+  },
+  {
+    "atMs": 7277,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 7500,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 7500,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " RUN  v4.1.11 [redacted-path]\n"
+  },
+  {
+    "atMs": 7500,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 7671,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " ✓ src/lib/scores.test.ts (4 tests) 3ms\n"
+  },
+  {
+    "atMs": 7674,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 7674,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": " Test Files  1 passed (1)\n"
+  },
+  {
+    "atMs": 7674,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "      Tests  4 passed (4)\n"
+  },
+  {
+    "atMs": 7674,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "   Start at  11:39:29\n"
+  },
+  {
+    "atMs": 7675,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "   Duration  163ms (transform 30ms, setup 0ms, import 40ms, tests 3ms, environment 0ms)\n"
+  },
+  {
+    "atMs": 7675,
+    "type": "output",
+    "command": "npm-test",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 7746,
+    "type": "command-finished",
+    "command": "npm-test",
+    "status": "failed",
+    "exitCode": 0,
+    "signal": null,
+    "assertionError": "Missing required npm-test evidence: [redacted-path] tests/"
+  },
+  {
+    "atMs": 7747,
+    "type": "finished",
+    "status": "failed",
+    "exitCode": 0,
+    "signal": null,
+    "assertionError": "Missing required npm-test evidence: [redacted-path] tests/"
+  }
+]

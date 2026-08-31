@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "capturedAt": "2026-08-20T15:44:14.875Z",
+  "evidenceSha": "da6d7c92eabb858698e09e22ea8bcd421fcb7751",
+  "dreamdex": {
+    "presentation": "timestamped_snapshot",
+    "generatedAt": "2026-08-20T02:25:38.554Z",
+    "marketIds": [
+      "0x0000000000000000000000000000000000000000000000000000000000004746",
+      "0x0000000000000000000000000000000000000000000000000000000000004747",
+      "0x0000000000000000000000000000000000000000000000000000000000004748",
+      "0x0000000000000000000000000000000000000000000000000000000000004749",
+      "0x000000000000000000000000000000000000000000000000000000000000475e",
+      "0x000000000000000000000000000000000000000000000000000000000000475f",
+      "0x0000000000000000000000000000000000000000000000000000000000004762",
+      "0x0000000000000000000000000000000000000000000000000000000000004763"
+    ]
+  },
+  "comparison": {
+    "score3Source": "dreamdex_snapshot",
+    "score95Source": "curated_reference",
+    "sameVenue": false
+  },
+  "mcp": {
+    "role": "pre_action_policy",
+    "orderSubmitted": false
+  },
+  "provenance": {
+    "state": "legacy",
+    "indexedCount": 24,
+    "indexedAttestationCount": 24,
+    "indexedMatchCount": 24,
+    "missingAttestationCount": 0,
+    "invalidUriCount": 24,
+    "unmatchedCount": 0,
+    "registryAddress": "0xb8e11dea346f2c961880879606a269db3165bbc7",
+    "chainId": 50312,
+    "verifiedAt": "2026-08-20T03:13:16.509Z",
+    "currentUriComplete": false,
+    "narrationMode": "future_tense",
+    "immutableGitSha": null,
+    "verifyOnchainPassed": false
+  },
+  "handoffClips": [
+    "browser/handoff/landing.webm",
+    "browser/handoff/market-detail.webm",
+    "browser/handoff/assess-flow.webm",
+    "browser/handoff/quote-rejection.webm"
+  ]
+}

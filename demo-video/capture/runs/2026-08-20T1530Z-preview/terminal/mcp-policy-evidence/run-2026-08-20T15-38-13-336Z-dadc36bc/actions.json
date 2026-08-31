@@ -1,0 +1,376 @@
+[
+  {
+    "atMs": 0,
+    "type": "session-created",
+    "alias": "mcp-policy",
+    "command": "npm run demo:agent"
+  },
+  {
+    "atMs": 1234,
+    "type": "typed-char",
+    "char": "n",
+    "index": 0
+  },
+  {
+    "atMs": 1288,
+    "type": "typed-char",
+    "char": "p",
+    "index": 1
+  },
+  {
+    "atMs": 1343,
+    "type": "typed-char",
+    "char": "m",
+    "index": 2
+  },
+  {
+    "atMs": 1395,
+    "type": "typed-char",
+    "char": " ",
+    "index": 3
+  },
+  {
+    "atMs": 1448,
+    "type": "typed-char",
+    "char": "r",
+    "index": 4
+  },
+  {
+    "atMs": 1500,
+    "type": "typed-char",
+    "char": "u",
+    "index": 5
+  },
+  {
+    "atMs": 1553,
+    "type": "typed-char",
+    "char": "n",
+    "index": 6
+  },
+  {
+    "atMs": 1606,
+    "type": "typed-char",
+    "char": " ",
+    "index": 7
+  },
+  {
+    "atMs": 1659,
+    "type": "typed-char",
+    "char": "d",
+    "index": 8
+  },
+  {
+    "atMs": 1713,
+    "type": "typed-char",
+    "char": "e",
+    "index": 9
+  },
+  {
+    "atMs": 1771,
+    "type": "typed-char",
+    "char": "m",
+    "index": 10
+  },
+  {
+    "atMs": 1830,
+    "type": "typed-char",
+    "char": "o",
+    "index": 11
+  },
+  {
+    "atMs": 1883,
+    "type": "typed-char",
+    "char": ":",
+    "index": 12
+  },
+  {
+    "atMs": 1938,
+    "type": "typed-char",
+    "char": "a",
+    "index": 13
+  },
+  {
+    "atMs": 1993,
+    "type": "typed-char",
+    "char": "g",
+    "index": 14
+  },
+  {
+    "atMs": 2053,
+    "type": "typed-char",
+    "char": "e",
+    "index": 15
+  },
+  {
+    "atMs": 2108,
+    "type": "typed-char",
+    "char": "n",
+    "index": 16
+  },
+  {
+    "atMs": 2164,
+    "type": "typed-char",
+    "char": "t",
+    "index": 17
+  },
+  {
+    "atMs": 2186,
+    "type": "typing-complete"
+  },
+  {
+    "atMs": 2191,
+    "type": "fixed-command-started",
+    "command": "agent-demo",
+    "executable": "npm",
+    "args": "run demo:agent",
+    "shell": false
+  },
+  {
+    "atMs": 2657,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 2657,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "> levelfield@0.1.0 demo:agent\n"
+  },
+  {
+    "atMs": 2657,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "> tsx scripts/agent-demo.ts\n"
+  },
+  {
+    "atMs": 2657,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 4101,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "LevelField agent demo: pre-trade risk check\n"
+  },
+  {
+    "atMs": 4101,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "============================================================\n"
+  },
+  {
+    "atMs": 4101,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "Connected to the LevelField MCP server over stdio (npx tsx packages/mcp/src/server.ts).\n"
+  },
+  {
+    "atMs": 4101,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 4104,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "Agent evaluates 2 markets before any action:\n"
+  },
+  {
+    "atMs": 4104,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "  - 0x0000000000000000000000000000000000000000000000000000000000004746  [DreamDEX score snapshot]\n"
+  },
+  {
+    "atMs": 4104,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "  - curated-celebrity-breakup  [curated market]\n"
+  },
+  {
+    "atMs": 4104,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "  snapshot: 2026-08-20T02:25:38.554Z\n"
+  },
+  {
+    "atMs": 4104,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 4104,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "Decision rule: PROCEED if band is low/moderate. DECLINE if band is elevated/high,\n"
+  },
+  {
+    "atMs": 4104,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "quoting the summary and circuit breaker as the reason.\n"
+  },
+  {
+    "atMs": 4104,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 4104,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "------------------------------------------------------------\n"
+  },
+  {
+    "atMs": 4104,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "Assessing 0x0000000000000000000000000000000000000000000000000000000000004746\n"
+  },
+  {
+    "atMs": 4105,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "  question:  BTC closes at or above its opening price\n"
+  },
+  {
+    "atMs": 4105,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "  score:     3/100 (low)  [from cache]\n"
+  },
+  {
+    "atMs": 4105,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "  summary:   No structural early-knowledge advantage is apparent: the outcome is produced and disclosed in ways no participant controls.\n"
+  },
+  {
+    "atMs": 4105,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "  rationale: D5 (Outcome Manufacturability): Moving the global market price of a major crypto asset enough to flip the strike dwarfs any plausible bet size.\n"
+  },
+  {
+    "atMs": 4105,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "  decision:  PROCEED (3/100 low)\n"
+  },
+  {
+    "atMs": 4105,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 4105,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "------------------------------------------------------------\n"
+  },
+  {
+    "atMs": 4105,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "Assessing curated-celebrity-breakup\n"
+  },
+  {
+    "atMs": 4106,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "  question:  Will Celebrity Z publicly announce a breakup with their partner before September 30, 2026?\n"
+  },
+  {
+    "atMs": 4106,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "  score:     95/100 (high)  [from cache]\n"
+  },
+  {
+    "atMs": 4106,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "  summary:   The outcome is decided by a single person who faces no effective restriction on trading it.\n"
+  },
+  {
+    "atMs": 4106,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "  rationale: D1 (Outcome Control): The outcome is one person's discretionary choice to make an announcement.\n"
+  },
+  {
+    "atMs": 4106,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "  decision:  DECLINE (95/100 high, CB-1: The outcome is decided by a single person who faces no effective restriction on trading it.)\n"
+  },
+  {
+    "atMs": 4106,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "\n"
+  },
+  {
+    "atMs": 4132,
+    "type": "output",
+    "command": "agent-demo",
+    "stream": "stdout",
+    "text": "Demo complete.\n"
+  },
+  {
+    "atMs": 4165,
+    "type": "command-finished",
+    "command": "agent-demo",
+    "status": "passed",
+    "exitCode": 0,
+    "signal": null,
+    "assertionError": ""
+  },
+  {
+    "atMs": 4167,
+    "type": "finished",
+    "status": "passed",
+    "exitCode": 0,
+    "signal": null,
+    "assertionError": ""
+  }
+]

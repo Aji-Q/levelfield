@@ -1,0 +1,283 @@
+{
+  "status": "recorded",
+  "startedAtUtc": "2026-08-20T15:30:18.930Z",
+  "endedAtUtc": "2026-08-20T15:30:47.268Z",
+  "baseUrl": "http://127.0.0.1:3000",
+  "timezoneId": "UTC",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  },
+  "events": [
+    {
+      "utc": "2026-08-20T15:30:18.930Z",
+      "event": "capture-start",
+      "baseUrl": "http://127.0.0.1:3000",
+      "outputDir": "/Users/qinjiaji/Desktop/GitProject/levelfield/demo-video/capture/runs/2026-08-20T1530Z-preview/browser/methodology",
+      "timezoneId": "UTC",
+      "flowIds": [
+        "methodology"
+      ]
+    },
+    {
+      "utc": "2026-08-20T15:30:19.184Z",
+      "event": "playwright-loaded",
+      "candidate": "/Users/qinjiaji/.npm/_npx/e41f203b7505f1fb/node_modules/playwright/index.js"
+    },
+    {
+      "utc": "2026-08-20T15:30:19.184Z",
+      "event": "browser-launch-attempt",
+      "launcher": "bundled Chromium"
+    },
+    {
+      "utc": "2026-08-20T15:30:19.191Z",
+      "event": "browser-launch-failed",
+      "launcher": "bundled Chromium",
+      "message": "browserType.launch: Executable doesn't exist at /Users/qinjiaji/Library/Caches/ms-playwright/chromium_headless_shell-1234/chrome-headless-shell-mac-arm64/chrome-headless-shell\n╔════════════════════════════════════════════════════════════╗\n║ Looks like Playwright was just installed or updated.       ║\n║ Please run the following command to download new browsers: ║\n║                                                            ║\n║     npx playwright install                                 ║\n║                                                            ║\n║ <3 Playwright Team                                         ║\n╚════════════════════════════════════════════════════════════╝"
+    },
+    {
+      "utc": "2026-08-20T15:30:19.191Z",
+      "event": "browser-launch-attempt",
+      "launcher": "system Chrome channel"
+    },
+    {
+      "utc": "2026-08-20T15:30:20.626Z",
+      "event": "browser-launched",
+      "launcher": "system Chrome channel"
+    },
+    {
+      "utc": "2026-08-20T15:30:21.227Z",
+      "event": "context-created",
+      "viewport": {
+        "width": 1920,
+        "height": 1080
+      },
+      "timezoneId": "UTC"
+    },
+    {
+      "utc": "2026-08-20T15:30:21.227Z",
+      "event": "capture-bootstrap",
+      "flowId": "methodology",
+      "url": "http://127.0.0.1:3000/"
+    },
+    {
+      "utc": "2026-08-20T15:30:22.399Z",
+      "event": "flow-start",
+      "flowId": "methodology",
+      "title": "Methodology → anchors and circuit breakers",
+      "url": "http://127.0.0.1:3000/"
+    },
+    {
+      "utc": "2026-08-20T15:30:22.399Z",
+      "event": "action-start",
+      "flowId": "methodology",
+      "actionIndex": 1,
+      "kind": "click",
+      "description": "Open Methodology from primary navigation",
+      "url": "http://127.0.0.1:3000/"
+    },
+    {
+      "utc": "2026-08-20T15:30:23.817Z",
+      "event": "action-complete",
+      "flowId": "methodology",
+      "actionIndex": 1,
+      "kind": "click",
+      "description": "Open Methodology from primary navigation",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:23.822Z",
+      "event": "action-start",
+      "flowId": "methodology",
+      "actionIndex": 2,
+      "kind": "assert",
+      "description": "Methodology page loaded",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:23.841Z",
+      "event": "action-complete",
+      "flowId": "methodology",
+      "actionIndex": 2,
+      "kind": "assert",
+      "description": "Methodology page loaded",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:23.843Z",
+      "event": "action-start",
+      "flowId": "methodology",
+      "actionIndex": 3,
+      "kind": "hold",
+      "description": "Hold the five-dimension framing",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:27.345Z",
+      "event": "action-complete",
+      "flowId": "methodology",
+      "actionIndex": 3,
+      "kind": "hold",
+      "description": "Hold the five-dimension framing",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:27.347Z",
+      "event": "action-start",
+      "flowId": "methodology",
+      "actionIndex": 4,
+      "kind": "scrollTo",
+      "description": "Move to the D1 anchor table",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:29.571Z",
+      "event": "action-complete",
+      "flowId": "methodology",
+      "actionIndex": 4,
+      "kind": "scrollTo",
+      "description": "Move to the D1 anchor table",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:29.572Z",
+      "event": "action-start",
+      "flowId": "methodology",
+      "actionIndex": 5,
+      "kind": "assert",
+      "description": "D1 anchor heading is visible",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:29.574Z",
+      "event": "action-complete",
+      "flowId": "methodology",
+      "actionIndex": 5,
+      "kind": "assert",
+      "description": "D1 anchor heading is visible",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:29.574Z",
+      "event": "action-start",
+      "flowId": "methodology",
+      "actionIndex": 6,
+      "kind": "hover",
+      "description": "Hover the first public anchor dimension",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:32.224Z",
+      "event": "action-complete",
+      "flowId": "methodology",
+      "actionIndex": 6,
+      "kind": "hover",
+      "description": "Hover the first public anchor dimension",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:32.227Z",
+      "event": "action-start",
+      "flowId": "methodology",
+      "actionIndex": 7,
+      "kind": "hold",
+      "description": "Hold public anchor levels",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:37.234Z",
+      "event": "action-complete",
+      "flowId": "methodology",
+      "actionIndex": 7,
+      "kind": "hold",
+      "description": "Hold public anchor levels",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:37.237Z",
+      "event": "action-start",
+      "flowId": "methodology",
+      "actionIndex": 8,
+      "kind": "scrollTo",
+      "description": "Move to deterministic scoring",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:39.558Z",
+      "event": "action-complete",
+      "flowId": "methodology",
+      "actionIndex": 8,
+      "kind": "scrollTo",
+      "description": "Move to deterministic scoring",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:39.558Z",
+      "event": "action-start",
+      "flowId": "methodology",
+      "actionIndex": 9,
+      "kind": "assert",
+      "description": "Scoring section is visible",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:39.561Z",
+      "event": "action-complete",
+      "flowId": "methodology",
+      "actionIndex": 9,
+      "kind": "assert",
+      "description": "Scoring section is visible",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:39.562Z",
+      "event": "action-start",
+      "flowId": "methodology",
+      "actionIndex": 10,
+      "kind": "assert",
+      "description": "Circuit-breaker rules are rendered",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:39.568Z",
+      "event": "action-complete",
+      "flowId": "methodology",
+      "actionIndex": 10,
+      "kind": "assert",
+      "description": "Circuit-breaker rules are rendered",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:39.569Z",
+      "event": "action-start",
+      "flowId": "methodology",
+      "actionIndex": 11,
+      "kind": "hold",
+      "description": "Hold the fixed scoring and breaker rules",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:45.583Z",
+      "event": "action-complete",
+      "flowId": "methodology",
+      "actionIndex": 11,
+      "kind": "hold",
+      "description": "Hold the fixed scoring and breaker rules",
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:45.584Z",
+      "event": "flow-complete",
+      "flowId": "methodology",
+      "title": "Methodology → anchors and circuit breakers",
+      "durationMs": 23185,
+      "url": "http://127.0.0.1:3000/methodology"
+    },
+    {
+      "utc": "2026-08-20T15:30:47.268Z",
+      "event": "capture-complete",
+      "videoPath": "/Users/qinjiaji/Desktop/GitProject/levelfield/demo-video/capture/runs/2026-08-20T1530Z-preview/browser/methodology/methodology.webm"
+    }
+  ],
+  "videoPath": "/Users/qinjiaji/Desktop/GitProject/levelfield/demo-video/capture/runs/2026-08-20T1530Z-preview/browser/methodology/methodology.webm"
+}

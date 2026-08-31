@@ -131,8 +131,8 @@ the two paths.
 paths on real data.
 
 **Suggestion:** None needed for DreamDEX — this is a finding *for us*, not a bug in the SDK. It
-independently confirms `docs/review-2026-08-20.md` §1.3 (most "Trading" rows on this venue are
-expired zombies the indexer never transitioned to "Finalized") using a second, independently-written
+independently confirms an earlier internal finding — most "Trading" rows on this venue are
+expired zombies the indexer never transitioned to "Finalized" — using a second, independently-written
 client, and it validates that our own field mapping (`toNormalizedContract` question text) has no
 transcription drift versus the SDK's. Net effect on our build: `scripts/score-all.ts`'s live-market
 selector should filter on an active/expiry check equivalent to the SDK's, not on raw `clobStatus`.

@@ -2,218 +2,8 @@
   "registryAddress": "0xb8e11dea346f2c961880879606a269db3165bbc7",
   "chainId": 50312,
   "explorerBase": "https://shannon-explorer.somnia.network",
-  "verifiedAt": "2026-08-20T03:13:16.509Z",
+  "verifiedAt": "2026-08-31T15:22:16.416Z",
   "markets": {
-    "0x00000000000000000000000000000000000000000000000000000000000001ee": {
-      "score": 3,
-      "band": "low",
-      "dims": [
-        1,
-        1,
-        1,
-        1,
-        2
-      ],
-      "methodHash": "0x643cb60b017f4060465d87d9cde0f8637adb44343bb3122550145ca17721a042",
-      "scoredAt": "2026-08-20T01:47:45.000Z",
-      "matchesCache": true
-    },
-    "0x0000000000000000000000000000000000000000000000000000000000000257": {
-      "score": 3,
-      "band": "low",
-      "dims": [
-        1,
-        1,
-        1,
-        1,
-        2
-      ],
-      "methodHash": "0x643cb60b017f4060465d87d9cde0f8637adb44343bb3122550145ca17721a042",
-      "scoredAt": "2026-08-20T01:47:45.000Z",
-      "matchesCache": true
-    },
-    "0x0000000000000000000000000000000000000000000000000000000000004746": {
-      "score": 3,
-      "band": "low",
-      "dims": [
-        1,
-        1,
-        1,
-        1,
-        2
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "0x0000000000000000000000000000000000000000000000000000000000004747": {
-      "score": 3,
-      "band": "low",
-      "dims": [
-        1,
-        1,
-        1,
-        1,
-        2
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "0x0000000000000000000000000000000000000000000000000000000000004748": {
-      "score": 3,
-      "band": "low",
-      "dims": [
-        1,
-        1,
-        1,
-        1,
-        2
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "0x0000000000000000000000000000000000000000000000000000000000004749": {
-      "score": 3,
-      "band": "low",
-      "dims": [
-        1,
-        1,
-        1,
-        1,
-        2
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "0x000000000000000000000000000000000000000000000000000000000000475e": {
-      "score": 3,
-      "band": "low",
-      "dims": [
-        1,
-        1,
-        1,
-        1,
-        2
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "0x000000000000000000000000000000000000000000000000000000000000475f": {
-      "score": 3,
-      "band": "low",
-      "dims": [
-        1,
-        1,
-        1,
-        1,
-        2
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "0x0000000000000000000000000000000000000000000000000000000000004760": {
-      "score": 3,
-      "band": "low",
-      "dims": [
-        1,
-        1,
-        1,
-        1,
-        2
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:10:47.000Z",
-      "matchesCache": true
-    },
-    "0x0000000000000000000000000000000000000000000000000000000000004761": {
-      "score": 3,
-      "band": "low",
-      "dims": [
-        1,
-        1,
-        1,
-        1,
-        2
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:10:47.000Z",
-      "matchesCache": true
-    },
-    "0x0000000000000000000000000000000000000000000000000000000000004762": {
-      "score": 3,
-      "band": "low",
-      "dims": [
-        1,
-        1,
-        1,
-        1,
-        2
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "0x0000000000000000000000000000000000000000000000000000000000004763": {
-      "score": 3,
-      "band": "low",
-      "dims": [
-        1,
-        1,
-        1,
-        1,
-        2
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "curated-award-show": {
-      "score": 45,
-      "band": "moderate",
-      "dims": [
-        4,
-        2,
-        3,
-        1,
-        3
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "curated-bill-passage": {
-      "score": 73,
-      "band": "elevated",
-      "dims": [
-        4,
-        5,
-        4,
-        2,
-        4
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "curated-btc-120k": {
-      "score": 3,
-      "band": "low",
-      "dims": [
-        1,
-        1,
-        1,
-        1,
-        2
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
     "curated-celebrity-breakup": {
       "score": 95,
       "band": "high",
@@ -225,119 +15,8 @@
         5
       ],
       "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "curated-ceo-resignation": {
-      "score": 80,
-      "band": "high",
-      "dims": [
-        5,
-        4,
-        3,
-        3,
-        5
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "curated-company-layoffs": {
-      "score": 65,
-      "band": "elevated",
-      "dims": [
-        4,
-        4,
-        3,
-        3,
-        4
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "curated-court-ruling": {
-      "score": 54,
-      "band": "elevated",
-      "dims": [
-        4,
-        4,
-        2,
-        3,
-        2
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "curated-cpi-above-3": {
-      "score": 19,
-      "band": "low",
-      "dims": [
-        2,
-        2,
-        2,
-        1,
-        1
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "curated-earnings-beat": {
-      "score": 55,
-      "band": "elevated",
-      "dims": [
-        4,
-        4,
-        2,
-        2,
-        4
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "curated-election-winner": {
-      "score": 21,
-      "band": "low",
-      "dims": [
-        3,
-        1,
-        1,
-        2,
-        2
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "curated-fed-rate-cut": {
-      "score": 49,
-      "band": "moderate",
-      "dims": [
-        4,
-        4,
-        2,
-        1,
-        3
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "curated-football-match": {
-      "score": 26,
-      "band": "moderate",
-      "dims": [
-        3,
-        1,
-        2,
-        1,
-        3
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/curated-celebrity-breakup.json",
       "matchesCache": true
     },
     "curated-injection-test": {
@@ -351,21 +30,8 @@
         5
       ],
       "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
-      "matchesCache": true
-    },
-    "curated-military-strike": {
-      "score": 78,
-      "band": "high",
-      "dims": [
-        4,
-        5,
-        4,
-        4,
-        3
-      ],
-      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/curated-injection-test.json",
       "matchesCache": true
     },
     "curated-presidential-pardon": {
@@ -379,7 +45,53 @@
         5
       ],
       "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/curated-presidential-pardon.json",
+      "matchesCache": true
+    },
+    "curated-ceo-resignation": {
+      "score": 80,
+      "band": "high",
+      "dims": [
+        5,
+        4,
+        3,
+        3,
+        5
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/curated-ceo-resignation.json",
+      "matchesCache": true
+    },
+    "curated-military-strike": {
+      "score": 78,
+      "band": "high",
+      "dims": [
+        4,
+        5,
+        4,
+        4,
+        3
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/curated-military-strike.json",
+      "matchesCache": true
+    },
+    "curated-bill-passage": {
+      "score": 73,
+      "band": "elevated",
+      "dims": [
+        4,
+        5,
+        4,
+        2,
+        4
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/curated-bill-passage.json",
       "matchesCache": true
     },
     "curated-protocol-upgrade": {
@@ -393,7 +105,293 @@
         4
       ],
       "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
-      "scoredAt": "2026-08-20T02:25:38.000Z",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/curated-protocol-upgrade.json",
+      "matchesCache": true
+    },
+    "curated-company-layoffs": {
+      "score": 65,
+      "band": "elevated",
+      "dims": [
+        4,
+        4,
+        3,
+        3,
+        4
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/curated-company-layoffs.json",
+      "matchesCache": true
+    },
+    "curated-earnings-beat": {
+      "score": 55,
+      "band": "elevated",
+      "dims": [
+        4,
+        4,
+        2,
+        2,
+        4
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/curated-earnings-beat.json",
+      "matchesCache": true
+    },
+    "curated-court-ruling": {
+      "score": 54,
+      "band": "elevated",
+      "dims": [
+        4,
+        4,
+        2,
+        3,
+        2
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/curated-court-ruling.json",
+      "matchesCache": true
+    },
+    "curated-fed-rate-cut": {
+      "score": 49,
+      "band": "moderate",
+      "dims": [
+        4,
+        4,
+        2,
+        1,
+        3
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/curated-fed-rate-cut.json",
+      "matchesCache": true
+    },
+    "curated-award-show": {
+      "score": 45,
+      "band": "moderate",
+      "dims": [
+        4,
+        2,
+        3,
+        1,
+        3
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/curated-award-show.json",
+      "matchesCache": true
+    },
+    "curated-football-match": {
+      "score": 26,
+      "band": "moderate",
+      "dims": [
+        3,
+        1,
+        2,
+        1,
+        3
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/curated-football-match.json",
+      "matchesCache": true
+    },
+    "curated-election-winner": {
+      "score": 21,
+      "band": "low",
+      "dims": [
+        3,
+        1,
+        1,
+        2,
+        2
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/curated-election-winner.json",
+      "matchesCache": true
+    },
+    "curated-cpi-above-3": {
+      "score": 19,
+      "band": "low",
+      "dims": [
+        2,
+        2,
+        2,
+        1,
+        1
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/curated-cpi-above-3.json",
+      "matchesCache": true
+    },
+    "0x000000000000000000000000000000000000000000000000000000000000e5e2": {
+      "score": 3,
+      "band": "low",
+      "dims": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/0x000000000000000000000000000000000000000000000000000000000000e5e2.json",
+      "matchesCache": true
+    },
+    "0x000000000000000000000000000000000000000000000000000000000000e5e3": {
+      "score": 3,
+      "band": "low",
+      "dims": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/0x000000000000000000000000000000000000000000000000000000000000e5e3.json",
+      "matchesCache": true
+    },
+    "0x000000000000000000000000000000000000000000000000000000000000ee63": {
+      "score": 3,
+      "band": "low",
+      "dims": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/0x000000000000000000000000000000000000000000000000000000000000ee63.json",
+      "matchesCache": true
+    },
+    "0x000000000000000000000000000000000000000000000000000000000000ee64": {
+      "score": 3,
+      "band": "low",
+      "dims": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/0x000000000000000000000000000000000000000000000000000000000000ee64.json",
+      "matchesCache": true
+    },
+    "0x000000000000000000000000000000000000000000000000000000000000f0dc": {
+      "score": 3,
+      "band": "low",
+      "dims": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/0x000000000000000000000000000000000000000000000000000000000000f0dc.json",
+      "matchesCache": true
+    },
+    "0x000000000000000000000000000000000000000000000000000000000000f0dd": {
+      "score": 3,
+      "band": "low",
+      "dims": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/0x000000000000000000000000000000000000000000000000000000000000f0dd.json",
+      "matchesCache": true
+    },
+    "0x000000000000000000000000000000000000000000000000000000000000f114": {
+      "score": 3,
+      "band": "low",
+      "dims": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/0x000000000000000000000000000000000000000000000000000000000000f114.json",
+      "matchesCache": true
+    },
+    "0x000000000000000000000000000000000000000000000000000000000000f115": {
+      "score": 3,
+      "band": "low",
+      "dims": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/0x000000000000000000000000000000000000000000000000000000000000f115.json",
+      "matchesCache": true
+    },
+    "0x000000000000000000000000000000000000000000000000000000000000f129": {
+      "score": 3,
+      "band": "low",
+      "dims": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/0x000000000000000000000000000000000000000000000000000000000000f129.json",
+      "matchesCache": true
+    },
+    "0x000000000000000000000000000000000000000000000000000000000000f12a": {
+      "score": 3,
+      "band": "low",
+      "dims": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/0x000000000000000000000000000000000000000000000000000000000000f12a.json",
+      "matchesCache": true
+    },
+    "curated-btc-120k": {
+      "score": 3,
+      "band": "low",
+      "dims": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "methodHash": "0xda8177306fabc4f2f607db6820863f5ad706087eac557b96db591e9fb70bb8c4",
+      "scoredAt": "2026-08-31T15:21:26.000Z",
+      "uri": "https://github.com/Aji-Q/levelfield/blob/ea725e2b3e63427d8201ccf5f6b1daf26bd21238/data/scores/curated-btc-120k.json",
       "matchesCache": true
     }
   }

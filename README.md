@@ -120,7 +120,7 @@ GITHUB_REPO=OWNER/REPO GITHUB_REF="$(git rev-parse HEAD)" npm run verify:onchain
 - [x] Batch scorer + score cache (live + curated, ACDC gradient reproduced)
 - [x] MCP server (protocol / score / anchors), verified over stdio
 - [x] Web UI (auditable snapshot, market evidence, methodology, local assessment workspace)
-- [x] ScoreRegistry **deployed on Somnia Shannon**: [`0xb8e11dea346f2c961880879606a269db3165bbc7`](https://shannon-explorer.somnia.network/address/0xb8e11dea346f2c961880879606a269db3165bbc7) — 28 legacy attestations published. Before final release, set `GITHUB_REPO=owner/repo` and `GITHUB_REF` to the immutable submission commit SHA, republish the current score index to replace legacy placeholder URIs, then run `npm run verify:onchain` for a complete field-by-field read-back snapshot.
+- [x] ScoreRegistry **deployed on Somnia Shannon**: [`0xb8e11dea346f2c961880879606a269db3165bbc7`](https://shannon-explorer.somnia.network/address/0xb8e11dea346f2c961880879606a269db3165bbc7) — 26 current attestations published with immutable source URIs pinned to commit `ea725e2` of this repo; `npm run verify:onchain` reads every field back on-chain (26/26, zero mismatches — snapshot in `data/scores/onchain.json`).
 - [x] Validation harness: 16 contracts, category medians strictly ordered, Spearman ρ = 0.93 (docs/validation.md)
 - [x] Inter-run agreement: 3 independent blind classifiers, majority-vote band matches the reference 16/16 (docs/agreement.md)
 - [x] Final SDK feedback report (`docs/sdk-feedback-report.md`)
